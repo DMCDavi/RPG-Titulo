@@ -27,6 +27,7 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
     * Esperar
     * Xingar baixinho
 3. Aula de Jeancarlo
+  * Atrasar
   * Dormir
   * Prestar atenção
 4. Intervalo
@@ -36,7 +37,8 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
   * Faltar
   * Comparecer
 6. Almoço
-  * Morte lenta ou morte gourmet?
+  * Morte lenta
+  * Morte gourmet
 7. Aula de Lapa
   * Chamar Lapa de Deus
   * Codar em C#
@@ -47,7 +49,7 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
   * Beber até cair
   * Beber socialmente
 9. IC
-  *
+  * 
  
 
 ## MECÂNICAS
@@ -95,8 +97,7 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 * Consome muita planta mágica
 
 ### João
-* Tem muita sorte
-* Perde o tempo gadando
+* Tem muito azar
 * João dá conselhos ruins
 * João não segue suas escolhas
 * João pega sempre o pior final do jogo
