@@ -9,8 +9,10 @@
 * Ter referencias de Jojo
 * Animações de luta
 * Espada de fogo é um espetinho de queijo coalho
+* Equipamento mágico que transforma pessoas numa mala.
 
 ## HISTÓRIA GERAL
+#Um galo morre depois de tomar sopa de macaco uma delicia que degenerou seus membros. Ele foi encontrado por um agiota que ressuscitou vc com peças de robo e vc virou o galo robo do senai e ele cobrou um preço por isso... 
 
 Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.
 
@@ -47,14 +49,13 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
   * Jogar Lobisomem
   * Beber até cair
   * Beber socialmente
+  * Não beber
 9. IC
-  * 
- 
 
 ## MECÂNICAS
 
 * Visão de cima
-* O agiota é um inimigo que sempre ta no seu pé e se vc perder ele rouba seu dinheiro. Ele é o Will Smith
+* O agiota é um inimigo que sempre ta no seu pé e se vc perder ele rouba seu dinheiro. Ele é o Will Smith. Se vc pagar o agiota ele para de ir atras de vc e vira seu aliado. o agiota foi atras de vc no passado ele é onipresente e onisiente  
 * Inimigos territorialistas que guardam um tesouro
 * Inimigos podem se render
 * Inimigos possuem um campo de visão para começar o combate
@@ -86,9 +87,12 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 
 ### Geão
 * Gean começa com o pé quebrado
+* É um personagem normal
 
 ### Maria
 * Maria deixa o tempo mais lento
+* Se ela usar a habilidade por muito tempo
+* Fome
 
 ### Atari
 * Atari controla inimigos
@@ -118,3 +122,4 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 
 ### Fernanda 
 * Fernanda tem uma área radioativa
+* Tem que comer no minimo 2 bananas por dia ou toma dano
