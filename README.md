@@ -2,9 +2,8 @@
 
 ## CONCEITOS BÁSICOS
 
-* Cenário Cyberpunk
-* Baseado em Fate, Steins Gate e D&D
-* Estilo Battle Royale
+* Cenário cyberpunk que muda para medieval
+* Baseado em Fate, Steins Gate, D&D e Battle Royale
 * Easter eggs
 * Antes de fazermos o jogo, faremos o teste de personalidade entre nós e faremos o jogo baseado nisso
 * Ter referencias de Jojo
