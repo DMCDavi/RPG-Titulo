@@ -1,7 +1,8 @@
 # RPG-Titulo
 
-## Conceitos básicos
+## CONCEITOS BÁSICOS
 
+* Cenário Cyberpunk
 * História baseado em Fate
 * Estilo Battle Royale
 * Easter eggs
@@ -9,8 +10,28 @@
 * Colocar a galera dos NOIAS DE CAPA como personagens
 * Ter referencias de Jojo
 * Basear o jogo no livro de D&D
+* O personagem inicial é genérico
 
-## Personagens
+## HISTÓRIA
+
+
+
+## MECÂNICAS
+
+* Visão de cima
+* Escolhas definem o jogo
+* Definição da personalidade do personagem a partir das escolhas da pessoa
+* Após o teste de personalidade você vira um herói de acordo as suas escolhas
+* Após zerar o jogo, voce vai saber as escolhas que levam a determinado heroi
+* Possui planta mágica que recupera sua vitalidade, mas se consumida com muito exagero, te impede de usar sua habilidade especial
+* Os inimigos são machistas e outros
+* O personagem pode evoluir
+* O jogo terá varios finais
+* A primeira taverna do jogo é Angela
+* Seu fura vai carregar as energias e salvar o jogo
+* Não vai ter dados
+
+## PERSONAGENS
 
 ### Davi
 * Davi mata todo mundo ou morre
@@ -51,18 +72,3 @@
 
 ### Fernanda 
 * Fernanda tem uma área radioativa
-
-## Mecânicas
-
-* Visão de cima
-* Escolhas definem o jogo
-* Definição da personalidade do personagem a partir das escolhas da pessoa
-* Após o teste de personalidade você vira um herói de acordo as suas escolhas
-* Após zerar o jogo, voce vai saber as escolhas que levam a determinado heroi
-* Possui planta mágica que recupera sua vitalidade, mas se consumida com muito exagero, te impede de usar sua habilidade especial
-* Os inimigos são machistas e outros
-* O personagem pode evoluir
-* O jogo terá varios finais
-* A primeira taverna do jogo é Angela
-* Seu fura vai carregar as energias e salvar o jogo
-* Não vai ter dados
