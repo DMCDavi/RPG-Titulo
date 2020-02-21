@@ -6,8 +6,16 @@ namespace Titulo
     {
         static void Main(string[] args)
         {
+            //teste
             Personagem A = new Tank();
-            A.atributos();
+            Personagem B = new Tank();
+            B.Hpmax = 100;
+            B.Hp = 100;
+            A.BuyAtributes();
+            int[] krai = { 6, 6 };
+            Weapon DESGRAÇA = new Weapon("DESGRAÇA","CON",krai);
+            A.Arminha = DESGRAÇA;
+            A.Attack(B);
         }
     }
 }

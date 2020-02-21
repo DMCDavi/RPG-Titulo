@@ -9,3 +9,14 @@ C:\Users\Vaio\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\
 C:\Users\Vaio\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.pdb
 C:\Users\Vaio\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.dll
 C:\Users\Vaio\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.pdb
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.exe
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.deps.json
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.json
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.dev.json
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.dll
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.pdb
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.csprojAssemblyReference.cache
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.AssemblyInfoInputs.cache
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.AssemblyInfo.cs
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.dll
+C:\Users\Guilherme\Documents\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.pdb
