@@ -13,8 +13,9 @@ namespace Titulo
             B.Hp = 100;
             A.create();
             int[] krai = { 6, 6 };
-            Weapon DESGRAÇA = new Weapon("DESGRAÇA","STR",krai);
+            Weapon DESGRAÇA = new Weapon("DESGRAÇA","CON",krai);
             A.Arminha = DESGRAÇA;
+            A.Attack(B);
             A.Attack(B);
         }
     }
