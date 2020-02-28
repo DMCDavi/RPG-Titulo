@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Vaio\\.nuget\\packages\\": {}
+    "C:\\Users\\davim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
+      "projectUniqueName": "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
       "projectName": "Titulo",
-      "projectPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
-      "packagesPath": "C:\\Users\\Vaio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\obj\\",
+      "projectPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
+      "packagesPath": "C:\\Users\\davim\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Vaio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\davim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

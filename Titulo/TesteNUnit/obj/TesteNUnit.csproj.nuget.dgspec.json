@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj": {}
+    "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj": {
+    "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
-        "projectName": "Titulo",
-        "projectPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
+        "projectUniqueName": "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
+        "projectName": "TesteNUnit",
+        "projectPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
         "packagesPath": "C:\\Users\\davim\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\obj\\",
+        "outputPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\davim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,22 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.16.1, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

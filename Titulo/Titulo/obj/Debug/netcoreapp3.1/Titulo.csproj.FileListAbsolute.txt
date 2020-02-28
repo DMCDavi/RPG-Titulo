@@ -31,3 +31,14 @@ C:\Users\Vaio\Documents\GitHub\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runt
 C:\Users\Vaio\Documents\GitHub\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.dev.json
 C:\Users\Vaio\Documents\GitHub\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.dll
 C:\Users\Vaio\Documents\GitHub\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.pdb
+D:\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.exe
+D:\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.deps.json
+D:\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.json
+D:\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.dev.json
+D:\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.dll
+D:\GitHub\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.pdb
+D:\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.csprojAssemblyReference.cache
+D:\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.AssemblyInfoInputs.cache
+D:\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.AssemblyInfo.cs
+D:\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.dll
+D:\GitHub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.pdb
