@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Titulo
 {
-    class Weapon
+    public class Weapon
     {
+        Personagem Owner;
         public string Tipo;
         public string Atributo;
         public int[] Dices;
+        public int HitBonus;
+        public int DmgBonus;
 
         /// <summary>
         /// Construtor da arma
@@ -16,11 +19,14 @@ namespace Titulo
         /// <param name="Tipo">Nome da arma</param>
         /// <param name="Atributo">Atributo que ela usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] Dices)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, Personagem Owner)
         {
+            this.Owner = Owner;
             this.Tipo = Tipo;
             this.Atributo = Atributo;
             this.Dices = Dices;
+            HitBonus = Hit;
+            DmgBonus = Damage;
         }
 
         /// <summary>
@@ -30,6 +36,7 @@ namespace Titulo
         public int Dmg()
         {
             int damage = 0, daninho = 0;
+            bool magic;
             Random rand = new Random();
             Console.WriteLine("\nDados de dano:");
             foreach(int Dice in Dices)
@@ -38,6 +45,7 @@ namespace Titulo
                 Console.WriteLine($"{daninho}");
                 damage += daninho;
             }
+            damage += DmgBonus;
             return damage;
         }
     }

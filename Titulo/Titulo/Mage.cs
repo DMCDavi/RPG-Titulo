@@ -4,40 +4,36 @@ using System.Text;
 
 namespace Titulo
 {
-    class Tank : IClass // Ruler
+    class Mage : IClass
     {
-        public Boolean secret;
-        public int TankLvl;
+        public int MageLvl;
 
         /// <summary>
-        /// Construtor da classe Tank
+        /// Construtor da classe Mage
         /// </summary>
-        public Tank()
+        public Mage()
         {
-            TankLvl = 1;
-            secret = false;
+            MageLvl = 1;
         }
 
         /// <summary>
-        /// Retorna o lvl de Tank
+        /// Retorna o lvl de mage
         /// </summary>
         /// <returns></returns>
         public int ClassLvl()
         {
-            return TankLvl;
+            return MageLvl;
         }
 
         /// <summary>
-        /// Confere se o personagem pode se tornar Tank por multi classe
+        /// Confere se o personagem pode se tornar mage por multi classe
         /// </summary>
         /// <param name="Self"></param>
         /// <returns></returns>
         public bool CanBe(Personagem Self)
         {
-            if(Self.Atributos["CON"] >= 13)
-            {
+            if (Self.Atributos["INT"] >= 13)
                 return true;
-            }
             return false;
         }
 
@@ -47,20 +43,20 @@ namespace Titulo
         /// <param name="Self"></param>
         public void HitDice(Personagem Self)
         {
-            Self.HitDice = 20;
+            Self.HitDice = 6;
         }
 
         /// <summary>
-        /// Aumenta 1 lvl de <see cref="Tank"/> no personagem
+        /// Aumenta 1 lvl de <see cref="Mage"/> no personagem
         /// </summary>
         /// <param name="Self"></param>
         public void LvlUp(Personagem Self)
         {
             Self.Lvl++;
-            TankLvl++;
+            MageLvl++;
             Random HitDice = new Random();
             Console.Clear(); ;
-            int Result = 1 + HitDice.Next()%20;
+            int Result = 1 + HitDice.Next() % 20;
             Self.Hpmax += Result + Self.Modifier("CON");
             Self.Hp += Result + Self.Modifier("CON");
         }

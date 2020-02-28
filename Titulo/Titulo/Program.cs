@@ -7,13 +7,16 @@ namespace Titulo
         static void Main(string[] args)
         {
             //teste
-            Personagem A = new Tank();
-            Personagem B = new Tank();
-            B.Hpmax = 100;
-            B.Hp = 100;
-            A.create();
+            string classe = "Tank";
+            Personagem A = new Personagem(classe, new Human());
+            Personagem B = new Personagem("Tank", new Human())
+            {
+                Hpmax = 100,
+                Hp = 100
+            }; 
+            A.Create();
             int[] krai = { 6, 6 };
-            Weapon DESGRAÇA = new Weapon("DESGRAÇA","CON",krai);
+            Weapon DESGRAÇA = new Weapon("DESGRAÇA","STR",krai, 0, 0, A);
             A.Arminha = DESGRAÇA;
             A.Attack(B);
             A.Attack(B);
