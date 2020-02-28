@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vaio\\Documents\\GitHub\\Titulo\\Titulo\\Titulo.csproj": {}
+    "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vaio\\Documents\\GitHub\\Titulo\\Titulo\\Titulo.csproj": {
+    "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vaio\\Documents\\GitHub\\Titulo\\Titulo\\Titulo.csproj",
+        "projectUniqueName": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
         "projectName": "Titulo",
-        "projectPath": "C:\\Users\\Vaio\\Documents\\GitHub\\Titulo\\Titulo\\Titulo.csproj",
+        "projectPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
         "packagesPath": "C:\\Users\\Vaio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vaio\\Documents\\GitHub\\Titulo\\Titulo\\obj\\",
+        "outputPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\Titulo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vaio\\AppData\\Roaming\\NuGet\\NuGet.Config",
