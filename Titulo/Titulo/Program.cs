@@ -11,9 +11,9 @@ namespace Titulo
             Personagem B = new Tank();
             B.Hpmax = 100;
             B.Hp = 100;
-            A.create();
+            A.Create();
             int[] krai = { 6, 6 };
-            Weapon DESGRAÇA = new Weapon("DESGRAÇA","CON",krai);
+            Weapon DESGRAÇA = new Weapon("DESGRAÇA","STR",krai, 0, 0);
             A.Arminha = DESGRAÇA;
             A.Attack(B);
             A.Attack(B);

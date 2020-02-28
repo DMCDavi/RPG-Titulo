@@ -11,7 +11,7 @@ namespace Titulo
         {
             HitDice = 20;
         }
-        public override void create()
+        public override void Create()
         {
             Console.WriteLine("Iniciando a definição dos atributos");
             BuyAtributes();

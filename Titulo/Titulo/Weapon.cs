@@ -9,6 +9,8 @@ namespace Titulo
         public string Tipo;
         public string Atributo;
         public int[] Dices;
+        public int HitBonus;
+        public int DmgBonus;
 
         /// <summary>
         /// Construtor da arma
@@ -16,11 +18,13 @@ namespace Titulo
         /// <param name="Tipo">Nome da arma</param>
         /// <param name="Atributo">Atributo que ela usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] Dices)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage)
         {
             this.Tipo = Tipo;
             this.Atributo = Atributo;
             this.Dices = Dices;
+            HitBonus = Hit;
+            DmgBonus = Damage;
         }
 
         /// <summary>
@@ -38,6 +42,7 @@ namespace Titulo
                 Console.WriteLine($"{daninho}");
                 damage += daninho;
             }
+            damage += DmgBonus;
             return damage;
         }
     }

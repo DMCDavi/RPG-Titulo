@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 
 namespace Titulo
 {
     abstract class Personagem
     {
-        string nickmane;
+        public string nickname { get; set; }
         public Dictionary<string,int> Atributos = new Dictionary<string, int> {
             {"STR", 1},
             {"DEX", 1},
@@ -15,6 +16,7 @@ namespace Titulo
             {"WIS", 1},
             {"CHA", 1}
         };
+        public ArrayList Languages { get; set; }
         public int AC { get; set; }
         public int lvl { get; set; }
         public int Hpmax { get; set; }
@@ -37,6 +39,18 @@ namespace Titulo
             nHitDice = 1;
         }
 
+        public bool Understood(string language)
+        {
+            foreach (string Language in Languages)
+            {
+                if(language == Language)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// Movimenta o personagem
         /// </summary>
@@ -56,7 +70,7 @@ namespace Titulo
         /// </summary>
         public void BuyAtributes()
         {
-            rollHitDice();
+            RollHitDice();
             int pts = 175;
             while (true)
             {
@@ -100,7 +114,7 @@ namespace Titulo
         /// <summary>
         /// Inicializa o personagem
         /// </summary>
-        public virtual void create()
+        public virtual void Create()
         {
             Console.WriteLine("Iniciando a definição dos atributos");
             BuyAtributes();
@@ -141,10 +155,10 @@ namespace Titulo
             //Magias de bonus action
             //Ação ardilosa (Ladino)
         }
-        public void rollHitDice()
+        public void RollHitDice()
         {
             Random rand = new Random();
-            if (nHitDice > 0)
+            if (nHitDice > 0 && Hp < Hpmax)
             {
                 Hp += 1 + rand.Next()%HitDice;
                 if(Hp > Hpmax)
@@ -163,14 +177,14 @@ namespace Titulo
         {
             return true; //Testando
 
-            if(Math.Abs(Target.posX - posX) <= 1 && Math.Abs(Target.posY - posY) <= 1)
+            /*if(Math.Abs(Target.posX - posX) <= 1 && Math.Abs(Target.posY - posY) <= 1)
             {
                 return true;
             }
             else
             {
                 return false;
-            }
+            }*/
         }
 
         /// <summary>
@@ -183,12 +197,16 @@ namespace Titulo
             if(canAttack(Target))
             {
                 int dice = rand.Next() % 20 + 1;
-                int acerto = dice + Proficiency + (Atributos[Arminha.Atributo] - 10) / 2;
+                int acerto = dice + Proficiency + (Atributos[Arminha.Atributo] - 10) / 2 + Arminha.HitBonus;
                 Console.WriteLine($"Dado: {dice}\nAcerto: {acerto}\n");
                 if (acerto >= Target.AC)
                 {
                     Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
-                    int dano = Arminha.Dmg() + (Atributos[Arminha.Atributo] - 10) / 2;
+                    int dano = Arminha.Dmg() + Atributos[Arminha.Atributo]/2 - 5;
+                    if(dano < 1)
+                    {
+                        dano = 1;
+                    }
                     Target.Hp -= dano;
                     Console.WriteLine($"Dano total: {dano}");
                     Console.WriteLine($"Hp dp alvo depois: {Target.Hp}/{Target.Hpmax}");
