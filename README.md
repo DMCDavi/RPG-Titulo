@@ -3,16 +3,10 @@
 ## CONCEITOS BÁSICOS
 
 * Cenário cyberpunk que muda para medieval
-* Baseado em Fate, Steins Gate, D&D e Battle Royale
-* Easter eggs
+* Baseado em Fate, Steins Gate e D&D
 * Antes de fazermos o jogo, faremos o teste de personalidade entre nós e faremos o jogo baseado nisso
-* Ter referencias de Jojo
-* Animações de luta
-* Espada de fogo é um espetinho de queijo coalho
-* Equipamento mágico que transforma pessoas numa mala.
 
 ## HISTÓRIA GERAL
-#Um galo morre depois de tomar sopa de macaco uma delicia que degenerou seus membros. Ele foi encontrado por um agiota que ressuscitou vc com peças de robo e vc virou o galo robo do senai e ele cobrou um preço por isso... 
 
 Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.
 
@@ -55,71 +49,89 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 ## MECÂNICAS
 
 * Visão de cima
-* O agiota é um inimigo que sempre ta no seu pé e se vc perder ele rouba seu dinheiro. Ele é o Will Smith. Se vc pagar o agiota ele para de ir atras de vc e vira seu aliado. o agiota foi atras de vc no passado ele é onipresente e onisiente  
+* Mover com setas
+* No combate a movimentação é limitada
 * Inimigos territorialistas que guardam um tesouro
 * Inimigos podem se render
 * Inimigos possuem um campo de visão para começar o combate
-* Encontrar coisas no mapa
-* Criar seu próprio equipamento
-* Escolhas definem o jogo
-* Definição da personalidade do personagem a partir das escolhas da pessoa
+* Encontrar coisas no mapa aleatoriamente
+* Crafting de equipamento
+* Melhorar o equipamento
 * Após o teste de personalidade você vira um herói de acordo as suas escolhas
-* Após zerar o jogo, voce vai saber as escolhas que levam a determinado heroi
 * Possui planta mágica que recupera sua vitalidade, mas se consumida com muito exagero, te impede de usar sua habilidade especial
-* Os inimigos são machistas e outros
 * O personagem pode evoluir
 * O jogo terá varios finais
-* A primeira taverna do jogo é Angela
-* Seu fura vai carregar as energias e salvar o jogo
-* Não vai ter dados
+* A primeira taverna do jogo é Angela's
 * Quando o personagem morre ele volta no tempo para o último checkpoint
+* Cada personagem tem seus atributos físicos (STR, DEX, CON) e psíquicos (INT, WIS, CHA)
 
 ## PERSONAGENS
 
 ### Davi
-* Davi mata todo mundo ou morre
-* Entra em confronto com qualquer um que encontra
-* Consome muita planta mágica
-* Entra no modo full rage
-* Sua arma é uma pá e uma arma de chumbinho
-* Dá IK em gatos e calangos, mas gasta todo seu mana
-* Dá cabeçadas aleatórias
+* Tem menor chance de fazer os inimigos se renderem (Charisma baixo)
+* Tem maior chance de dar ataque crítico
+* Só Davi pode usar a pá lendária
+* Ganha bonus com a planta mágica S
 
 ### Geão
-* Gean começa com o pé quebrado
-* É um personagem normal
+* Gean começa com o pé quebrado (reduz mobilidade)
+* Tem menor chance de fazer os inimigos se renderem (Charisma baixo)
+* Tem wisdom alto
 
 ### Maria
-* Maria deixa o tempo mais lento
-* Se ela usar a habilidade por muito tempo
-* Fome
+* Intelligence alta
+* Dexterity baixa
 
 ### Atari
-* Atari controla inimigos
-* Tem maior probabilidade de fazer os inimigos se renderem
-* Consome muita planta mágica
+* Tem maior chance de fazer os inimigos se renderem (Charisma alta)
+* Entra no modo full rage
+* Ganha bonus com a planta mágica K
 
 ### João
-* Tem muito azar
-* João dá conselhos ruins
-* João não segue suas escolhas
+* Wisdom baixo
 * João pega sempre o pior final do jogo
 
 ### Bia
 * Bia ta cm o olho vermelho o tempo todo
-* Pode não seguir suas escolhas por preguiça
-* Pode te forçar a dormir dois dias seguidos
-* Consome muita planta mágica
+* Ganha bonus com a planta mágica H
+* Constituition baixa
+* Wisdom alta
 
 ### Grão
-* Grão gasta todo seu dinheirp fznd tattoo e colocando piercing e pintando o cabelo
-* Grão muda de aparencia o tempo todo
+* Dexterity alta
+* Wisdom alta
+* Constituition baixa
 
 ### Vagner
-* Vagner fica com exaustão pq não dorme
-* É o unico que pode escolher não dormir
-* É super tanque
+* Vagner pode escolher não dormir, mas fica exausto
+* Contituition muito alta
 
 ### Fernanda 
-* Fernanda tem uma área radioativa
-* Tem que comer no minimo 2 bananas por dia ou toma dano
+* Só pode comer banana
+* Strenght alta
+
+## OBJETOS
+
+### Armas
+
+* Lendárias
+
+  * Pá de Davi
+      * Escudo de Vagner 
+      * Arco e flecha-íris de Grão
+      * Muleta de Geão
+      * Espadão flamejante de Atari (Pito)
+      * Shuriken de erva mágica de Bia
+      
+* Gerais
+
+      * Arma de chumbinho
+      * Espada
+      * Lança
+      * Arco e flecha
+      * Besta
+
+###
+* Plantsa mágicas (S, K, P, H)
+* Banana
+* 
