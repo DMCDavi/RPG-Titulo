@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj": {}
+    "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj": {
+    "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
+        "projectUniqueName": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
         "projectName": "TesteNUnit",
-        "projectPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
-        "packagesPath": "C:\\Users\\davim\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\obj\\",
+        "projectPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
+        "packagesPath": "C:\\Users\\Vaio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\davim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vaio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,13 +40,11 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.5.0, )"
+              "version": "[16.4.0, )"
             },
             "NUnit3TestAdapter": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.16.1, )"
+              "version": "[3.15.1, )"
             },
             "nunit": {
               "target": "Package",
