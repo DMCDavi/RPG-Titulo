@@ -6,5 +6,7 @@ namespace Titulo
 {
     interface IPersona
     {
+        void AtributeInc(Personagem Self);
+
     }
 }

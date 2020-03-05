@@ -25,6 +25,67 @@ namespace Titulo
             {"WIS", 1},
             {"CHA", 1}
         };
+
+        /// <summary>
+        /// Imunidade a um tipo de dano zera todo dano recebido daquele tipo
+        /// </summary>
+        public Dictionary<string, bool> Imune = new Dictionary<string, bool>
+        {
+            {"Slash", false},
+            {"Concussion", false},
+            {"Piercing", false},
+            {"Acid", false},
+            {"Eletric", false},
+            {"Energy", false},
+            {"Fire", false},
+            {"Ice", false},
+            {"Necrotic", false},
+            {"Psychic", false},
+            {"Radiante", false},
+            {"Thunder", false},
+            {"Poison", false}
+        };
+
+        /// <summary>
+        /// Resistencia a um tipo de dano divide por 2 todo dano recebido daquele tipo
+        /// </summary>
+        public Dictionary<string, bool> Resist = new Dictionary<string, bool>
+        {
+            {"Slash", false},
+            {"Concussion", false},
+            {"Piercing", false},
+            {"Acid", false},
+            {"Eletric", false},
+            {"Energy", false},
+            {"Fire", false},
+            {"Ice", false},
+            {"Necrotic", false},
+            {"Psychic", false},
+            {"Radiante", false},
+            {"Thunder", false},
+            {"Poison", false}
+        };
+
+        /// <summary>
+        /// Vulnerabilidade a um tipo de dano dobra todo dano recebido daquele tipo
+        /// </summary>
+        public Dictionary<string, bool> Vulnerable = new Dictionary<string, bool>
+        {
+            {"Slash", false},
+            {"Concussion", false},
+            {"Piercing", false},
+            {"Acid", false},
+            {"Eletric", false},
+            {"Energy", false},
+            {"Fire", false},
+            {"Ice", false},
+            {"Necrotic", false},
+            {"Psychic", false},
+            {"Radiante", false},
+            {"Thunder", false},
+            {"Poison", false}
+        };
+
         public ArrayList Languages = new ArrayList();
         public int AC { get; set; }
         public int Lvl { get; set; }
@@ -275,6 +336,10 @@ namespace Titulo
             //Magias de bonus action
             //Ação ardilosa (Ladino)
         }
+
+        /// <summary>
+        /// Rola um hit dice para curar (disponível ao realizar um descanso curto ou longo
+        /// </summary>
         public void RollHitDice()
         {
             Random rand = new Random();
@@ -297,14 +362,14 @@ namespace Titulo
         {
             return true; //Testando
 
-            /*if(Math.Abs(Target.posX - posX) <= 1 && Math.Abs(Target.posY - posY) <= 1)
+            if(Math.Abs(Target.posX - posX) <= 1 && Math.Abs(Target.posY - posY) <= 1)
             {
                 return true;
             }
             else
             {
                 return false;
-            }*/
+            }
         }
 
         /// <summary>
@@ -323,11 +388,7 @@ namespace Titulo
                 {
                     Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
                     int dano = Arminha.Dmg() + Atributos[Arminha.Atributo]/2 - 5;
-                    if(dano < 1)
-                    {
-                        dano = 1;
-                    }
-                    Target.Hp -= dano;
+                    Target.ReceiveDmg(dano, Arminha.Tipo);
                     Console.WriteLine($"Dano total: {dano}");
                     Console.WriteLine($"Hp dp alvo depois: {Target.Hp}/{Target.Hpmax}");
                 }
@@ -337,6 +398,25 @@ namespace Titulo
                 }
             }
         }
+
+        /// <summary>
+        /// Aplica dano de um tipo
+        /// </summary>
+        /// <param name="dmg">Dano bruto</param>
+        /// <param name="tipo">Tipo de dano</param>
+        public void ReceiveDmg(int dmg, string tipo)
+        {
+            if (Imune[tipo])
+                dmg = 0;
+            if (Resist[tipo])
+                dmg /= 2;
+            if (Vulnerable[tipo])
+                dmg *= 2;
+            if (dmg <= 0)
+                dmg = 1;
+            Hp -= dmg;
+        }
+
 
         /// <summary>
         /// Adiciona uma nova classe ao personagem
