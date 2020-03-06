@@ -48,18 +48,18 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 
 ## MECÂNICAS
 
-* Visão de cima
+* Visão de cima em 2d
 * Mover com setas
-* No combate a movimentação é limitada
-* Inimigos territorialistas que guardam um tesouro
+* Camera acompanha o personagem
+* Barreira invisível na extremidade do mapa
 * Inimigos podem se render
 * Inimigos possuem um campo de visão para começar o combate
 * Encontrar coisas no mapa aleatoriamente
 * Crafting de equipamento
 * Melhorar o equipamento
 * Após o teste de personalidade você vira um herói de acordo as suas escolhas
-* Possui planta mágica que recupera sua vitalidade, mas se consumida com muito exagero, te impede de usar sua habilidade especial
-* O personagem pode evoluir
+* Possui planta mágica que recupera sua vitalidade
+* O personagem pode evoluir, ganhando experiencia para passar de nível
 * O jogo terá varios finais
 * A primeira taverna do jogo é Angela's
 * Quando o personagem morre ele volta no tempo para o último checkpoint
