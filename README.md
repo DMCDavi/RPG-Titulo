@@ -184,3 +184,4 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 * Tecido
 * Joias
 * Moedas
+* Drop de MOB's
