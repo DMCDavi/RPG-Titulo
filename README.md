@@ -156,7 +156,6 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
   * Machado pesado
   * Martelo
   * Martelo de guerra
-  * 
 
 ### Armaduras
 
@@ -179,3 +178,9 @@ Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mer
 * Chaves
 * Drops específicos de monstros
 * Livros de magia
+* Minérios
+* Madeira
+* Corda
+* Tecido
+* Joias
+* Moedas
