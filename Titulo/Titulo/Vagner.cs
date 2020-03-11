@@ -8,12 +8,23 @@ namespace Titulo
     {
         public void AtributeInc(Personagem Self)
         {
-            Self.Atributos["STR"] += 0;
-            Self.Atributos["DEX"] += 0;
-            Self.Atributos["CON"] += 0;
-            Self.Atributos["INT"] += 0;
-            Self.Atributos["WIS"] += 0;
-            Self.Atributos["CHA"] += 0;
+            Self.Atributos["STR"] += 2;
+            Self.Atributos["DEX"] -= 3;
+            Self.Atributos["CON"] += 5;
+            Self.Atributos["INT"] += 3;
+            Self.Atributos["WIS"] += 1;
+            Self.Atributos["CHA"] -= 3;
+        }
+
+        public void PersonaModify(Personagem Self)
+        {
+            Self.TotalMove += 0;
+
+        }
+
+        public void SetSpritePersona(Personagem Self)
+        {
+            Self.SpritePath = "Sprite/Vagner/";
         }
     }
 }

@@ -7,6 +7,6 @@ namespace Titulo
     interface IPersona
     {
         void AtributeInc(Personagem Self);
-
+        void SetSpritePersona(Personagem Self);
     }
 }

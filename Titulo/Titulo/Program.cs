@@ -17,7 +17,7 @@ namespace Titulo
             A.Create();
             int[] DmgDice = { 6, 6 };
             Weapon DESGRAÇA = new Weapon("Slash","STR",DmgDice, 0, 0, A);
-            A.Arminha = DESGRAÇA;
+            A.EquippedWeapon = DESGRAÇA;
             A.Attack(B);
             A.Attack(B);
         }

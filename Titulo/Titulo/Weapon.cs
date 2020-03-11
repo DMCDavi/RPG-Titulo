@@ -12,12 +12,16 @@ namespace Titulo
         public int[] Dices;
         public int HitBonus;
         public int DmgBonus;
+        public int Range;
 
         /// <summary>
         /// Construtor da arma
         /// </summary>
-        /// <param name="Tipo">Nome da arma</param>
-        /// <param name="Atributo">Atributo que ela usa</param>
+        /// <param name="Owner">Dono da arma</param>
+        /// <param name="Hit">Bônus padrão  de acerto</param>
+        /// <param name="Damage">Bônus padrão de dano</param>
+        /// <param name="Tipo">Tipo de dano</param>
+        /// <param name="Atributo">Atributo que a arma usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
         public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, Personagem Owner)
         {
@@ -27,16 +31,17 @@ namespace Titulo
             this.Dices = Dices;
             HitBonus = Hit;
             DmgBonus = Damage;
+            Range = 1;
         }
 
         /// <summary>
-        /// Roda os dados de dano da arma
+        /// Aplica o dano de um ataque com a arma
         /// </summary>
+        /// <param name="Target">Alvo do ataque</param>
         /// <returns></returns>
-        public int Dmg()
+        public void DealDmg(Personagem Target)
         {
             int damage = 0, daninho = 0;
-            bool magic;
             Random rand = new Random();
             Console.WriteLine("\nDados de dano:");
             foreach(int Dice in Dices)
@@ -46,7 +51,9 @@ namespace Titulo
                 damage += daninho;
             }
             damage += DmgBonus;
-            return damage;
+            damage += Owner.Modifier(Atributo);
+            Target.ReceiveDmg(damage, this.Tipo);
+            Console.WriteLine($"Dano total: {damage}");
         }
     }
 }

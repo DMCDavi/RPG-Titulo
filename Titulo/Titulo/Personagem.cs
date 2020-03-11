@@ -7,10 +7,11 @@ namespace Titulo
 {
     public class Personagem
     {
+        public string SpritePath;
         public IRace Race { get; set; }
         public string MainClass;
         public Dictionary<string, IClass> Class = new Dictionary<string, IClass>();
-        public string nickname { get; set; }
+        public string Nickname { get; set; }
 
         public Dictionary<string, IClass> AllClass = new Dictionary<string, IClass> {
             {"Tank", new Tank()},
@@ -96,7 +97,8 @@ namespace Titulo
         public int posX { get; set; }
         public int posY { get; set; }
         public int Initiative { get; set; }
-        public Weapon Arminha { get; set; }
+        public Weapon EquippedWeapon;
+        public Armor EquippedArmor;
         public int HitDice;
         private int nHitDice;
 
@@ -187,6 +189,8 @@ namespace Titulo
         {
             return 2 + (Lvl - 1) / 4;
         }
+
+
 
         /// <summary>
         /// Retorna o modificador do atributo
@@ -362,7 +366,7 @@ namespace Titulo
         {
             return true; //Testando
 
-            if(Math.Abs(Target.posX - posX) <= 1 && Math.Abs(Target.posY - posY) <= 1)
+            if(Math.Abs(Target.posX - posX) <= EquippedWeapon.Range && Math.Abs(Target.posY - posY) <= EquippedWeapon.Range)
             {
                 return true;
             }
@@ -382,14 +386,12 @@ namespace Titulo
             if(canAttack(Target))
             {
                 int dice = rand.Next() % 20 + 1;
-                int acerto = dice + Proficiency() + (Atributos[Arminha.Atributo] - 10) / 2 + Arminha.HitBonus;
+                int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
                 Console.WriteLine($"Dado: {dice}\nAcerto: {acerto}\n");
                 if (acerto >= Target.AC)
                 {
                     Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
-                    int dano = Arminha.Dmg() + Atributos[Arminha.Atributo]/2 - 5;
-                    Target.ReceiveDmg(dano, Arminha.Tipo);
-                    Console.WriteLine($"Dano total: {dano}");
+                    EquippedWeapon.DealDmg(Target);
                     Console.WriteLine($"Hp dp alvo depois: {Target.Hp}/{Target.Hpmax}");
                 }
                 else
@@ -414,6 +416,7 @@ namespace Titulo
                 dmg *= 2;
             if (dmg <= 0)
                 dmg = 1;
+            
             Hp -= dmg;
         }
 
