@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Titulo
 {
-    interface IPersona
+    public interface IPersona
     {
         void AtributeInc(Personagem Self);
         void SetSpritePersona(Personagem Self);

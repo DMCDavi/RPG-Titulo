@@ -8,12 +8,12 @@ namespace Titulo
     {
         public void AtributeInc(Personagem Self)
         {
-            Self.Atributos["STR"] += 2;
-            Self.Atributos["DEX"] -= 3;
-            Self.Atributos["CON"] += 5;
-            Self.Atributos["INT"] += 3;
-            Self.Atributos["WIS"] += 1;
-            Self.Atributos["CHA"] -= 3;
+            Self.Atribute["STR"] += 2;
+            Self.Atribute["DEX"] -= 3;
+            Self.Atribute["CON"] += 5;
+            Self.Atribute["INT"] += 3;
+            Self.Atribute["WIS"] += 1;
+            Self.Atribute["CHA"] -= 3;
         }
 
         public void PersonaModify(Personagem Self)

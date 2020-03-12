@@ -32,7 +32,7 @@ namespace Titulo
         /// <returns></returns>
         public bool CanBe(Personagem Self)
         {
-            if (Self.Atributos["INT"] >= 13)
+            if (Self.Atribute["INT"] >= 13)
                 return true;
             return false;
         }

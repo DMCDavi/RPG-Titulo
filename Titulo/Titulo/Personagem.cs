@@ -9,6 +9,7 @@ namespace Titulo
     {
         public string SpritePath;
         public IRace Race { get; set; }
+        public IPersona Persona;
         public string MainClass;
         public Dictionary<string, IClass> Class = new Dictionary<string, IClass>();
         public string Nickname { get; set; }
@@ -18,13 +19,22 @@ namespace Titulo
             {"Mage", new Mage()}
         };
 
-        public Dictionary<string,int> Atributos = new Dictionary<string, int> {
-            {"STR", 1},
-            {"DEX", 1},
-            {"CON", 1},
-            {"INT", 1},
-            {"WIS", 1},
-            {"CHA", 1}
+        public Dictionary<string,int> Atribute = new Dictionary<string, int> {
+            {"STR", 6},
+            {"DEX", 6},
+            {"CON", 6},
+            {"INT", 6},
+            {"WIS", 6},
+            {"CHA", 6}
+        };
+
+        public Dictionary<string, int> MagicBonus = new Dictionary<string, int> {
+            {"STR", 0},
+            {"DEX", 0},
+            {"CON", 0},
+            {"INT", 0},
+            {"WIS", 0},
+            {"CHA", 0}
         };
 
         /// <summary>
@@ -88,7 +98,6 @@ namespace Titulo
         };
 
         public ArrayList Languages = new ArrayList();
-        public int AC { get; set; }
         public int Lvl { get; set; }
         public int Exp { get; set; }
         public int Hpmax { get; set; }
@@ -171,7 +180,7 @@ namespace Titulo
         /// </summary>
         /// <param name="Class"></param>
         /// <param name="Race"></param>
-        public Personagem(string Class, IRace Race)
+        public Personagem(string Class, IRace Race, IPersona Persona)
         {
             MainClass = Class;
             this.Class.Add(Class, AllClass[Class]);
@@ -179,6 +188,9 @@ namespace Titulo
             Exp = 0;
             Lvl = 1;
             nHitDice = 1;
+            this.Persona = Persona;
+            Race.AtributeInc(this);
+            Persona.AtributeInc(this);
         }
 
         /// <summary>
@@ -199,7 +211,9 @@ namespace Titulo
         /// <returns></returns>
         public int Modifier(string atribute)
         {
-            return Atributos[atribute] / 2 - 5;
+            int mod = Atribute[atribute]/2 - 5;
+            mod += MagicBonus[atribute];
+            return mod;
         }
 
         /// <summary>
@@ -234,23 +248,23 @@ namespace Titulo
         }
 
         /// <summary>
-        /// Printa os atributos atuais
+        /// Printa os Atribute atuais
         /// </summary>
         public void ShowAtributes()
         {
-            Console.WriteLine($"STR: {Atributos["STR"]}\nDEX: {Atributos["DEX"]}\nCON: {Atributos["CON"]}\nINT: {Atributos["INT"]}\nWIS: {Atributos["WIS"]}\nCHA: {Atributos["CHA"]}\n");
+            Console.WriteLine($"STR: {Atribute["STR"]}\nDEX: {Atribute["DEX"]}\nCON: {Atribute["CON"]}\nINT: {Atribute["INT"]}\nWIS: {Atribute["WIS"]}\nCHA: {Atribute["CHA"]}\n");
         }
 
         /// <summary>
-        /// Realiza a compra de atributos da criação de personagem
+        /// Realiza a compra de Atribute da criação de personagem
         /// </summary>
         public void BuyAtributes()
         {
             RollHitDice();
-            int pts = 175;
+            int pts = 30;
             while (true)
             {
-                Console.WriteLine($"Voce tem {pts}\n\n");
+                Console.WriteLine($"Voce tem {pts} pontos\n\n");
                 ShowAtributes();
                 Console.WriteLine("Q q tu q mudah?");
                 var key = Console.ReadLine();
@@ -258,18 +272,29 @@ namespace Titulo
                 var a = Console.ReadLine();
                 Console.WriteLine("Quanto?");
                 int b = int.Parse(Console.ReadLine());
+                int dpts;
                 while (b>0)
                 {
                     b--;
                     if (a == "1")
                     {
-                        pts -= Math.Abs(Atributos[key] / 2 - 5);
-                        Atributos[key]++;
+                        dpts = Math.Abs(Atribute[key] / 2 - 5);
+                        if(dpts == 0)
+                        {
+                            dpts++;
+                        }
+                        pts -= dpts;
+                        Atribute[key]++;
                     }
                     else if (a == "2")
                     {
-                        Atributos[key]--;
-                        pts += Math.Abs(Atributos[key] / 2 - 5);
+                        Atribute[key]--;
+                        dpts = Math.Abs(Atribute[key] / 2 - 5);
+                        if(dpts == 0)
+                        {
+                            dpts++;
+                        }
+                        pts += dpts;
                     }
                     else
                     {
@@ -292,20 +317,18 @@ namespace Titulo
         /// </summary>
         public virtual void Create()
         {
-            Console.WriteLine("Iniciando a definição dos atributos");
+            Console.WriteLine("Iniciando a definição dos Atribute");
             BuyAtributes();
-            Race.AtributeInc(this);
             Race.Speed(this);
             Race.Language(this);
             Class[MainClass].HitDice(this);
-            AC = 10 + (Atributos["DEX"] - 10) / 2;
-            Hpmax = HitDice + (Atributos["CON"] - 10) / 2;
+            Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
             Console.Clear();
-            Console.WriteLine("Seus atributos após bonus da raça:");
+            Console.WriteLine("Seus Atribute após aplicação dos bonus:");
             ShowAtributes();
-
-            
+            EquippedArmor = new Armor(10, -10, 20);
+            EquippedArmor.Equip(this);
         }
 
         /// <summary>
@@ -356,6 +379,11 @@ namespace Titulo
                 }
             }
         }
+
+        public int Ac()
+        {
+            return EquippedArmor.Ac();
+        }
         
         /// <summary>
         /// Testa se da pra atacar
@@ -388,7 +416,7 @@ namespace Titulo
                 int dice = rand.Next() % 20 + 1;
                 int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
                 Console.WriteLine($"Dado: {dice}\nAcerto: {acerto}\n");
-                if (acerto >= Target.AC)
+                if (acerto >= Target.Ac())
                 {
                     Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
                     EquippedWeapon.DealDmg(Target);

@@ -24,7 +24,6 @@ namespace Titulo
             this.BaseAc = BaseAc;
             this.MaxDex = MaxDex;
             this.MinDex = MinDex;
-            DexBonus = Owner.Modifier("DEX");
             if (DexBonus > MaxDex)
                 DexBonus = MaxDex;
             if (DexBonus < MinDex)
@@ -34,6 +33,7 @@ namespace Titulo
         public void Equip(Personagem Owner)
         {
             this.Owner = Owner;
+            DexBonus = Owner.Modifier("DEX");
             MagicPassive();
         }
 
