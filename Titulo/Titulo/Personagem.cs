@@ -233,6 +233,11 @@ namespace Titulo
             return false;
         }
 
+        public void LearnLang(string NewLang)
+        {
+            Languages.Add(NewLang);
+        }
+
         /// <summary>
         /// Movimenta o personagem
         /// </summary>

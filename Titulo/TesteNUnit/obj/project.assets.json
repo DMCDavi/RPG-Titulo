@@ -55,7 +55,7 @@
           "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
         },
         "compile": {
-          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
+          "lib/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
@@ -477,7 +477,7 @@
           "System.Runtime": "4.1.0"
         },
         "compile": {
-          "ref/netstandard1.6/System.AppContext.dll": {}
+          "ref/netstandard1.6/_._": {}
         },
         "runtime": {
           "lib/netstandard1.6/System.AppContext.dll": {}
@@ -505,7 +505,7 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Collections.NonGeneric.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Collections.NonGeneric.dll": {}
@@ -535,7 +535,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/System.ComponentModel.dll": {}
+          "ref/netstandard1.0/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.ComponentModel.dll": {}
@@ -550,7 +550,7 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.ComponentModel.EventBasedAsync.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.ComponentModel.EventBasedAsync.dll": {}
@@ -564,7 +564,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/System.ComponentModel.Primitives.dll": {}
+          "ref/netstandard1.0/_._": {}
         },
         "runtime": {
           "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
@@ -590,7 +590,7 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
+          "ref/netstandard1.5/_._": {}
         },
         "runtime": {
           "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
@@ -633,7 +633,7 @@
           "runtime.native.System": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.4/System.Diagnostics.Process.dll": {}
+          "ref/netstandard1.4/_._": {}
         },
         "runtimeTargets": {
           "runtimes/linux/lib/netstandard1.4/System.Diagnostics.Process.dll": {
@@ -748,7 +748,7 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.IO.FileSystem.dll": {}
+          "ref/netstandard1.3/_._": {}
         }
       },
       "System.IO.FileSystem.Primitives/4.3.0": {
@@ -757,7 +757,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
@@ -911,7 +911,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
+          "ref/netstandard1.5/_._": {}
         },
         "runtime": {
           "lib/netstandard1.5/System.Reflection.TypeExtensions.dll": {}
@@ -959,7 +959,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Runtime.Handles.dll": {}
+          "ref/netstandard1.3/_._": {}
         }
       },
       "System.Runtime.InteropServices/4.3.0": {
@@ -973,7 +973,7 @@
           "System.Runtime.Handles": "4.3.0"
         },
         "compile": {
-          "ref/netcoreapp1.1/System.Runtime.InteropServices.dll": {}
+          "ref/netcoreapp1.1/_._": {}
         }
       },
       "System.Runtime.InteropServices.RuntimeInformation/4.3.0": {
@@ -988,7 +988,7 @@
           "runtime.native.System": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
+          "ref/netstandard1.1/_._": {}
         },
         "runtime": {
           "lib/netstandard1.1/System.Runtime.InteropServices.RuntimeInformation.dll": {}
@@ -1096,7 +1096,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Threading.Thread.dll": {}
@@ -1179,7 +1179,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Xml.XmlDocument.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
@@ -1199,7 +1199,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Xml.XPath.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.dll": {}
@@ -1220,7 +1220,7 @@
           "System.Xml.XmlDocument": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
+          "ref/netstandard1.3/_._": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
@@ -4623,27 +4623,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aluno\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Vaio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aluno\\Downloads\\RPG-Titulo-master\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
+      "projectUniqueName": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
       "projectName": "TesteNUnit",
-      "projectPath": "C:\\Users\\aluno\\Downloads\\RPG-Titulo-master\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
-      "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aluno\\Downloads\\RPG-Titulo-master\\Titulo\\TesteNUnit\\obj\\",
+      "projectPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
+      "packagesPath": "C:\\Users\\Vaio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vaio\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TesteNUnit\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Vaio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -4696,7 +4689,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

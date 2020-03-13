@@ -18,8 +18,8 @@ namespace Titulo
 
         public void Language(Personagem Self)
         {
-            Self.Languages.Add("Common");
-            Self.Languages.Add("Elf");
+            Self.LearnLang("Common");
+            Self.LearnLang("Elf");
         }
 
         public void Speed(Personagem Self)

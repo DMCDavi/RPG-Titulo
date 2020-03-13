@@ -18,11 +18,11 @@ namespace Titulo
 
         public void Language(Personagem Self)
         {
-            Self.Languages.Add("Common");
+            Self.LearnLang("Common");
             string Language;
             Console.WriteLine("Escolha um idioma");
             Language = Console.ReadLine();
-            Self.Languages.Add(Language);
+            Self.LearnLang(Language);
         }
 
         public void Speed(Personagem Self)
