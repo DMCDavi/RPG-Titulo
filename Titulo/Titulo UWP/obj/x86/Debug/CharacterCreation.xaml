@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="Titulo_UWP.CharacterCreation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Titulo_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#FFC3C3C3" Margin="0,0,10,10">
+        <TextBlock Margin="130,195,822,347" FontFamily="Times New Roman" FontSize="72" ><Run Text="Character"/><LineBreak/><Run Text="Name"/></TextBlock>
+        <TextBox x:ConnectionId='2' x:Name="CharName" Margin="0,195,0,355" Background="#FFFFFBFF" HorizontalAlignment="Center" Width="377"  />
+        <Button Content="Prologue" HorizontalAlignment="Center" Margin="0,450,0,0" VerticalAlignment="Top" Height="92" Width="265" FontFamily="Times New Roman" FontSize="48"/>
+    </Grid>
+</Page>
+
