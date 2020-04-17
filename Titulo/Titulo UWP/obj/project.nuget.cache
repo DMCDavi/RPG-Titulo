@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tQqXg9RzyEJjbrSfgIspy+JANqXTWUmRYj1t4cy89bwQD8joNITGnQiy8QzKJyIVT5XCmK3vwAujgOd5/FTh/A==",
+  "dgSpecHash": "eiQlrq67zvDx8rlS2zuLV88HKkRnrd+CFVxMTu7Fw/sBLvTrVRh2+hRogjUQrrbvfaDFl85AvMB+C0qaH9C9iw==",
   "success": true,
-  "projectFilePath": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj",
+  "projectFilePath": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.7-rel-27913-00\\microsoft.net.native.compiler.2.2.7-rel-27913-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.9\\microsoft.net.uwpcoreruntimesdk.2.2.9.nupkg.sha512",

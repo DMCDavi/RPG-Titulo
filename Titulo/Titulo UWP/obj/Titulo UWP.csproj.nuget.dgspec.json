@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj": {}
+    "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj": {}
   },
   "projects": {
-    "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj": {
+    "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj",
+        "projectUniqueName": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj",
         "projectName": "Titulo UWP",
-        "projectPath": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj",
+        "projectPath": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo UWP\\Titulo UWP.csproj",
         "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
-        "outputPath": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo UWP\\obj\\",
+        "outputPath": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo UWP\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "E:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [

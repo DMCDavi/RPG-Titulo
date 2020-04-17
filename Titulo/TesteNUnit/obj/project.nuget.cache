@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2kFffQcH3hNILv8i5uSZchmHPml8NqV1AWQoDO2S6PefUoXb5hLPcUtXnfDtek9LaIBnBvCe+lXA52x4a62GmQ==",
+  "dgSpecHash": "zRM39dtj9yA7852OVq4ZjVMpIHIGEgVJOGH3Jw0CyOvp3ukCAIrA7UVMEJ6J/myw1/mQ2YoAOp2atPMlkZXd5w==",
   "success": true,
-  "projectFilePath": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
+  "projectFilePath": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\TesteNUnit\\TesteNUnit.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
@@ -17,7 +17,7 @@
     "C:\\Users\\guilh\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\nuget.frameworks\\5.0.0\\nuget.frameworks.5.0.0.nupkg.sha512",
-    "C:\\Microsoft\\Xamarin\\NuGet\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
+    "E:\\Microsoft\\Xamarin\\NuGet\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\nunit3testadapter\\3.16.1\\nunit3testadapter.3.16.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",

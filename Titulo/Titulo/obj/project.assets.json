@@ -9,19 +9,19 @@
   },
   "packageFolders": {
     "C:\\Users\\guilh\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "E:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
+      "projectUniqueName": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
       "projectName": "Titulo",
-      "projectPath": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
+      "projectPath": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo\\Titulo.csproj",
       "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
-      "outputPath": "E:\\Documents\\Gitgub\\RPG-Titulo\\Titulo\\Titulo\\obj\\",
+      "outputPath": "E:\\Documents\\Github\\RPG-Titulo\\Titulo\\Titulo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "E:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config",
