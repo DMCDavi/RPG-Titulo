@@ -441,6 +441,7 @@ namespace Titulo
         /// <param name="tipo">Tipo de dano</param>
         public void ReceiveDmg(int dmg, string tipo)
         {
+            //meter um foreach das IClasses
             if (Imune[tipo])
                 dmg = 0;
             if (Resist[tipo])
