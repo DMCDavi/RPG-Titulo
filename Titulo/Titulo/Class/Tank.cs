@@ -64,5 +64,13 @@ namespace Titulo
             Self.Hpmax += Result + Self.Modifier("CON");
             Self.Hp += Result + Self.Modifier("CON");
         }
+        public void ReceiveDmg(Personagem Self, int dmg)
+        {
+            dmg -= Self.Modifier("CON");
+            if(dmg <= 0)
+            {
+                dmg = 1;
+            }
+        }
     }
 }

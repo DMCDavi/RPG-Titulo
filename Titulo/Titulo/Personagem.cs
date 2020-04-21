@@ -11,7 +11,7 @@ namespace Titulo
         public IRace Race { get; set; }
         public IPersona Persona;
         public string MainClass;
-        public Dictionary<string, IClass> Class = new Dictionary<string, IClass>();
+        public List<IClass> Class = new List<IClass>();
         public string Nickname { get; set; }
 
         public Dictionary<string, IClass> AllClass = new Dictionary<string, IClass> {
@@ -183,7 +183,7 @@ namespace Titulo
         public Personagem(string Class, IRace Race, IPersona Persona)
         {
             MainClass = Class;
-            this.Class.Add(Class, AllClass[Class]);
+            this.Class.Add(AllClass[Class]);
             this.Race = Race;
             Exp = 0;
             Lvl = 1;
@@ -322,15 +322,15 @@ namespace Titulo
         /// </summary>
         public virtual void Create()
         {
-            Console.WriteLine("Iniciando a definição dos Atribute");
+            Console.WriteLine("Iniciando a definição dos Atributos");
             BuyAtributes();
             Race.Speed(this);
             Race.Language(this);
-            Class[MainClass].HitDice(this);
+            Class[0].HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
             Console.Clear();
-            Console.WriteLine("Seus Atribute após aplicação dos bonus:");
+            Console.WriteLine("Seus Atributos após aplicação dos bonus:");
             ShowAtributes();
             EquippedArmor = new Armor(10, -10, 20);
             EquippedArmor.Equip(this);
@@ -441,7 +441,11 @@ namespace Titulo
         /// <param name="tipo">Tipo de dano</param>
         public void ReceiveDmg(int dmg, string tipo)
         {
-            //meter um foreach das IClasses
+            foreach(IClass iclass in Class)
+            {
+                iclass.ReceiveDmg(this, dmg);
+            }
+
             if (Imune[tipo])
                 dmg = 0;
             if (Resist[tipo])
@@ -463,7 +467,7 @@ namespace Titulo
         {
             if (AllClass[Class].CanBe(this))
             {
-                this.Class.Add(Class, AllClass[Class]);
+                this.Class.Add(AllClass[Class]);
             }
         }
 
