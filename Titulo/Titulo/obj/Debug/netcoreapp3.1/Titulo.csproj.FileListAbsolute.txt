@@ -55,3 +55,16 @@ E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.Asse
 E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.dll
 E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.pdb
 E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.genruntimeconfig.cache
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.csprojAssemblyReference.cache
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.csproj.CoreCompileInputs.cache
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.AssemblyInfoInputs.cache
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.AssemblyInfo.cs
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.dll
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.pdb
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.exe
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.deps.json
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.json
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.runtimeconfig.dev.json
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.dll
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\bin\Debug\netcoreapp3.1\Titulo.pdb
+E:\Documents\Github\RPG-Titulo\Titulo\Titulo\obj\Debug\netcoreapp3.1\Titulo.genruntimeconfig.cache

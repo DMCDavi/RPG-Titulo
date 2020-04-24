@@ -3,7 +3,7 @@
     "additionalProbingPaths": [
       "C:\\Users\\guilh\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\guilh\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet"
+      "E:\\Microsoft\\Xamarin\\NuGet"
     ]
   }
 }

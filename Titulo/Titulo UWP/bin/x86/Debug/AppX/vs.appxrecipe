@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-POKN5MI</Machine>
+    <Machine>DESKTOP-P457HFO</Machine>
     <WindowsUser>guilh</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>fe756511-b721-4248-90e5-ff9da81ef15d</PackageIdentityName>
     <PackageIdentityPublisher>CN=guilh</PackageIdentityPublisher>
-    <IntermediateOutputPath>E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>A7E2782DF438C6EEBE5BCB88B6EB10A03B7FDB1F9495FE9814A27F752096332A</RegisteredManifestChecksum>
+    <LayoutDir>E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>F656224D70CD816761D50974C8B1A33B688FAAFCFAA18F642E52FBAA7D0CA823</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>fe756511-b721-4248-90e5-ff9da81ef15d_1.0.0.0_x86__5ws1nzxtey6ng</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>fe756511-b721-4248-90e5-ff9da81ef15d_5ws1nzxtey6ng!App</RegisteredUserModeAppID>
     <RegisteredPackageID>fe756511-b721-4248-90e5-ff9da81ef15d</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-04-07T03:39:52.313</Modified>
+      <Modified>2020-04-24T20:54:36.799</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.exe">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.exe">
       <PackagePath>entrypoint\Titulo UWP.exe</PackagePath>
-      <Modified>2020-04-07T03:39:51.708</Modified>
+      <Modified>2020-04-24T20:54:35.997</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,75 +46,79 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T21:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-04-07T01:56:30.997</Modified>
+      <Modified>2020-04-17T22:21:32.324</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.291</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.293</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.296</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.297</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.299</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.302</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-27T19:45:02.606</Modified>
+      <Modified>2020-04-17T22:21:32.304</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.xr.xml">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.xr.xml">
       <PackagePath>Titulo UWP.xr.xml</PackagePath>
-      <Modified>2020-04-07T03:38:23.327</Modified>
+      <Modified>2020-04-24T20:54:35.612</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-04-07T03:39:18.514</Modified>
+      <Modified>2020-04-24T20:54:35.632</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterCreation.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterCreation.xbf">
       <PackagePath>CharacterCreation.xbf</PackagePath>
-      <Modified>2020-04-07T03:39:18.744</Modified>
+      <Modified>2020-04-24T20:54:35.803</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterSelectionPage.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterSelectionPage.xbf">
       <PackagePath>CharacterSelectionPage.xbf</PackagePath>
-      <Modified>2020-04-07T03:39:51.547</Modified>
+      <Modified>2020-04-24T20:54:35.805</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\GameTest.xbf">
+      <PackagePath>GameTest.xbf</PackagePath>
+      <Modified>2020-04-24T20:54:35.806</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-04-07T03:39:18.747</Modified>
+      <Modified>2020-04-24T20:54:35.808</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T20:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-04-07T03:38:24.427</Modified>
+      <Modified>2020-04-24T18:47:25.623</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\Titulo UWP.exe">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\Titulo UWP.exe">
       <PackagePath>Titulo UWP.exe</PackagePath>
-      <Modified>2020-04-07T03:39:52.306</Modified>
+      <Modified>2020-04-24T20:54:36.792</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

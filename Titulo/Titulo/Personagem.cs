@@ -118,9 +118,17 @@ namespace Titulo
         public int ConjurationLvl()
         {
             int ConjLvl = 0;
-            if(Class["Mage"] != null)
+            foreach(IClass iclass in Class)
+            {
+                if(iclass.GetType() == new Mage().GetType() )
+                {
+                    ConjLvl += iclass.ClassLvl();
+                }
+            }
+
+            /*if(Class["Mage"] != null)
                 ConjLvl += Class["Mage"].ClassLvl();
-            
+            */
 
             return ConjLvl;
         }
@@ -441,10 +449,10 @@ namespace Titulo
         /// <param name="tipo">Tipo de dano</param>
         public void ReceiveDmg(int dmg, string tipo)
         {
-            foreach(IClass iclass in Class)
+            /*foreach(IClass iclass in Class)
             {
                 iclass.ReceiveDmg(this, dmg);
-            }
+            }*/
 
             if (Imune[tipo])
                 dmg = 0;
@@ -477,7 +485,7 @@ namespace Titulo
         /// <param name="Class"></param>
         public void LvlUp(string Class)
         {
-            this.Class[Class].LvlUp(this);
+            //this.Class[Class].LvlUp(this);
         }
 
     }

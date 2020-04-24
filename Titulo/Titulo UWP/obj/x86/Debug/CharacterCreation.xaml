@@ -10,7 +10,8 @@
 
     <Grid Background="#FFC3C3C3" Margin="0,0,10,10">
         <TextBlock Margin="130,195,822,347" FontFamily="Times New Roman" FontSize="72" ><Run Text="Character"/><LineBreak/><Run Text="Name"/></TextBlock>
-        <TextBox x:Name="CharName" Margin="0,195,0,355" Background="#FFFFFBFF" HorizontalAlignment="Center" Width="377" Height="140" />
+        <TextBox x:ConnectionId='2' x:Name="CharName" Margin="0,195,0,355" Background="#FFFFFBFF" HorizontalAlignment="Center" Width="377" Height="140" />
         <Button Content="Prologue" HorizontalAlignment="Center" Margin="0,450,0,0" VerticalAlignment="Top" Height="92" Width="265" FontFamily="Times New Roman" FontSize="48"/>
     </Grid>
 </Page>
+

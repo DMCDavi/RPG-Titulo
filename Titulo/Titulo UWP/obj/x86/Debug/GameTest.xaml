@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Titulo_UWP.GameTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Titulo_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background = "#FF4D4545">
+
+    <Grid>
+        <Button x:ConnectionId='2' Content="Ação" Height="77" Width="252" Margin="106,633,0,0" VerticalAlignment="Top"                           >
+            <Button.Flyout>
+                <Flyout x:ConnectionId='6' x:Name="Flyout_Action">
+
+                    <StackPanel >
+                        <TextBlock TextWrapping="Wrap" Text="Lista de possíveis ações"/>
+                        <Button Content="Ataque" Width="220"/>
+                        <Button Content="Desengajar" Width="220"/>
+                        <Button Content="Disparada" Width="220"/>
+                    </StackPanel>
+
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+        <Button x:ConnectionId='3' Content="Mover" Height="77" Width="252" Margin="363,633,0,0" VerticalAlignment="Top"                      />
+        <Button x:ConnectionId='4' Content="Ação Bônus" Height="77" Width="252" Margin="620,633,0,0" VerticalAlignment="Top"                      />
+        <Button x:ConnectionId='5' Content="Reação" Height="77" Width="252" Margin="877,633,0,0" VerticalAlignment="Top"                      />
+
+
+    </Grid>
+</Page>
+

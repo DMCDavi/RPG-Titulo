@@ -12,6 +12,6 @@
         <Button x:Name="Char2" Content="New Character" Margin="0,126,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char2_Click"/>
         <Button x:Name="Char3" Content="New Character" Margin="0,232,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char3_Click"/>
         <Button x:Name="Char4" Content="New Character" Margin="0,338,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char4_Click"/>
-        <Button x:Name="SelectButton" Content="Select" Margin="1065,619,0,0" VerticalAlignment="Top" Height="101" Width="215" Click="SelectButton_Click" />
+        <Button x:Name="SelectButton" Content="Select" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="SelectButton_Click" Height="101" Margin="1065,0,0,0" />
     </Grid>
 </Page>

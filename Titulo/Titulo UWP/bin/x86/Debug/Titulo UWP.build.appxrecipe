@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-POKN5MI</Machine>
+    <Machine>DESKTOP-P457HFO</Machine>
     <WindowsUser>guilh</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>fe756511-b721-4248-90e5-ff9da81ef15d</PackageIdentityName>
     <PackageIdentityPublisher>CN=guilh</PackageIdentityPublisher>
-    <IntermediateOutputPath>E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.exe">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.exe">
       <PackagePath>entrypoint\Titulo UWP.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
@@ -34,58 +34,61 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.xr.xml">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.xr.xml">
       <PackagePath>Titulo UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterCreation.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterCreation.xbf">
       <PackagePath>CharacterCreation.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterSelectionPage.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterSelectionPage.xbf">
       <PackagePath>CharacterSelectionPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\GameTest.xbf">
+      <PackagePath>GameTest.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Gitgub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\Titulo UWP.exe">
+    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\Titulo UWP.exe">
       <PackagePath>Titulo UWP.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

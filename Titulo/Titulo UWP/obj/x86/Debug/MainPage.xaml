@@ -11,7 +11,7 @@
     <Grid>
         <TextBlock Margin="0,54,0,492" FontFamily="Times New Roman" FontSize="144" Text="Título" HorizontalAlignment="Center" Width="360"/>
         <TextBlock Margin="0,227,0,449" FontFamily="Times New Roman" FontSize="36" Text ="O RPG" HorizontalAlignment="Center" Width="110"/>
-        <Button Name="StartButton" Content="Start" HorizontalAlignment="Center" Height="64" Width="153" FontFamily="Times New Roman" FontSize="48" Click="StartButton_Click" Margin="0,311,0,0" VerticalAlignment="Top">
+        <Button x:ConnectionId='2' Name="StartButton" Content="Start" HorizontalAlignment="Center" Height="64" Width="153" FontFamily="Times New Roman" FontSize="48"                           Margin="0,311,0,0" VerticalAlignment="Top">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -19,7 +19,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Name="TestButton" Content="Test" Height="64" Width="153" FontFamily="Times New Roman" FontSize="48" Click="TestButton_Click" Margin="0,380,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Button x:ConnectionId='3' Name="TestButton" Content="Test" Height="64" Width="153" FontFamily="Times New Roman" FontSize="48"                          Margin="0,380,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -29,3 +29,4 @@
         </Button>
     </Grid>
 </Page>
+
