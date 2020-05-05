@@ -8,9 +8,34 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#FFC3C3C3" Margin="0,0,10,10">
-        <TextBlock Margin="130,195,822,347" FontFamily="Times New Roman" FontSize="72" ><Run Text="Character"/><LineBreak/><Run Text="Name"/></TextBlock>
-        <TextBox x:Name="CharName" Margin="0,195,0,355" Background="#FFFFFBFF" HorizontalAlignment="Center" Width="377" Height="140" />
-        <Button Content="Prologue" HorizontalAlignment="Center" Margin="0,450,0,0" VerticalAlignment="Top" Height="92" Width="265" FontFamily="Times New Roman" FontSize="48"/>
+    <Grid Background="#FFC3C3C3">
+
+        <TextBlock Margin="567,10,555,0" FontFamily="Times New Roman" FontSize="48" Text="Vagner" TextAlignment="Center" Height="68" VerticalAlignment="Top" />
+        <TextBox x:Name="CharName" Margin="508,0,507,178" Background="#FFFFFBFF" FontFamily="Times New Roman" Height="53" VerticalAlignment="Bottom" />
+        <Button Content="Prologue" Margin="508,0,507,53" VerticalAlignment="Bottom" FontFamily="Times New Roman" FontSize="48" HorizontalAlignment="Stretch" Height="92"/>
+        <Button Content="+" Margin="0,141,119,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Click="Button_Click" Height="45" HorizontalAlignment="Right" Width="45" />
+        <Button Content="-" Margin="0,140,216,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Height="45" HorizontalAlignment="Right" Width="45" />
+        <TextBlock x:Name="str" Margin="0,151,167,0" FontFamily="Times New Roman" FontSize="20" Text="0" TextAlignment="Center" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44" />
+        <TextBlock Margin="0,151,275,0" FontFamily="Times New Roman" FontSize="20" Text="Força" TextAlignment="Right" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81" />
+        <Button Content="+" Margin="0,205,119,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Click="Button_Click" Height="45" HorizontalAlignment="Right" Width="45" />
+        <Button Content="-" Margin="0,204,216,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Height="45" HorizontalAlignment="Right" Width="45" />
+        <TextBlock x:Name="dex" Margin="0,215,167,0" FontFamily="Times New Roman" FontSize="20" Text="0" TextAlignment="Center" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44" />
+        <TextBlock Margin="0,215,275,0" FontFamily="Times New Roman" FontSize="20" Text="Destreza" TextAlignment="Right" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81" />
+        <Button Content="+" Margin="0,267,119,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Click="Button_Click" Height="45" HorizontalAlignment="Right" Width="45" />
+        <Button Content="-" Margin="0,266,216,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Height="45" HorizontalAlignment="Right" Width="45" />
+        <TextBlock x:Name="con" Margin="0,277,167,0" FontFamily="Times New Roman" FontSize="20" Text="0" TextAlignment="Center" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44" />
+        <TextBlock Margin="0,277,275,0" FontFamily="Times New Roman" FontSize="20" Text="Constituição" TextAlignment="Right" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" />
+        <Button Content="+" Margin="0,327,119,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Click="Button_Click" Height="45" HorizontalAlignment="Right" Width="45" />
+        <Button Content="-" Margin="0,326,216,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Height="45" HorizontalAlignment="Right" Width="45" />
+        <TextBlock x:Name="intl" Margin="0,337,167,0" FontFamily="Times New Roman" FontSize="20" Text="0" TextAlignment="Center" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44" />
+        <TextBlock Margin="0,337,275,0" FontFamily="Times New Roman" FontSize="20" Text="Inteligência" TextAlignment="Right" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="112" />
+        <Button Content="+" Margin="0,389,119,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Click="Button_Click" Height="45" HorizontalAlignment="Right" Width="45" />
+        <Button Content="-" Margin="0,388,216,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Height="45" HorizontalAlignment="Right" Width="45" />
+        <TextBlock x:Name="wis" Margin="0,399,167,0" FontFamily="Times New Roman" FontSize="20" Text="0" TextAlignment="Center" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44" />
+        <TextBlock Margin="0,399,275,0" FontFamily="Times New Roman" FontSize="20" Text="Sabedoria" TextAlignment="Right" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="96" />
+        <Button Content="+" Margin="0,450,119,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Click="Button_Click" Height="45" HorizontalAlignment="Right" Width="45" />
+        <Button Content="-" Margin="0,449,216,0" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" Height="45" HorizontalAlignment="Right" Width="45" />
+        <TextBlock x:Name="cha" Margin="0,460,167,0" FontFamily="Times New Roman" FontSize="20" Text="0" TextAlignment="Center" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="44" />
+        <TextBlock Margin="0,460,275,0" FontFamily="Times New Roman" FontSize="20" Text="Carisma" TextAlignment="Right" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="81" />
     </Grid>
 </Page>

@@ -197,8 +197,7 @@ namespace Titulo
             Lvl = 1;
             nHitDice = 1;
             this.Persona = Persona;
-            Race.AtributeInc(this);
-            Persona.AtributeInc(this);
+            Create();
         }
 
         /// <summary>
@@ -339,6 +338,8 @@ namespace Titulo
             Hp = Hpmax;
             Console.Clear();
             Console.WriteLine("Seus Atributos após aplicação dos bonus:");
+            Race.AtributeInc(this);
+            Persona.AtributeInc(this);
             ShowAtributes();
             EquippedArmor = new Armor(10, -10, 20);
             EquippedArmor.Equip(this);

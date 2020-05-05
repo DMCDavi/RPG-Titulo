@@ -22,11 +22,16 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterCreation : Page
     {
+        int cont = 0;
         public CharacterCreation()
         {
             this.InitializeComponent();
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cont++;
+            str.Text = cont.ToString();
+        }
     }
 }

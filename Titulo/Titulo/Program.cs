@@ -27,7 +27,7 @@ namespace Titulo
 
         static void Main(string[] args)
         {
-            
+            /*
             List<Task> tasks = new List<Task>();
             int rangeSize = 10;
             int rangeStart = 0;
@@ -49,7 +49,7 @@ namespace Titulo
             Console.WriteLine("The total is : {0}", sharedtotal);
 
 
-            System.Console.ReadLine();
+            System.Console.ReadLine();*/
             //teste
             string classe = "Tank";
             Personagem A = new Personagem(classe, new Human(), new Vagner());
@@ -59,8 +59,10 @@ namespace Titulo
                 Hp = 100,
                 
             }; 
+            /*
             A.Create();
             B.Create();
+            */
             int[] DmgDice = { 6, 6 };
             Weapon DESGRAÇA = new Weapon("Slash","STR",DmgDice, 0, 0, A);
             Armor Pica = new Armor(10, -10, 10);
