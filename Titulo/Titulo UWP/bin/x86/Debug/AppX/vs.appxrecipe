@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-P457HFO</Machine>
-    <WindowsUser>guilh</WindowsUser>
+    <Machine>DESKTOP-8OHPOAF</Machine>
+    <WindowsUser>gean1</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>fe756511-b721-4248-90e5-ff9da81ef15d</PackageIdentityName>
     <PackageIdentityPublisher>CN=guilh</PackageIdentityPublisher>
-    <IntermediateOutputPath>E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>F656224D70CD816761D50974C8B1A33B688FAAFCFAA18F642E52FBAA7D0CA823</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>1ACEB33D2D2B12379B92C841933162711CEC64634A2CC6FDF68FB2ECEBA1114B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>fe756511-b721-4248-90e5-ff9da81ef15d_1.0.0.0_x86__5ws1nzxtey6ng</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>fe756511-b721-4248-90e5-ff9da81ef15d_5ws1nzxtey6ng!App</RegisteredUserModeAppID>
     <RegisteredPackageID>fe756511-b721-4248-90e5-ff9da81ef15d</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:18:07.361</Modified>
+      <Modified>2020-05-08T19:28:39.757</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.exe">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.exe">
       <PackagePath>entrypoint\Titulo UWP.exe</PackagePath>
-      <Modified>2020-05-08T17:18:04.210</Modified>
+      <Modified>2020-05-08T19:28:38.536</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,79 +46,79 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T21:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-05-08T17:17:23.912</Modified>
+      <Modified>2020-05-08T18:50:57.022</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2020-05-08T17:17:23.870</Modified>
+      <Modified>2020-05-08T18:50:57.012</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:17:23.873</Modified>
+      <Modified>2020-05-08T18:50:57.013</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:17:23.876</Modified>
+      <Modified>2020-05-08T18:50:57.014</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:17:23.879</Modified>
+      <Modified>2020-05-08T18:50:57.014</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:17:23.880</Modified>
+      <Modified>2020-05-08T18:50:57.015</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:17:23.882</Modified>
+      <Modified>2020-05-08T18:50:57.015</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-08T17:17:23.884</Modified>
+      <Modified>2020-05-08T18:50:57.016</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Titulo UWP.xr.xml">
       <PackagePath>Titulo UWP.xr.xml</PackagePath>
-      <Modified>2020-05-08T17:17:25.428</Modified>
+      <Modified>2020-05-08T18:50:57.184</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-05-08T17:18:03.957</Modified>
+      <Modified>2020-05-08T19:28:38.306</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterCreation.xbf">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterCreation.xbf">
       <PackagePath>CharacterCreation.xbf</PackagePath>
-      <Modified>2020-05-08T17:18:03.953</Modified>
+      <Modified>2020-05-08T19:28:38.302</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterSelectionPage.xbf">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\CharacterSelectionPage.xbf">
       <PackagePath>CharacterSelectionPage.xbf</PackagePath>
-      <Modified>2020-05-08T17:18:03.982</Modified>
+      <Modified>2020-05-08T19:28:38.306</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\GameTest.xbf">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\GameTest.xbf">
       <PackagePath>GameTest.xbf</PackagePath>
-      <Modified>2020-05-08T17:18:03.984</Modified>
+      <Modified>2020-05-08T19:28:38.306</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-05-08T17:18:03.985</Modified>
+      <Modified>2020-05-08T19:28:38.307</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T20:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-05-08T17:18:05.337</Modified>
+      <Modified>2020-05-08T19:28:38.949</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\Documents\Github\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\Titulo UWP.exe">
+    <AppxPackagedFile Include="C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\Titulo UWP\bin\x86\Debug\Core\Titulo UWP.exe">
       <PackagePath>Titulo UWP.exe</PackagePath>
-      <Modified>2020-05-08T17:18:07.328</Modified>
+      <Modified>2020-05-08T19:28:39.741</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

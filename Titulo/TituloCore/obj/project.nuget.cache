@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oh1iiN8+GiiCEoZRkKGX455zvFGU3h5d4hAKvO+6/Q+3TG9UN18ofrEis+n857sjh2Sx8io7EmWlqHifsafLlg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gean1\\Documents\\GitHub\\RPG-Titulo\\Titulo\\TituloCore\\TituloCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gean1\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\gean1\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteNUnit", "TesteNUnit\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Titulo UWP", "Titulo UWP\Titulo UWP.csproj", "{71FB5470-F07B-4CF4-8879-54AEED5DBCBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TituloCore", "TituloCore\TituloCore.csproj", "{35000E32-4DF5-45F3-AA27-E776C796B149}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,26 @@ Global
 		{71FB5470-F07B-4CF4-8879-54AEED5DBCBC}.Release|x86.ActiveCfg = Release|x86
 		{71FB5470-F07B-4CF4-8879-54AEED5DBCBC}.Release|x86.Build.0 = Release|x86
 		{71FB5470-F07B-4CF4-8879-54AEED5DBCBC}.Release|x86.Deploy.0 = Release|x86
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|ARM.Build.0 = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|x64.Build.0 = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Debug|x86.Build.0 = Debug|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|ARM.ActiveCfg = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|ARM.Build.0 = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|ARM64.Build.0 = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|x64.ActiveCfg = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|x64.Build.0 = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|x86.ActiveCfg = Release|Any CPU
+		{35000E32-4DF5-45F3-AA27-E776C796B149}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
