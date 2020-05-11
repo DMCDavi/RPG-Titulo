@@ -1,9 +1,0 @@
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\bin\Debug\netstandard2.0\TituloCore.deps.json
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\bin\Debug\netstandard2.0\TituloCore.dll
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\bin\Debug\netstandard2.0\TituloCore.pdb
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\obj\Debug\netstandard2.0\TituloCore.csprojAssemblyReference.cache
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\obj\Debug\netstandard2.0\TituloCore.csproj.CoreCompileInputs.cache
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\obj\Debug\netstandard2.0\TituloCore.AssemblyInfoInputs.cache
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\obj\Debug\netstandard2.0\TituloCore.AssemblyInfo.cs
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\obj\Debug\netstandard2.0\TituloCore.dll
-C:\Users\gean1\Documents\GitHub\RPG-Titulo\Titulo\TituloCore\obj\Debug\netstandard2.0\TituloCore.pdb
