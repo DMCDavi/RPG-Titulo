@@ -9,7 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="#FFC3C3C3">
-
+        <StackPanel Orientation="Vertical" Margin="183,92,943,407">
+            <RadioButton Content="Assassino" Tag="Yellow" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Bardo" Tag="Blue" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Mago" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Escudeiro" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Tank" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Guerreiro" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Feiticeiro" Tag="White" Checked="BGRadioButton_Checked" FontFamily="Times New Roman" IsChecked="True"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="183,389,943,139">
+            <RadioButton Content="Dragonborn" Tag="Yellow" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Anão" Tag="Blue" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Elfo" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Humano" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Orc" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
+            <RadioButton Content="Golias" Tag="White" Checked="BGRadioButton_Checked" FontFamily="Times New Roman" IsChecked="True"/>
+        </StackPanel>
         <TextBlock Margin="567,10,555,0" FontFamily="Times New Roman" FontSize="48" Text="Vagner" TextAlignment="Center" Height="68" VerticalAlignment="Top" />
         <TextBox x:Name="CharName" Margin="508,0,507,178" Background="#FFFFFBFF" FontFamily="Times New Roman" Height="53" VerticalAlignment="Bottom" />
         <Button Content="Prologue" Margin="508,0,507,53" VerticalAlignment="Bottom" FontFamily="Times New Roman" FontSize="48" HorizontalAlignment="Stretch" Height="92"/>
