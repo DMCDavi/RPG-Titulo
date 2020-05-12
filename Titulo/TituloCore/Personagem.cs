@@ -11,6 +11,7 @@ namespace Titulo
         public IRace Race { get; set; }
         public IPersona Persona;
         public string MainClass;
+        public int pts = 30;
         public List<IClass> Class = new List<IClass>();
         public string Nickname { get; set; }
 
@@ -19,7 +20,7 @@ namespace Titulo
             {"Mage", new Mage()}
         };
 
-        public Dictionary<string,int> Atribute = new Dictionary<string, int> {
+        public Dictionary<string, int> Atribute = new Dictionary<string, int> {
             {"STR", 6},
             {"DEX", 6},
             {"CON", 6},
@@ -118,9 +119,9 @@ namespace Titulo
         public int ConjurationLvl()
         {
             int ConjLvl = 0;
-            foreach(IClass iclass in Class)
+            foreach (IClass iclass in Class)
             {
-                if(iclass.GetType() == new Mage().GetType() )
+                if (iclass.GetType() == new Mage().GetType())
                 {
                     ConjLvl += iclass.ClassLvl();
                 }
@@ -138,43 +139,43 @@ namespace Titulo
             int ConjLvl = ConjurationLvl();
             if ((ConjLvl + 1) / 2 < Lvl)
                 return 0;
-            if(Lvl == 1)
+            if (Lvl == 1)
             {
-                if(ConjLvl < 4)
+                if (ConjLvl < 4)
                     return 1 + ConjLvl;
                 return 4;
             }
-            if(Lvl == 2)
+            if (Lvl == 2)
             {
                 if (ConjLvl == 3)
                     return 2;
                 return 3;
             }
-            if(Lvl == 3)
+            if (Lvl == 3)
             {
                 if (ConjLvl == 5)
                     return 2;
                 return 3;
             }
-            if(Lvl == 4)
+            if (Lvl == 4)
             {
                 if (ConjLvl < 10)
                     return ConjLvl - 6;
                 return 3;
             }
-            if(Lvl == 5)
+            if (Lvl == 5)
             {
                 if (ConjLvl == 9)
                     return 1;
                 return 2;
             }
-            if(Lvl == 6)
+            if (Lvl == 6)
             {
                 if (ConjLvl > 18)
                     return 2;
                 return 1;
             }
-            if(Lvl == 7)
+            if (Lvl == 7)
             {
                 if (ConjLvl == 20)
                     return 2;
@@ -218,7 +219,7 @@ namespace Titulo
         /// <returns></returns>
         public int Modifier(string atribute)
         {
-            int mod = Atribute[atribute]/2 - 5;
+            int mod = Atribute[atribute] / 2 - 5;
             mod += MagicBonus[atribute];
             return mod;
         }
@@ -232,7 +233,7 @@ namespace Titulo
         {
             foreach (string Language in Languages)
             {
-                if(language == Language)
+                if (language == Language)
                 {
                     return true;
                 }
@@ -250,7 +251,7 @@ namespace Titulo
         /// </summary>
         /// <param name="x">Posição horizontal</param>
         /// <param name="y">Posição vertical</param>
-        public void Move(int x,  int y)
+        public void Move(int x, int y)
         {
             if (true)
             {
@@ -270,57 +271,37 @@ namespace Titulo
         /// <summary>
         /// Realiza a compra de Atribute da criação de personagem
         /// </summary>
-        public void BuyAtributes()
+        public void BuyAtributes(String key, int signal)
         {
             RollHitDice();
-            int pts = 30;
-            while (true)
+            ShowAtributes();
+            int dpts;
+            if (signal == 1)
             {
-                Console.WriteLine($"Voce tem {pts} pontos\n\n");
-                ShowAtributes();
-                Console.WriteLine("Q q tu q mudah?");
-                var key = Console.ReadLine();
-                Console.WriteLine($"Vai aumentar(1) ou diminuir(2)?");
-                var a = Console.ReadLine();
-                Console.WriteLine("Quanto?");
-                int b = int.Parse(Console.ReadLine());
-                int dpts;
-                while (b>0)
+                dpts = Math.Abs(Atribute[key] / 2 - 5);
+                if (dpts == 0)
                 {
-                    b--;
-                    if (a == "1")
-                    {
-                        dpts = Math.Abs(Atribute[key] / 2 - 5);
-                        if(dpts == 0)
-                        {
-                            dpts++;
-                        }
-                        pts -= dpts;
-                        Atribute[key]++;
-                    }
-                    else if (a == "2")
-                    {
-                        Atribute[key]--;
-                        dpts = Math.Abs(Atribute[key] / 2 - 5);
-                        if(dpts == 0)
-                        {
-                            dpts++;
-                        }
-                        pts += dpts;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ta de brinquedo?");
-                    }
+                    dpts++;
                 }
-                Console.WriteLine("Para encerrar digite done");
-                a = Console.ReadLine();
-                Console.Clear();
-                if(a == "done")
+                if (pts - dpts > 0)
                 {
-                    break;
+                    pts -= dpts;
+                    Atribute[key]++;
                 }
-
+            }
+            else if (signal == 2 && Atribute[key] > 0)
+            {
+                Atribute[key]--;
+                dpts = Math.Abs(Atribute[key] / 2 - 5);
+                if (dpts == 0)
+                {
+                    dpts++;
+                }
+                pts += dpts;
+            }
+            else
+            {
+                Console.WriteLine("Ta de brinquedo?");
             }
         }
 
@@ -330,13 +311,13 @@ namespace Titulo
         public virtual void Create()
         {
             Console.WriteLine("Iniciando a definição dos Atributos");
-            BuyAtributes();
+            //Comentei essa funcao pois mudei a forma como ela funciona
+            //BuyAtributes();
             Race.Speed(this);
             Race.Language(this);
             Class[0].HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
-            Console.Clear();
             Console.WriteLine("Seus Atributos após aplicação dos bonus:");
             Race.AtributeInc(this);
             Persona.AtributeInc(this);
@@ -386,8 +367,8 @@ namespace Titulo
             Random rand = new Random();
             if (nHitDice > 0 && Hp < Hpmax)
             {
-                Hp += 1 + rand.Next()%HitDice;
-                if(Hp > Hpmax)
+                Hp += 1 + rand.Next() % HitDice;
+                if (Hp > Hpmax)
                 {
                     Hp = Hpmax;
                 }
@@ -398,7 +379,7 @@ namespace Titulo
         {
             return EquippedArmor.Ac();
         }
-        
+
         /// <summary>
         /// Testa se da pra atacar
         /// </summary>
@@ -408,7 +389,7 @@ namespace Titulo
         {
             return true; //Testando
 
-            if(Math.Abs(Target.posX - posX) <= EquippedWeapon.Range && Math.Abs(Target.posY - posY) <= EquippedWeapon.Range)
+            if (Math.Abs(Target.posX - posX) <= EquippedWeapon.Range && Math.Abs(Target.posY - posY) <= EquippedWeapon.Range)
             {
                 return true;
             }
@@ -425,7 +406,7 @@ namespace Titulo
         public void Attack(Personagem Target)
         {
             Random rand = new Random();
-            if(canAttack(Target))
+            if (canAttack(Target))
             {
                 int dice = rand.Next() % 20 + 1;
                 int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
@@ -463,7 +444,7 @@ namespace Titulo
                 dmg *= 2;
             if (dmg <= 0)
                 dmg = 1;
-            
+
             Hp -= dmg;
         }
 
