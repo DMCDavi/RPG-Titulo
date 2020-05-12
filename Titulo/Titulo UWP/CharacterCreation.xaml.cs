@@ -177,5 +177,10 @@ namespace Titulo_UWP
             cha.Text = pers.Atribute["CHA"].ToString();
             score.Text = pers.pts.ToString();
         }
+
+        private void BGRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
