@@ -23,11 +23,7 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterCreation : Page
     {
-        Personagem pers = new Personagem("Tank", new Human(), new Vagner())
-        {
-            Hpmax = 100,
-            Hp = 100,
-        };
+        Personagem pers = new Personagem("Tank", new Human(), new Vagner());
         public CharacterCreation()
         {
             this.InitializeComponent();

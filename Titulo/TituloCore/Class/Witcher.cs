@@ -4,7 +4,26 @@ using System.Text;
 
 namespace Titulo.Class
 {
-    class Witcher
+    public class Witcher : IClass
     {
+        public bool CanBe(Personagem Self)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int ClassLvl()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void HitDice(Personagem Self)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LvlUp(Personagem Self)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

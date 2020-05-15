@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Text;
+using Titulo.Class;
 
 namespace Titulo
 {
@@ -16,8 +17,15 @@ namespace Titulo
         public string Nickname { get; set; }
 
         public Dictionary<string, IClass> AllClass = new Dictionary<string, IClass> {
+            {"Assassin", new Assassin()},
+            {"Bard", new Bard()},
+            {"Berserker", new Berserker()},
+            {"Cleric", new Cleric()},
+            {"Mage", new Mage()},
+            {"Shielder", new Shielder()},
             {"Tank", new Tank()},
-            {"Mage", new Mage()}
+            {"Warrior", new Warrior()},
+            {"Witcher", new Witcher()},
         };
 
         public Dictionary<string, int> Atribute = new Dictionary<string, int> {
@@ -311,8 +319,6 @@ namespace Titulo
         public virtual void Create()
         {
             Console.WriteLine("Iniciando a definição dos Atributos");
-            //Comentei essa funcao pois mudei a forma como ela funciona
-            //BuyAtributes();
             Race.Speed(this);
             Race.Language(this);
             Class[0].HitDice(this);

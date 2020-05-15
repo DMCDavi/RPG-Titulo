@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Titulo.Class
 {
-    class Assassin : IClass
+    public class Assassin : IClass
     {
         public int AssassinLvl;
 

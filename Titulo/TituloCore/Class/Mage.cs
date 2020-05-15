@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Titulo
 {
-    class Mage : IClass
+    public class Mage : IClass
     {
         public int MageLvl;
 

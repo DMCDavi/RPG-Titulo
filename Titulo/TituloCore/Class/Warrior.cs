@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Titulo
 {
-    class Warrior : IClass
+    public class Warrior : IClass
     {
         public int WarriorLvl;
 

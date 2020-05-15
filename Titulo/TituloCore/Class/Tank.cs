@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Titulo
 {
-    class Tank : IClass // Ruler
+    public class Tank : IClass // Ruler
     {
         public Boolean secret;
         public int TankLvl;
