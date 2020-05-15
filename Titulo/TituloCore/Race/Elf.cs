@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Titulo
 {
-    class Elf : IRace
+    public class Elf : IRace
     {
         public void AtributeInc(Personagem Self)
         {
