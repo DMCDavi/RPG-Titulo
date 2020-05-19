@@ -393,7 +393,7 @@ namespace Titulo
         /// <returns></returns>
         public bool canAttack(Personagem Target)
         {
-            return true; //Testando
+            return true; //testando
 
             if (Math.Abs(Target.posX - posX) <= EquippedWeapon.Range && Math.Abs(Target.posY - posY) <= EquippedWeapon.Range)
             {
