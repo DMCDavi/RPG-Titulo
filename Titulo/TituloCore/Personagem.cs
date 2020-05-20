@@ -143,6 +143,7 @@ namespace Titulo
 
         /// <summary>
         /// Retorna o lvl de conjuração do personagem
+        /// Sendo Testada
         /// </summary>
         /// <returns></returns>
         public int ConjurationLvl()
@@ -162,7 +163,11 @@ namespace Titulo
 
             return ConjLvl;
         }
-
+        /// <summary>
+        /// Sendo testada
+        /// </summary>
+        /// <param name="Lvl"></param>
+        /// <returns></returns>
         public int TotalMagicSpaces(int Lvl)
         {
             int ConjLvl = ConjurationLvl();
@@ -255,6 +260,7 @@ namespace Titulo
 
         /// <summary>
         /// Função que determina se o personagem entende o idioma
+        /// sendo testada
         /// </summary>
         /// <param name="language"></param>
         /// <returns></returns>
@@ -409,6 +415,7 @@ namespace Titulo
 
         /// <summary>
         /// Testa se da pra atacar
+        /// Sendo Testada
         /// </summary>
         /// <param name="Target">Alvo</param>
         /// <returns></returns>
@@ -453,6 +460,7 @@ namespace Titulo
 
         /// <summary>
         /// Aplica dano de um tipo
+        /// Sendo Testada
         /// </summary>
         /// <param name="dmg">Dano bruto</param>
         /// <param name="tipo">Tipo de dano</param>
