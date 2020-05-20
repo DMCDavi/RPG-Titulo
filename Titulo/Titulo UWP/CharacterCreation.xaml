@@ -9,71 +9,79 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image Source="/Assets/landscape.jpg" Stretch="UniformToFill" Grid.ColumnSpan="2" Margin="0,0,3,0"/>
-        <Image Source="/Assets/Personagens/Gean/Sem_fundo/Gean_Human.png" Margin="291,10,302,228" />
-        <TextBlock Margin="433,29,433,0" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="48" Text="Gean" TextAlignment="Center" Height="59" VerticalAlignment="Top" />
-        <StackPanel Orientation="Vertical" Margin="183,92,943,407">
-            <RadioButton Content="Assassino" Tag="Yellow" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Bardo" Tag="Blue" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Mago" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Escudeiro" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Tank" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Guerreiro" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Feiticeiro" Tag="White" Checked="BGRadioButton_Checked" FontFamily="Times New Roman" IsChecked="True"/>
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="183,389,943,139">
-            <RadioButton Content="Dragonborn" Tag="Yellow" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Anão" Tag="Blue" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Elfo" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Humano" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Orc" Tag="Green" Checked="BGRadioButton_Checked" FontFamily="Times New Roman"/>
-            <RadioButton Content="Golias" Tag="White" Checked="BGRadioButton_Checked" FontFamily="Times New Roman" IsChecked="True"/>
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="534,0,545,27" Height="139" VerticalAlignment="Bottom" >
-            <TextBox x:Name="CharName" Background="#FFFFFBFF" Height="44" Margin="0,0,0,10" TextAlignment="Center" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" VerticalContentAlignment="Center" FontSize="25"/>
-            <Button Content="Prologue" VerticalAlignment="Bottom" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="48" HorizontalAlignment="Stretch" Height="82" Background="#CCFFFFFF"/>
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="0,0,115,0" Padding="20,20,20,20" Height="477" VerticalAlignment="Center" HorizontalAlignment="Right" Width="309">
+        <Image Source="/Assets/landscape.jpg" Stretch="UniformToFill" Margin="0,0,3,0" Grid.RowSpan="2"/>
+        <Image x:Name="CharacterImg" Source="/Assets/Personagens/Gean/Sem_fundo/Gean_Human.png" Margin="291,10,302,228" Grid.RowSpan="2" />
+        <TextBlock Margin="433,29,433,0" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Text="Gean" TextAlignment="Center" Height="59" VerticalAlignment="Top" />
+        <StackPanel x:Name="StackClass" CornerRadius="20" Orientation="Vertical" Margin="183,48,0,0" Padding="20,20,20,20" Height="290" VerticalAlignment="Top" HorizontalAlignment="Left" Width="168">
             <StackPanel.Background>
                 <SolidColorBrush Color="White" Opacity="0.8"/>
             </StackPanel.Background>
-            <TextBlock FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Pontos" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Right" Margin="0,0,36,0" />
-            <TextBlock x:Name="score" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="107" HorizontalAlignment="Right" Margin="0,0,24,10" />
+            <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Classe" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Center"  />
+            <RadioButton Content="Assassino" Tag="Assassin" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" IsChecked="True"/>
+            <RadioButton Content="Bardo" Tag="Bard" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Mago" Tag="Mage" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Escudeiro" Tag="Shielder" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Tank" Tag="Tank" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Guerreiro" Tag="Warrior" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Feiticeiro" Tag="Witcher" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+        </StackPanel>
+        <StackPanel x:Name="StackRace" CornerRadius="20" Orientation="Vertical" Margin="182,0,0,83" Padding="20,20,20,20" HorizontalAlignment="Left" Width="169" Height="263" VerticalAlignment="Bottom">
+            <StackPanel.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </StackPanel.Background>
+            <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Raça" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Center"  />
+            <RadioButton Content="Dragonborn" Tag="Dragonborn" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Anão" Tag="Dwarf" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Elfo" Tag="Elf" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Humano" Tag="Human" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" IsChecked="True"/>
+            <RadioButton Content="Orc" Tag="Orc" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton Content="Golias" Tag="Goliath" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient"  FontSize="20"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="534,0,545,27" Height="139" VerticalAlignment="Bottom" Grid.Row="1" >
+            <TextBox CornerRadius="20" x:Name="CharName" Background="#FFFFFBFF" Height="44" Margin="0,0,0,10" TextAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" VerticalContentAlignment="Center" FontSize="20"/>
+            <Button CornerRadius="30" x:Name="NextStep" Content="Avançar" VerticalAlignment="Bottom" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" HorizontalAlignment="Stretch" Height="82" Background="#CCFFFFFF" Click="NextStep_Click"/>
+        </StackPanel>
+        <StackPanel CornerRadius="20" x:Name="StackAtributes" Visibility="Collapsed" Orientation="Vertical" Margin="0,0,116,0" Padding="20,20,20,20" VerticalAlignment="Center" HorizontalAlignment="Right" Width="296">
+            <StackPanel.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </StackPanel.Background>
+            <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Pontos" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Right" Margin="0,0,36,0" />
+            <TextBlock x:Name="score" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="107" HorizontalAlignment="Right" Margin="0,0,24,10" />
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
-                <TextBlock  FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Força" TextAlignment="Right" Height="30" Width="92" Margin="0,0,10,0"/>
-                <Button Content="-" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Height="45" Width="45" Click="Str_Minus_Click" CornerRadius="100,100,100,100" />
-                <TextBlock x:Name="str" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0"/>
-                <Button Content="+" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Click="Str_Plus_Click" Height="45" Width="45" CornerRadius="100,100,100,100"/>
+                <TextBlock  FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Força" TextAlignment="Right" Height="30" Width="92" Margin="0,0,10,0"/>
+                <Button Content="-" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Str_Minus_Click" CornerRadius="100" />
+                <TextBlock x:Name="str" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0"/>
+                <Button Content="+" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Click="Str_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
-                <TextBlock FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Destreza" TextAlignment="Right" Height="29" Width="81" Margin="0,0,10,0" />
-                <Button Content="-" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Height="45" Width="45" Click="Dex_Minus_Click" CornerRadius="100,100,100,100"/>
-                <TextBlock x:Name="dex" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                <Button Content="+" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Click="Dex_Plus_Click" Height="45" Width="45" CornerRadius="100,100,100,100"/>
+                <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Destreza" TextAlignment="Right" Height="29" Width="81" Margin="0,0,10,0" />
+                <Button Content="-" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Dex_Minus_Click" CornerRadius="100"/>
+                <TextBlock x:Name="dex" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <Button Content="+" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Click="Dex_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
-                <TextBlock FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Constituição" TextAlignment="Right" Height="27" Width="113" Margin="0,0,10,0" />
-                <Button Content="-" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Height="45" Width="45" Click="Con_Minus_Click" CornerRadius="100,100,100,100"/>
-                <TextBlock x:Name="con" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Click="Con_Plus_Click" Height="45" Width="45" CornerRadius="100,100,100,100"/>
+                <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Constituição" TextAlignment="Right" Height="27" Width="113" Margin="0,0,10,0" />
+                <Button Content="-" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Con_Minus_Click" CornerRadius="100"/>
+                <TextBlock x:Name="con" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
+                <Button Content="+" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Click="Con_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
-                <TextBlock FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Inteligência" TextAlignment="Right" Height="29" Width="112" Margin="0,0,10,0" />
-                <Button Content="-" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Height="45" Width="45" Click="Int_Minus_Click" CornerRadius="100,100,100,100"/>
-                <TextBlock x:Name="intl" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Click="Int_Plus_Click" Height="45" Width="45" CornerRadius="100,100,100,100"/>
+                <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Inteligência" TextAlignment="Right" Height="29" Width="112" Margin="0,0,10,0" />
+                <Button Content="-" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Int_Minus_Click" CornerRadius="100"/>
+                <TextBlock x:Name="intl" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
+                <Button Content="+" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Click="Int_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
-                <TextBlock FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Sabedoria" TextAlignment="Right" Height="28" Width="96" Margin="0,0,10,0" />
-                <Button Content="-" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Height="45" Width="45" Click="Wis_Minus_Click" CornerRadius="100,100,100,100"/>
-                <TextBlock x:Name="wis" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Click="Wis_Plus_Click" Height="45" Width="45" CornerRadius="100,100,100,100"/>
+                <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Sabedoria" TextAlignment="Right" Height="28" Width="96" Margin="0,0,10,0" />
+                <Button Content="-" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Wis_Minus_Click" CornerRadius="100"/>
+                <TextBlock x:Name="wis" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
+                <Button Content="+" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Click="Wis_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
-                <TextBlock FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="Carisma" TextAlignment="Right" Height="25" Width="81" Margin="0,0,10,0" />
-                <Button Content="-" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Height="45" Width="45" Click="Cha_Minus_Click" CornerRadius="100,100,100,100"/>
-                <TextBlock x:Name="cha" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="/Assets/Fonts/OldeEnglish.ttf#Olde English" FontSize="25" FontWeight="Bold" Click="Cha_Plus_Click" Height="45" Width="45" CornerRadius="100,100,100,100"/>
+                <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Carisma" TextAlignment="Right" Height="25" Width="81" Margin="0,0,10,0" />
+                <Button Content="-" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Cha_Minus_Click" CornerRadius="100"/>
+                <TextBlock x:Name="cha" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
+                <Button Content="+" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" FontWeight="Bold" Click="Cha_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
         </StackPanel>
     </Grid>

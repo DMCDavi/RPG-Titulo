@@ -9,8 +9,8 @@ namespace Titulo
     public class Personagem
     {
         public string SpritePath;
-        public IRace Race { get; set; }
-        public IPersona Persona;
+        public List<IRace> Race = new List<IRace>();
+        public List<IPersona> Persona = new List<IPersona>();
         public string MainClass;
         public int pts = 30;
         public List<IClass> Class = new List<IClass>();
@@ -26,6 +26,27 @@ namespace Titulo
             {"Tank", new Tank()},
             {"Warrior", new Warrior()},
             {"Witcher", new Witcher()},
+        };
+
+        public Dictionary<string, IPersona> AllPersona = new Dictionary<string, IPersona> {
+            {"Ana", new Ana()},
+            {"Bia", new Bia()},
+            {"David", new David()},
+            {"Gean", new Gean()},
+            {"Fernanda", new Fernanda()},
+            {"Grhamm", new Grhamm()},
+            {"Joao", new Joao()},
+            {"Maria", new Maria()},
+            {"Vagner", new Vagner()},
+        };
+
+        public Dictionary<string, IRace> AllRace = new Dictionary<string, IRace> {
+            {"DragonBorn", new Dragonborn()},
+            {"Dwarf", new Dwarf()},
+            {"Elf", new Elf()},
+            {"Goliath", new Goliath()},
+            {"Human", new Human()},
+            {"Orc", new Orc()},
         };
 
         public Dictionary<string, int> Atribute = new Dictionary<string, int> {
@@ -202,15 +223,15 @@ namespace Titulo
         /// </summary>
         /// <param name="Class"></param>
         /// <param name="Race"></param>
-        public Personagem(string Class, IRace Race, IPersona Persona)
+        public Personagem(string Class, string Race, string Persona)
         {
             MainClass = Class;
             this.Class.Add(AllClass[Class]);
-            this.Race = Race;
+            this.Race.Add(AllRace[Race]);
             Exp = 0;
             Lvl = 1;
             nHitDice = 1;
-            this.Persona = Persona;
+            this.Persona.Add(AllPersona[Persona]);
             Create();
         }
 
@@ -325,14 +346,14 @@ namespace Titulo
         public virtual void Create()
         {
             Console.WriteLine("Iniciando a definição dos Atributos");
-            Race.Speed(this);
-            Race.Language(this);
+            Race[0].Speed(this);
+            Race[0].Language(this);
             Class[0].HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
             Console.WriteLine("Seus Atributos após aplicação dos bonus:");
-            Race.AtributeInc(this);
-            Persona.AtributeInc(this);
+            Race[0].AtributeInc(this);
+            Persona[0].AtributeInc(this);
             ShowAtributes();
             EquippedArmor = new Armor(10, -10, 20);
             EquippedArmor.Equip(this);

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Titulo;
+using Windows.UI.Xaml.Media.Imaging;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,24 +24,12 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterCreation : Page
     {
-        Personagem pers = new Personagem("Tank", new Human(), new Vagner());
+        Personagem pers;
+        string race_name = "Human", class_name = "Assassin";
         public CharacterCreation()
         {
             this.InitializeComponent();
-            str.Text = pers.Atribute["STR"].ToString();
-            dex.Text = pers.Atribute["DEX"].ToString();
-            con.Text = pers.Atribute["CON"].ToString();
-            intl.Text = pers.Atribute["INT"].ToString();
-            wis.Text = pers.Atribute["WIS"].ToString();
-            cha.Text = pers.Atribute["CHA"].ToString();
-            score.Text = pers.pts.ToString();
         }
-
-        private void BGRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
 
         /// <summary>
         /// Tenta aumentar em 1 ponto a atributo força
@@ -178,6 +167,41 @@ namespace Titulo_UWP
             pers.BuyAtributes("CHA", 2);
             cha.Text = pers.Atribute["CHA"].ToString();
             score.Text = pers.pts.ToString();
+        }
+
+        private void NextStep_Click(object sender, RoutedEventArgs e)
+        {
+            pers = new Personagem(class_name, race_name, "Vagner");
+            StackAtributes.Visibility = Visibility.Visible;
+            StackClass.Visibility = Visibility.Collapsed;
+            StackRace.Visibility = Visibility.Collapsed;
+            NextStep.Content = "Salvar";
+            str.Text = pers.Atribute["STR"].ToString();
+            dex.Text = pers.Atribute["DEX"].ToString();
+            con.Text = pers.Atribute["CON"].ToString();
+            intl.Text = pers.Atribute["INT"].ToString();
+            wis.Text = pers.Atribute["WIS"].ToString();
+            cha.Text = pers.Atribute["CHA"].ToString();
+            score.Text = pers.pts.ToString();
+        }
+
+        private void Class_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb != null)
+            {
+                class_name = rb.Tag.ToString();
+            }
+        }
+
+        private void Race_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb != null)
+            {
+                race_name = rb.Tag.ToString();
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + race_name + ".png"));
+            }
         }
     }
 }
