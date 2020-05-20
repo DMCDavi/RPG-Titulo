@@ -2,12 +2,13 @@ using NUnit.Framework;
 using Titulo;
 
 namespace TesteNUnit
-{
+{   [TestFixture]
     public class Tests
     {
         [TestCase]
         public void TotalMagicSpaces()
         {
+
             Personagem personagem = new Personagem("Tank", new Human(), new Vagner());
             Assert.AreEqual(0,personagem.TotalMagicSpaces(3));
         }
