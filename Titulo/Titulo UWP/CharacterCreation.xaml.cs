@@ -173,6 +173,8 @@ namespace Titulo_UWP
         {
             pers = new Personagem(class_name, race_name, "Vagner");
             StackAtributes.Visibility = Visibility.Visible;
+            StackClass.Visibility = Visibility.Collapsed;
+            StackRace.Visibility = Visibility.Collapsed;
             NextStep.Content = "Salvar";
             str.Text = pers.Atribute["STR"].ToString();
             dex.Text = pers.Atribute["DEX"].ToString();
