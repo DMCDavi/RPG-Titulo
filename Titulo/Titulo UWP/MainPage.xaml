@@ -6,37 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#FFF30687">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Margin="0,54,0,492" FontFamily="Times New Roman" FontSize="144" Text="Título" HorizontalAlignment="Center" Width="360"/>
-        <TextBlock Margin="0,227,0,449" FontFamily="Times New Roman" FontSize="36" Text ="O RPG" HorizontalAlignment="Center" Width="110"/>
-        <Button Name="StartButton" Content="Start" HorizontalAlignment="Center" Height="64" Width="153" FontFamily="Times New Roman" FontSize="48" Click="StartButton_Click" Margin="0,311,0,0" VerticalAlignment="Top">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF2B34E8" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button Name="TestButton" Content="Test" Height="64" Width="153" FontFamily="Times New Roman" FontSize="48" Click="TestButton_Click" Margin="0,380,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF2B34E8" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Grid>
-            <TextBlock Margin="0,227,0,723" FontFamily="Times New Roman" FontSize="36" Text ="O RPG" HorizontalAlignment="Center" Width="110"/>
-            <Button x:Name="Map" Content="Map" Height="100" Width="200" FontFamily="Arial Black" FontSize="48" Click="TestButton_Click" Margin="0,500,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="#FF2B34E8" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-        </Grid>
+        <Image Source="/Assets/landscape.jpg" Stretch="UniformToFill"/>
+        <Image Source="/Assets/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="486" Height="317" VerticalAlignment="Top" Margin="0,27,0,0"/>
+        <StackPanel Margin="525,113,526,0" Height="144" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="100" Text="Título" Height="94" VerticalAlignment="Top"/>
+            <TextBlock TextAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="36" Text ="O RPG" Height="44"/>
+        </StackPanel>
+        <Button CornerRadius="30" Name="StartButton" Content="Start" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="StartButton_Click" Margin="564,459,563,0" Background="#CCFFFFFF" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="64"/>
+        <TextBlock Margin="0,227,0,723" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="36" Text ="O RPG" HorizontalAlignment="Center" Width="110"/>
     </Grid>
 </Page>

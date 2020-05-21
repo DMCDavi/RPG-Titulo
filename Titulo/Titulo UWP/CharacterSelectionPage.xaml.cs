@@ -29,6 +29,7 @@ namespace Titulo_UWP
         public int selected;
         private void Char1_Click(object sender, RoutedEventArgs e)
         {
+            SelectButton.Visibility = Visibility.Visible;
             selected = 1;
             if (Char1.Content.Equals("New Character"))
             {
@@ -42,6 +43,7 @@ namespace Titulo_UWP
 
         private void Char2_Click(object sender, RoutedEventArgs e)
         {
+            SelectButton.Visibility = Visibility.Visible;
             selected = 2;
             if (Char2.Content.Equals("New Character"))
             {
@@ -55,6 +57,7 @@ namespace Titulo_UWP
 
         private void Char3_Click(object sender, RoutedEventArgs e)
         {
+            SelectButton.Visibility = Visibility.Visible;
             selected = 3;
             if (Char3.Content.Equals("New Character"))
             {
@@ -68,6 +71,7 @@ namespace Titulo_UWP
 
         private void Char4_Click(object sender, RoutedEventArgs e)
         {
+            SelectButton.Visibility = Visibility.Visible;
             selected = 4;
             if (Char4.Content.Equals("New Character"))
             {

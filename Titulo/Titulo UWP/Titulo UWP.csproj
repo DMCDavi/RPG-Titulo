@@ -142,13 +142,17 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\gean_landscape.jpg" />
     <Content Include="Assets\landscape.jpg" />
+    <Content Include="Assets\landscape.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Dragonborn.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Dwarf.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Elf.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Goliath.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Human.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Orc.png" />
+    <Content Include="Assets\scrollpaper.png" />
+    <Content Include="Assets\tela_principal.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

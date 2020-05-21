@@ -9,33 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image Source="/Assets/landscape.jpg" Stretch="UniformToFill" Margin="0,0,3,0" Grid.RowSpan="2"/>
+        <Image Source="/Assets/gean_landscape.jpg" Stretch="UniformToFill"/>
         <Image x:Name="CharacterImg" Source="/Assets/Personagens/Gean/Sem_fundo/Gean_Human.png" Margin="291,10,302,228" Grid.RowSpan="2" />
-        <TextBlock Margin="433,29,433,0" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Text="Gean" TextAlignment="Center" Height="59" VerticalAlignment="Top" />
+        <Image Source="/Assets/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="270" Height="139" VerticalAlignment="Top"/>
+        <TextBlock Margin="433,41,433,0" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Text="Gean" TextAlignment="Center" Height="59" VerticalAlignment="Top" />
         <StackPanel x:Name="StackClass" CornerRadius="20" Orientation="Vertical" Margin="183,48,0,0" Padding="20,20,20,20" Height="290" VerticalAlignment="Top" HorizontalAlignment="Left" Width="168">
             <StackPanel.Background>
                 <SolidColorBrush Color="White" Opacity="0.8"/>
             </StackPanel.Background>
             <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Classe" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Center"  />
-            <RadioButton Content="Assassino" Tag="Assassin" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" IsChecked="True"/>
-            <RadioButton Content="Bardo" Tag="Bard" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Mago" Tag="Mage" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Escudeiro" Tag="Shielder" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Tank" Tag="Tank" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Guerreiro" Tag="Warrior" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Feiticeiro" Tag="Witcher" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="ClassButtons" Content="Assassino" Tag="Assassin" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" IsChecked="True"/>
+            <RadioButton GroupName="ClassButtons" Content="Bardo" Tag="Bard" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="ClassButtons" Content="Mago" Tag="Mage" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="ClassButtons" Content="Escudeiro" Tag="Shielder" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="ClassButtons" Content="Tank" Tag="Tank" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="ClassButtons" Content="Guerreiro" Tag="Warrior" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="ClassButtons" Content="Feiticeiro" Tag="Witcher" Checked="Class_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
         </StackPanel>
         <StackPanel x:Name="StackRace" CornerRadius="20" Orientation="Vertical" Margin="182,0,0,83" Padding="20,20,20,20" HorizontalAlignment="Left" Width="169" Height="263" VerticalAlignment="Bottom">
             <StackPanel.Background>
                 <SolidColorBrush Color="White" Opacity="0.8"/>
             </StackPanel.Background>
             <TextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" Text="Raça" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Center"  />
-            <RadioButton Content="Dragonborn" Tag="Dragonborn" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Anão" Tag="Dwarf" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Elfo" Tag="Elf" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Humano" Tag="Human" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" IsChecked="True"/>
-            <RadioButton Content="Orc" Tag="Orc" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
-            <RadioButton Content="Golias" Tag="Goliath" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient"  FontSize="20"/>
+            <RadioButton GroupName="RaceButtons" Content="Dragonborn" Tag="Dragonborn" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="RaceButtons" Content="Anão" Tag="Dwarf" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="RaceButtons" Content="Elfo" Tag="Elf" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="RaceButtons" Content="Humano" Tag="Human" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20" IsChecked="True"/>
+            <RadioButton GroupName="RaceButtons" Content="Orc" Tag="Orc" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="20"/>
+            <RadioButton GroupName="RaceButtons" Content="Golias" Tag="Goliath" Checked="Race_Checked" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient"  FontSize="20"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="534,0,545,27" Height="139" VerticalAlignment="Bottom" Grid.Row="1" >
             <TextBox CornerRadius="20" x:Name="CharName" Background="#FFFFFBFF" Height="44" Margin="0,0,0,10" TextAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" VerticalContentAlignment="Center" FontSize="20"/>

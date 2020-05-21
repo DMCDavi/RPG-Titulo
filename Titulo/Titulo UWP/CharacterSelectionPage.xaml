@@ -5,13 +5,17 @@
     xmlns:local="using:Titulo_UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Background="#FF4D4545">
+    mc:Ignorable="d" 
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:Name="Char1" Content="New Character" Margin="0,20,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char1_Click"/>
-        <Button x:Name="Char2" Content="New Character" Margin="0,126,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char2_Click"/>
-        <Button x:Name="Char3" Content="New Character" Margin="0,232,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char3_Click"/>
-        <Button x:Name="Char4" Content="New Character" Margin="0,338,0,0" VerticalAlignment="Top" Height="86" Width="194" Click="Char4_Click"/>
-        <Button x:Name="SelectButton" Content="Select" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="SelectButton_Click" Height="101" Width="147" />
+        <Image Source="/Assets/landscape.jpg" Stretch="UniformToFill"/>
+        <StackPanel Margin="100,0,0,0" HorizontalAlignment="Left" Width="303" VerticalAlignment="Center" >
+            <Button CornerRadius="30" x:Name="Char1" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Height="80" Margin="0,0,0,39"/>
+            <Button CornerRadius="30" x:Name="Char2" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Height="80" Margin="0,0,0,39"/>
+            <Button CornerRadius="30" x:Name="Char3" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Height="80" Margin="0,0,0,39"/>
+            <Button CornerRadius="30" x:Name="Char4" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Height="80" />
+        </StackPanel>
+        <Button Visibility="Collapsed" CornerRadius="30" x:Name="SelectButton" Content="Select" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="SelectButton_Click" Margin="756,0,371,62" Background="#CCFFFFFF" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="80"/>
     </Grid>
 </Page>

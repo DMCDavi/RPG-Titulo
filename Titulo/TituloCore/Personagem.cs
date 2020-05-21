@@ -41,7 +41,7 @@ namespace Titulo
         };
 
         public Dictionary<string, IRace> AllRace = new Dictionary<string, IRace> {
-            {"DragonBorn", new Dragonborn()},
+            {"Dragonborn", new Dragonborn()},
             {"Dwarf", new Dwarf()},
             {"Elf", new Elf()},
             {"Goliath", new Goliath()},
