@@ -237,6 +237,7 @@ namespace Titulo
 
         /// <summary>
         /// Retorna o bonus que é aplicado em testes que o personagem é proficiente
+        /// sendo testada
         /// </summary>
         /// <returns></returns>
         public int Proficiency()
@@ -244,16 +245,15 @@ namespace Titulo
             return 2 + (Lvl - 1) / 4;
         }
 
-
-
         /// <summary>
         /// Retorna o modificador do atributo
+        /// Sendo Testada
         /// </summary>
         /// <param name="atribute"></param>
         /// <returns></returns>
         public int Modifier(string atribute)
         {
-            int mod = Atribute[atribute] / 2 - 5;
+            int mod = Atribute[atribute] / (2 - 5);
             mod += MagicBonus[atribute];
             return mod;
         }
@@ -275,7 +275,10 @@ namespace Titulo
             }
             return false;
         }
-
+        /// <summary>
+        /// Sendo testada
+        /// </summary>
+        /// <param name="NewLang"></param>
         public void LearnLang(string NewLang)
         {
             Languages.Add(NewLang);
@@ -283,6 +286,7 @@ namespace Titulo
 
         /// <summary>
         /// Movimenta o personagem
+        /// Sendo testada
         /// </summary>
         /// <param name="x">Posição horizontal</param>
         /// <param name="y">Posição vertical</param>
@@ -305,6 +309,7 @@ namespace Titulo
 
         /// <summary>
         /// Realiza a compra de Atribute da criação de personagem
+        /// sendo testada
         /// </summary>
         public void BuyAtributes(String key, int signal)
         {
