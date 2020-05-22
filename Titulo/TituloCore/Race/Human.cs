@@ -19,10 +19,10 @@ namespace Titulo
         public void Language(Personagem Self)
         {
             Self.LearnLang("Common");
-            string Language;
-            Console.WriteLine("Escolha um idioma");
-            Language = Console.ReadLine();
-            Self.LearnLang(Language);
+            //string Language;
+            //Console.WriteLine("Escolha um idioma");
+            //Language = Console.ReadLine();
+            //Self.LearnLang(Language);
         }
 
         public void Speed(Personagem Self)

@@ -24,7 +24,7 @@ namespace TesteNUnit
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             Assert.IsTrue(personagem.Understood("PT"));
         }
-        [TestCase]
+        [Test]
         public void canAttack()
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
@@ -36,17 +36,18 @@ namespace TesteNUnit
         public void ReceiveDmg()
         {
             int dmg = 10;
-            string tipo = "ice";
+            string tipo = "Slash";
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            personagem.Hp = 100;
             personagem.ReceiveDmg(dmg,tipo);
-            Assert.AreEqual(80, personagem.Hp);
+            Assert.AreEqual(90, personagem.Hp);
         }
         [TestCase]
         public void Proficiency()
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Lvl = 3;
-            Assert.AreEqual(1, personagem.Proficiency());
+            Assert.AreEqual(2, personagem.Proficiency());
         }
         [TestCase]
         public void Modifier()
@@ -83,7 +84,7 @@ namespace TesteNUnit
             personagem.BuyAtributes("STR", 1);
             Assert.AreEqual(10, personagem.Atribute["STR"]);
         }
-
+        
 
     }
 }
