@@ -56,12 +56,14 @@ namespace TesteNUnit
             personagem.MagicBonus["STR"] = 3;
             Assert.AreEqual(6,personagem.Modifier("STR"));
         }
-        [TestCase]
-        public void LearnLang()
+        [TestCase("PT")]
+        [TestCase("EN")]
+        [TestCase("KUNJIN")]
+        public void LearnLang(string Lang)
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
-            personagem.LearnLang("KUNJIN");
-            Assert.IsTrue(personagem.Understood("KUNJIN"));
+            personagem.LearnLang(Lang);
+            Assert.IsTrue(personagem.Understood(Lang));
         }
         [TestCase]
         public void Move()
