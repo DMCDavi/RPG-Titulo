@@ -86,7 +86,7 @@ namespace Titulo_UWP
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
             //façam o front dessa budega
-            this.Frame.Navigate(typeof(CharacterCreation));
+            this.Frame.Navigate(typeof(PersonalityTest));
         }
     }
 }

@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="Titulo_UWP.PersonalityTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Titulo_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.RowSpan="2" Source="/Assets/cyberpunk_landscape_blur.png" Stretch="UniformToFill" />
+        
+            <StackPanel Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="150,150,150,0" >
+                <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
+                    <Paragraph>Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.</Paragraph>
+                </RichTextBlock>
+            </StackPanel>
+            <Button Grid.Row="1" CornerRadius="30" Content="Avançar" Name="NextStep" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="50,0,50,0" Margin="50" Click="NextStep_Click"/>
+
+        
+            </Grid>
+</Page>

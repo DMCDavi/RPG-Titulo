@@ -134,6 +134,9 @@
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PersonalityTest.xaml.cs">
+      <DependentUpon>PersonalityTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +145,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\cyberpunk_landscape.jpg" />
+    <Content Include="Assets\cyberpunk_landscape_blur.png" />
     <Content Include="Assets\gean_landscape.jpg" />
     <Content Include="Assets\landscape.jpg" />
     <Content Include="Assets\landscape.png" />
@@ -184,6 +189,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonalityTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
