@@ -24,16 +24,16 @@ namespace Titulo
             this.BaseAc = BaseAc;
             this.MaxDex = MaxDex;
             this.MinDex = MinDex;
-            if (DexBonus > MaxDex)
-                DexBonus = MaxDex;
-            if (DexBonus < MinDex)
-                DexBonus = MinDex;
         }
 
         public void Equip(Personagem Owner)
         {
             this.Owner = Owner;
             DexBonus = Owner.Modifier("DEX");
+            if (DexBonus > MaxDex)
+                DexBonus = MaxDex;
+            if (DexBonus < MinDex)
+                DexBonus = MinDex;
             MagicPassive();
         }
 
@@ -51,5 +51,6 @@ namespace Titulo
         {
 
         }
+
     }
 }

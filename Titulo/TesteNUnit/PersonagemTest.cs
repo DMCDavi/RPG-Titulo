@@ -54,7 +54,7 @@ namespace TesteNUnit
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Atribute["STR"] = 9;
             personagem.MagicBonus["STR"] = 3;
-            Assert.AreEqual(6,personagem.Modifier("STR"));
+            Assert.AreEqual(2,personagem.Modifier("STR"));
         }
         [TestCase]
         public void LearnLang()
@@ -78,8 +78,8 @@ namespace TesteNUnit
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Atribute["STR"] = 9;
-            personagem.BuyAtributes("STR",1);
-            Assert.AreEqual(7,personagem.Atribute["STR"]);
+            personagem.BuyAtributes("STR", 1);
+            Assert.AreEqual(10, personagem.Atribute["STR"]);
         }
 
 
