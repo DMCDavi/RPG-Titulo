@@ -9,13 +9,21 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image Source="/Assets/landscape.jpg" Stretch="UniformToFill"/>
-        <StackPanel Margin="100,0,0,0" HorizontalAlignment="Left" Width="303" VerticalAlignment="Center" >
-            <Button CornerRadius="30" x:Name="Char1" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Height="80" Margin="0,0,0,39"/>
-            <Button CornerRadius="30" x:Name="Char2" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Height="80" Margin="0,0,0,39"/>
-            <Button CornerRadius="30" x:Name="Char3" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Height="80" Margin="0,0,0,39"/>
-            <Button CornerRadius="30" x:Name="Char4" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Height="80" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/Assets/landscape.jpg" Stretch="UniformToFill"/>
+        <StackPanel Grid.Column="0" Margin="100" HorizontalAlignment="Left" VerticalAlignment="Center" >
+            <Button CornerRadius="30" x:Name="Char1" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39"/>
+            <Button CornerRadius="30" x:Name="Char2" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39"/>
+            <Button CornerRadius="30" x:Name="Char3" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39"/>
+            <Button CornerRadius="30" x:Name="Char4" Content="New Character" HorizontalAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Padding="50,0,50,0" />
         </StackPanel>
-        <Button Visibility="Collapsed" CornerRadius="30" x:Name="SelectButton" Content="Select" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="SelectButton_Click" Margin="756,0,371,62" Background="#CCFFFFFF" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="80"/>
+        <Button Grid.Column="1" Grid.Row="1" Visibility="Collapsed" CornerRadius="30" x:Name="SelectButton" Content="Select" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Click="SelectButton_Click" Background="#CCFFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center"  Padding="50,0,50,0" />
     </Grid>
 </Page>
