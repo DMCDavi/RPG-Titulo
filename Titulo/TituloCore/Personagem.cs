@@ -253,7 +253,7 @@ namespace Titulo
         /// <returns></returns>
         public int Modifier(string atribute)
         {
-            int mod = Atribute[atribute] / (2 - 5);
+            int mod = Atribute[atribute] / 2 - 5;
             mod += MagicBonus[atribute];
             return mod;
         }
@@ -318,7 +318,7 @@ namespace Titulo
             int dpts;
             if (signal == 1)
             {
-                dpts = Math.Abs(Atribute[key] / 2 - 5);
+                dpts = Math.Abs(Modifier(key));
                 if (dpts == 0)
                 {
                     dpts++;
@@ -331,17 +331,16 @@ namespace Titulo
             }
             else if (signal == 2 && Atribute[key] > 0)
             {
-                Atribute[key]--;
-                dpts = Math.Abs(Atribute[key] / 2 - 5);
+                dpts = Math.Abs(Modifier(key));
                 if (dpts == 0)
                 {
                     dpts++;
                 }
-                pts += dpts;
-            }
-            else
-            {
-                Console.WriteLine("Ta de brinquedo?");
+                if(Atribute[key]>4)
+                {
+                    Atribute[key]--;
+                    pts += dpts;
+                }
             }
         }
 
@@ -350,16 +349,16 @@ namespace Titulo
         /// </summary>
         public virtual void Create()
         {
-            Console.WriteLine("Iniciando a definição dos Atributos");
+            //Console.WriteLine("Iniciando a definição dos Atributos");
             Race[0].Speed(this);
             Race[0].Language(this);
             Class[0].HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
-            Console.WriteLine("Seus Atributos após aplicação dos bonus:");
+            //Console.WriteLine("Seus Atributos após aplicação dos bonus:");
             Race[0].AtributeInc(this);
             Persona[0].AtributeInc(this);
-            ShowAtributes();
+            //ShowAtributes();
             EquippedArmor = new Armor(10, -10, 20);
             EquippedArmor.Equip(this);
         }

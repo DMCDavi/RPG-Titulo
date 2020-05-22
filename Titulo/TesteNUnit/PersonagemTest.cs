@@ -2,8 +2,9 @@ using NUnit.Framework;
 using Titulo;
 
 namespace TesteNUnit
-{   [TestFixture]
-    public class Tests
+{   
+    [TestFixture]
+    public class PersonagemTest
     {
         [TestCase]
         public void TotalMagicSpaces()
@@ -22,9 +23,10 @@ namespace TesteNUnit
         public void Understood()
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            personagem.LearnLang("PT");
             Assert.IsTrue(personagem.Understood("PT"));
         }
-        [TestCase]
+        [Test]
         public void canAttack()
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
@@ -36,17 +38,18 @@ namespace TesteNUnit
         public void ReceiveDmg()
         {
             int dmg = 10;
-            string tipo = "ice";
+            string tipo = "Slash";
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            personagem.Hp = 100;
             personagem.ReceiveDmg(dmg,tipo);
-            Assert.AreEqual(80, personagem.Hp);
+            Assert.AreEqual(90, personagem.Hp);
         }
         [TestCase]
         public void Proficiency()
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Lvl = 3;
-            Assert.AreEqual(1, personagem.Proficiency());
+            Assert.AreEqual(2, personagem.Proficiency());
         }
         [TestCase]
         public void Modifier()
@@ -54,14 +57,16 @@ namespace TesteNUnit
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Atribute["STR"] = 9;
             personagem.MagicBonus["STR"] = 3;
-            Assert.AreEqual(6,personagem.Modifier("STR"));
+            Assert.AreEqual(2,personagem.Modifier("STR"));
         }
-        [TestCase]
-        public void LearnLang()
+        [TestCase("PT")]
+        [TestCase("EN")]
+        [TestCase("KUNJIN")]
+        public void LearnLang(string Lang)
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
-            personagem.LearnLang("KUNJIN");
-            Assert.IsTrue(personagem.Understood("KUNJIN"));
+            personagem.LearnLang(Lang);
+            Assert.IsTrue(personagem.Understood(Lang));
         }
         [TestCase]
         public void Move()
@@ -78,10 +83,19 @@ namespace TesteNUnit
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Atribute["STR"] = 9;
-            personagem.BuyAtributes("STR",1);
-            Assert.AreEqual(7,personagem.Atribute["STR"]);
+            personagem.BuyAtributes("STR", 1);
+            Assert.AreEqual(10, personagem.Atribute["STR"],"ta de brinks?");
         }
+        [TestCase]
+        public void Ac()
+        {
+            int aux;
+            Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            personagem.Atribute["DEX"] = 10;
+            personagem.MagicBonus["DEX"] = 5;
+            aux = personagem.EquippedArmor.Ac();
+            Assert.AreEqual(aux, personagem.Ac());
 
-
+        }
     }
 }
