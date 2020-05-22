@@ -34,7 +34,7 @@ namespace Titulo
                 DexBonus = MaxDex;
             if (DexBonus < MinDex)
                 DexBonus = MinDex;
-            MagicPassive();
+            //MagicPassive();
         }
 
         public void UnEquip()
@@ -47,10 +47,11 @@ namespace Titulo
             return BaseAc + DexBonus;
         }
 
+        /*   
         public void MagicPassive()
         {
 
         }
-
+        */
     }
 }

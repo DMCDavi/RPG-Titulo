@@ -2,8 +2,9 @@ using NUnit.Framework;
 using Titulo;
 
 namespace TesteNUnit
-{   [TestFixture]
-    public class Tests
+{   
+    [TestFixture]
+    public class PersonagemTest
     {
         [TestCase]
         public void TotalMagicSpaces()
@@ -22,6 +23,7 @@ namespace TesteNUnit
         public void Understood()
         {
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            personagem.LearnLang("PT");
             Assert.IsTrue(personagem.Understood("PT"));
         }
         [Test]
@@ -82,9 +84,18 @@ namespace TesteNUnit
             Personagem personagem = new Personagem("Tank", "Human", "Vagner");
             personagem.Atribute["STR"] = 9;
             personagem.BuyAtributes("STR", 1);
-            Assert.AreEqual(10, personagem.Atribute["STR"]);
+            Assert.AreEqual(10, personagem.Atribute["STR"],"ta de brinks?");
         }
-        
+        [TestCase]
+        public void Ac()
+        {
+            int aux;
+            Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            personagem.Atribute["DEX"] = 10;
+            personagem.MagicBonus["DEX"] = 5;
+            aux = personagem.EquippedArmor.Ac();
+            Assert.AreEqual(aux, personagem.Ac());
 
+        }
     }
 }
