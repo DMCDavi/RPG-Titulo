@@ -145,7 +145,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\cyberpunk_landscape.jpg" />
     <Content Include="Assets\cyberpunk_landscape_blur.png" />
     <Content Include="Assets\gean_landscape.jpg" />
     <Content Include="Assets\landscape.jpg" />
