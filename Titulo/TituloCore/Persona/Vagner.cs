@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Titulo
+namespace TituloCore
 {
     public class Vagner : IPersona
     {

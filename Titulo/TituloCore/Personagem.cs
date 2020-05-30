@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Collections;
 using System.Text;
-using Titulo.Class;
 
-namespace Titulo
+namespace TituloCore
 {
     public class Personagem
     {

@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using Titulo;
+using TituloCore;
 
 namespace TesteNUnit
 {   

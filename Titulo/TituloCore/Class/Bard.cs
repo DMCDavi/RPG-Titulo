@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Titulo.Class
+namespace TituloCore
 {
     public class Bard : IClass
     {
