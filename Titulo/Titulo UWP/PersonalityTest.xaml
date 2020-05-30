@@ -119,10 +119,9 @@
                 <Paragraph>Angela</Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="10" Content="Que nada, eu vou é pra casa" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="10" Content="Usar planta mágica" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
-            <RadioButton GroupName="10" Content="Ir pra UFBA" Tag="3" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
-            <RadioButton GroupName="10" Content="Matar Davi no Lobisomem" Tag="4" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
-            <RadioButton GroupName="10" Content="Encher a cara" Tag="5" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
+            <RadioButton GroupName="10" Content="Ir pra UFBA" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
+            <RadioButton GroupName="10" Content="Matar Davi no Lobisomem" Tag="3" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
+            <RadioButton GroupName="10" Content="Encher a cara" Tag="4" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_12" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">

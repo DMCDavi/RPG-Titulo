@@ -25,10 +25,18 @@ namespace Titulo_UWP
     public sealed partial class CharacterCreation : Page
     {
         Personagem pers;
-        string race_name = "Human", class_name = "Assassin";
+        string race_name = "Human", class_name = "Assassin", persona_name = "David";
         public CharacterCreation()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is string && !string.IsNullOrWhiteSpace((string)e.Parameter))
+                persona_name = e.Parameter.ToString();
+            PersonaName.Text = persona_name;
+            base.OnNavigatedTo(e);
         }
 
         /// <summary>
@@ -171,7 +179,7 @@ namespace Titulo_UWP
 
         private void NextStep_Click(object sender, RoutedEventArgs e)
         {
-            pers = new Personagem(class_name, race_name, "Vagner");
+            pers = new Personagem(class_name, race_name, persona_name);
             StackAtributes.Visibility = Visibility.Visible;
             StackClass.Visibility = Visibility.Collapsed;
             StackRace.Visibility = Visibility.Collapsed;
