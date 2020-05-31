@@ -6,7 +6,7 @@ namespace TituloCore
 {
     public class Human : IRace
     {
-        public void AtributeInc(Personagem Self)
+        public void AtributeInc(Character Self)
         {
             Self.Atribute["STR"] += 1;
             Self.Atribute["DEX"] += 1;
@@ -16,7 +16,7 @@ namespace TituloCore
             Self.Atribute["CHA"] += 1;
         }
 
-        public void Language(Personagem Self)
+        public void Language(Character Self)
         {
             Self.LearnLang("Common");
             //string Language;
@@ -25,7 +25,7 @@ namespace TituloCore
             //Self.LearnLang(Language);
         }
 
-        public void Speed(Personagem Self)
+        public void Speed(Character Self)
         {
             Self.TotalMove = 6;
         }

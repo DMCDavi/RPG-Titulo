@@ -14,7 +14,7 @@ namespace TesteNUnit
         {
             int aux, DexBonus;
             Armor armor = new Armor(BaseAc,MaxDex,MinDex);
-            Personagem personagem = new Personagem("Tank", "Human", "Vagner");
+            Character personagem = new Character("Tank", "Human", "Vagner");
             personagem.Atribute["DEX"] = 10;
             personagem.MagicBonus["DEX"] = 5;
             DexBonus = personagem.Modifier("DEX");

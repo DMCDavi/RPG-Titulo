@@ -93,6 +93,11 @@ namespace Titulo_UWP
 
         }
 
+        private void RichTextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Check_Test(object sender, RoutedEventArgs e)
         {
             //Armazena o número da resposta

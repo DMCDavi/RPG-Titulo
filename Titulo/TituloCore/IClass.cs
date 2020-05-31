@@ -6,9 +6,9 @@ namespace TituloCore
 {
     public interface IClass
     {
-        void HitDice(Personagem Self);
-        void LvlUp(Personagem Self);
-        bool CanBe(Personagem Self);
+        void HitDice(Character Self);
+        void LvlUp(Character Self);
+        bool CanBe(Character Self);
         //void ReceiveDmg(Personagem Self, int dmg);
         int ClassLvl();
         

@@ -30,7 +30,7 @@ namespace TituloCore
         /// </summary>
         /// <param name="Self"></param>
         /// <returns></returns>
-        public bool CanBe(Personagem Self)
+        public bool CanBe(Character Self)
         {
             if (Self.Atribute["INT"] >= 13)
                 return true;
@@ -41,7 +41,7 @@ namespace TituloCore
         /// Define o HitDice do personagem caso essa seja sua classe principal
         /// </summary>
         /// <param name="Self"></param>
-        public void HitDice(Personagem Self)
+        public void HitDice(Character Self)
         {
             Self.HitDice = 6;
         }
@@ -50,7 +50,7 @@ namespace TituloCore
         /// Aumenta 1 lvl de <see cref="Mage"/> no personagem
         /// </summary>
         /// <param name="Self"></param>
-        public void LvlUp(Personagem Self)
+        public void LvlUp(Character Self)
         {
             Self.Lvl++;
             MageLvl++;

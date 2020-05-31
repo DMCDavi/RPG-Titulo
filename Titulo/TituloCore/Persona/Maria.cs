@@ -10,7 +10,7 @@ namespace TituloCore
         public int[] CorrectAnswers = new int[10] { 4, 4, 3, 5, 3, 1, 4, 4, 4, 2 };
         private int PersonalityPoint = 0;
         public string Name = "Maria";
-        public void AtributeInc(Personagem Self)
+        public void AtributeInc(Character Self)
         {
             Self.Atribute["STR"] += 2;
             Self.Atribute["DEX"] -= 3;
@@ -34,13 +34,13 @@ namespace TituloCore
             PersonalityPoint++;
         }
 
-        public void PersonaModify(Personagem Self)
+        public void PersonaModify(Character Self)
         {
             Self.TotalMove += 0;
 
         }
 
-        public void SetSpritePersona(Personagem Self)
+        public void SetSpritePersona(Character Self)
         {
             Self.SpritePath = "Sprite/Maria/";
         }

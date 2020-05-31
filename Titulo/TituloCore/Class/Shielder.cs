@@ -6,7 +6,7 @@ namespace TituloCore
 {
     public class Shielder : IClass
     {
-        public bool CanBe(Personagem Self)
+        public bool CanBe(Character Self)
         {
             throw new NotImplementedException();
         }
@@ -16,12 +16,12 @@ namespace TituloCore
             throw new NotImplementedException();
         }
 
-        public void HitDice(Personagem Self)
+        public void HitDice(Character Self)
         {
             throw new NotImplementedException();
         }
 
-        public void LvlUp(Personagem Self)
+        public void LvlUp(Character Self)
         {
             throw new NotImplementedException();
         }

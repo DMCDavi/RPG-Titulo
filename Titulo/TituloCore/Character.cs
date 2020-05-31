@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TituloCore
 {
-    public class Personagem
+    public class Character
     {
         public string SpritePath;
         public List<IRace> Race = new List<IRace>();
@@ -222,7 +222,7 @@ namespace TituloCore
         /// </summary>
         /// <param name="Class"></param>
         /// <param name="Race"></param>
-        public Personagem(string Class, string Race, string Persona)
+        public Character(string Class, string Race, string Persona)
         {
             MainClass = Class;
             this.Class.Add(AllClass[Class]);
@@ -422,7 +422,7 @@ namespace TituloCore
         /// </summary>
         /// <param name="Target">Alvo</param>
         /// <returns></returns>
-        public bool canAttack(Personagem Target)
+        public bool canAttack(Character Target)
         {
             return true; //testando
 
@@ -440,7 +440,7 @@ namespace TituloCore
         /// Função de ataque
         /// </summary>
         /// <param name="Target">Alvo</param>
-        public void Attack(Personagem Target)
+        public void Attack(Character Target)
         {
             Random rand = new Random();
             if (canAttack(Target))
