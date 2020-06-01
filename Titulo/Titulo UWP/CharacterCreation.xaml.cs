@@ -23,7 +23,7 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterCreation : Page
     {
-        Personagem pers;
+        Character pers;
         string race_name = "Human", class_name = "Assassin", persona_name = "David";
         //Variavel que armazena o local onde sao guardados os dados da aplicacao
         StorageFolder localFolder = ApplicationData.Current.LocalFolder;

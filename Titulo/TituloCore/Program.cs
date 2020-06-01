@@ -52,8 +52,8 @@ namespace TituloCore
             System.Console.ReadLine();*/
             //teste
             string classe = "Tank";
-            Personagem A = new Personagem(classe, "Human", "Vagner");
-            Personagem B = new Personagem("Tank", "Human", "Vagner")
+            Character A = new Character(classe, "Human", "Vagner");
+            Character B = new Character("Tank", "Human", "Vagner")
             {
                 Hpmax = 100,
                 Hp = 100,

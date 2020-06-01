@@ -26,7 +26,7 @@ namespace TituloCore
         /// Aumenta em 1 a quantidade de pontos de personalidade que a Persona tem
         /// </summary>
         void IncrementPersonalityPoints();
-        void AtributeInc(Personagem Self);
-        void SetSpritePersona(Personagem Self);
+        void AtributeInc(Character Self);
+        void SetSpritePersona(Character Self);
     }
 }

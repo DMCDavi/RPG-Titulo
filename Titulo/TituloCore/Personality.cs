@@ -65,7 +65,7 @@ namespace TituloCore
             foreach (IPersona persona in AllPersona)
                 if (maior_pontuacao == persona.PersonalityPoints())
                     return persona.PersonaName();
-            return "David";
+            return "Indefinido";
         }
     }
 }

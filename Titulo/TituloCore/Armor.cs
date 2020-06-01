@@ -11,7 +11,7 @@ namespace TituloCore
         int BaseAc;
         int MaxDex;
         int MinDex;
-        Personagem Owner;
+        Character Owner;
         int DexBonus;
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace TituloCore
             this.MinDex = MinDex;
         }
 
-        public void Equip(Personagem Owner)
+        public void Equip(Character Owner)
         {
             this.Owner = Owner;
             DexBonus = Owner.Modifier("DEX");

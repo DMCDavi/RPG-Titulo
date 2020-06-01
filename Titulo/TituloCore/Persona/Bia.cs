@@ -8,9 +8,10 @@ namespace TituloCore
     {
         //vetor que guarda as respostas corretas para cara pergunta, sendo que cada pergunta está representada pelo indice do vetor
         public int[] CorrectAnswers = new int[10] { 1, 5, 2, 5, 3, 2, 5, 4, 1, 3 };
+        //Mudei para public para testar
         private int PersonalityPoint = 0;
         public string Name = "Bia";
-        public void AtributeInc(Personagem Self)
+        public void AtributeInc(Character Self)
         {
             Self.Atribute["STR"] += 2;
             Self.Atribute["DEX"] -= 3;
@@ -40,13 +41,13 @@ namespace TituloCore
             PersonalityPoint++;
         }
 
-        public void PersonaModify(Personagem Self)
+        public void PersonaModify(Character Self)
         {
             Self.TotalMove += 0;
 
         }
 
-        public void SetSpritePersona(Personagem Self)
+        public void SetSpritePersona(Character Self)
         {
             Self.SpritePath = "Sprite/Bia/";
         }

@@ -8,7 +8,7 @@ namespace TituloCore
     [DataContract(Name = "Weapon", Namespace = "http://www.contoso.com")]
     public class Weapon
     {
-        Personagem Owner;
+        Character Owner;
         public string Tipo;
         public string Atributo;
         public int[] Dices;
@@ -25,7 +25,7 @@ namespace TituloCore
         /// <param name="Tipo">Tipo de dano</param>
         /// <param name="Atributo">Atributo que a arma usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, Personagem Owner)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, Character Owner)
         {
             this.Owner = Owner;
             this.Tipo = Tipo;
@@ -41,7 +41,7 @@ namespace TituloCore
         /// </summary>
         /// <param name="Target">Alvo do ataque</param>
         /// <returns></returns>
-        public void DealDmg(Personagem Target)
+        public void DealDmg(Character Target)
         {
             int damage = 0, daninho = 0;
             Random rand = new Random();

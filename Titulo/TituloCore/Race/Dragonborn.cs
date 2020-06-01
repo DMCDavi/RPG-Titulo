@@ -6,7 +6,7 @@ namespace TituloCore
 {
     public class Dragonborn : IRace
     {
-        public void AtributeInc(Personagem Self)
+        public void AtributeInc(Character Self)
         {
             Self.Atribute["STR"] -= 2;
             Self.Atribute["DEX"] += 1;
@@ -16,13 +16,13 @@ namespace TituloCore
             Self.Atribute["CHA"] += 2;
         }
 
-        public void Language(Personagem Self)
+        public void Language(Character Self)
         {
             Self.LearnLang("Common");
             Self.LearnLang("Dragonborn");
         }
 
-        public void Speed(Personagem Self)
+        public void Speed(Character Self)
         {
             Self.TotalMove = 6;
         }

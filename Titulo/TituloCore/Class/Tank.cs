@@ -32,7 +32,7 @@ namespace TituloCore
         /// </summary>
         /// <param name="Self"></param>
         /// <returns></returns>
-        public bool CanBe(Personagem Self)
+        public bool CanBe(Character Self)
         {
             if(Self.Atribute["CON"] >= 13)
             {
@@ -45,7 +45,7 @@ namespace TituloCore
         /// Define o HitDice do personagem caso essa seja sua classe principal
         /// </summary>
         /// <param name="Self"></param>
-        public void HitDice(Personagem Self)
+        public void HitDice(Character Self)
         {
             Self.HitDice = 20;
         }
@@ -54,7 +54,7 @@ namespace TituloCore
         /// Aumenta 1 lvl de <see cref="Tank"/> no personagem
         /// </summary>
         /// <param name="Self"></param>
-        public void LvlUp(Personagem Self)
+        public void LvlUp(Character Self)
         {
             Self.Lvl++;
             TankLvl++;
@@ -64,7 +64,7 @@ namespace TituloCore
             Self.Hpmax += Result + Self.Modifier("CON");
             Self.Hp += Result + Self.Modifier("CON");
         }
-        public void ReceiveDmg(Personagem Self, int dmg)
+        public void ReceiveDmg(Character Self, int dmg)
         {
             dmg -= Self.Modifier("CON");
             if(dmg <= 0)
