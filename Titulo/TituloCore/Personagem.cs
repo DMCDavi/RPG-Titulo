@@ -1,19 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
-using System.Text;
+using System.Runtime.Serialization;
+using System.Xml;
 
 namespace TituloCore
 {
+    [DataContract(Name = "Personagem", Namespace = "http://www.contoso.com")]
+    //Lista de objetos de personagem que podem ser serializados
+    [KnownType(typeof(Assassin))]
+    [KnownType(typeof(Bard))]
+    [KnownType(typeof(Berserker))]
+    [KnownType(typeof(Cleric))]
+    [KnownType(typeof(Mage))]
+    [KnownType(typeof(Shielder))]
+    [KnownType(typeof(Tank))]
+    [KnownType(typeof(Warrior))]
+    [KnownType(typeof(Witcher))]
+    [KnownType(typeof(Ana))]
+    [KnownType(typeof(Bia))]
+    [KnownType(typeof(David))]
+    [KnownType(typeof(Fernanda))]
+    [KnownType(typeof(Gean))]
+    [KnownType(typeof(Grhamm))]
+    [KnownType(typeof(Joao))]
+    [KnownType(typeof(Maria))]
+    [KnownType(typeof(Vagner))]
+    [KnownType(typeof(Dragonborn))]
+    [KnownType(typeof(Dwarf))]
+    [KnownType(typeof(Elf))]
+    [KnownType(typeof(Goliath))]
+    [KnownType(typeof(Human))]
+    [KnownType(typeof(Orc))]
+    [KnownType(typeof(Armor))]
+    [KnownType(typeof(Weapon))]
     public class Personagem
     {
-        public string SpritePath;
-        public List<IRace> Race = new List<IRace>();
-        public List<IPersona> Persona = new List<IPersona>();
-        public string MainClass;
-        public int pts = 30;
-        public List<IClass> Class = new List<IClass>();
+        [DataMember]
+        public string MainClass { get; set; }
+        [DataMember]
+        public string SpritePath { get; set; }
+        [DataMember]
+        public IRace Race { get; set; }
+        [DataMember]
+        public IPersona Persona { get; set; }
+        [DataMember]
+        public int pts { get; set; } = 30;
+        [DataMember]
+        public List<IClass> Class { get; set; } = new List<IClass>();
+        [DataMember]
         public string Nickname { get; set; }
+        [DataMember]
+        public ArrayList Languages { get; set; } = new ArrayList();
+        [DataMember]
+        public int Lvl { get; set; }
+        [DataMember]
+        public int Exp { get; set; }
+        [DataMember]
+        public int Hpmax { get; set; }
+        [DataMember]
+        public int Hp { get; set; }
+        [DataMember]
+        public int TotalMove { get; set; }
+        [DataMember]
+        public int posX { get; set; }
+        [DataMember]
+        public int posY { get; set; }
+        [DataMember]
+        public int Initiative { get; set; }
+        [DataMember]
+        public Weapon EquippedWeapon { get; set; }
+        [DataMember]
+        public Armor EquippedArmor { get; set; }
+        [DataMember]
+        public int HitDice { get; set; }
+        [DataMember]
+        private int nHitDice { get; set; }
 
         public Dictionary<string, IClass> AllClass = new Dictionary<string, IClass> {
             {"Assassin", new Assassin()},
@@ -48,6 +110,7 @@ namespace TituloCore
             {"Orc", new Orc()},
         };
 
+        [DataMember]
         public Dictionary<string, int> Atribute = new Dictionary<string, int> {
             {"STR", 6},
             {"DEX", 6},
@@ -57,6 +120,7 @@ namespace TituloCore
             {"CHA", 6}
         };
 
+        [DataMember]
         public Dictionary<string, int> MagicBonus = new Dictionary<string, int> {
             {"STR", 0},
             {"DEX", 0},
@@ -66,6 +130,7 @@ namespace TituloCore
             {"CHA", 0}
         };
 
+        [DataMember]
         /// <summary>
         /// Imunidade a um tipo de dano zera todo dano recebido daquele tipo
         /// </summary>
@@ -86,6 +151,7 @@ namespace TituloCore
             {"Poison", false}
         };
 
+        [DataMember]
         /// <summary>
         /// Resistencia a um tipo de dano divide por 2 todo dano recebido daquele tipo
         /// </summary>
@@ -106,6 +172,7 @@ namespace TituloCore
             {"Poison", false}
         };
 
+        [DataMember]
         /// <summary>
         /// Vulnerabilidade a um tipo de dano dobra todo dano recebido daquele tipo
         /// </summary>
@@ -125,20 +192,6 @@ namespace TituloCore
             {"Thunder", false},
             {"Poison", false}
         };
-
-        public ArrayList Languages = new ArrayList();
-        public int Lvl { get; set; }
-        public int Exp { get; set; }
-        public int Hpmax { get; set; }
-        public int Hp { get; set; }
-        public int TotalMove { get; set; }
-        public int posX { get; set; }
-        public int posY { get; set; }
-        public int Initiative { get; set; }
-        public Weapon EquippedWeapon;
-        public Armor EquippedArmor;
-        public int HitDice;
-        private int nHitDice;
 
         /// <summary>
         /// Retorna o lvl de conjuração do personagem
@@ -226,11 +279,11 @@ namespace TituloCore
         {
             MainClass = Class;
             this.Class.Add(AllClass[Class]);
-            this.Race.Add(AllRace[Race]);
+            this.Race = AllRace[Race];
             Exp = 0;
             Lvl = 1;
             nHitDice = 1;
-            this.Persona.Add(AllPersona[Persona]);
+            this.Persona = AllPersona[Persona];
             Create();
         }
 
@@ -335,7 +388,7 @@ namespace TituloCore
                 {
                     dpts++;
                 }
-                if(Atribute[key]>4)
+                if (Atribute[key] > 4)
                 {
                     Atribute[key]--;
                     pts += dpts;
@@ -349,14 +402,14 @@ namespace TituloCore
         public virtual void Create()
         {
             //Console.WriteLine("Iniciando a definição dos Atributos");
-            Race[0].Speed(this);
-            Race[0].Language(this);
+            Race.Speed(this);
+            Race.Language(this);
             Class[0].HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
             //Console.WriteLine("Seus Atributos após aplicação dos bonus:");
-            Race[0].AtributeInc(this);
-            Persona[0].AtributeInc(this);
+            Race.AtributeInc(this);
+            Persona.AtributeInc(this);
             //ShowAtributes();
             EquippedArmor = new Armor(10, -10, 20);
             EquippedArmor.Equip(this);

@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using TituloCore;
 using Windows.UI.Xaml.Media.Imaging;
+using System.Xml.Serialization;
+using System.Diagnostics;
+using Windows.Storage;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Xml;
+
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,9 +25,14 @@ namespace Titulo_UWP
     {
         Personagem pers;
         string race_name = "Human", class_name = "Assassin", persona_name = "David";
+        //Variavel que armazena o local onde sao guardados os dados da aplicacao
+        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        public List<Personagem> PersList = new List<Personagem>();
+
         public CharacterCreation()
         {
             this.InitializeComponent();
+            ReadObject("PersonagensList.xml");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -179,10 +183,17 @@ namespace Titulo_UWP
 
         private void NextStep_Click(object sender, RoutedEventArgs e)
         {
+            if (NextStep.Content.ToString() == "Salvar")
+            {
+                WriteObject("PersonagensList.xml");
+                this.Frame.Navigate(typeof(CharacterSelectionPage));
+            }
             pers = new Personagem(class_name, race_name, persona_name);
             StackAtributes.Visibility = Visibility.Visible;
             StackClass.Visibility = Visibility.Collapsed;
             StackRace.Visibility = Visibility.Collapsed;
+            CharName.Visibility = Visibility.Visible;
+            NextStep.Visibility = Visibility.Collapsed;
             NextStep.Content = "Salvar";
             str.Text = pers.Atribute["STR"].ToString();
             dex.Text = pers.Atribute["DEX"].ToString();
@@ -211,5 +222,58 @@ namespace Titulo_UWP
                 CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + race_name + ".png"));
             }
         }
+
+        private void CharName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (CharName.Text.Length > 0)
+                NextStep.Visibility = Visibility.Visible;
+            pers.Nickname = CharName.Text;
+        }
+
+        /// <summary>
+        /// Cria um arquivo e o preenche com uma lista de personagens
+        /// </summary>
+        /// <param name="fileName">Nome do arquivo</param>
+        public void WriteObject(string fileName)
+        {
+            PersList.Add(pers);
+            string filePath = localFolder.Path + "\\" + fileName;
+            FileStream writer = new FileStream(filePath, FileMode.Create);
+            DataContractSerializer ser = new DataContractSerializer(typeof(List<Personagem>));
+            ser.WriteObject(writer, PersList);
+            writer.Close();
+        }
+
+        /// <summary>
+        /// Lê um arquivo e armazena numa variável a lista de personagens que possui
+        /// </summary>
+        /// <param name="fileName">Nome do arquivo</param>
+        public void ReadObject(string fileName)
+        {
+            string filePath = localFolder.Path + "\\" + fileName;
+            try
+            {
+                using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                {
+                    XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+                    DataContractSerializer ser = new DataContractSerializer(typeof(List<Personagem>));
+                    List<Personagem> deserializedPersList = (List<Personagem>)ser.ReadObject(reader, true);
+                    reader.Close();
+                    fs.Close();
+                    PersList = deserializedPersList;
+                }
+
+            }
+            catch (FileNotFoundException)
+            {
+                Debug.WriteLine("ERRO: Não foi encontrado nenhum arquivo");
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("ERRO: Não existe nenhum conteúdo no arquivo");
+            }
+
+        }
+
     }
 }

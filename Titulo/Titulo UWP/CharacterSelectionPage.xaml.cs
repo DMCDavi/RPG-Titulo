@@ -12,6 +12,13 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage;
+using System.Collections;
+using System.Runtime.Serialization;
+using System.Xml;
+using TituloCore;
+using System.Diagnostics;
+using Windows.UI.Xaml.Media.Imaging;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,21 +29,71 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterSelectionPage : Page
     {
+
+
+        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        public List<Personagem> PersList = new List<Personagem>();
+        public List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
+        string[] RaceNames = { "Human", "Human", "Human", "Human" };
         public CharacterSelectionPage()
         {
             this.InitializeComponent();
+            AllNicknames = new List<TextBlock> {
+                Nickname1,
+                Nickname2,
+                Nickname3,
+                Nickname4
+            };
+            AllClasses = new List<TextBlock> {
+                Class1,
+                Class2,
+                Class3,
+                Class4
+            };
+            AllPersonas = new List<TextBlock> {
+                Persona1,
+                Persona2,
+                Persona3,
+                Persona4
+            };
+            AllRaces = new List<TextBlock> {
+                Race1,
+                Race2,
+                Race3,
+                Race4
+            };
+            ReadObject("PersonagensList.xml");
+            int counter = 0;
+            //Preenche todos os cards com os personagens salvos no arquivo
+            foreach (Personagem item in PersList)
+            {
+                string[] race_splited = PersList[counter].Race.ToString().Split(".");
+                RaceNames[counter] = race_splited[1];
+                AllNicknames[counter].Visibility = Visibility.Visible;
+                AllClasses[counter].Visibility = Visibility.Visible;
+                AllPersonas[counter].Visibility = Visibility.Visible;
+                AllRaces[counter].Visibility = Visibility.Visible;
+                AllNicknames[counter].Text = PersList[counter].Nickname;
+                AllClasses[counter].Text = "Classe: " + PersList[counter].MainClass;
+                AllPersonas[counter].Text = "Herói: " + PersList[counter].Persona.PersonaName();
+                AllRaces[counter].Text = "Raça: " + race_splited[1];
+                counter++;
+            }
         }
         public int selected;
         private void Char1_Click(object sender, RoutedEventArgs e)
         {
             SelectButton.Visibility = Visibility.Visible;
             selected = 1;
-            if (Char1.Content.Equals("New Character"))
+            if (Nickname1.Text.Equals("New Character"))
             {
+                CharacterImg.Visibility = Visibility.Collapsed;
                 SelectButton.Content = "Create";
             }
             else
             {
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[0] + ".png"));
+                CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
         }
@@ -45,12 +102,15 @@ namespace Titulo_UWP
         {
             SelectButton.Visibility = Visibility.Visible;
             selected = 2;
-            if (Char2.Content.Equals("New Character"))
+            if (Nickname2.Text.Equals("New Character"))
             {
+                CharacterImg.Visibility = Visibility.Collapsed;
                 SelectButton.Content = "Create";
             }
             else
             {
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[1] + ".png"));
+                CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
         }
@@ -59,12 +119,15 @@ namespace Titulo_UWP
         {
             SelectButton.Visibility = Visibility.Visible;
             selected = 3;
-            if (Char3.Content.Equals("New Character"))
+            if (Nickname3.Text.Equals("New Character"))
             {
+                CharacterImg.Visibility = Visibility.Collapsed;
                 SelectButton.Content = "Create";
             }
             else
             {
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[2] + ".png"));
+                CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
         }
@@ -73,20 +136,56 @@ namespace Titulo_UWP
         {
             SelectButton.Visibility = Visibility.Visible;
             selected = 4;
-            if (Char4.Content.Equals("New Character"))
+            if (Nickname4.Text.Equals("New Character"))
             {
+                CharacterImg.Visibility = Visibility.Collapsed;
                 SelectButton.Content = "Create";
             }
             else
             {
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[3] + ".png"));
+                CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
         }
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
-            //façam o front dessa budega
-            this.Frame.Navigate(typeof(PersonalityTest));
+            if (SelectButton.Content.Equals("Create"))
+                this.Frame.Navigate(typeof(PersonalityTest));
+            else
+                this.Frame.Navigate(typeof(Map));
         }
+
+        /// <summary>
+        /// Lê um arquivo e armazena numa variável a lista de personagens que possui
+        /// </summary>
+        /// <param name="fileName">Nome do arquivo</param>
+        public void ReadObject(string fileName)
+        {
+            string filePath = localFolder.Path + "\\" + fileName;
+            try
+            {
+                using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                {
+                    XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
+                    DataContractSerializer ser = new DataContractSerializer(typeof(List<Personagem>));
+                    List<Personagem> deserializedPersList = (List<Personagem>)ser.ReadObject(reader, true);
+                    reader.Close();
+                    fs.Close();
+                    PersList = deserializedPersList;
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Debug.WriteLine("ERRO: Não foi encontrado nenhum arquivo");
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("ERRO: Não existe nenhum conteúdo no arquivo");
+            }
+
+        }
+
     }
 }

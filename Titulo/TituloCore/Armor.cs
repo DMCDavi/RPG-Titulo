@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace TituloCore
 {
+    [DataContract(Name = "Armor", Namespace = "http://www.contoso.com")]
     public class Armor
     {
         int BaseAc;

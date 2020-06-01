@@ -31,7 +31,19 @@ namespace Titulo_UWP
         {
             this.InitializeComponent();
             //Lista com todos os paineis de perguntas e o ultimo panel
-            AllQuestionPanels = new List<StackPanel> { Panel_2, Panel_3, Panel_4, Panel_5, Panel_6, Panel_7, Panel_8, Panel_9, Panel_10, Panel_11, Panel_12 };
+            AllQuestionPanels = new List<StackPanel> {
+                Panel_2,
+                Panel_3,
+                Panel_4,
+                Panel_5,
+                Panel_6,
+                Panel_7,
+                Panel_8,
+                Panel_9,
+                Panel_10,
+                Panel_11,
+                Panel_12
+            };
         }
 
         private void NextStep_Click(object sender, RoutedEventArgs e)
