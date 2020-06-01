@@ -9,7 +9,7 @@ namespace TituloCore
         void HitDice(Character Self);
         void LvlUp(Character Self);
         bool CanBe(Character Self);
-        //void ReceiveDmg(Personagem Self, int dmg);
+        //void ReceiveDmg(Character Self, int dmg);
         int ClassLvl();
         
 

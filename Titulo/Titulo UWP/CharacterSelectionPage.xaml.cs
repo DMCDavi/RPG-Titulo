@@ -32,7 +32,7 @@ namespace Titulo_UWP
 
 
         StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-        public List<Personagem> PersList = new List<Personagem>();
+        public List<Character> PersList = new List<Character>();
         public List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
         string[] RaceNames = { "Human", "Human", "Human", "Human" };
         public CharacterSelectionPage()
@@ -65,7 +65,7 @@ namespace Titulo_UWP
             ReadObject("PersonagensList.xml");
             int counter = 0;
             //Preenche todos os cards com os personagens salvos no arquivo
-            foreach (Personagem item in PersList)
+            foreach (Character item in PersList)
             {
                 string[] race_splited = PersList[counter].Race.ToString().Split(".");
                 RaceNames[counter] = race_splited[1];
@@ -169,8 +169,8 @@ namespace Titulo_UWP
                 using (FileStream fs = new FileStream(filePath, FileMode.Open))
                 {
                     XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-                    DataContractSerializer ser = new DataContractSerializer(typeof(List<Personagem>));
-                    List<Personagem> deserializedPersList = (List<Personagem>)ser.ReadObject(reader, true);
+                    DataContractSerializer ser = new DataContractSerializer(typeof(List<Character>));
+                    List<Character> deserializedPersList = (List<Character>)ser.ReadObject(reader, true);
                     reader.Close();
                     fs.Close();
                     PersList = deserializedPersList;

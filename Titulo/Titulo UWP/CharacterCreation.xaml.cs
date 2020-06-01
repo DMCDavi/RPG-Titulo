@@ -27,7 +27,7 @@ namespace Titulo_UWP
         string race_name = "Human", class_name = "Assassin", persona_name = "David";
         //Variavel que armazena o local onde sao guardados os dados da aplicacao
         StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-        public List<Personagem> PersList = new List<Personagem>();
+        public List<Character> PersList = new List<Character>();
 
         public CharacterCreation()
         {
@@ -188,7 +188,7 @@ namespace Titulo_UWP
                 WriteObject("PersonagensList.xml");
                 this.Frame.Navigate(typeof(CharacterSelectionPage));
             }
-            pers = new Personagem(class_name, race_name, persona_name);
+            pers = new Character(class_name, race_name, persona_name);
             StackAtributes.Visibility = Visibility.Visible;
             StackClass.Visibility = Visibility.Collapsed;
             StackRace.Visibility = Visibility.Collapsed;
@@ -239,7 +239,7 @@ namespace Titulo_UWP
             PersList.Add(pers);
             string filePath = localFolder.Path + "\\" + fileName;
             FileStream writer = new FileStream(filePath, FileMode.Create);
-            DataContractSerializer ser = new DataContractSerializer(typeof(List<Personagem>));
+            DataContractSerializer ser = new DataContractSerializer(typeof(List<Character>));
             ser.WriteObject(writer, PersList);
             writer.Close();
         }
@@ -256,8 +256,8 @@ namespace Titulo_UWP
                 using (FileStream fs = new FileStream(filePath, FileMode.Open))
                 {
                     XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(fs, new XmlDictionaryReaderQuotas());
-                    DataContractSerializer ser = new DataContractSerializer(typeof(List<Personagem>));
-                    List<Personagem> deserializedPersList = (List<Personagem>)ser.ReadObject(reader, true);
+                    DataContractSerializer ser = new DataContractSerializer(typeof(List<Character>));
+                    List<Character> deserializedPersList = (List<Character>)ser.ReadObject(reader, true);
                     reader.Close();
                     fs.Close();
                     PersList = deserializedPersList;

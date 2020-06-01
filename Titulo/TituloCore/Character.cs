@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace TituloCore
 {
-    [DataContract(Name = "Personagem", Namespace = "http://www.contoso.com")]
+    [DataContract(Name = "Character", Namespace = "http://www.contoso.com")]
     //Lista de objetos de personagem que podem ser serializados
     [KnownType(typeof(Assassin))]
     [KnownType(typeof(Bard))]
@@ -34,7 +34,7 @@ namespace TituloCore
     [KnownType(typeof(Orc))]
     [KnownType(typeof(Armor))]
     [KnownType(typeof(Weapon))]
-    public class Personagem
+    public class Character
     {
         [DataMember]
         public string MainClass { get; set; }
