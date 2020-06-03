@@ -76,6 +76,10 @@ namespace TituloCore
         public int HitDice { get; set; }
         [DataMember]
         private int nHitDice { get; set; }
+        [DataMember]
+        public Armor NaturalArmor { get; set; }
+        [DataMember]
+        public List<int> ClassDmgDices;
 
         public Dictionary<string, IClass> AllClass = new Dictionary<string, IClass> {
             {"Assassin", new Assassin()},
@@ -284,7 +288,16 @@ namespace TituloCore
             Lvl = 1;
             nHitDice = 1;
             this.Persona = AllPersona[Persona];
-            Create();
+            this.Persona.AtributeInc(this);
+            this.Race.Speed(this);
+            this.Race.Language(this);
+            this.Race.AtributeInc(this);
+            this.Class[0].HitDice(this);
+            Hpmax = HitDice + Modifier("CON");
+            Hp = Hpmax;
+            NaturalArmor = new Armor(10, -10, 20);
+            EquippedArmor = NaturalArmor;
+            EquippedArmor.Equip(this);
         }
 
         /// <summary>
@@ -394,58 +407,6 @@ namespace TituloCore
                     pts += dpts;
                 }
             }
-        }
-
-        /// <summary>
-        /// Inicializa o personagem
-        /// </summary>
-        public virtual void Create()
-        {
-            //Console.WriteLine("Iniciando a definição dos Atributos");
-            Race.Speed(this);
-            Race.Language(this);
-            Class[0].HitDice(this);
-            Hpmax = HitDice + Modifier("CON");
-            Hp = Hpmax;
-            //Console.WriteLine("Seus Atributos após aplicação dos bonus:");
-            Race.AtributeInc(this);
-            Persona.AtributeInc(this);
-            //ShowAtributes();
-            EquippedArmor = new Armor(10, -10, 20);
-            EquippedArmor.Equip(this);
-        }
-
-        /// <summary>
-        /// Vai ter um botão com a lista de Reações
-        /// </summary>
-        public void Reaction()
-        {
-            //escolha
-            //AdO();
-        }
-
-        /// <summary>
-        /// Vai ter um botão com essa lista de ações
-        /// </summary>
-        public void Action()
-        {
-            //Atacar
-            //Magia
-            //Flee
-            //Mover dnv
-            //Esconder
-            //Postura de defesa
-            //Preperar ação
-            //Procurar
-        }
-        /// <summary>
-        /// Vai ter um botão com a lista de ações bonus
-        /// </summary>
-        public void BonusAction()
-        {
-            //Ataque com segunda arma
-            //Magias de bonus action
-            //Ação ardilosa (Ladino)
         }
 
         /// <summary>

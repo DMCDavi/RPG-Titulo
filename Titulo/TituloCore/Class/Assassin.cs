@@ -32,7 +32,7 @@ namespace TituloCore
         /// <returns></returns>
         public bool CanBe(Character Self)
         {
-            if (Self.Atribute["INT"] >= 13)
+            if (Self.Atribute["DEX"] >= 13)
                 return true;
             return false;
         }
@@ -43,7 +43,6 @@ namespace TituloCore
         /// <param name="Self"></param>
         public void HitDice(Character Self)
         {
-            ///
             Self.HitDice = 10;
         }
 

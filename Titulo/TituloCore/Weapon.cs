@@ -11,10 +11,11 @@ namespace TituloCore
         Character Owner;
         public string Tipo;
         public string Atributo;
-        public int[] Dices;
+        public List<int> Dices;
         public int HitBonus;
         public int DmgBonus;
         public int Range;
+        
 
         /// <summary>
         /// Construtor da arma
@@ -30,7 +31,14 @@ namespace TituloCore
             this.Owner = Owner;
             this.Tipo = Tipo;
             this.Atributo = Atributo;
-            this.Dices = Dices;
+            foreach (int dice in Dices)
+            {
+                this.Dices.Add(dice);
+            }
+            foreach (int dice in Owner.ClassDmgDices)
+            {
+                this.Dices.Add(dice);
+            }
             HitBonus = Hit;
             DmgBonus = Damage;
             Range = 1;
