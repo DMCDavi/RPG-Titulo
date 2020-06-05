@@ -27,6 +27,5 @@ namespace TituloCore
         /// </summary>
         void IncrementPersonalityPoints();
         void AtributeInc(Character Self);
-        void SetSpritePersona(Character Self);
     }
 }

@@ -40,10 +40,6 @@ namespace TituloCore
 
         }
 
-        public void SetSpritePersona(Character Self)
-        {
-            Self.SpritePath = "Sprite/Maria/";
-        }
 
         public string PersonaName()
         {
