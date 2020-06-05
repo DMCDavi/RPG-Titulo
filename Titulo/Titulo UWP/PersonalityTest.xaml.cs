@@ -64,7 +64,7 @@ namespace Titulo_UWP
                 Panel_13.Visibility = Visibility.Visible;
                 num_answer = 1;
                 num_panel = 13;
-                NextStep.Content = "Tentar novamente";
+                NextStep.Content = "Voltar";
                 return;
             }
             //Se chamar Lapa de Lapa na aula dele, o usuário falha no teste
@@ -74,7 +74,7 @@ namespace Titulo_UWP
                 Panel_14.Visibility = Visibility.Visible;
                 num_answer = 1;
                 num_panel = 14;
-                NextStep.Content = "Tentar novamente";
+                NextStep.Content = "Voltar";
             }
             //Se tiver completado o teste de personalidade, redireciona o usuário para a página de criação do personagem
             else if (num_panel == 12)

@@ -145,18 +145,46 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\cyberpunk_landscape_blur.png" />
-    <Content Include="Assets\gean_landscape.jpg" />
-    <Content Include="Assets\landscape.jpg" />
-    <Content Include="Assets\landscape.png" />
+    <Content Include="Assets\Menu\cyberpunk_landscape_blur.png" />
+    <Content Include="Assets\Personagens\Ana\Ana_Landscape.png" />
+    <Content Include="Assets\Menu\landscape.jpg" />
+    <Content Include="Assets\Personagens\Ana\Sem_fundo\Ana_Human.png" />
+    <Content Include="Assets\Personagens\Bia\Bia W BG.png" />
+    <Content Include="Assets\Personagens\Bia\Bia_Landscape.png" />
+    <Content Include="Assets\Personagens\Bia\Sem_fundo\Bia_Human.png" />
+    <Content Include="Assets\Personagens\David\Com_fundo\David_Dragonborn_BG.png" />
+    <Content Include="Assets\Personagens\David\Com_fundo\David_Dwarf_BG.png" />
+    <Content Include="Assets\Personagens\David\Com_fundo\David_Elf_BG.png" />
+    <Content Include="Assets\Personagens\David\Com_fundo\David_Goliath_BG.png" />
+    <Content Include="Assets\Personagens\David\Com_fundo\David_Human_BG.png" />
+    <Content Include="Assets\Personagens\David\Com_fundo\David_Orc_BG.png" />
+    <Content Include="Assets\Personagens\David\David_Landscape.png" />
+    <Content Include="Assets\Personagens\David\Sem_fundo\David_Dragonborn.png" />
+    <Content Include="Assets\Personagens\David\Sem_fundo\David_Dwarf.png" />
+    <Content Include="Assets\Personagens\David\Sem_fundo\David_Elf.png" />
+    <Content Include="Assets\Personagens\David\Sem_fundo\David_Goliath.png" />
+    <Content Include="Assets\Personagens\David\Sem_fundo\David_Human.png" />
+    <Content Include="Assets\Personagens\David\Sem_fundo\David_Orc.png" />
+    <Content Include="Assets\Personagens\Fernanda\Fern W BG.png" />
+    <Content Include="Assets\Personagens\Fernanda\Fernanda_Landscape.png" />
+    <Content Include="Assets\Personagens\Fernanda\Sem_fundo\Fernanda_Human.png" />
+    <Content Include="Assets\Personagens\Gean\Gean_Landscape.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Dragonborn.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Dwarf.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Elf.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Goliath.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Human.png" />
     <Content Include="Assets\Personagens\Gean\Sem_fundo\Gean_Orc.png" />
-    <Content Include="Assets\scrollpaper.png" />
-    <Content Include="Assets\tela_principal.png" />
+    <Content Include="Assets\Personagens\Grhamm\Grhamm_Landscape.png" />
+    <Content Include="Assets\Personagens\Grhamm\Sem_fundo\Grhamm_Human.png" />
+    <Content Include="Assets\Personagens\Joao\Joao_Landscape.png" />
+    <Content Include="Assets\Personagens\Joao\Sem_fundo\Joao_Human.png" />
+    <Content Include="Assets\Personagens\Maria\Maria W BG.png" />
+    <Content Include="Assets\Personagens\Maria\Maria_Landscape.png" />
+    <Content Include="Assets\Personagens\Maria\Sem_fundo\Maria_Human.png" />
+    <Content Include="Assets\Menu\scrollpaper.png" />
+    <Content Include="Assets\Personagens\Vagner\Sem_fundo\Vagner_Human.png" />
+    <Content Include="Assets\Personagens\Vagner\Vagner_Landscape.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -210,6 +238,14 @@
   <ItemGroup>
     <Content Include="Assets\Fonts\Ancient Medium.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Personagens\Ana\Ana Base.psp" />
+    <None Include="Assets\Personagens\Ana\Ana W BG.psp" />
+    <None Include="Assets\Personagens\Bia\Bia Base.psp" />
+    <None Include="Assets\Personagens\Fernanda\Fern Base.psp" />
+    <None Include="Assets\Personagens\Maria\Maria Base.psp" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

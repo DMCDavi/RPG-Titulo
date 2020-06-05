@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="0" Grid.ColumnSpan="3" Source="/Assets/gean_landscape.jpg" Stretch="UniformToFill"/>
+        <Image x:Name="CharacterLandscape" Grid.Column="0" Grid.ColumnSpan="3" Source="/Assets/Personagens/Gean/Gean_Landscape.png" Stretch="UniformToFill"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Grid.Column="0" x:Name="StackClass" CornerRadius="30" Orientation="Vertical" Padding="20" Margin="0,0,0,40" >
                 <StackPanel.Background>
@@ -43,9 +43,10 @@
             </StackPanel>
         </StackPanel>
         
-        <Image Grid.Column="1" Source="/Assets/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center"  Height="139" VerticalAlignment="Top" Margin="50,0,49,0"/>
+        <Image Grid.Column="1" Source="/Assets/Menu/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center"  Height="139" VerticalAlignment="Top" Margin="50,0,49,0"/>
         <TextBlock x:Name="PersonaName" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" TextAlignment="Center" VerticalAlignment="Top"  Grid.Column="1" Margin="0,44,0,0" />
         <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" Margin="20" >
+            
             <Image Grid.Column="1" x:Name="CharacterImg" Source="/Assets/Personagens/Gean/Sem_fundo/Gean_Human.png" Margin="0,0,0,20" />
             <TextBox Visibility="Collapsed" CornerRadius="20" x:Name="CharName" Background="#FFFFFBFF" Height="44"  TextAlignment="Center"  FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="26" PlaceholderText="Digite seu nome..."  TextChanged="CharName_TextChanged"/>
             <Button CornerRadius="30" x:Name="NextStep" Content="Avançar" VerticalAlignment="Bottom" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" HorizontalAlignment="Center" Padding="50,0,50,0" Background="#CCFFFFFF" Click="NextStep_Click" Margin="0,20,0,0"/>

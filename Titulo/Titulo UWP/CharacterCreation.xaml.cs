@@ -24,7 +24,7 @@ namespace Titulo_UWP
     public sealed partial class CharacterCreation : Page
     {
         Character pers;
-        string race_name = "Human", class_name = "Assassin", persona_name = "David";
+        string race_name = "Human", class_name = "Assassin", persona_name = "Gean";
         //Variavel que armazena o local onde sao guardados os dados da aplicacao
         StorageFolder localFolder = ApplicationData.Current.LocalFolder;
         public List<Character> PersList = new List<Character>();
@@ -40,6 +40,15 @@ namespace Titulo_UWP
             if (e.Parameter is string && !string.IsNullOrWhiteSpace((string)e.Parameter))
                 persona_name = e.Parameter.ToString();
             PersonaName.Text = persona_name;
+            try
+            {
+                CharacterLandscape.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/" + persona_name + "_Landscape.png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("ERRO: Nenhuma imagem foi encontrada");
+            }
             base.OnNavigatedTo(e);
         }
 
@@ -216,10 +225,14 @@ namespace Titulo_UWP
         private void Race_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
-            if (rb != null && CharacterImg != null)
+            try
             {
                 race_name = rb.Tag.ToString();
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + race_name + ".png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("ERRO: Nenhuma imagem foi encontrada");
             }
         }
 

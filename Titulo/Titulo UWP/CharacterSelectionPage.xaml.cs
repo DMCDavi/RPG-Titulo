@@ -35,6 +35,7 @@ namespace Titulo_UWP
         public List<Character> PersList = new List<Character>();
         public List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
         string[] RaceNames = { "Human", "Human", "Human", "Human" };
+        string[] PersonaNames = { "Gean", "Gean", "Gean", "Gean" };
         public CharacterSelectionPage()
         {
             this.InitializeComponent();
@@ -69,14 +70,15 @@ namespace Titulo_UWP
             {
                 string[] race_splited = PersList[counter].Race.ToString().Split(".");
                 RaceNames[counter] = race_splited[1];
+                PersonaNames[counter] = PersList[counter].Persona.PersonaName();
                 AllNicknames[counter].Visibility = Visibility.Visible;
                 AllClasses[counter].Visibility = Visibility.Visible;
                 AllPersonas[counter].Visibility = Visibility.Visible;
                 AllRaces[counter].Visibility = Visibility.Visible;
                 AllNicknames[counter].Text = PersList[counter].Nickname;
                 AllClasses[counter].Text = "Classe: " + PersList[counter].MainClass;
-                AllPersonas[counter].Text = "Herói: " + PersList[counter].Persona.PersonaName();
-                AllRaces[counter].Text = "Raça: " + race_splited[1];
+                AllPersonas[counter].Text = "Herói: " + PersonaNames[counter];
+                AllRaces[counter].Text = "Raça: " + RaceNames[counter];
                 counter++;
             }
         }
@@ -92,7 +94,7 @@ namespace Titulo_UWP
             }
             else
             {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[0] + ".png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[0] + "/Sem_fundo/" + PersonaNames[0] + "_" + RaceNames[0] + ".png"));
                 CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
@@ -109,7 +111,7 @@ namespace Titulo_UWP
             }
             else
             {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[1] + ".png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[1] + "/Sem_fundo/" + PersonaNames[1] + "_" + RaceNames[1] + ".png"));
                 CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
@@ -126,7 +128,7 @@ namespace Titulo_UWP
             }
             else
             {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[2] + ".png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[2] + "/Sem_fundo/" + PersonaNames[2] + "_" + RaceNames[2] + ".png"));
                 CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
@@ -143,7 +145,7 @@ namespace Titulo_UWP
             }
             else
             {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_" + RaceNames[3] + ".png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[3] + "/Sem_fundo/" + PersonaNames[3] + "_" + RaceNames[3] + ".png"));
                 CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }

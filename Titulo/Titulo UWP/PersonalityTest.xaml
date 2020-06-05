@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Grid.RowSpan="2" Source="/Assets/cyberpunk_landscape_blur.png" Stretch="UniformToFill" />
+        <Image Grid.RowSpan="2" Source="/Assets/Menu/cyberpunk_landscape_blur.png" Stretch="UniformToFill" />
         <StackPanel x:Name="Panel_1" Visibility="Visible" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
                 <Paragraph>Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.</Paragraph>
@@ -21,7 +21,11 @@
         </StackPanel>
         <StackPanel x:Name="Panel_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Acordadndo</Paragraph>
+                <Paragraph>
+                    *DRIIIIN!... DRIIIIN!... DRIIIIN!...*
+                    *BIP*
+                    ??? - “(... Acho que já deu a hora... eu deveria me levantar?)”
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="1" Content="Acordar" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="1" Content="Nem dormi, tava jogando Icarus" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -32,7 +36,7 @@
         </StackPanel>
         <StackPanel x:Name="Panel_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Buzivis (tem um cara na sua frente)</Paragraph>
+                <Paragraph>??? - “(Ah! Finalmente o buzivis chegou no meu ponto... Esse cara não vai me deixar passar não?!)”</Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="2" Content="Dar um megaton" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="2" Content="Xingar baixinho" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -43,7 +47,11 @@
         </StackPanel>
         <StackPanel x:Name="Panel_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Aula de Perick</Paragraph>
+                <Paragraph>
+                    ??? - “Putz, o primeiro horário é de Perick né?”
+                    Professor Perick - “Bom dia turma, o assunto de hoje já está no quadro então vou deixar vocês copiarem e continuarei a aula.”
+                    *Uma hora depois...*
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="3" Content="Acordar" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="3" Content="Fazer atividades de outras matérias" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -53,7 +61,11 @@
         </StackPanel>
         <StackPanel x:Name="Panel_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Aula de Jãcarro</Paragraph>
+                <Paragraph>
+                    ??? - “(Até que enfim acabou a primeira aula, agora vamos para JãCarro... Ughh...)”
+                    Professor JãCarro - “Bom dia turma, vamos começar o nosso próximo conteúdo hoje como combinado...”
+                    ??? - “(Mais uma aula maçante de conteúdo em slide, e essa voz monótona só piora as coisas.)”
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="4" Content="Prestar atenção" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="4" Content="Ler light novel" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -64,7 +76,10 @@
         </StackPanel>
         <StackPanel x:Name="Panel_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Intervalo</Paragraph>
+                <Paragraph>
+                    *Após a aula*
+                    ??? - (“Ótimo! Já deu a hora do intervalo, hoje tá muito cansativo. Agora... o que fazer no meio tempo?”)
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="5" Content="Jogar no celular" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="5" Content="Ficar na sala lendo light novel" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -75,7 +90,11 @@
         </StackPanel>
         <StackPanel x:Name="Panel_7" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Paulão da empada</Paragraph>
+                <Paragraph>
+                    ??? - (“Bem, acho que o intervalo já está pra acabar... Que pena.”)
+                    Paulão da Empada - “E aí gente, como cês tão? Hoje tem empada hein.”
+                    ??? - “E-Empada?! Não tem como resistir...”
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="6" Content="Comprar uma salgada e uma doce" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="6" Content="Comprar só doce" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -83,7 +102,10 @@
         </StackPanel>
         <StackPanel x:Name="Panel_8" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Aula de Enelson</Paragraph>
+                <Paragraph>
+                    Enelsion – “Bom dia turma! Hoje iremos continuar o assunto da aula passada.”
+                    ??? - (“Eita! O professor já chegou... Mas essa aula também é muito cansativa, o que fazer enquanto isso?”)
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="7" Content="Comer melão" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="7" Content="Jogar Pokemon" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -97,7 +119,10 @@
 
         <StackPanel x:Name="Panel_9" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Almoço</Paragraph>
+                <Paragraph>
+                    Enelsion - “Até semana que vem turma.”
+                    ??? - (“Ufa acabou, já é meio dia. Tsc, esqueci que aqui só tem almoço troll...”)
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="8" Content="Slow Death e passar mal depois, mas vale a pena pq é barato" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="8" Content="Não almoçar ou ir de Subway" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -106,7 +131,10 @@
         </StackPanel>
         <StackPanel x:Name="Panel_10" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Aula de Lapa</Paragraph>
+                <Paragraph>
+                    ??? - (“FINALMENTE! Agora é a melhor aula do dia! Que alegria senhor...”)
+                    Professor Lapa - (“Boa tarde galera! Tudo tranquilo? Hoje vamos continuar com o projeto, estarei tirando dúvida de todos.”)
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="9" Content="Chamar Lapa de Deus" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="9" Content="Falar que JS é melhor que todas as outras linguagens" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -116,7 +144,10 @@
         </StackPanel>
         <StackPanel x:Name="Panel_11" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Angela</Paragraph>
+                <Paragraph>
+                    ??? - “Valeu Lapa God! Até semana que vem.”
+                    ??? - (“Acho que a galera vai em Ângela agora a tarde. Hmm...”)
+                </Paragraph>
             </RichTextBlock>
             <RadioButton GroupName="10" Content="Que nada, eu vou é pra casa" Tag="1" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30" IsChecked="True"/>
             <RadioButton GroupName="10" Content="Ir pra UFBA" Tag="2" Checked="Check_Test" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30"/>
@@ -130,12 +161,20 @@
         </StackPanel>
         <StackPanel x:Name="Panel_13" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Todos acharam um absurdo e te espancaram até a morte</Paragraph>
+                <Paragraph>
+                    ??? - “Hoje não dá Paulo vou guardar o di-”
+                    ??? - “Arghh! O-O que é isso?! Meu peito tá doendo muito!!! ARRGGHH!!!!”
+                    *VOCÊ MORREU, TENTE NOVAMENTE*
+                </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_14" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="30">
-                <Paragraph>Voce é uma desonra para a religião Lapateísta</Paragraph>
+                <Paragraph>
+                    ??? - “Ei Lapa você pode me aju-”
+                    ??? - “Arghh! O-O que é isso?! Meu peito tá doendo muito!!! ARRGGHH!!!!”
+                    *VOCÊ MORREU, TENTE NOVAMENTE*
+                </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <Button x:Name="NextStep" Grid.Row="1" CornerRadius="30" Content="Avançar" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="48" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="50,0,50,0" Click="NextStep_Click"/>

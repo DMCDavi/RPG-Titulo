@@ -13,8 +13,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image  Grid.Row="0" Grid.RowSpan="2" Source="/Assets/landscape.jpg" Stretch="UniformToFill"/>
-        <Image Grid.Row="0" Source="/Assets/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="486" Height="317" VerticalAlignment="Top"/>
+        <Image  Grid.Row="0" Grid.RowSpan="2" Source="/Assets/Menu/landscape.jpg" Stretch="UniformToFill"/>
+        <Image Grid.Row="0" Source="/Assets/Menu/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" Width="486" Height="317" VerticalAlignment="Top"/>
         <StackPanel Margin="525,0,526,0" Height="144" VerticalAlignment="Center">
             <TextBlock TextAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="100" Text="Título" Height="94" VerticalAlignment="Top"/>
             <TextBlock TextAlignment="Center" FontFamily="/Assets/Fonts/Ancient Medium.ttf#Ancient" FontSize="36" Text ="O RPG" Height="44"/>
