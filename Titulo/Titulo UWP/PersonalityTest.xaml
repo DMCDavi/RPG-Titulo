@@ -223,7 +223,7 @@
                 <Paragraph>
                     Professor Fábio (Discord) - “JS?!É Sério? Bem... Não temos tempo, vai ter que ser isso mesmo. Dá pra implementar no horário né?”
                 </Paragraph>
-                
+
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_14" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
@@ -281,6 +281,536 @@
                 </Paragraph>
                 <Paragraph FontWeight="Bold">
                     VOCÊ MORREU, TENTE NOVAMENTE
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_1_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Vou levantar logo, fazer um café, tomar meu banho e me arrumar pra sair logo. É melhor não me atrasar para a aula.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_1_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Ahh eu tô muito morto velho, mas não como eu nunca tivesse feito isso antes kk. Só vou tomar um banho e sair logo.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_1_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Eu tenho mesmo que levantar? ... Aff, acho que não têm como adiar ainda mais, vou tomar banho e sair.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_1_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Nossa bem em cima da hora! Ah tanto faz, só dá pra tomar banho e sair correndo mesmo.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_1_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Não tem como fazer nada de manhã sem pelo menos uma música pra me despertar... Pronto! Agora posso seguir com o dia, vou pro banho e então pra aula.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_1_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(MEU DEUS EU VOU PERDER A AULA! NÃO DA NEM PRA TOMAR BANHO SÓ VOU ME VESTIR E... Ué? Ainda... tá escuro? Ah não... Eu não acredito que acordei cedo demais... Bem agora também não consigo dormir mais, vou me arrumar logo então.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_2_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Sai do meio vidraça eu tenho horário.”
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *POW*
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Ainda vou chegar a tempo, ainda bem.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_2_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Que pedra, baralho, vai catar coquinho, eu só quero passar.”
+                </Paragraph>
+                <Paragraph>
+                    Homem Estranho - “Oi?! O que disse?”
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Ahh nada não haha... Dá licença aqui amigo? Preciso descer...”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Ufa acho que consegui a tempo)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_2_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Bold">
+                    *POW*
+                </Paragraph>
+                <Paragraph>
+                    Homem Estranho - “Que isso?! Cê me bateu imbecil?”
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Sai da frente maluco! Não tá vendo que eu tô querendo passar?”
+                </Paragraph>
+                <Paragraph>
+                    Homem Estranho (Intimidado) - “Ah desculpa eu não tinha visto haha... desculpa aí...”
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Babaca.”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Aff quase perdi a hora, vou adiantar o passo.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_2_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Homem Estranho (Desconfortável): “...”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(...Droga ele tá olhando pra mim...)”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Bom deu pra passar a tempo pelo menos).”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_2_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Kkkkkk ainda bem que eu tenho um carro, imagina só ter que pegar aquele transporte lotado de gente, que inferno. É bom que dá pra chegar mais rápido com o carro também”.
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_3_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(...Hã?? Droga dormi na aula... Ué ele ainda tá nesse assunto muito fácil, vou voltar a dormir.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_3_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Bem acho que não vai ter muito mais aula não... Vou aproveitar pra adiantar as outras matérias logo kk ainda bem.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_3_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(...Hmmm, acho que esse pato vai ficar brabo dando um kickflip nesse skate. Puts! Fiquei rabiscando no caderno e esqueci completamente da aula, mas ... Ué? Eu copiei o quadro nos primeiros 10 minutos e ainda tá no mesmo assunto? Vou continuar desenhando hehe.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_3_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Ahhhhh essa aula não acaba nunca cara?!? Já olhei o Twitter 8 vezes, o Instagram 4 e até agora nada. Tsc, tô nem aí vou vegetar até o próximo horário.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_3_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Sem aula agora né? acho que vou lá fora comprar um salgado...)”
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Vmm-vmm*
+                </Paragraph>
+                <Paragraph>
+                    Grupo da Turma (Whatsapp) - “Perick é mto troll cara nem tá tendo aula direito.”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Kkkk que sorte.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_4_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Vou levantar logo, fazer um café, tomar meu banho e me arrumar pra sair logo. É melhor não me atrasar para a aula.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_4_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Ótimo! Outro assunto que eu já sabia. Vai dar tempo de terminar mais um capítulo, mas eu já tô quase acabando essa novel, que triste...)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_4_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Essa matéria é inútil pro meu curso mesmo, ficar no celular vale muito mais pelo meu tempo.)”
+                </Paragraph>
+                <Paragraph>
+                    Professor JãCarro: “Pessoal guardem o celular, lembrem que esse assunto vai estar na prova semana que vem.”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Oxe!? Nem dá pra ver meu celular desse ângulo! Ah... não era comigo, ainda bem.)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_4_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(O professor podia ganhar um dinheiro bom ajudando pessoas com insônia hein? Mas não dá pra dormir de novo não, ter que repetir essa matéria é inadmissível.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_4_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(As outras aulas também foram batalhas difíceis, mas essa aqui está impossível! Infelizmente vou ter que me render ao sono...)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_4_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Professor posso ir no banheiro?”
+                </Paragraph>
+                <Paragraph>
+                    Professor JãCarro - “Volta rápido, esse assunto é bem importante.”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Não dá mais, eu tenho coisa mais importante pra fazer e depois eu volto ao menos pela presença.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_5_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - “(Acho que vou jogar agora, é bom que vou pegar o login diário logo antes que eu esqueça e eu nem tô com tanta fome assim.)”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_5_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Acho que dá pra terminar hoje, mas não sei se eu deveria... É bom encontrar outra antes de terminar essa.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_5_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Nossa eu tô morrendo de fome!! Pensando até em comprar 2 salgados lá fora. Acho que vou correndo logo...”)
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Minutos depois*
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Bom dia! Vou querer 2 pão pizza por favor. E tá aqui o dinheiro...”
+                </Paragraph>
+                <Paragraph>
+                    Vendedor - “O dinheiro tá certinho já! Você vem bastante aqui né?”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Certinho?! Droga não vai sobrar pro geladão...”)
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Haha sim obrigado.”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_5_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Nossa eu tô morrendo de fome se pá eu vou comprar até 2 salgados lá fora e aquele geladão pra complementar”)
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Minutos depois*
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Ahh! Isso tá muito bom, só é ruim de segurar tudo nas mãos mas com certeza valeu a pena.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_5_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Agora posso calmamente chupar minha manga em paz...”)
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Minutos depois*
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“É...”)
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Eu me sujei todo. Ainda bem que todo mundo já saiu da sala, vou correr ali no banheiro pra limpar rapidão”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_5_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“ Meu deus minha fome hoje tá GIGANTE! Ainda bem que eu crackeei esse app CopiadorX-2K* no meu celular, vou poder clonar a banana que eu trouxe quantas vezes eu quiser! Hehehe...”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_6_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Me vê uma de brigadeiro e uma de frango aí Paulo.”
+                </Paragraph>
+                <Paragraph>
+                    Paulão da Empada - “É pra já amigo!”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Ah não tem erro, essa empada é incrível não importa o quanto eu coma.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_6_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Me vê uma de brigadeiro e uma de maracujá aí Paulo.”
+                </Paragraph>
+                <Paragraph>
+                    Paulão da Empada - “É pra já amigo!”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“As empadas doces são as minhas favoritas, mas todas são ótimas.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Enquanto ainda não começa vou comer esse melãozinho que eu trouxe hoje, Humm...”)
+                </Paragraph>
+                <Paragraph>
+                    Enelsion - “...”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“E-Ele tá olhando pra mim??”)
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Professor?”
+                </Paragraph>
+                <Paragraph>
+                    Enelsion - “Estou esperando o intervalo acabar!”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô – (“Nossa que cara escroto, eu juro que vou levantar e jogar esse melão na cara de dinossauro dele!”)
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Hmm... Ok”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Vou aproveitar logo essa aula longa e upar meu time no Pokémon, aquele ginásio tipo voador é um saco...”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - *Suspiro* (“Outra aula chata, e eu não tenho nada pra fazer agora...”)
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Vou sentar no fundo mesmo e procurar algo pra passar o tempo.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Professor Enelsion - “Bem, continuando de onde paramos aula passada pode-se ver que esses gráficos são muito diferentes.”
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Professor isso quer dizer que a mudança tá diretamente relacionado com o tempo?”
+                </Paragraph>
+                <Paragraph>
+                    Professor Enelsion - “Isso mesmo.”
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Que bom! Realmente valeu a pena ler todo aquele livro. Mas eu tô morrendo de sono...”
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Alguns minutos depois*
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“...Hã? O que? Eu dormi?! ... E porque ninguém me acordou? Nem mesmo o professor?  Estranho...”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Como não tenho aula agora acho que vou adiantar algo de outra matéria... Ainda bem que não peguei essa matéria com Enelsion kkk.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“É essa aula é muito monótona e improdutiva, aposto que eu aprendo mais rápido se pegar o livro pra ler. Por enquanto vou adiantar essa outra atividade daqui...”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_7" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“É... Acabei. Essa daqui já estava no fim mesmo, pelo menos o fim foi muito brabo. Agora preciso encontrar outra pra ler que droga...”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_7_8" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Claramente não tem ninguém prestando atenção na aula, não que seja grande coisa também... Tive uma ideia! Quero só ver a cara dos outros quando pegarem o celular kkkk.”)
+                </Paragraph>
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Aluno (Assustado) - (“9999 Mensagens novas?!?! Que grupo é esse?!”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_8_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Vai ter que ser no Slow Death, mesmo sabendo provavelmente não vai me fazer bem. Pelo menos é o que vai economizar mais.”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_8_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Vou só checar o Subway pra ver se tem baratíssimo mesmo, senão tô bem tranquilo em não comer nada mesmo.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_8_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Acho que o Gourmet Death é a melhor das opções, não é tão ruim quanto Slow Death, não faz tão mal quanto o Subway e eu não trouxe nada de casa então... É isso mesmo”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_8_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Que bom que trago marmita pra almoçar, é chato ter que esquentar mas compensa muito mais do que os lugares daqui kk.”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_9_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock>
+                <Paragraph>
+                    Galo Robô - “Boa tarde God! Pode vir no meu grupo? Tô com dificuldade em usar esse Scene Builder troll.”
+                </Paragraph>
+                <Paragraph>
+                    Professor Lapa - “Claro!”
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Alguns minutos depois*
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Ahhh agora ficou 10 vezes mais fácil, salvou muito!”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_9_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Ah véi JavaScript nem é tão ruim assim, na verdade é a mais braba.”
+                </Paragraph>
+                <Paragraph>
+                    Professor Lapa - “Não cara, por favor não. Há muitos anos atrás quando JS era uma linguagem considerada "atual" já era muito ruim e hoje em dia já sabemos as consequências de usá-la, então... NÃO use .”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_9_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Professor a gente tá pensando em fazer uma IA pro projeto, o que você acha?”
+                </Paragraph>
+                <Paragraph>
+                    Professor Lapa - “Rapaz... Tem certeza? Vocês tão querendo se complicar demais, eu só quero um trabalho simples com as funcionalidades bem feitas. Não tem necessidade.”
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Putz ok então, não vai rolar não kk.”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_9_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Sério C# tá incrível! 1000 vezes melhor que Java, se continuar nesse ritmo vai dar até pra colocar um banco no projeto.”
+                </Paragraph>
+                <Paragraph>
+                    Colega de Grupo - “Man, pare. Você só dá call errada man.”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_10_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph FontWeight="Thin" FontStyle="Italic">
+                    Galo Robô - (“Tô cansado demais pra sair hoje, ainda mais que tem Iniciação Científica mais tarde. Vou só me despedir e ir pra casa...”)
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_10_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Não dá pra mim gente! Tenho aula na UFBA hoje ainda e mais tarde a IC.”
+                </Paragraph>
+                <Paragraph>
+                    Grupo de Amigos - “Ah não acredito nisso, hoje também tem?! Como você aguenta?”
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Outro dia a gente marca, agora já vou indo tchau!”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_10_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Desculpa aí man, vai ter que ser você.”
+                </Paragraph>
+                <Paragraph>
+                    Davirus - “Espera! Eu juro que não sou eu por favor!”
+                </Paragraph>
+                <Paragraph>
+                    Grupo de Amigos - “Não tem jeito man, todo mundo já votou em você.”
+                </Paragraph>
+                <Paragraph>
+                    Davirus - “Ah não vei... vou ter que virar mais uma caipirinha flamejante”
+                </Paragraph>
+            </RichTextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Answer_10_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+                <Paragraph>
+                    Galo Robô - “Ah vamo lá gente, que mal pode fazer?”
+                </Paragraph>
+                <Paragraph FontWeight="Bold">
+                    *Um tempo depois*
+                </Paragraph>
+                <Paragraph>
+                    Galo Robô - “Não acredito nisso *soluço*, eles realmente me convenceram a encher a cara desse jeito. Hoje na Iniciação vai ser barril...”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
