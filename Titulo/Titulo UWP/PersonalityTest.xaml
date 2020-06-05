@@ -717,7 +717,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_9_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock>
+            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Boa tarde God! Pode vir no meu grupo? Tô com dificuldade em usar esse Scene Builder troll.”
                 </Paragraph>
