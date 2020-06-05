@@ -57,13 +57,29 @@ namespace Titulo_UWP
                 num_panel++;
                 return;
             }
+            else if (num_panel == 12)
+            {
+                Panel_12.Visibility = Visibility.Collapsed;
+                Panel_13.Visibility = Visibility.Visible;
+                num_answer = 1;
+                num_panel++;
+                return;
+            }
+            else if (num_panel == 13)
+            {
+                Panel_13.Visibility = Visibility.Collapsed;
+                Panel_14.Visibility = Visibility.Visible;
+                num_answer = 1;
+                num_panel++;
+                return;
+            }
             //Se guardar o dinheiro da pergunta da empada o usuário falha no teste
             else if (num_panel == 7 && num_answer == 3)
             {
                 Panel_7.Visibility = Visibility.Collapsed;
                 Panel_13.Visibility = Visibility.Visible;
                 num_answer = 1;
-                num_panel = 13;
+                num_panel = 15;
                 NextStep.Content = "Voltar";
                 return;
             }
@@ -73,11 +89,11 @@ namespace Titulo_UWP
                 Panel_10.Visibility = Visibility.Collapsed;
                 Panel_14.Visibility = Visibility.Visible;
                 num_answer = 1;
-                num_panel = 14;
+                num_panel = 16;
                 NextStep.Content = "Voltar";
             }
             //Se tiver completado o teste de personalidade, redireciona o usuário para a página de criação do personagem
-            else if (num_panel == 12)
+            else if (num_panel == 14)
             {
                 num_answer = 1;
                 this.Frame.Navigate(typeof(CharacterCreation), PTest.GetPersonalityWinner());

@@ -236,9 +236,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Fonts\Ancient Medium.ttf" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Assets\Personagens\Ana\Ana Base.psp" />
     <None Include="Assets\Personagens\Ana\Ana W BG.psp" />
     <None Include="Assets\Personagens\Bia\Bia Base.psp" />
