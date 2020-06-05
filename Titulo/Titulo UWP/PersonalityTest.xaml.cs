@@ -90,7 +90,7 @@ namespace Titulo_UWP
             else if (num_panel == 7 && num_answer == 3)
             {
                 Panel_7.Visibility = Visibility.Collapsed;
-                Panel_13.Visibility = Visibility.Visible;
+                Panel_15.Visibility = Visibility.Visible;
                 num_answer = 1;
                 num_panel = 15;
                 NextStep.Content = "Voltar";
@@ -100,7 +100,7 @@ namespace Titulo_UWP
             else if (num_panel == 10 && num_answer == 3)
             {
                 Panel_10.Visibility = Visibility.Collapsed;
-                Panel_14.Visibility = Visibility.Visible;
+                Panel_16.Visibility = Visibility.Visible;
                 num_answer = 1;
                 num_panel = 16;
                 NextStep.Content = "Voltar";
@@ -112,7 +112,7 @@ namespace Titulo_UWP
                 this.Frame.Navigate(typeof(CharacterCreation), PTest.GetPersonalityWinner());
             }
             //Se tiver falhado no teste de personalidade, redireciona o usuário para a página de seleção de personagens
-            else if (num_panel == 13 || num_panel == 14)
+            else if (num_panel == 15 || num_panel == 16)
             {
                 num_answer = 1;
                 this.Frame.Navigate(typeof(CharacterSelectionPage));
