@@ -7,18 +7,6 @@ namespace TesteNUnit
     public class CharacterTest
     {
         [TestCase]
-        public void TotalMagicSpaces()
-        {
-            Character personagem = new Character("Tank", "Human", "Vagner");
-            Assert.AreEqual(0,personagem.TotalMagicSpaces(3));
-        }
-        [TestCase]
-        public void ConjurationLvl()
-        {
-            Character personagem = new Character("Tank", "Human", "Vagner");
-            Assert.AreEqual(0, personagem.ConjurationLvl());
-        }
-        [TestCase]
         //Rever teste
         public void Understood()
         {
