@@ -11,12 +11,12 @@ namespace TituloCore.Persona
         public string Name = "Lapa";
         public void AtributeInc(Character Self)
         {
-            Self.Atribute["STR"] += 999;
-            Self.Atribute["DEX"] += 999;
-            Self.Atribute["CON"] += 999;
-            Self.Atribute["INT"] += 999;
-            Self.Atribute["WIS"] += 999;
-            Self.Atribute["CHA"] += 999;
+            Self.Atribute["STR"] = 20;
+            Self.Atribute["DEX"] = 20;
+            Self.Atribute["CON"] = 20;
+            Self.Atribute["INT"] = 20;
+            Self.Atribute["WIS"] = 20;
+            Self.Atribute["CHA"] = 20;
         }
 
 
@@ -38,12 +38,6 @@ namespace TituloCore.Persona
         public void PersonaModify(Character Self)
         {
             Self.TotalMove += 0;
-
-        }
-
-        public void SetSpritePersona(Character Self)
-        {
-            Self.SpritePath = "Sprite/Lapa/";
         }
 
         public string PersonaName()

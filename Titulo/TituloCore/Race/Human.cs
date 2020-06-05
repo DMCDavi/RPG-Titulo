@@ -14,6 +14,7 @@ namespace TituloCore
             Self.Atribute["INT"] += 1;
             Self.Atribute["WIS"] += 1;
             Self.Atribute["CHA"] += 1;
+            Self.pts += 5;
         }
 
         public void Language(Character Self)

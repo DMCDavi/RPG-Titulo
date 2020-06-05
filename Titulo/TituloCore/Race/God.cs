@@ -8,12 +8,7 @@ namespace TituloCore.Race
     {
         public void AtributeInc(Character Self)
         {
-            Self.Atribute["STR"] -= 2;
-            Self.Atribute["DEX"] += 1;
-            Self.Atribute["CON"] += 1;
-            Self.Atribute["INT"] += 2;
-            Self.Atribute["WIS"] += 1;
-            Self.Atribute["CHA"] += 2;
+            Self.pts = 999;
         }
 
         public void Language(Character Self)
