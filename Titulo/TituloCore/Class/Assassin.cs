@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace TituloCore
 {
+    [DataContractAttribute(Name = "Assassin")]
     public class Assassin : IClass
     {
         public int AssassinLvl;

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace TituloCore
 {
+    [DataContractAttribute(Name = "Mage")]
     public class Mage : IClass
     {
         public int MageLvl;

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace TituloCore
 {
+    [DataContractAttribute(Name = "Berserker")]
     public class Berserker : IClass
     {
         public Berserker(Character Self)

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace TituloCore
 {
+    [DataContractAttribute(Name = "Tank")]
     public class Tank : IClass // Ruler
     {
         public Boolean secret;
@@ -12,7 +14,7 @@ namespace TituloCore
         /// <summary>
         /// Construtor da classe Tank
         /// </summary>
-        public Tank()
+        public Tank(Character Self)
         {
             TankLvl = 1;
             secret = false;

@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
-namespace TituloCore.Class
+namespace TituloCore
 {
-    class Lapagod : IClass
+    [DataContractAttribute(Name = "Lapagod")]
+    public class Lapagod : IClass
     {
         public Lapagod(Character Self)
         {
-
+            HitDice(Self);
         }
         public void HitDice(Character Self)
         {

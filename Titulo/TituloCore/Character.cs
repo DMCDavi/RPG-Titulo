@@ -6,12 +6,13 @@ using System.Xml;
 
 namespace TituloCore
 {
-    [DataContract(Name = "Character", Namespace = "http://www.contoso.com")]
+    [DataContract(Name = "Character")]
     //Lista de objetos de personagem que podem ser serializados
     [KnownType(typeof(Assassin))]
     [KnownType(typeof(Bard))]
     [KnownType(typeof(Berserker))]
     [KnownType(typeof(Cleric))]
+    [KnownType(typeof(Lapagod))]
     [KnownType(typeof(Mage))]
     [KnownType(typeof(Shielder))]
     [KnownType(typeof(Tank))]
@@ -88,10 +89,14 @@ namespace TituloCore
                 CharacterClass = new Berserker(this);
             if (MainClass == "Cleric")
                 CharacterClass = new Cleric(this);
+            if (MainClass == "Lapagod")
+                CharacterClass = new Lapagod(this);
             if (MainClass == "Mage")
                 CharacterClass = new Mage(this);
             if (MainClass == "Shielder")
                 CharacterClass = new Shielder(this);
+            if (MainClass == "Tank")
+                CharacterClass = new Tank(this);
             if (MainClass == "Warrior")
                 CharacterClass = new Warrior(this);
             if (MainClass == "Witcher")
