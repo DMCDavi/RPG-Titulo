@@ -7,10 +7,11 @@ namespace TituloCore
     public interface IClass
     {
         void HitDice(Character Self);
+        int RollHitDice(Character Self);
         void LvlUp(Character Self);
-        bool CanBe(Character Self);
+        //bool CanBe(Character Self);
         //void ReceiveDmg(Character Self, int dmg);
-        int ClassLvl();
+        //int ClassLvl();
         
 
     }

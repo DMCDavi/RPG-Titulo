@@ -39,6 +39,8 @@ namespace TituloCore
         [DataMember]
         public string MainClass { get; set; }
         [DataMember]
+        public IClass CharacterClass { get; set; }
+        [DataMember]
         public string SpritePath { get; set; }
         [DataMember]
         public IRace Race { get; set; }
@@ -46,8 +48,6 @@ namespace TituloCore
         public IPersona Persona { get; set; }
         [DataMember]
         public int pts { get; set; } = 30;
-        [DataMember]
-        public List<IClass> Class { get; set; } = new List<IClass>();
         [DataMember]
         public string Nickname { get; set; }
         [DataMember]
@@ -81,17 +81,26 @@ namespace TituloCore
         [DataMember]
         public List<int> ClassDmgDices;
 
-        public Dictionary<string, IClass> AllClass = new Dictionary<string, IClass> {
-            {"Assassin", new Assassin()},
-            {"Bard", new Bard()},
-            {"Berserker", new Berserker()},
-            {"Cleric", new Cleric()},
-            {"Mage", new Mage()},
-            {"Shielder", new Shielder()},
-            {"Tank", new Tank()},
-            {"Warrior", new Warrior()},
-            {"Witcher", new Witcher()},
-        };
+
+        public void SelectClass()
+        {
+            if (MainClass == "Assassin")
+                CharacterClass = new Assassin(this);
+            if (MainClass == "Bard")
+                CharacterClass = new Bard(this);
+            if (MainClass == "Berserker")
+                CharacterClass = new Berserker(this);
+            if (MainClass == "Cleric")
+                CharacterClass = new Cleric(this);
+            if (MainClass == "Mage")
+                CharacterClass = new Mage(this);
+            if (MainClass == "Shielder")
+                CharacterClass = new Shielder(this);
+            if (MainClass == "Warrior")
+                CharacterClass = new Warrior(this);
+            if (MainClass == "Witcher")
+                CharacterClass = new Witcher(this);
+        }
 
         public Dictionary<string, IPersona> AllPersona = new Dictionary<string, IPersona> {
             {"Ana", new Ana()},
@@ -198,83 +207,6 @@ namespace TituloCore
         };
 
         /// <summary>
-        /// Retorna o lvl de conjuração do personagem
-        /// Sendo Testada
-        /// </summary>
-        /// <returns></returns>
-        public int ConjurationLvl()
-        {
-            int ConjLvl = 0;
-            foreach (IClass iclass in Class)
-            {
-                if (iclass.GetType() == new Mage().GetType())
-                {
-                    ConjLvl += iclass.ClassLvl();
-                }
-            }
-
-            /*if(Class["Mage"] != null)
-                ConjLvl += Class["Mage"].ClassLvl();
-            */
-
-            return ConjLvl;
-        }
-        /// <summary>
-        /// Sendo testada
-        /// </summary>
-        /// <param name="Lvl"></param>
-        /// <returns></returns>
-        public int TotalMagicSpaces(int Lvl)
-        {
-            int ConjLvl = ConjurationLvl();
-            if ((ConjLvl + 1) / 2 < Lvl)
-                return 0;
-            if (Lvl == 1)
-            {
-                if (ConjLvl < 4)
-                    return 1 + ConjLvl;
-                return 4;
-            }
-            if (Lvl == 2)
-            {
-                if (ConjLvl == 3)
-                    return 2;
-                return 3;
-            }
-            if (Lvl == 3)
-            {
-                if (ConjLvl == 5)
-                    return 2;
-                return 3;
-            }
-            if (Lvl == 4)
-            {
-                if (ConjLvl < 10)
-                    return ConjLvl - 6;
-                return 3;
-            }
-            if (Lvl == 5)
-            {
-                if (ConjLvl == 9)
-                    return 1;
-                return 2;
-            }
-            if (Lvl == 6)
-            {
-                if (ConjLvl > 18)
-                    return 2;
-                return 1;
-            }
-            if (Lvl == 7)
-            {
-                if (ConjLvl == 20)
-                    return 2;
-                return 1;
-            }
-            return 1;
-        }
-
-        /// <summary>
         /// Construtor do personagem
         /// </summary>
         /// <param name="Class"></param>
@@ -282,7 +214,7 @@ namespace TituloCore
         public Character(string Class, string Race, string Persona)
         {
             MainClass = Class;
-            this.Class.Add(AllClass[Class]);
+            SelectClass();
             this.Race = AllRace[Race];
             Exp = 0;
             Lvl = 1;
@@ -292,7 +224,7 @@ namespace TituloCore
             this.Race.Speed(this);
             this.Race.Language(this);
             this.Race.AtributeInc(this);
-            this.Class[0].HitDice(this);
+            this.CharacterClass.HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
             NaturalArmor = new Armor(10, -10, 20);
@@ -501,17 +433,7 @@ namespace TituloCore
         }
 
 
-        /// <summary>
-        /// Adiciona uma nova classe ao personagem
-        /// </summary>
-        /// <param name="Class"></param>
-        public void MultiClass(string Class)
-        {
-            if (AllClass[Class].CanBe(this))
-            {
-                this.Class.Add(AllClass[Class]);
-            }
-        }
+        
 
         /// <summary>
         /// Aumenta o lvl de uma das classes do personagem
@@ -519,7 +441,7 @@ namespace TituloCore
         /// <param name="Class"></param>
         public void LvlUp(string Class)
         {
-            //this.Class[Class].LvlUp(this);
+            CharacterClass.LvlUp(this);
         }
 
     }

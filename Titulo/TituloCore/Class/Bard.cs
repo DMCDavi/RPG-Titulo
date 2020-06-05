@@ -9,11 +9,11 @@ namespace TituloCore
         public int BardLvl;
 
         /// <summary>
-        /// Construtor da classe Mage
+        /// Construtor da classe Bard
         /// </summary>
-        public Bard()
+        public Bard(Character Self)
         {
-            BardLvl = 1;
+            HitDice(Self);
         }
 
         /// <summary>
@@ -25,17 +25,6 @@ namespace TituloCore
             return BardLvl;
         }
 
-        /// <summary>
-        /// Confere se o personagem pode se tornar mage por multi classe
-        /// </summary>
-        /// <param name="Self"></param>
-        /// <returns></returns>
-        public bool CanBe(Character Self)
-        {
-            if (Self.Atribute["INT"] >= 13)
-                return true;
-            return false;
-        }
 
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal
@@ -43,7 +32,6 @@ namespace TituloCore
         /// <param name="Self"></param>
         public void HitDice(Character Self)
         {
-            ///
             Self.HitDice = 10;
         }
 
@@ -56,11 +44,13 @@ namespace TituloCore
             Self.Lvl++;
             BardLvl++;
 
-            Random HitDice = new Random();
-            Console.Clear(); ;
-            int Result = 1 + HitDice.Next() % 20;
-            Self.Hpmax += Result + Self.Modifier("CON");
-            Self.Hp += Result + Self.Modifier("CON");
+            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+        }
+
+        public int RollHitDice(Character Self)
+        {
+            Random rand = new Random();
+            return 1 + rand.Next() % Self.HitDice;
         }
     }
 }

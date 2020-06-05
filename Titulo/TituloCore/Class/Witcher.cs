@@ -6,24 +6,24 @@ namespace TituloCore
 {
     public class Witcher : IClass
     {
-        public bool CanBe(Character Self)
+        public Witcher(Character Self)
         {
-            throw new NotImplementedException();
+            HitDice(Self);
         }
-
-        public int ClassLvl()
-        {
-            throw new NotImplementedException();
-        }
-
         public void HitDice(Character Self)
         {
-            throw new NotImplementedException();
+            Self.HitDice = 6;
         }
 
         public void LvlUp(Character Self)
         {
-            throw new NotImplementedException();
+            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+
+        }
+        public int RollHitDice(Character Self)
+        {
+            Random rand = new Random();
+            return 1 + rand.Next() % Self.HitDice;
         }
     }
 }

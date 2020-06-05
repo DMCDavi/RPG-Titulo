@@ -6,24 +6,27 @@ namespace TituloCore
 {
     public class Berserker : IClass
     {
-        public bool CanBe(Character Self)
+        public Berserker(Character Self)
         {
-            throw new NotImplementedException();
-        }
-
-        public int ClassLvl()
-        {
-            throw new NotImplementedException();
+            HitDice(Self);
+            Self.NaturalArmor = new Armor ( 10+Self.Modifier("CON"), 10, -10);
         }
 
         public void HitDice(Character Self)
         {
-            throw new NotImplementedException();
+            Self.HitDice = 12;
         }
 
         public void LvlUp(Character Self)
         {
-            throw new NotImplementedException();
+            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+            Self.ClassDmgDices.Add(4);
+        }
+
+        public int RollHitDice(Character Self)
+        {
+            Random rand = new Random();
+            return 1 + rand.Next() % Self.HitDice;
         }
     }
 }

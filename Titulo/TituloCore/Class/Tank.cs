@@ -27,19 +27,6 @@ namespace TituloCore
             return TankLvl;
         }
 
-        /// <summary>
-        /// Confere se o personagem pode se tornar Tank por multi classe
-        /// </summary>
-        /// <param name="Self"></param>
-        /// <returns></returns>
-        public bool CanBe(Character Self)
-        {
-            if(Self.Atribute["CON"] >= 13)
-            {
-                return true;
-            }
-            return false;
-        }
 
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal
@@ -71,6 +58,12 @@ namespace TituloCore
             {
                 dmg = 1;
             }
+        }
+
+        public int RollHitDice(Character Self)
+        {
+            Random rand = new Random();
+            return 1 + rand.Next() % Self.HitDice;
         }
     }
 }

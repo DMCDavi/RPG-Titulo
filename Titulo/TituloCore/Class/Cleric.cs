@@ -9,13 +9,12 @@ namespace TituloCore
         public int ClericLvl;
 
         /// <summary>
-        /// Construtor da classe Mage
+        /// Construtor da classe Cleric
         /// </summary>
-        public Cleric()
+        public Cleric(Character Self)
         {
-            ClericLvl = 1;
+            HitDice(Self);
         }
-
         /// <summary>
         /// Retorna o lvl de mage
         /// </summary>
@@ -53,14 +52,13 @@ namespace TituloCore
         /// <param name="Self"></param>
         public void LvlUp(Character Self)
         {
-            Self.Lvl++;
-            ClericLvl++;
+            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
 
-            Random HitDice = new Random();
-            Console.Clear(); ;
-            int Result = 1 + HitDice.Next() % 20;
-            Self.Hpmax += Result + Self.Modifier("CON");
-            Self.Hp += Result + Self.Modifier("CON");
+        }
+        public int RollHitDice(Character Self)
+        {
+            Random rand = new Random();
+            return 1 + rand.Next() % Self.HitDice;
         }
     }
 }
