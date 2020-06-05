@@ -8,9 +8,9 @@ namespace TituloCore
     {
         public void AtributeInc(Character Self)
         {
-            Self.Atribute["STR"] += 3;
+            Self.Atribute["STR"] += 4;
             Self.Atribute["DEX"] += 1;
-            Self.Atribute["CON"] += 2;
+            Self.Atribute["CON"] += 3;
             Self.Atribute["INT"] -= 3;
             Self.Atribute["WIS"] += 1;
             Self.Atribute["CHA"] -= 2;

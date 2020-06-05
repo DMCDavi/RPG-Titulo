@@ -8,12 +8,12 @@ namespace TituloCore
     {
         public void AtributeInc(Character Self)
         {
-            Self.Atribute["STR"] -= 2;
-            Self.Atribute["DEX"] += 1;
-            Self.Atribute["CON"] += 1;
-            Self.Atribute["INT"] += 2;
+            Self.Atribute["STR"] += 3;
+            Self.Atribute["DEX"] += 0;
+            Self.Atribute["CON"] += 2;
+            Self.Atribute["INT"] += 0;
             Self.Atribute["WIS"] += 1;
-            Self.Atribute["CHA"] += 2;
+            Self.Atribute["CHA"] += 0;
         }
 
         public void Language(Character Self)
