@@ -26,10 +26,6 @@ namespace TituloCore
 
         }
 
-        public void SetSpritePersona(Character Self)
-        {
-            Self.SpritePath = "Sprite/David/";
-        }
 
         public int PersonalityPoints()
         {

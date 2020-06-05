@@ -41,8 +41,6 @@ namespace TituloCore
         [DataMember]
         public IClass CharacterClass { get; set; }
         [DataMember]
-        public string SpritePath { get; set; }
-        [DataMember]
         public IRace Race { get; set; }
         [DataMember]
         public IPersona Persona { get; set; }
@@ -74,8 +72,6 @@ namespace TituloCore
         public Armor EquippedArmor { get; set; }
         [DataMember]
         public int HitDice { get; set; }
-        [DataMember]
-        private int nHitDice { get; set; }
         [DataMember]
         public Armor NaturalArmor { get; set; }
         [DataMember]
@@ -218,7 +214,6 @@ namespace TituloCore
             this.Race = AllRace[Race];
             Exp = 0;
             Lvl = 1;
-            nHitDice = 1;
             this.Persona = AllPersona[Persona];
             this.Persona.AtributeInc(this);
             this.Race.Speed(this);
@@ -297,21 +292,11 @@ namespace TituloCore
         }
 
         /// <summary>
-        /// Printa os Atribute atuais
-        /// </summary>
-        public void ShowAtributes()
-        {
-            Console.WriteLine($"STR: {Atribute["STR"]}\nDEX: {Atribute["DEX"]}\nCON: {Atribute["CON"]}\nINT: {Atribute["INT"]}\nWIS: {Atribute["WIS"]}\nCHA: {Atribute["CHA"]}\n");
-        }
-
-        /// <summary>
         /// Realiza a compra de Atribute da criação de personagem
         /// sendo testada
         /// </summary>
         public void BuyAtributes(String key, int signal)
         {
-            RollHitDice();
-            ShowAtributes();
             int dpts;
             if (signal == 1)
             {
@@ -342,21 +327,9 @@ namespace TituloCore
         }
 
         /// <summary>
-        /// Rola um hit dice para curar (disponível ao realizar um descanso curto ou longo
+        /// Armor Class é o valor alvo para o personagem ser acertado
         /// </summary>
-        public void RollHitDice()
-        {
-            Random rand = new Random();
-            if (nHitDice > 0 && Hp < Hpmax)
-            {
-                Hp += 1 + rand.Next() % HitDice;
-                if (Hp > Hpmax)
-                {
-                    Hp = Hpmax;
-                }
-            }
-        }
-
+        /// <returns></returns>
         public int Ac()
         {
             return EquippedArmor.Ac();
@@ -391,9 +364,8 @@ namespace TituloCore
             Random rand = new Random();
             if (canAttack(Target))
             {
-                int dice = rand.Next() % 20 + 1;
+                int dice = 1 + rand.Next() % 20;
                 int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
-                Console.WriteLine($"Dado: {dice}\nAcerto: {acerto}\n");
                 if (acerto >= Target.Ac())
                 {
                     Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
@@ -415,11 +387,6 @@ namespace TituloCore
         /// <param name="tipo">Tipo de dano</param>
         public void ReceiveDmg(int dmg, string tipo)
         {
-            /*foreach(IClass iclass in Class)
-            {
-                iclass.ReceiveDmg(this, dmg);
-            }*/
-
             if (Imune[tipo])
                 dmg = 0;
             if (Resist[tipo])
