@@ -154,7 +154,7 @@ namespace Titulo_UWP
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
             if (SelectButton.Content.Equals("Create"))
-                this.Frame.Navigate(typeof(PersonalityTest));
+                this.Frame.Navigate(typeof(PersonalityTest), PersList[selected-1]);
             else
                 this.Frame.Navigate(typeof(Map));
         }

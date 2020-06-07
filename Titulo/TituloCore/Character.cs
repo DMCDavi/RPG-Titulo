@@ -79,6 +79,8 @@ namespace TituloCore
         public List<int> ClassDmgDices;
 
 
+        
+
         public void SelectClass()
         {
             if (MainClass == "Assassin")

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
+using TituloCore;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,10 +24,17 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class Map : Page
     {
+        public Character player;
+
         private int pos_y = 0, pos_x = 0;
         public Map()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            player = e.Parameter as Character;
         }
 
         //Função que movimenta o personagem de acordo à tecla apertada

@@ -45,5 +45,14 @@ namespace TituloCore
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
+
+        public void LethalBlow(Character Self, Character Target)
+        {
+
+            if(Target.Hp<Self.Lvl*5)
+            {
+                Target.ReceiveDmg(10, Self.EquippedWeapon.Atributo);
+            }
+        }
     }
 }
