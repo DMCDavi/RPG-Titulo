@@ -11,7 +11,10 @@ namespace TituloCore
         public Berserker(Character Self)
         {
             HitDice(Self);
-            Self.NaturalArmor = new Armor ( 10+Self.Modifier("CON"), 10, -10);
+            Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
+            Self.Resist["Concussion"] = true;
+            Self.Resist["Slash"] = true;
+            Self.Resist["Piercing"] = true;
         }
 
         public void HitDice(Character Self)

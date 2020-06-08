@@ -62,5 +62,13 @@ namespace TituloCore
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
+
+        public void Bolt(Character Self, Character Target)
+        {
+            Target.Hp += Self.Modifier("INT");
+            if (Target.Hp > Target.Hpmax)
+                Target.Hp = Target.Hpmax;
+            Self.ReceiveDmg(Self.Modifier("INT"), "Necrotic");
+        }
     }
 }

@@ -62,6 +62,18 @@ namespace TituloCore
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
+
+        public void Will(Character Self, Character Target)
+        {
+            Target.ReceiveDmg(0, "Radiant");
+        }
+
+        public void Heal(Character Self, Character Target)
+        {
+            Target.Hp += 1;
+            if (Target.Hp > Target.Hpmax)
+                Target.Hp = Target.Hpmax;
+        }
     }
 }
 

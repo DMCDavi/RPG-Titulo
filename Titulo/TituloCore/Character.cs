@@ -406,6 +406,11 @@ namespace TituloCore
                 dmg = 1;
 
             Hp -= dmg;
+            if(Hp <= 0)
+            {
+                Hp = 0;
+                //isdead
+            }
         }
 
 

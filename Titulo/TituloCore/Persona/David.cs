@@ -12,7 +12,12 @@ namespace TituloCore
         public string Name = "David";
         public void AtributeInc(Character Self)
         {
-            Self.pts = 0;
+            Self.Atribute["STR"] += 2;
+            Self.Atribute["DEX"] -= 3;
+            Self.Atribute["CON"] += 5;
+            Self.Atribute["INT"] += 3;
+            Self.Atribute["WIS"] += 1;
+            Self.Atribute["CHA"] -= 3;
         }
 
         public void PersonaModify(Character Self)
