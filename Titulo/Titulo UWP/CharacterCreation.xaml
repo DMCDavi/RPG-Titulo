@@ -14,7 +14,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="CharacterLandscape" Grid.Column="0" Grid.ColumnSpan="3" Source="/Assets/Personagens/Gean/Gean_Landscape.png" Stretch="UniformToFill"/>
+        <Image x:Name="CharacterLandscape" Grid.Column="0" Grid.ColumnSpan="3" Source="/Assets/Personagens/Gean/Gean_Landscape.png" Stretch="UniformToFill" VerticalAlignment="Center"/>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Grid.Column="0" x:Name="StackClass" CornerRadius="30" Orientation="Vertical" Padding="20" Margin="0,0,0,40" >
                 <StackPanel.Background>

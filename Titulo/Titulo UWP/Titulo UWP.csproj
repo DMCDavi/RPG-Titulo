@@ -205,8 +205,9 @@
     <Content Include="Assets\Personagens\Joao\Sem_fundo\Joao_Goliath.png" />
     <Content Include="Assets\Personagens\Joao\Sem_fundo\Joao_Human.png" />
     <Content Include="Assets\Personagens\Joao\Sem_fundo\Joao_Orc.png" />
+    <Content Include="Assets\Personagens\Lapa\Lapa_Landscape.png" />
     <Content Include="Assets\Personagens\Lapa\Sem_fundo\Lapa_Camisa.png" />
-    <Content Include="Assets\Personagens\Lapa\Sem_fundo\Lapa_Karate.png" />
+    <Content Include="Assets\Personagens\Lapa\Sem_fundo\Lapa_God.png" />
     <Content Include="Assets\Personagens\Lapa\Sem_fundo\Lapa_Sem_Camisa.png" />
     <Content Include="Assets\Personagens\Maria\Maria W BG.png" />
     <Content Include="Assets\Personagens\Maria\Maria_Landscape.png" />

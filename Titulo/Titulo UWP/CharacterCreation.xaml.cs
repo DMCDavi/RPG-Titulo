@@ -197,20 +197,23 @@ namespace Titulo_UWP
                 WriteObject("PersonagensList.xml");
                 this.Frame.Navigate(typeof(CharacterSelectionPage));
             }
-            pers = new Character(class_name, race_name, persona_name);
-            StackAtributes.Visibility = Visibility.Visible;
-            StackClass.Visibility = Visibility.Collapsed;
-            StackRace.Visibility = Visibility.Collapsed;
-            CharName.Visibility = Visibility.Visible;
-            NextStep.Visibility = Visibility.Collapsed;
-            NextStep.Content = "Salvar";
-            str.Text = pers.Atribute["STR"].ToString();
-            dex.Text = pers.Atribute["DEX"].ToString();
-            con.Text = pers.Atribute["CON"].ToString();
-            intl.Text = pers.Atribute["INT"].ToString();
-            wis.Text = pers.Atribute["WIS"].ToString();
-            cha.Text = pers.Atribute["CHA"].ToString();
-            score.Text = pers.pts.ToString();
+            else
+            {
+                pers = new Character(class_name, race_name, persona_name);
+                StackAtributes.Visibility = Visibility.Visible;
+                StackClass.Visibility = Visibility.Collapsed;
+                StackRace.Visibility = Visibility.Collapsed;
+                CharName.Visibility = Visibility.Visible;
+                NextStep.Visibility = Visibility.Collapsed;
+                NextStep.Content = "Salvar";
+                str.Text = pers.Atribute["STR"].ToString();
+                dex.Text = pers.Atribute["DEX"].ToString();
+                con.Text = pers.Atribute["CON"].ToString();
+                intl.Text = pers.Atribute["INT"].ToString();
+                wis.Text = pers.Atribute["WIS"].ToString();
+                cha.Text = pers.Atribute["CHA"].ToString();
+                score.Text = pers.pts.ToString();
+            }
         }
 
         private void Class_Checked(object sender, RoutedEventArgs e)
@@ -240,6 +243,22 @@ namespace Titulo_UWP
         {
             if (CharName.Text.Length > 0)
                 NextStep.Visibility = Visibility.Visible;
+            else
+                NextStep.Visibility = Visibility.Collapsed;
+            if (CharName.Text == "Lapa")
+            {
+                pers = new Character("Lapagod", "God", "Lapa");
+                PersonaName.Text = "Lapa";
+                CharacterLandscape.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Lapa/Lapa_Landscape.png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Lapa/Sem_fundo/Lapa_God.png"));
+                str.Text = pers.Atribute["STR"].ToString();
+                dex.Text = pers.Atribute["DEX"].ToString();
+                con.Text = pers.Atribute["CON"].ToString();
+                intl.Text = pers.Atribute["INT"].ToString();
+                wis.Text = pers.Atribute["WIS"].ToString();
+                cha.Text = pers.Atribute["CHA"].ToString();
+                score.Text = pers.pts.ToString();
+            }
             pers.Nickname = CharName.Text;
         }
 
