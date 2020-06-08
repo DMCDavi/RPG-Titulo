@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TituloCore.Persona
+namespace TituloCore
 {
-    class Lapa : IPersona
+    public class Lapa : IPersona
     {
         public int[] CorrectAnswers = new int[10] { 4, 5, 4, 6, 3, 2, 6, 3, 4, 3 };
         private int PersonalityPoint = 0;

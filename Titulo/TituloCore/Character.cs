@@ -113,6 +113,7 @@ namespace TituloCore
             {"Fernanda", new Fernanda()},
             {"Grhamm", new Grhamm()},
             {"Joao", new Joao()},
+            {"Lapa", new Lapa()},
             {"Maria", new Maria()},
             {"Vagner", new Vagner()},
         };
@@ -121,6 +122,7 @@ namespace TituloCore
             {"Dragonborn", new Dragonborn()},
             {"Dwarf", new Dwarf()},
             {"Elf", new Elf()},
+            {"God", new God()},
             {"Goliath", new Goliath()},
             {"Human", new Human()},
             {"Orc", new Orc()},
