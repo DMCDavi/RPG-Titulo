@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" 
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+    <Grid Width="1280" Height="720">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -37,11 +37,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="/Assets/Mapa/Mapa.png" Stretch="Fill" Margin="0,-2725,-4515,0" Grid.RowSpan="9" Grid.ColumnSpan="17"/>
+        <Image x:Name="MapImg" Source="/Assets/Mapa/Mapa.png" Stretch="Fill" Margin="-1600,-2560,-3280,-160" Grid.RowSpan="9" Grid.ColumnSpan="16" />
         <Button Height="0" Width="0" />
-        <Image Grid.Column="10" Grid.Row="7" Grid.ColumnSpan="3" Grid.RowSpan="2" x:Name="CharacterImg" Source="/Assets/Personagens/Fernanda/Sem_fundo/Fernanda_Human.png" Height="150" Width="150" HorizontalAlignment="Center"  />
-
+        <Image Grid.Column="7" Grid.Row="3" x:Name="CharacterImg" Source="/Assets/Personagens/Ana/Sem_fundo/Ana_Goliath.png" Height="100" Width="100" HorizontalAlignment="Center" Margin="0,-80,0,0"  />
     </Grid>
 </Page>
