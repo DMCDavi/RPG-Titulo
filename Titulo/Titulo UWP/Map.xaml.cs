@@ -60,7 +60,7 @@ namespace Titulo_UWP
         /// </summary>
         private void Up()
         {
-            if (pos_y == 1 && margin.Top < -80)
+            if (pos_y == 2 && margin.Top < -80)
             {
                 margin.Top += 80;
                 margin.Bottom -= 80;
@@ -78,7 +78,7 @@ namespace Titulo_UWP
         /// </summary>
         private void Down()
         {
-            if (pos_y == 5 && margin.Bottom < -80)
+            if (pos_y == 6 && margin.Bottom < -80)
             {
                 margin.Bottom += 80;
                 margin.Top -= 80;
@@ -114,7 +114,7 @@ namespace Titulo_UWP
         /// </summary>
         private void Right()
         {
-            if (pos_x == 11 && margin.Right < -160)
+            if (pos_x == 12 && margin.Right < -160)
             {
                 margin.Right += 80;
                 margin.Left -= 80;
