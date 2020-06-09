@@ -187,7 +187,7 @@ namespace Titulo_UWP
                 Left();
             else if (e.Key == Windows.System.VirtualKey.Right)
                 Right();
-            if (map_matrix[player.posY, player.posX].isHidden)
+            if (map_matrix[player.posY, player.posX].isEntrance)
                 CharacterImg.Visibility = Visibility.Collapsed;
             else
                 CharacterImg.Visibility = Visibility.Visible;
