@@ -15,37 +15,37 @@
         </Grid.RowDefinitions>
         <Image Grid.RowSpan="2" Source="/Assets/Menu/cyberpunk_landscape_blur.png" Stretch="UniformToFill" />
         <StackPanel x:Name="Panel_1" Visibility="Visible" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
-                <Paragraph FontFamily="Times New Roman">Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.</Paragraph>
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.</Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(... Acho que já deu a hora... eu deveria me levantar?)”
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="1" Content="Acordar" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="1" Content="Nem dormi, tava jogando Icarus" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="1" Content="Acordar e só se levantar quando tiver faltando 5 minutos pra aula" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="1" Content="Acordar na hora da aula" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="1" Content="Levantar e ouvir música" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="1" Content="Levantar assustado pensando que já deu o horário mas na verdade são 5h" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="1" Content="Acordar" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="1" Content="Nem dormi, tava jogando Icarus" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="1" Content="Acordar e só se levantar quando tiver faltando 5 minutos pra aula" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="1" Content="Acordar na hora da aula" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="1" Content="Levantar e ouvir música" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="1" Content="Levantar assustado pensando que já deu o horário mas na verdade são 5h" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Ah! Finalmente o buzivis chegou no meu ponto... Esse cara não vai me deixar passar não?!)”
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="2" Content="Dar um megaton" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="2" Content="Xingar baixinho" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="2" Content="Dar um pescotapa" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="2" Content="Se esgueirar em silêncio" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="2" Content="Oxe, vou de carro" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="2" Content="Dar um megaton" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="2" Content="Xingar baixinho" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="2" Content="Dar um pescotapa" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="2" Content="Se esgueirar em silêncio" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="2" Content="Oxe, vou de carro" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Putz, o primeiro horário é de Perick né?”
                 </Paragraph>
@@ -56,14 +56,14 @@
                     *Uma hora depois...*
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="3" Content="Acordar" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="3" Content="Fazer atividades de outras matérias" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="3" Content="Copiar o quadro e rabiscar no caderno" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="3" Content="Apenas vegetar" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="3" Content="Nem pegar a matéria" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="3" Content="Acordar" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="3" Content="Fazer atividades de outras matérias" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="3" Content="Copiar o quadro e rabiscar no caderno" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="3" Content="Apenas vegetar" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="3" Content="Nem pegar a matéria" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Até que enfim acabou a primeira aula, agora vamos para JãCarro... Ughh...)”
                 </Paragraph>
@@ -74,15 +74,15 @@
                     Galo Robô - “(Mais uma aula maçante de conteúdo em slide, e essa voz monótona só piora as coisas.)”
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="4" Content="Prestar atenção" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="4" Content="Ler light novel" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="4" Content="Ficar no celular" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="4" Content="Fazer qualquer coisa pra ficar acordado" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="4" Content="Dormir" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="4" Content="Sair da sala e voltar faltando 30 minutos" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="4" Content="Prestar atenção" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="4" Content="Ler light novel" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="4" Content="Ficar no celular" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="4" Content="Fazer qualquer coisa pra ficar acordado" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="4" Content="Dormir" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="4" Content="Sair da sala e voltar faltando 30 minutos" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Bold">
                     *Após a aula*
                 </Paragraph>
@@ -90,15 +90,15 @@
                     Galo Robô - (“Ótimo! Já deu a hora do intervalo, hoje tá muito cansativo. Agora... o que fazer no meio tempo?”)
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="5" Content="Jogar no celular" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="5" Content="Ficar na sala lendo light novel" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="5" Content="Bater o rangão sem geladão" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="5" Content="Bater o rangão com geladão" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="5" Content="Chupar manga e se melar todo" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="5" Content="Comer 3 kg de banana" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="5" Content="Jogar no celular" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="5" Content="Ficar na sala lendo light novel" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="5" Content="Bater o rangão sem geladão" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="5" Content="Bater o rangão com geladão" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="5" Content="Chupar manga e se melar todo" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="5" Content="Comer 3 kg de banana" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_7" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Bem, acho que o intervalo já está pra acabar... Que pena.”)
                 </Paragraph>
@@ -109,12 +109,12 @@
                     Galo Robô - “E-Empada?! Não tem como resistir...”
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="6" Content="Comprar uma salgada e uma doce" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="6" Content="Comprar só doce" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="6" Content="Guardar o dinheiro" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="6" Content="Comprar uma salgada e uma doce" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="6" Content="Comprar só doce" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="6" Content="Guardar o dinheiro" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_8" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Enelsion – “Bom dia turma! Hoje iremos continuar o assunto da aula passada.”
                 </Paragraph>
@@ -122,18 +122,18 @@
                     Galo Robô - (“Eita! O professor já chegou... Mas essa aula também é muito cansativa, o que fazer enquanto isso?”)
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="7" Content="Comer melão" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="7" Content="Jogar Pokemon" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="7" Content="Sentar no fundo pra vadiar" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="7" Content="Dormir, mas prestando atenção" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="7" Content="Nem peguei essa matéria" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="7" Content="Estudar outra matéria" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="7" Content="Terminar de ler light novel" Tag="7" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="7" Content="Spammar os outros de figurinha no zip zoperson" Tag="8" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Comer melão" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="7" Content="Jogar Pokemon" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Sentar no fundo pra vadiar" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Dormir, mas prestando atenção" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Nem peguei essa matéria" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Estudar outra matéria" Tag="6" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Terminar de ler light novel" Tag="7" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="7" Content="Spammar os outros de figurinha no zip zoperson" Tag="8" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
 
         <StackPanel x:Name="Panel_9" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Enelsion - “Até semana que vem turma.”
                 </Paragraph>
@@ -141,13 +141,13 @@
                     Galo Robô - (“Ufa acabou, já é meio dia. Tsc, esqueci que aqui só tem almoço troll...”)
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="8" Content="Slow Death e passar mal depois, mas vale a pena pq é barato" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="8" Content="Não almoçar ou ir de Subway" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="8" Content="Gourmet Death" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="8" Content="Levar marmita" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="8" Content="Slow Death e passar mal depois, mas vale a pena pq é barato" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="8" Content="Não almoçar ou ir de Subway" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="8" Content="Gourmet Death" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="8" Content="Levar marmita" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_10" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“FINALMENTE! Agora é a melhor aula do dia! Que alegria senhor...”)
                 </Paragraph>
@@ -155,14 +155,14 @@
                     Professor Lapa - “Boa tarde galera! Tudo tranquilo? Hoje vamos continuar com o projeto, estarei tirando dúvida de todos.”
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="9" Content="Chamar Lapa de Deus" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="9" Content="Falar que JS é melhor que todas as outras linguagens" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="9" Content="Chamar Lapa de Lapa" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="9" Content="Inteligência artificial em C#" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="9" Content="Venerar C# e querer colocar banco em tudo" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="9" Content="Chamar Lapa de Deus" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="9" Content="Falar que JS é melhor que todas as outras linguagens" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="9" Content="Chamar Lapa de Lapa" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="9" Content="Inteligência artificial em C#" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="9" Content="Venerar C# e querer colocar banco em tudo" Tag="5" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_11" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Valeu Lapa God! Até semana que vem.”
                 </Paragraph>
@@ -170,13 +170,13 @@
                     Galo Robô - (“Acho que a galera vai em Ângela agora a tarde. Hmm...”)
                 </Paragraph>
             </RichTextBlock>
-            <RadioButton GroupName="10" Content="Que nada, eu vou é pra casa" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30" IsChecked="True"/>
-            <RadioButton GroupName="10" Content="Ir pra UFBA" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="10" Content="Matar Davi no Lobisomem" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
-            <RadioButton GroupName="10" Content="Encher a cara" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" FontSize="30"/>
+            <RadioButton GroupName="10" Content="Que nada, eu vou é pra casa" Tag="1" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30" IsChecked="True"/>
+            <RadioButton GroupName="10" Content="Ir pra UFBA" Tag="2" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="10" Content="Matar Davi no Lobisomem" Tag="3" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
+            <RadioButton GroupName="10" Content="Encher a cara" Tag="4" Checked="Check_Test" FontFamily="Times New Roman" Foreground="#000" FontSize="30"/>
         </StackPanel>
         <StackPanel x:Name="Panel_12" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Bold">
                     *Algumas horas depois*
                 </Paragraph>
@@ -201,7 +201,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_13" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô (Whatsapp) - “Ok! Já estou entrando no Discord.”
                 </Paragraph>
@@ -227,7 +227,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_14" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô (Discord) - “Sim, com certeza! Valeu professor, até depois.”
                 </Paragraph>
@@ -259,7 +259,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_15" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Hoje não dá Paulo vou guardar o di-”
                 </Paragraph>
@@ -272,7 +272,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_16" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Ei Lapa você pode me aju-”
                 </Paragraph>
@@ -285,49 +285,49 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_1_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Vou levantar logo, fazer um café, tomar meu banho e me arrumar pra sair logo. É melhor não me atrasar para a aula.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_1_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Ahh eu tô muito morto velho, mas não como eu nunca tivesse feito isso antes kk. Só vou tomar um banho e sair logo.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_1_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Eu tenho mesmo que levantar? ... Aff, acho que não têm como adiar ainda mais, vou tomar banho e sair.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_1_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Nossa bem em cima da hora! Ah tanto faz, só dá pra tomar banho e sair correndo mesmo.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_1_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Não tem como fazer nada de manhã sem pelo menos uma música pra me despertar... Pronto! Agora posso seguir com o dia, vou pro banho e então pra aula.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_1_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(MEU DEUS EU VOU PERDER A AULA! NÃO DA NEM PRA TOMAR BANHO SÓ VOU ME VESTIR E... Ué? Ainda... tá escuro? Ah não... Eu não acredito que acordei cedo demais... Bem agora também não consigo dormir mais, vou me arrumar logo então.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_2_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Sai do meio vidraça eu tenho horário.”
                 </Paragraph>
@@ -340,7 +340,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_2_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Que pedra, baralho, vai catar coquinho, eu só quero passar.”
                 </Paragraph>
@@ -356,7 +356,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_2_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Bold">
                     *POW*
                 </Paragraph>
@@ -378,7 +378,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_2_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Homem Estranho (Desconfortável): “...”
                 </Paragraph>
@@ -391,42 +391,42 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_2_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Kkkkkk ainda bem que eu tenho um carro, imagina só ter que pegar aquele transporte lotado de gente, que inferno. É bom que dá pra chegar mais rápido com o carro também”.
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_3_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(...Hã?? Droga dormi na aula... Ué ele ainda tá nesse assunto muito fácil, vou voltar a dormir.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_3_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Bem acho que não vai ter muito mais aula não... Vou aproveitar pra adiantar as outras matérias logo kk ainda bem.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_3_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(...Hmmm, acho que esse pato vai ficar brabo dando um kickflip nesse skate. Puts! Fiquei rabiscando no caderno e esqueci completamente da aula, mas ... Ué? Eu copiei o quadro nos primeiros 10 minutos e ainda tá no mesmo assunto? Vou continuar desenhando hehe.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_3_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Ahhhhh essa aula não acaba nunca cara?!? Já olhei o Twitter 8 vezes, o Instagram 4 e até agora nada. Tsc, tô nem aí vou vegetar até o próximo horário.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_3_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Sem aula agora né? acho que vou lá fora comprar um salgado...)”
                 </Paragraph>
@@ -442,21 +442,21 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_4_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Vou levantar logo, fazer um café, tomar meu banho e me arrumar pra sair logo. É melhor não me atrasar para a aula.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_4_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Ótimo! Outro assunto que eu já sabia. Vai dar tempo de terminar mais um capítulo, mas eu já tô quase acabando essa novel, que triste...)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_4_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Essa matéria é inútil pro meu curso mesmo, ficar no celular vale muito mais pelo meu tempo.)”
                 </Paragraph>
@@ -469,21 +469,21 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_4_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(O professor podia ganhar um dinheiro bom ajudando pessoas com insônia hein? Mas não dá pra dormir de novo não, ter que repetir essa matéria é inadmissível.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_4_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(As outras aulas também foram batalhas difíceis, mas essa aqui está impossível! Infelizmente vou ter que me render ao sono...)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_4_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Professor posso ir no banheiro?”
                 </Paragraph>
@@ -496,21 +496,21 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_5_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - “(Acho que vou jogar agora, é bom que vou pegar o login diário logo antes que eu esqueça e eu nem tô com tanta fome assim.)”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_5_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Acho que dá pra terminar hoje, mas não sei se eu deveria... É bom encontrar outra antes de terminar essa.”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_5_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Nossa eu tô morrendo de fome!! Pensando até em comprar 2 salgados lá fora. Acho que vou correndo logo...”)
                 </Paragraph>
@@ -532,7 +532,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_5_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Nossa eu tô morrendo de fome se pá eu vou comprar até 2 salgados lá fora e aquele geladão pra complementar”)
                 </Paragraph>
@@ -545,7 +545,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_5_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Agora posso calmamente chupar minha manga em paz...”)
                 </Paragraph>
@@ -561,14 +561,14 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_5_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“ Meu deus minha fome hoje tá GIGANTE! Ainda bem que eu crackeei esse app CopiadorX-2K* no meu celular, vou poder clonar a banana que eu trouxe quantas vezes eu quiser! Hehehe...”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_6_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Me vê uma de brigadeiro e uma de frango aí Paulo.”
                 </Paragraph>
@@ -581,7 +581,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_6_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Me vê uma de brigadeiro e uma de maracujá aí Paulo.”
                 </Paragraph>
@@ -594,7 +594,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Enquanto ainda não começa vou comer esse melãozinho que eu trouxe hoje, Humm...”)
                 </Paragraph>
@@ -619,14 +619,14 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Vou aproveitar logo essa aula longa e upar meu time no Pokémon, aquele ginásio tipo voador é um saco...”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - *Suspiro* (“Outra aula chata, e eu não tenho nada pra fazer agora...”)
                 </Paragraph>
@@ -636,7 +636,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Professor Enelsion - “Bem, continuando de onde paramos aula passada pode-se ver que esses gráficos são muito diferentes.”
                 </Paragraph>
@@ -658,28 +658,28 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Como não tenho aula agora acho que vou adiantar algo de outra matéria... Ainda bem que não peguei essa matéria com Enelsion kkk.”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_6" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“É essa aula é muito monótona e improdutiva, aposto que eu aprendo mais rápido se pegar o livro pra ler. Por enquanto vou adiantar essa outra atividade daqui...”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_7" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“É... Acabei. Essa daqui já estava no fim mesmo, pelo menos o fim foi muito brabo. Agora preciso encontrar outra pra ler que droga...”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_7_8" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Claramente não tem ninguém prestando atenção na aula, não que seja grande coisa também... Tive uma ideia! Quero só ver a cara dos outros quando pegarem o celular kkkk.”)
                 </Paragraph>
@@ -689,35 +689,35 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_8_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Vai ter que ser no Slow Death, mesmo sabendo provavelmente não vai me fazer bem. Pelo menos é o que vai economizar mais.”
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_8_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Vou só checar o Subway pra ver se tem baratíssimo mesmo, senão tô bem tranquilo em não comer nada mesmo.”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_8_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Acho que o Gourmet Death é a melhor das opções, não é tão ruim quanto Slow Death, não faz tão mal quanto o Subway e eu não trouxe nada de casa então... É isso mesmo”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_8_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Que bom que trago marmita pra almoçar, é chato ter que esquentar mas compensa muito mais do que os lugares daqui kk.”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_9_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Boa tarde God! Pode vir no meu grupo? Tô com dificuldade em usar esse Scene Builder troll.”
                 </Paragraph>
@@ -733,7 +733,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_9_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Ah véi JavaScript nem é tão ruim assim, na verdade é a mais braba.”
                 </Paragraph>
@@ -743,7 +743,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_9_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Professor a gente tá pensando em fazer uma IA pro projeto, o que você acha?”
                 </Paragraph>
@@ -756,7 +756,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_9_5" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Sério C# tá incrível! 1000 vezes melhor que Java, se continuar nesse ritmo vai dar até pra colocar um banco no projeto.”
                 </Paragraph>
@@ -766,14 +766,14 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_10_1" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph FontWeight="Thin" FontStyle="Italic">
                     Galo Robô - (“Tô cansado demais pra sair hoje, ainda mais que tem Iniciação Científica mais tarde. Vou só me despedir e ir pra casa...”)
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_10_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Não dá pra mim gente! Tenho aula na UFBA hoje ainda e mais tarde a IC.”
                 </Paragraph>
@@ -786,7 +786,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_10_3" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Desculpa aí man, vai ter que ser você.”
                 </Paragraph>
@@ -802,7 +802,7 @@
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Answer_10_4" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >
-            <RichTextBlock FontFamily="Times New Roman" FontSize="30">
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
                 <Paragraph>
                     Galo Robô - “Ah vamo lá gente, que mal pode fazer?”
                 </Paragraph>
@@ -814,6 +814,6 @@
                 </Paragraph>
             </RichTextBlock>
         </StackPanel>
-        <Button x:Name="NextStep" Grid.Row="1" CornerRadius="30" Content="Avançar" FontFamily="Times New Roman" FontSize="48" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="50,0,50,0" Click="NextStep_Click"/>
+        <Button x:Name="NextStep" Grid.Row="1" CornerRadius="30" Content="Avançar" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="50,0,50,0" Click="NextStep_Click"/>
     </Grid>
 </Page>

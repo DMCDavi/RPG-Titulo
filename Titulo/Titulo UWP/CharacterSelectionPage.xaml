@@ -16,41 +16,41 @@
         <Image Grid.ColumnSpan="2" Source="/Assets/Menu/landscape.jpg" Stretch="UniformToFill"/>
         <ScrollViewer Grid.Column="0" Padding="100">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
+                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
                     <StackPanel>
-                        <TextBlock x:Name="Nickname1" TextAlignment="Center" FontFamily="Times New Roman" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Nickname1" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Persona1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Race1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Class1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
+                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
                     <StackPanel>
-                        <TextBlock x:Name="Nickname2" TextAlignment="Center" FontFamily="Times New Roman" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Nickname2" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Persona2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Race2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Class2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
+                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
                     <StackPanel>
-                        <TextBlock x:Name="Nickname3" TextAlignment="Center" FontFamily="Times New Roman" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Nickname3" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Persona3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Race3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Class3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Padding="50,0,50,0" >
+                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Padding="50,0,50,0" >
                     <StackPanel>
-                        <TextBlock x:Name="Nickname4" TextAlignment="Center" FontFamily="Times New Roman" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Nickname4" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Persona4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Race4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="Class4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
         </ScrollViewer>
         <Image Grid.Column="1" Visibility="Collapsed" x:Name="CharacterImg" Source="/Assets/Personagens/Gean/Sem_fundo/Gean_Human.png" Margin="150,100,151,150" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-        <Button Grid.Column="1" Visibility="Collapsed" CornerRadius="30" x:Name="SelectButton" Content="Select" FontFamily="Times New Roman" FontSize="48" Click="SelectButton_Click" Background="#CCFFFFFF" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Padding="50,0,50,0" Margin="50" />
+        <Button Grid.Column="1" Visibility="Collapsed" CornerRadius="30" x:Name="SelectButton" Content="Select" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="SelectButton_Click" Background="#CCFFFFFF" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Padding="50,0,50,0" Margin="50" />
     </Grid>
 </Page>
