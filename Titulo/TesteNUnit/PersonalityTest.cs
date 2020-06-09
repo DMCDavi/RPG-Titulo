@@ -27,7 +27,7 @@ namespace TesteNUnit
             Personality personality = new Personality();
             
             personality.TestaPersona(question, answer);
-            Assert.AreEqual(1, personality.AllPersona[1].PersonalityPoints());
+            Assert.AreEqual(1, personality.AllPersona["Bia"].PersonalityPoints());
         }
         [TestCase(1, 1)]
         public void GetPersonalityWinner(int question, int answer)

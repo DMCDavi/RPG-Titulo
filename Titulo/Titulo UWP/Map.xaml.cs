@@ -57,8 +57,7 @@ namespace Titulo_UWP
         {
             player = e.Parameter as Character;
             persona_name = player.PersonaName;
-            string[] race_splited = player.Race.ToString().Split(".");
-            race_name = race_splited[1];
+            race_name = player.RaceName;
 
             try
             {

@@ -31,11 +31,11 @@ namespace Titulo_UWP
     {
 
 
-        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-        public List<Character> PersList = new List<Character>();
-        public List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
-        string[] RaceNames = { "Human", "Human", "Human", "Human" };
-        string[] PersonaNames = { "Gean", "Gean", "Gean", "Gean" };
+        private StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        private List<Character> PersList = new List<Character>();
+        private List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
+        private string[] RaceNames = { "Human", "Human", "Human", "Human" };
+        private string[] PersonaNames = { "Gean", "Gean", "Gean", "Gean" };
         public CharacterSelectionPage()
         {
             this.InitializeComponent();
@@ -68,8 +68,7 @@ namespace Titulo_UWP
             //Preenche todos os cards com os personagens salvos no arquivo
             foreach (Character item in PersList)
             {
-                string[] race_splited = PersList[counter].Race.ToString().Split(".");
-                RaceNames[counter] = race_splited[1];
+                RaceNames[counter] = PersList[counter].RaceName;
                 PersonaNames[counter] = PersList[counter].PersonaName;
                 AllNicknames[counter].Visibility = Visibility.Visible;
                 AllClasses[counter].Visibility = Visibility.Visible;
