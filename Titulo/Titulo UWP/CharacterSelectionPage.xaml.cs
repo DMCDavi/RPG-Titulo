@@ -34,8 +34,10 @@ namespace Titulo_UWP
         private StorageFolder localFolder = ApplicationData.Current.LocalFolder;
         private List<Character> PersList = new List<Character>();
         private List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
+        private List<Button> AllDeleteButtons;
         private string[] RaceNames = { "Human", "Human", "Human", "Human" };
         private string[] PersonaNames = { "Gean", "Gean", "Gean", "Gean" };
+        int tag_delete_button = 1;
         public CharacterSelectionPage()
         {
             this.InitializeComponent();
@@ -63,23 +65,13 @@ namespace Titulo_UWP
                 Race3,
                 Race4
             };
+            AllDeleteButtons = new List<Button> {
+                DeleteButton1,
+                DeleteButton2,
+                DeleteButton3,
+                DeleteButton4
+            };
             ReadObject("PersonagensList.xml");
-            int counter = 0;
-            //Preenche todos os cards com os personagens salvos no arquivo
-            foreach (Character item in PersList)
-            {
-                RaceNames[counter] = PersList[counter].RaceName;
-                PersonaNames[counter] = PersList[counter].PersonaName;
-                AllNicknames[counter].Visibility = Visibility.Visible;
-                AllClasses[counter].Visibility = Visibility.Visible;
-                AllPersonas[counter].Visibility = Visibility.Visible;
-                AllRaces[counter].Visibility = Visibility.Visible;
-                AllNicknames[counter].Text = PersList[counter].Nickname;
-                AllClasses[counter].Text = "Classe: " + PersList[counter].MainClass;
-                AllPersonas[counter].Text = "Herói: " + PersonaNames[counter];
-                AllRaces[counter].Text = "Raça: " + RaceNames[counter];
-                counter++;
-            }
         }
         public int selected;
         private void Char1_Click(object sender, RoutedEventArgs e)
@@ -97,6 +89,37 @@ namespace Titulo_UWP
                 CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
             }
+        }
+
+        /// <summary>
+        /// Deleta o personagem caso o usuário confirme a remoção
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClosePopupClicked(object sender, RoutedEventArgs e)
+        {
+            if (((Button)sender).Content.ToString() == "Sim")
+            {
+                PersList.Remove(PersList[tag_delete_button - 1]);
+                WriteObject("PersonagensList.xml");
+                ReadObject("PersonagensList.xml");
+                //Navega para a mesma página para recarregá-la
+                this.Frame.Navigate(typeof(CharacterSelectionPage));
+            }
+            if (DeletePopup.IsOpen) { DeletePopup.IsOpen = false; }
+
+        }
+
+        /// <summary>
+        /// Mostra um popup de confirmação da remoção
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowPopupOffsetClicked(object sender, RoutedEventArgs e)
+        {
+            //Salva na variável qual botão foi acionado
+            tag_delete_button = int.Parse(((Button)sender).Tag.ToString());
+            if (!DeletePopup.IsOpen) { DeletePopup.IsOpen = true; }
         }
 
         private void Char2_Click(object sender, RoutedEventArgs e)
@@ -159,10 +182,46 @@ namespace Titulo_UWP
         }
 
         /// <summary>
+        /// Preenche todos os cards com os personagens salvos no arquivo
+        /// </summary>
+        private void FillData()
+        {
+            int counter = 0;
+            foreach (Character item in PersList)
+            {
+                RaceNames[counter] = PersList[counter].RaceName;
+                PersonaNames[counter] = PersList[counter].PersonaName;
+                AllNicknames[counter].Visibility = Visibility.Visible;
+                AllClasses[counter].Visibility = Visibility.Visible;
+                AllPersonas[counter].Visibility = Visibility.Visible;
+                AllRaces[counter].Visibility = Visibility.Visible;
+                AllDeleteButtons[counter].Visibility = Visibility.Visible;
+                AllNicknames[counter].Text = PersList[counter].Nickname;
+                AllClasses[counter].Text = "Classe: " + PersList[counter].MainClass;
+                AllPersonas[counter].Text = "Herói: " + PersonaNames[counter];
+                AllRaces[counter].Text = "Raça: " + RaceNames[counter];
+                counter++;
+            }
+        }
+
+        /// <summary>
+        /// Cria um arquivo e o preenche com uma lista de personagens
+        /// </summary>
+        /// <param name="fileName">Nome do arquivo</param>
+        private void WriteObject(string fileName)
+        {
+            string filePath = localFolder.Path + "\\" + fileName;
+            FileStream writer = new FileStream(filePath, FileMode.Create);
+            DataContractSerializer ser = new DataContractSerializer(typeof(List<Character>));
+            ser.WriteObject(writer, PersList);
+            writer.Close();
+        }
+
+        /// <summary>
         /// Lê um arquivo e armazena numa variável a lista de personagens que possui
         /// </summary>
         /// <param name="fileName">Nome do arquivo</param>
-        public void ReadObject(string fileName)
+        private void ReadObject(string fileName)
         {
             string filePath = localFolder.Path + "\\" + fileName;
             try
@@ -176,6 +235,7 @@ namespace Titulo_UWP
                     fs.Close();
                     PersList = deserializedPersList;
                 }
+                FillData();
             }
             catch (FileNotFoundException)
             {

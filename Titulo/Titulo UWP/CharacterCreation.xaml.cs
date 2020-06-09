@@ -266,7 +266,7 @@ namespace Titulo_UWP
         /// Cria um arquivo e o preenche com uma lista de personagens
         /// </summary>
         /// <param name="fileName">Nome do arquivo</param>
-        public void WriteObject(string fileName)
+        private void WriteObject(string fileName)
         {
             PersList.Add(pers);
             string filePath = localFolder.Path + "\\" + fileName;
@@ -280,7 +280,7 @@ namespace Titulo_UWP
         /// Lê um arquivo e armazena numa variável a lista de personagens que possui
         /// </summary>
         /// <param name="fileName">Nome do arquivo</param>
-        public void ReadObject(string fileName)
+        private void ReadObject(string fileName)
         {
             string filePath = localFolder.Path + "\\" + fileName;
             try

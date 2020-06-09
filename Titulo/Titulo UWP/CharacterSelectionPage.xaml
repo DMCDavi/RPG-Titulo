@@ -8,46 +8,72 @@
     mc:Ignorable="d" 
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Popup x:Name="DeletePopup" HorizontalAlignment="Center" VerticalOffset="50" HorizontalOffset="540" >
+            <StackPanel CornerRadius="30" Background="#CCFFFFFF" Padding="30"  >
+                <RichTextBlock Width="400" FontFamily="Times New Roman" Foreground="#000" FontSize="20" TextAlignment="Center">
+                    <Paragraph>
+                        Tem certeza que deseja apagar este personagem e todo o seu progresso?
+                    </Paragraph>
+                </RichTextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="YesButton" FontFamily="Times New Roman" FontSize="20" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Sim" Click="ClosePopupClicked" HorizontalAlignment="Center" Margin="10"/>
+                    <Button x:Name="NoButton" FontFamily="Times New Roman" FontSize="20" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Não" Click="ClosePopupClicked" HorizontalAlignment="Center" Margin="10"/>
+                </StackPanel>
+            </StackPanel>
+        </Popup>
         <Image Grid.ColumnSpan="2" Source="/Assets/Menu/landscape.jpg" Stretch="UniformToFill"/>
         <ScrollViewer Grid.Column="0" Padding="100">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" >
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
-                    <StackPanel>
-                        <TextBlock x:Name="Nickname1" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
-                    <StackPanel>
-                        <TextBlock x:Name="Nickname2" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Padding="50,0,50,0" Margin="0,0,0,39">
-                    <StackPanel>
-                        <TextBlock x:Name="Nickname3" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-                <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Padding="50,0,50,0" >
-                    <StackPanel>
-                        <TextBlock x:Name="Nickname4" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Persona4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Race4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="Class4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
+                    <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char1_Click" Background="#CCFFFFFF" Padding="50,0,50,0" VerticalAlignment="Center">
+                        <StackPanel>
+                            <TextBlock x:Name="Nickname1" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Persona1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Race1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Class1" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="DeleteButton1" Tag="1" Click="ShowPopupOffsetClicked" Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" FontWeight="Bold"  Content="&#xE711;" Foreground="#000" FontSize="30"  Padding="10" CornerRadius="100" Margin="20,0,0,0" Background="#CCFFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
+                    <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char2_Click" Background="#CCFFFFFF" Padding="50,0,50,0" >
+                        <StackPanel>
+                            <TextBlock x:Name="Nickname2" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Persona2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Race2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Class2" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="DeleteButton2" Tag="2" Click="ShowPopupOffsetClicked" Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" FontWeight="Bold"  Content="&#xE711;" Foreground="#000" FontSize="30"  Padding="10" CornerRadius="100" Margin="20,0,0,0" Background="#CCFFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
+                    <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char3_Click" Background="#CCFFFFFF" Padding="50,0,50,0">
+                        <StackPanel>
+                            <TextBlock x:Name="Nickname3" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Persona3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Race3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Class3" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="DeleteButton3" Tag="3" Click="ShowPopupOffsetClicked" Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" FontWeight="Bold"  Content="&#xE711;" Foreground="#000" FontSize="30"  Padding="10" CornerRadius="100" Margin="20,0,0,0" Background="#CCFFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,39">
+                    <Button CornerRadius="30" HorizontalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Click="Char4_Click" Background="#CCFFFFFF" Padding="50,0,50,0" >
+                        <StackPanel>
+                            <TextBlock x:Name="Nickname4" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="48" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Persona4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Race4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="Class4" Visibility="Collapsed" TextAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Text="New Character"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="DeleteButton4" Tag="4" Click="ShowPopupOffsetClicked" Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" FontWeight="Bold"  Content="&#xE711;" Foreground="#000" FontSize="30"  Padding="10" CornerRadius="100" Margin="20,0,0,0" Background="#CCFFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
         <Image Grid.Column="1" Visibility="Collapsed" x:Name="CharacterImg" Source="/Assets/Personagens/Gean/Sem_fundo/Gean_Human.png" Margin="150,100,151,150" VerticalAlignment="Top" HorizontalAlignment="Center"/>
