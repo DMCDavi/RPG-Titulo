@@ -27,5 +27,12 @@ namespace TituloCore
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
+
+        public void EldrichBlast(Character Self, Character Target)
+        {
+            Random rand = new Random();
+            int Dice = 8;
+            Target.ReceiveDmg(1 + rand.Next() % Dice + Self.Modifier("CHA"), "Energy");
+        }
     }
 }

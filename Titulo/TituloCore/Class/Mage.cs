@@ -70,5 +70,12 @@ namespace TituloCore
                 Target.Hp = Target.Hpmax;
             Self.ReceiveDmg(Self.Modifier("INT"), "Necrotic");
         }
+        public void Storm(Character Self, Character Target)
+        {
+            Target.Hp += 10*Self.Modifier("INT");
+            if (Target.Hp > Target.Hpmax)
+                Target.Hp = Target.Hpmax;
+            Self.ReceiveDmg(10*Self.Modifier("INT"), "Necrotic");
+        }
     }
 }

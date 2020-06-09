@@ -54,5 +54,51 @@ namespace TituloCore
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
+
+        public void DanceFire(Character Self)
+        {
+            for (int i = 0; i < Self.Lvl; i++)
+            {
+                Self.ClassDmgDices.Add(6);
+            }
+        }
+
+        public void DanceFireOFF(Character Self)
+        {
+            Self.ClassDmgDices.Clear();
+        }
+
+        public void DanceFury(Character Self)
+        {
+            Self.MagicBonus["DEX"] += 2;
+            if (Self.Lvl >= 3)
+                Self.MagicBonus["DEX"] += 2;
+        }
+
+        public void DanceFuryOFF(Character Self)
+        {
+            Self.MagicBonus["DEX"] -= 2;
+            if (Self.Lvl >= 3)
+                Self.MagicBonus["DEX"] -= 2;
+        }
+
+        public void SongEarth(Character Self)
+        {
+            Self.AcBonus += 2;
+        }
+
+        public void SongEarthOFF(Character Self)
+        {
+            Self.AcBonus -= 2;
+        }
+
+        public void SongHunter(Character Self)
+        {
+            Self.CritRange -= 2;
+        }
+        public void SongHunterOFF(Character Self)
+        {
+            Self.CritRange += 2;
+        }
     }
 }
