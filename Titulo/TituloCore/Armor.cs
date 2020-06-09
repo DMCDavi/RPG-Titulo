@@ -13,6 +13,7 @@ namespace TituloCore
         int MinDex;
         Character Owner;
         int DexBonus;
+        int MagicBonus = 0;
 
         /// <summary>
         /// Construtor da classe armor

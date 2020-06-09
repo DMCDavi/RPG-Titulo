@@ -77,8 +77,13 @@ namespace TituloCore
         public int HitDice { get; set; }
         [DataMember]
         public Armor NaturalArmor { get; set; }
+
         [DataMember]
         public List<int> ClassDmgDices;
+        [DataMember]
+        public int CritRange;
+
+        public int AcBonus { get; set; }
 
 
         
@@ -236,6 +241,7 @@ namespace TituloCore
             NaturalArmor = new Armor(10, -10, 20);
             EquippedArmor = NaturalArmor;
             EquippedArmor.Equip(this);
+            CritRange = 20;
         }
 
         /// <summary>
@@ -343,7 +349,7 @@ namespace TituloCore
         /// <returns></returns>
         public int Ac()
         {
-            return EquippedArmor.Ac();
+            return EquippedArmor.Ac() + AcBonus;
         }
 
         /// <summary>
@@ -377,6 +383,12 @@ namespace TituloCore
             {
                 int dice = 1 + rand.Next() % 20;
                 int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
+                if (acerto >= CritRange)
+                {
+                    Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
+                    EquippedWeapon.CriticalDmg(Target);
+                    Console.WriteLine($"Hp dp alvo depois: {Target.Hp}/{Target.Hpmax}");
+                }
                 if (acerto >= Target.Ac())
                 {
                     Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
@@ -408,6 +420,11 @@ namespace TituloCore
                 dmg = 1;
 
             Hp -= dmg;
+            if(Hp <= 0)
+            {
+                Hp = 0;
+                //isdead
+            }
         }
 
 

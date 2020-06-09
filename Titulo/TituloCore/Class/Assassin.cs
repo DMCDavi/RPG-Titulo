@@ -48,11 +48,25 @@ namespace TituloCore
 
         public void LethalBlow(Character Self, Character Target)
         {
+            Self.Attack(Target);
 
-            if(Target.Hp<Self.Lvl*5)
+            Random rand = new Random();
+            int lethal = 1 + rand.Next() % 20 + Self.Lvl - Target.Lvl;
+            lethal /= 20;
+            lethal *= Target.Hpmax;
+            if (Target.Hp < lethal)
             {
-                Target.ReceiveDmg(10, Self.EquippedWeapon.Atributo);
+                Target.ReceiveDmg(10, Self.EquippedWeapon.Atributo);//mata
             }
+            //definir recargar
         }
+
+        public void MortalBlow(Character Self, Character Target)
+        {
+            Self.EquippedWeapon.CriticalDmg(Target);
+            //definir recarga
+        }
+
+
     }
 }
