@@ -28,12 +28,29 @@ namespace Titulo_UWP
         private Character player;
         private string persona_name = "David", race_name = "Human";
         private Thickness margin;
+        private MapBlock[,] map_matrix = new MapBlock[43, 77];
+        private int grid_y = 0, grid_x = 0;
 
-        private int pos_y = 0, pos_x = 0;
         public Map()
         {
             this.InitializeComponent();
+            CriandoMapa();
             margin = MapImg.Margin;
+        }
+
+        /// <summary>
+        /// Cria a matriz que referencia o mapa
+        /// </summary>
+        private void CriandoMapa()
+        {
+            for (int i = 0; i < 43; i++)
+            {
+                for (int j = 0; j < 77; j++)
+                {
+                    map_matrix[i, j] = new MapBlock();
+                }
+            }
+            map_matrix[3, 6].isFree = false;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -60,16 +77,23 @@ namespace Titulo_UWP
         /// </summary>
         private void Up()
         {
-            if (pos_y == 2 && margin.Top < -80)
+            //Verifica se o bloco que o personagem está tentando ir está livre ou não
+            if (player.posY - 1 >= 0 && map_matrix[player.posY - 1, player.posX].isFree)
             {
-                margin.Top += 80;
-                margin.Bottom -= 80;
-                MapImg.Margin = margin;
-            }
-            else if(pos_y - 1 >= 0)
-            {
-                pos_y--;
-                Grid.SetRow(CharacterImg, pos_y);
+                //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
+                if (grid_y == 2 && margin.Top != 0)
+                {
+                    margin.Top += 80;
+                    margin.Bottom -= 80;
+                    MapImg.Margin = margin;
+                    player.posY--;
+                }
+                else if (grid_y - 1 >= 0)
+                {
+                    grid_y--;
+                    Grid.SetRow(CharacterImg, grid_y);
+                    player.posY--;
+                }
             }
         }
 
@@ -78,16 +102,23 @@ namespace Titulo_UWP
         /// </summary>
         private void Down()
         {
-            if (pos_y == 6 && margin.Bottom < -80)
+            //Verifica se o bloco que o personagem está tentando ir está livre ou não
+            if (player.posY + 1 < 43 && map_matrix[player.posY + 1, player.posX].isFree)
             {
-                margin.Bottom += 80;
-                margin.Top -= 80;
-                MapImg.Margin = margin;
-            }
-            else if (pos_y + 1 <= 8)
-            {
-                pos_y++;
-                Grid.SetRow(CharacterImg, pos_y);
+                //Se o personagem estiver na posição 6 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
+                if (grid_y == 6 && margin.Bottom != 0)
+                {
+                    margin.Bottom += 80;
+                    margin.Top -= 80;
+                    MapImg.Margin = margin;
+                    player.posY++;
+                }
+                else if (grid_y + 1 <= 8)
+                {
+                    grid_y++;
+                    Grid.SetRow(CharacterImg, grid_y);
+                    player.posY++;
+                }
             }
         }
 
@@ -96,16 +127,23 @@ namespace Titulo_UWP
         /// </summary>
         private void Left()
         {
-            if (pos_x == 3 && margin.Left < -160)
+            //Verifica se o bloco que o personagem está tentando ir está livre ou não
+            if (player.posX - 1 >= 0 && map_matrix[player.posY, player.posX - 1].isFree)
             {
-                margin.Left += 80;
-                margin.Right -= 80;
-                MapImg.Margin = margin;
-            }
-            else if (pos_x - 1 >= 0)
-            {
-                pos_x--;
-                Grid.SetColumn(CharacterImg, pos_x);
+                //Se o personagem estiver na posição 3 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
+                if (grid_x == 3 && margin.Left != 0)
+                {
+                    margin.Left += 80;
+                    margin.Right -= 80;
+                    MapImg.Margin = margin;
+                    player.posX--;
+                }
+                else if (grid_x - 1 >= 0)
+                {
+                    grid_x--;
+                    Grid.SetColumn(CharacterImg, grid_x);
+                    player.posX--;
+                }
             }
         }
 
@@ -114,25 +152,33 @@ namespace Titulo_UWP
         /// </summary>
         private void Right()
         {
-            if (pos_x == 12 && margin.Right < -160)
+            //Verifica se o bloco que o personagem está tentando ir está livre ou não
+            if (player.posX + 1 < 77 && map_matrix[player.posY, player.posX + 1].isFree)
             {
-                margin.Right += 80;
-                margin.Left -= 80;
-                MapImg.Margin = margin;
-            }
-            else if (pos_x + 1 <= 15)
-            {
-                pos_x++;
-                Grid.SetColumn(CharacterImg, pos_x);
+                //Se o personagem estiver na posição 12 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
+                if (grid_x == 12 && margin.Right != 0)
+                {
+                    margin.Right += 80;
+                    margin.Left -= 80;
+                    MapImg.Margin = margin;
+                    player.posX++;
+                }
+                else if (grid_x + 1 <= 15)
+                {
+                    grid_x++;
+                    Grid.SetColumn(CharacterImg, grid_x);
+                    player.posX++;
+                }
+
             }
         }
 
         protected override void OnKeyDown(KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
-            pos_x = Grid.GetColumn(CharacterImg);
-            pos_y = Grid.GetRow(CharacterImg);
-            Thickness margin = MapImg.Margin;
+            grid_x = Grid.GetColumn(CharacterImg);
+            grid_y = Grid.GetRow(CharacterImg);
+            margin = MapImg.Margin;
             if (e.Key == Windows.System.VirtualKey.Up)
                 Up();
             else if (e.Key == Windows.System.VirtualKey.Down)
@@ -141,6 +187,10 @@ namespace Titulo_UWP
                 Left();
             else if (e.Key == Windows.System.VirtualKey.Right)
                 Right();
+            if (map_matrix[player.posY, player.posX].isHidden)
+                CharacterImg.Visibility = Visibility.Collapsed;
+            else
+                CharacterImg.Visibility = Visibility.Visible;
         }
     }
 }

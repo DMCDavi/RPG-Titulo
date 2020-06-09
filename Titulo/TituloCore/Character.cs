@@ -64,9 +64,9 @@ namespace TituloCore
         [DataMember]
         public int TotalMove { get; set; }
         [DataMember]
-        public int posX { get; set; }
+        public int posX { get; set; } = 27;
         [DataMember]
-        public int posY { get; set; }
+        public int posY { get; set; } = 36;
         [DataMember]
         public int Initiative { get; set; }
         [DataMember]
