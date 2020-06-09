@@ -10,7 +10,6 @@ namespace TituloCore
         public int[] CorrectAnswers = new int[10] { 1, 5, 2, 5, 3, 2, 5, 4, 1, 3 };
         //Mudei para public para testar
         private int PersonalityPoint = 0;
-        public string Name = "Bia";
         public void AtributeInc(Character Self)
         {
             Self.Atribute["STR"] += 2;
@@ -30,10 +29,6 @@ namespace TituloCore
         public int PersonalityChoice(int num_pergunta)
         {
             return CorrectAnswers[num_pergunta - 1];
-        }
-        public string PersonaName()
-        {
-            return Name;
         }
 
         public void IncrementPersonalityPoints()

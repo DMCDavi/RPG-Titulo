@@ -9,7 +9,6 @@ namespace TituloCore
         //vetor que guarda as respostas corretas para cara pergunta, sendo que cada pergunta está representada pelo indice do vetor
         public int[] CorrectAnswers = new int[10] { 4, 5, 4, 6, 3, 2, 6, 3, 4, 3 };
         private int PersonalityPoint = 0;
-        public string Name = "Ana";
         public void AtributeInc(Character Self)
         {
             Self.Atribute["STR"] += 2;
@@ -40,11 +39,6 @@ namespace TituloCore
         {
             Self.TotalMove += 0;
 
-        }
-
-        public string PersonaName()
-        {
-            return Name;
         }
     }
 }

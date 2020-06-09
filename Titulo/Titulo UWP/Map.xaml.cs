@@ -56,7 +56,7 @@ namespace Titulo_UWP
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             player = e.Parameter as Character;
-            persona_name = player.Persona.PersonaName();
+            persona_name = player.PersonaName;
             string[] race_splited = player.Race.ToString().Split(".");
             race_name = race_splited[1];
 

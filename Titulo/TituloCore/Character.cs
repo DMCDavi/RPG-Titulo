@@ -42,6 +42,10 @@ namespace TituloCore
         [DataMember]
         public string MainClass { get; set; }
         [DataMember]
+        public string PersonaName { get; set; }
+        [DataMember]
+        public string RaceName { get; set; }
+        [DataMember]
         public IClass CharacterClass { get; set; }
         [DataMember]
         public IRace Race { get; set; }
@@ -226,6 +230,8 @@ namespace TituloCore
         public Character(string Class, string Race, string Persona)
         {
             MainClass = Class;
+            RaceName = Race;
+            PersonaName = Persona;
             SelectClass();
             this.Race = AllRace[Race];
             Exp = 0;

@@ -70,7 +70,7 @@ namespace Titulo_UWP
             {
                 string[] race_splited = PersList[counter].Race.ToString().Split(".");
                 RaceNames[counter] = race_splited[1];
-                PersonaNames[counter] = PersList[counter].Persona.PersonaName();
+                PersonaNames[counter] = PersList[counter].PersonaName;
                 AllNicknames[counter].Visibility = Visibility.Visible;
                 AllClasses[counter].Visibility = Visibility.Visible;
                 AllPersonas[counter].Visibility = Visibility.Visible;
