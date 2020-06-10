@@ -58,7 +58,6 @@ namespace Titulo_UWP
             player = e.Parameter as Character;
             persona_name = player.PersonaName;
             race_name = player.RaceName;
-
             try
             {
                 CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
@@ -172,6 +171,10 @@ namespace Titulo_UWP
             }
         }
 
+        /// <summary>
+        /// Ao apertar uma seta, o personagem se move de acordo à direção apontada
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnKeyDown(KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
@@ -186,6 +189,7 @@ namespace Titulo_UWP
                 Left();
             else if (e.Key == Windows.System.VirtualKey.Right)
                 Right();
+            //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
             if (map_matrix[player.posY, player.posX].isEntrance)
                 CharacterImg.Visibility = Visibility.Collapsed;
             else

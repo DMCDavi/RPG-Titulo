@@ -31,13 +31,5 @@ namespace Titulo_UWP
         {
             this.Frame.Navigate(typeof(CharacterSelectionPage));
         }
-        private void MapButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Map));
-        }
-        private void TestButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(GameTest));
-        }
     }
 }

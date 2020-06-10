@@ -23,16 +23,28 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterCreation : Page
     {
-        Character pers;
-        string race_name = "Human", class_name = "Assassin", persona_name = "Gean";
+        private Character pers;
+        private string race_name = "Human", class_name = "Assassin", persona_name = "Gean";
         //Variavel que armazena o local onde sao guardados os dados da aplicacao
-        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-        public List<Character> PersList = new List<Character>();
+        private StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        private List<Character> PersList = new List<Character>();
+        private Dictionary<string, TextBlock> AllAtributesTxt;
+        private int num_btn_atribute = 1;
+        private string name_atribute = "STR";
 
         public CharacterCreation()
         {
             this.InitializeComponent();
             ReadObject("PersonagensList.xml");
+            AllAtributesTxt = new Dictionary<string, TextBlock>
+            {
+                {"STR", str },
+                {"DEX", dex },
+                {"CON", con },
+                {"INT", intl },
+                {"WIS", wis },
+                {"CHA", cha }
+            };
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -40,163 +52,63 @@ namespace Titulo_UWP
             if (e.Parameter is string && !string.IsNullOrWhiteSpace((string)e.Parameter))
                 persona_name = e.Parameter.ToString();
             PersonaName.Text = persona_name;
+            ChangeCharImages(persona_name, race_name);
+            base.OnNavigatedTo(e);
+        }
+
+        /// <summary>
+        /// Tenta mudar a imagem do personagem e seu plano de fundo
+        /// </summary>
+        /// <param name="persona_string">Nome do personagem do jeito que está na pasta e no arquivo</param>
+        /// <param name="race_string">Nome da raça do personagem do jeito que está na pasta e no arquivo</param>
+        private void ChangeCharImages(string persona_string, string race_string)
+        {
             try
             {
-                CharacterLandscape.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/" + persona_name + "_Landscape.png"));
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
+                CharacterLandscape.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_string + "/" + persona_string + "_Landscape.png"));
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_string + "/Sem_fundo/" + persona_string + "_" + race_string + ".png"));
             }
             catch (Exception)
             {
                 Debug.WriteLine("ERRO: Nenhuma imagem foi encontrada");
             }
-            base.OnNavigatedTo(e);
         }
 
         /// <summary>
-        /// Tenta aumentar em 1 ponto a atributo força
+        /// Aumenta ou diminui um atributo selecionado pelo usuário
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Str_Plus_Click(object sender, RoutedEventArgs e)
+        private void Atribute_Click(object sender, RoutedEventArgs e)
         {
-            pers.BuyAtributes("STR", 1);
-            str.Text = pers.Atribute["STR"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-
-        /// <summary>
-        /// Tenta diminuir em 1 ponto a atributo força
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Str_Minus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("STR", 2);
-            str.Text = pers.Atribute["STR"].ToString();
+            //Armazena na variável o nome do atributo que ele irá modificar
+            name_atribute = ((Button)sender).Tag.ToString();
+            //Armazena na variável o número do botão
+            num_btn_atribute = int.Parse(((Button)sender).AccessKey.ToString());
+            //Se o número do botão for par, a função incrementa no atrbuto determinado
+            if (num_btn_atribute % 2 == 0)
+                pers.BuyAtributes(name_atribute, 1);
+            //Senão, decrementa
+            else
+                pers.BuyAtributes(name_atribute, 2);
+            AllAtributesTxt[name_atribute].Text = pers.Atribute[name_atribute].ToString();
             score.Text = pers.pts.ToString();
         }
 
         /// <summary>
-        /// Tenta aumentar em 1 ponto a atributo destreza
+        /// Cria e salva o personagem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Dex_Plus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("DEX", 1);
-            dex.Text = pers.Atribute["DEX"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-
-        /// <summary>
-        /// Tenta diminuir em 1 ponto a atributo destreza
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Dex_Minus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("DEX", 2);
-            dex.Text = pers.Atribute["DEX"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-
-        /// <summary>
-        /// Tenta aumentar em 1 ponto a atributo constituição
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Con_Plus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("CON", 1);
-            con.Text = pers.Atribute["CON"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-
-        /// <summary>
-        /// Tenta diminuir em 1 ponto a atributo constituição
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Con_Minus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("CON", 2);
-            con.Text = pers.Atribute["CON"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-        /// <summary>
-        /// Tenta aumentar em 1 ponto a atributo inteligencia
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Int_Plus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("INT", 1);
-            intl.Text = pers.Atribute["INT"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-        /// <summary>
-        /// Tenta diminuir em 1 ponto a atributo inteligencia
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Int_Minus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("INT", 2);
-            intl.Text = pers.Atribute["INT"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-        /// <summary>
-        /// Tenta aumentar em 1 ponto a atributo sabedoria
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Wis_Plus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("WIS", 1);
-            wis.Text = pers.Atribute["WIS"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-        /// <summary>
-        /// Tenta diminuir em 1 ponto a atributo sabedoria
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Wis_Minus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("WIS", 2);
-            wis.Text = pers.Atribute["WIS"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-        /// <summary>
-        /// Tenta aumentar em 1 ponto a atributo carisma
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Cha_Plus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("CHA", 1);
-            cha.Text = pers.Atribute["CHA"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-        /// <summary>
-        /// Tenta diminuir em 1 ponto a atributo carisma
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Cha_Minus_Click(object sender, RoutedEventArgs e)
-        {
-            pers.BuyAtributes("CHA", 2);
-            cha.Text = pers.Atribute["CHA"].ToString();
-            score.Text = pers.pts.ToString();
-        }
-
         private void NextStep_Click(object sender, RoutedEventArgs e)
         {
+            //Se o usuário já estiver escolhido seus atributos e nickname, salva o personagem
             if (NextStep.Content.ToString() == "Salvar")
             {
                 WriteObject("PersonagensList.xml");
                 this.Frame.Navigate(typeof(CharacterSelectionPage));
             }
+            //Senão abre o painel para modificar os atributos
             else
             {
                 pers = new Character(class_name, race_name, persona_name);
@@ -216,6 +128,11 @@ namespace Titulo_UWP
             }
         }
 
+        /// <summary>
+        /// Seleciona uma classe
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Class_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
@@ -225,12 +142,17 @@ namespace Titulo_UWP
             }
         }
 
+        /// <summary>
+        /// Seleciona uma raça
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Race_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rb = sender as RadioButton;
+            race_name = rb.Tag.ToString();
             try
             {
-                race_name = rb.Tag.ToString();
                 CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
             }
             catch (Exception)
@@ -239,18 +161,23 @@ namespace Titulo_UWP
             }
         }
 
+        /// <summary>
+        /// Habilita o botão de salvar ao digitar um nickname
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CharName_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (CharName.Text.Length > 0)
                 NextStep.Visibility = Visibility.Visible;
             else
                 NextStep.Visibility = Visibility.Collapsed;
+            //Se o nickname digitado for "Lapa", o personagem vira o DEUS
             if (CharName.Text == "Lapa")
             {
                 pers = new Character("Lapagod", "God", "Lapa");
                 PersonaName.Text = "Lapa";
-                CharacterLandscape.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Lapa/Lapa_Landscape.png"));
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/Lapa/Sem_fundo/Lapa_God.png"));
+                ChangeCharImages("Lapa", "God");
                 str.Text = pers.Atribute["STR"].ToString();
                 dex.Text = pers.Atribute["DEX"].ToString();
                 con.Text = pers.Atribute["CON"].ToString();

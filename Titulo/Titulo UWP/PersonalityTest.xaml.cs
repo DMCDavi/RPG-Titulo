@@ -24,10 +24,10 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class PersonalityTest : Page
     {
-        int num_panel = 1, num_answer = 1;
-        public List<StackPanel> AllQuestionPanels;
+        private int num_panel = 1, num_answer = 1;
+        private List<StackPanel> AllQuestionPanels;
         Personality PTest = new Personality();
-        public StackPanel[,] AllAnswerPanels;
+        private StackPanel[,] AllAnswerPanels;
         public PersonalityTest()
         {
             this.InitializeComponent();
@@ -45,6 +45,7 @@ namespace Titulo_UWP
                 Panel_11,
                 Panel_12
             };
+            //Matriz que armazena todos os paineis das histórias para cada resposta
             AllAnswerPanels = new StackPanel[10, 8] {
                  {Answer_1_1, Answer_1_2, Answer_1_3, Answer_1_4, Answer_1_5, Answer_1_6, null, null },
                  {Answer_2_1, Answer_2_2, Answer_2_3, Answer_2_4, Answer_2_5, null, null, null },
@@ -59,6 +60,11 @@ namespace Titulo_UWP
         };
         }
 
+        /// <summary>
+        /// Abre o painel posterior, sendo este podendo ser um painel de pergunta ou história
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NextStep_Click(object sender, RoutedEventArgs e)
         {
             //Modifica a visibilidade dos paineis ao clicar no botão, para avançar as perguntas
@@ -144,19 +150,16 @@ namespace Titulo_UWP
 
         }
 
-        private void RichTextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Armazena o número da resposta que o usuário selecionou
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Check_Test(object sender, RoutedEventArgs e)
         {
-            //Armazena o número da resposta
             RadioButton rb = sender as RadioButton;
             if (rb != null)
-            {
-                num_answer = Int16.Parse(rb.Tag.ToString());
-            }
+                num_answer = int.Parse(rb.Tag.ToString());
         }
     }
 }

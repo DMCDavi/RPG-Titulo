@@ -37,7 +37,7 @@ namespace Titulo_UWP
         private List<Button> AllDeleteButtons;
         private string[] RaceNames = { "Human", "Human", "Human", "Human" };
         private string[] PersonaNames = { "Gean", "Gean", "Gean", "Gean" };
-        int tag_delete_button = 1;
+        private int tag_delete_button = 1, character_selected = 1;
         public CharacterSelectionPage()
         {
             this.InitializeComponent();
@@ -73,21 +73,45 @@ namespace Titulo_UWP
             };
             ReadObject("PersonagensList.xml");
         }
-        public int selected;
-        private void Char1_Click(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Mostra na tela a resposta da escolha do personagem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Char_Click(object sender, RoutedEventArgs e)
         {
             SelectButton.Visibility = Visibility.Visible;
-            selected = 1;
-            if (Nickname1.Text.Equals("New Character"))
+            character_selected = int.Parse(((Button)sender).Tag.ToString());
+            //Se for um novo personagem o texto do botão muda e a imagem do personagem colapsa
+            if (AllNicknames[character_selected - 1].Text.Equals("New Character"))
             {
                 CharacterImg.Visibility = Visibility.Collapsed;
                 SelectButton.Content = "Create";
             }
+            //Senão, mostra a respectiva imagem do personagem clicado e muda o texto do botão para "Select"
             else
             {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[0] + "/Sem_fundo/" + PersonaNames[0] + "_" + RaceNames[0] + ".png"));
+                ChangeCharImage(PersonaNames[character_selected - 1], RaceNames[character_selected - 1]);
                 CharacterImg.Visibility = Visibility.Visible;
                 SelectButton.Content = "Select";
+            }
+        }
+
+        /// <summary>
+        /// Tenta mudar a imagem do personagem
+        /// </summary>
+        /// <param name="persona_name">Nome do personagem do jeito que está na pasta e no arquivo</param>
+        /// <param name="race_name">Nome da raça do personagem do jeito que está na pasta e no arquivo</param>
+        private void ChangeCharImage(string persona_name, string race_name)
+        {
+            try
+            {
+                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("ERRO: Nenhuma imagem foi encontrada");
             }
         }
 
@@ -122,63 +146,17 @@ namespace Titulo_UWP
             if (!DeletePopup.IsOpen) { DeletePopup.IsOpen = true; }
         }
 
-        private void Char2_Click(object sender, RoutedEventArgs e)
-        {
-            SelectButton.Visibility = Visibility.Visible;
-            selected = 2;
-            if (Nickname2.Text.Equals("New Character"))
-            {
-                CharacterImg.Visibility = Visibility.Collapsed;
-                SelectButton.Content = "Create";
-            }
-            else
-            {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[1] + "/Sem_fundo/" + PersonaNames[1] + "_" + RaceNames[1] + ".png"));
-                CharacterImg.Visibility = Visibility.Visible;
-                SelectButton.Content = "Select";
-            }
-        }
-
-        private void Char3_Click(object sender, RoutedEventArgs e)
-        {
-            SelectButton.Visibility = Visibility.Visible;
-            selected = 3;
-            if (Nickname3.Text.Equals("New Character"))
-            {
-                CharacterImg.Visibility = Visibility.Collapsed;
-                SelectButton.Content = "Create";
-            }
-            else
-            {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[2] + "/Sem_fundo/" + PersonaNames[2] + "_" + RaceNames[2] + ".png"));
-                CharacterImg.Visibility = Visibility.Visible;
-                SelectButton.Content = "Select";
-            }
-        }
-
-        private void Char4_Click(object sender, RoutedEventArgs e)
-        {
-            SelectButton.Visibility = Visibility.Visible;
-            selected = 4;
-            if (Nickname4.Text.Equals("New Character"))
-            {
-                CharacterImg.Visibility = Visibility.Collapsed;
-                SelectButton.Content = "Create";
-            }
-            else
-            {
-                CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + PersonaNames[3] + "/Sem_fundo/" + PersonaNames[3] + "_" + RaceNames[3] + ".png"));
-                CharacterImg.Visibility = Visibility.Visible;
-                SelectButton.Content = "Select";
-            }
-        }
-
+        /// <summary>
+        /// Navega para o mapa caso o usuário escolha um personagem ou direciona para o teste de personalidade
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
             if (SelectButton.Content.Equals("Create"))
                 this.Frame.Navigate(typeof(PersonalityTest));
             else
-                this.Frame.Navigate(typeof(Map), PersList[selected - 1]);
+                this.Frame.Navigate(typeof(Map), PersList[character_selected - 1]);
         }
 
         /// <summary>

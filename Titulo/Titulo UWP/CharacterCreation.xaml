@@ -59,39 +59,39 @@
             <TextBlock x:Name="score" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="107" HorizontalAlignment="Right" Margin="0,0,24,10" />
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
                 <TextBlock  FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Força" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Str_Minus_Click" CornerRadius="100" />
+                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Atribute_Click" Tag="STR" AccessKey="1" CornerRadius="100" />
                 <TextBlock x:Name="str" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0"/>
-                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Str_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
+                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Atribute_Click" Tag="STR" AccessKey="2" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Destreza" Margin="0,0,10,0" VerticalAlignment="Center" />
-                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Dex_Minus_Click" CornerRadius="100"/>
+                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Atribute_Click" Tag="DEX" AccessKey="3" CornerRadius="100"/>
                 <TextBlock x:Name="dex" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Dex_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
+                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Atribute_Click" Tag="DEX" AccessKey="4" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Constituição"  Margin="0,0,10,0" VerticalAlignment="Center" />
-                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Con_Minus_Click" CornerRadius="100"/>
+                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Atribute_Click" Tag="CON" AccessKey="5" CornerRadius="100"/>
                 <TextBlock x:Name="con" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Con_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
+                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Atribute_Click" Tag="CON" AccessKey="6" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Inteligência"  Margin="0,0,10,0" VerticalAlignment="Center" />
-                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Int_Minus_Click" CornerRadius="100"/>
+                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Atribute_Click" Tag="INT" AccessKey="7" CornerRadius="100"/>
                 <TextBlock x:Name="intl" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Int_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
+                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Atribute_Click" Tag="INT" AccessKey="8" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Sabedoria"  Margin="0,0,10,0" VerticalAlignment="Center" />
-                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Wis_Minus_Click" CornerRadius="100"/>
+                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Atribute_Click" Tag="WIS" AccessKey="9" CornerRadius="100"/>
                 <TextBlock x:Name="wis" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Wis_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
+                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Atribute_Click" Tag="WIS" AccessKey="10" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,10,0,10">
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Carisma" Margin="0,0,10,0" VerticalAlignment="Center"/>
-                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Cha_Minus_Click" CornerRadius="100"/>
+                <Button Content="-" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Height="45" Width="45" Click="Atribute_Click" Tag="CHA" AccessKey="11" CornerRadius="100"/>
                 <TextBlock x:Name="cha" FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="0" TextAlignment="Center" Height="21" Width="44" Margin="10,0,10,0" />
-                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Cha_Plus_Click" Height="45" Width="45" CornerRadius="100"/>
+                <Button Content="+" FontFamily="Times New Roman" Foreground="#000" FontSize="20" FontWeight="Bold" Click="Atribute_Click" Tag="CHA" AccessKey="12" Height="45" Width="45" CornerRadius="100"/>
             </StackPanel>
         </StackPanel>
     </Grid>

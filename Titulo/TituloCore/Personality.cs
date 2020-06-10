@@ -7,20 +7,18 @@ namespace TituloCore
 {
     public class Personality
     {
-        Ana ana = new Ana();
-        Bia bia = new Bia();
-        David davi = new David();
-        Fernanda fernanda = new Fernanda();
-        Gean gean = new Gean();
-        Grhamm grhamm = new Grhamm();
-        Joao joao = new Joao();
-        Maria maria = new Maria();
-        Vagner vagner = new Vagner();
-
-        public Dictionary<string, IPersona> AllPersona;
+        private Ana ana = new Ana();
+        private Bia bia = new Bia();
+        private David davi = new David();
+        private Fernanda fernanda = new Fernanda();
+        private Gean gean = new Gean();
+        private Grhamm grhamm = new Grhamm();
+        private Joao joao = new Joao();
+        private Maria maria = new Maria();
+        private Vagner vagner = new Vagner();
+        public Dictionary<string, IPersona> AllPersona { get; set; }
         public Personality()
         {
-            //Lista com todas as Personas
             AllPersona = new Dictionary<string, IPersona>
             {
                 { "Ana", ana },
@@ -35,7 +33,6 @@ namespace TituloCore
 
             };
         }
-        public static string PersonaChosen;
 
         /// <summary>
         /// Checa cada Persona para adicionar um ponto de personalidade naquelas que possuem as respostas certas para a pergunta em específico
