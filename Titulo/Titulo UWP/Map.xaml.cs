@@ -51,6 +51,19 @@ namespace Titulo_UWP
                 }
             }
             map_matrix[3, 6].isFree = false;
+
+            // Create a new ListView and add content. 
+            //ListView Fruits = new ListView();
+            //StackPanel stackPanel = new StackPanel();
+            //Fruits.Items.Add("Apricot");
+            //Fruits.Items.Add("Banana");
+            //Fruits.Items.Add("Cherry");
+            //Fruits.Items.Add("Orange");
+            //Fruits.Items.Add("Strawberry");
+
+            //// Add the ListView to a parent container in the visual tree (that you created in the corresponding XAML file).
+            //MapGrid.Children.Add(Fruits);
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

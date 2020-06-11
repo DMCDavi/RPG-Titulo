@@ -10,12 +10,23 @@ namespace TituloCore
         public bool isFree { get; set; } = true;
         public bool isRoad { get; set; } = false;
         private Character character;
+        private Item item;
         public Character CharacterGetSet 
         {
             get => character;
             set
             {
                 character = value;
+                isFree = false;
+            }
+        }
+
+        public Item ItemGetSet
+        {
+            get => item;
+            set
+            {
+                item = value;
                 isFree = false;
             }
         }
