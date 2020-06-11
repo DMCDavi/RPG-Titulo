@@ -15,7 +15,6 @@ namespace TituloCore
     [KnownType(typeof(Lapagod))]
     [KnownType(typeof(Mage))]
     [KnownType(typeof(Shielder))]
-    [KnownType(typeof(Tank))]
     [KnownType(typeof(Warrior))]
     [KnownType(typeof(Witcher))]
     [KnownType(typeof(Ana))]
@@ -108,8 +107,6 @@ namespace TituloCore
                 CharacterClass = new Mage(this);
             if (MainClass == "Shielder")
                 CharacterClass = new Shielder(this);
-            if (MainClass == "Tank")
-                CharacterClass = new Tank(this);
             if (MainClass == "Warrior")
                 CharacterClass = new Warrior(this);
             if (MainClass == "Witcher")

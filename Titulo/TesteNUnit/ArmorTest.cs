@@ -9,19 +9,15 @@ namespace TesteNUnit
     [TestFixture]
     public class ArmorTest
     {
-        [TestCase(5,5,5)]
+        [TestCase(10,5,-5)]
         public void Ac(int BaseAc, int MaxDex, int MinDex)
         {
-            int aux, DexBonus;
             Armor armor = new Armor(BaseAc,MaxDex,MinDex);
-            Character personagem = new Character("Tank", "Human", "Vagner");
+            Character personagem = new Character("Shielder", "Human", "Vagner");
             personagem.Atribute["DEX"] = 10;
-            personagem.MagicBonus["DEX"] = 5;
-            DexBonus = personagem.Modifier("DEX");
             personagem.EquippedArmor = armor;
             personagem.EquippedArmor.Equip(personagem);
-            aux = BaseAc + DexBonus;
-            Assert.AreEqual(aux,armor.Ac());            
+            Assert.AreEqual(10, armor.Ac());            
         }
        
     }
