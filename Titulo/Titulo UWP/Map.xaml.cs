@@ -50,7 +50,27 @@ namespace Titulo_UWP
                     map_matrix[i, j] = new MapBlock();
                 }
             }
+            map_matrix[10, 17].isEntrance = true;// Caverna 1
+            map_matrix[7, 27].isEntrance = true; // Caverna 2
+            map_matrix[6, 50].isEntrance = true; // Caverna 3
+            map_matrix[19, 67].isEntrance = true;// Caverna 4
+
+            map_matrix[29, 72].isEntrance = true;// Casa 1
+            map_matrix[36, 69].isEntrance = true;// Casa 2
+            map_matrix[31, 43].isEntrance = true;// Casa 3
+            map_matrix[35, 27].isEntrance = true;// Casa 4
+            map_matrix[22, 34].isEntrance = true;// Casa 5
+            map_matrix[29, 16].isEntrance = true;// Casa 6 (Casa de Lapa)
+            map_matrix[40, 8].isEntrance = true; // Casa 7
+            map_matrix[16, 14].isEntrance = true;// Casa 8 (Taverna)
+            map_matrix[15, 26].isEntrance = true;// Casa 9
+            map_matrix[14, 40].isEntrance = true;// Casa 10
+
             map_matrix[3, 6].isFree = false;
+            map_matrix[3, 7].isFree = false;
+            map_matrix[2, 7].isFree = false;
+            map_matrix[2, 8].isFree = false;
+            map_matrix[2, 9].isFree = false;
 
             // Create a new ListView and add content. 
             //ListView Fruits = new ListView();
