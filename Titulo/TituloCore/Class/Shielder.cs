@@ -8,26 +8,28 @@ namespace TituloCore
     [DataContractAttribute(Name = "Shielder")]
     public class Shielder : IClass
     {
+        public Character Self;
         public Shielder(Character Self)
         {
-            HitDice(Self);
+            this.Self = Self;
+            HitDice();
         }
-        public void HitDice(Character Self)
+        public void HitDice()
         {
             Self.HitDice = 20;
         }
 
-        public void LvlUp(Character Self)
+        public void LvlUp()
         {
-            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+            Self.Hpmax += RollHitDice() + Self.Modifier("CON");
         }
-        public int RollHitDice(Character Self)
+        public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void BloodSacrifice(Character Self, Character Target)
+        public void BloodSacrifice(Character Target)
         {
             Random rand = new Random();
             int dmg = Self.Hpmax * (1 + rand.Next()%20)/20;
@@ -36,7 +38,7 @@ namespace TituloCore
                 dmg = Self.Hp-1;
             Self.ReceiveDmg(dmg, "Necrotic");
         }
-        public void TitanVengeance(Character Self, Character Target)
+        public void TitanVengeance(Character Target)
         {
             Self.Attack(Target);
             Target.ReceiveDmg((Self.Hpmax - Self.Hp) / 2, "Necrotic");

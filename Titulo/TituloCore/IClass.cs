@@ -6,8 +6,8 @@ namespace TituloCore
 {
     public interface IClass
     {
-        void HitDice(Character Self);
-        int RollHitDice(Character Self);
-        void LvlUp(Character Self);
+        void HitDice();
+        int RollHitDice();
+        void LvlUp();
     }
 }

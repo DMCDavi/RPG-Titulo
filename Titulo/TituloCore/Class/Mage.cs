@@ -8,6 +8,7 @@ namespace TituloCore
     [DataContractAttribute(Name = "Mage")]
     public class Mage : IClass
     {
+        public Character Self;
         public int MageLvl;
 
         /// <summary>
@@ -15,35 +16,16 @@ namespace TituloCore
         /// </summary>
         public Mage(Character Self)
         {
-            HitDice(Self);
+            this.Self = Self;
+            HitDice();
         }
 
-        /// <summary>
-        /// Retorna o lvl de mage
-        /// </summary>
-        /// <returns></returns>
-        public int ClassLvl()
-        {
-            return MageLvl;
-        }
-
-        /// <summary>
-        /// Confere se o personagem pode se tornar mage por multi classe
-        /// </summary>
-        /// <param name="Self"></param>
-        /// <returns></returns>
-        public bool CanBe(Character Self)
-        {
-            if (Self.Atribute["INT"] >= 13)
-                return true;
-            return false;
-        }
 
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal
         /// </summary>
         /// <param name="Self"></param>
-        public void HitDice(Character Self)
+        public void HitDice()
         {
             Self.HitDice = 6;
         }
@@ -52,25 +34,24 @@ namespace TituloCore
         /// Aumenta 1 lvl de <see cref="Mage"/> no personagem
         /// </summary>
         /// <param name="Self"></param>
-        public void LvlUp(Character Self)
+        public void LvlUp()
         {
-            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
-
+            Self.Hpmax += RollHitDice() + Self.Modifier("CON");
         }
-        public int RollHitDice(Character Self)
+        public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void Bolt(Character Self, Character Target)
+        public void Bolt(Character Target)
         {
             Target.Hp += Self.Modifier("INT");
             if (Target.Hp > Target.Hpmax)
                 Target.Hp = Target.Hpmax;
             Self.ReceiveDmg(Self.Modifier("INT"), "Necrotic");
         }
-        public void Storm(Character Self, Character Target)
+        public void Storm(Character Target)
         {
             Target.Hp += 10*Self.Modifier("INT");
             if (Target.Hp > Target.Hpmax)

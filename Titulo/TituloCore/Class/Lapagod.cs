@@ -8,21 +8,23 @@ namespace TituloCore
     [DataContractAttribute(Name = "Lapagod")]
     public class Lapagod : IClass
     {
+        public Character Self;
         public Lapagod(Character Self)
         {
-            HitDice(Self);
+            this.Self = Self;
+            HitDice();
         }
-        public void HitDice(Character Self)
+        public void HitDice()
         {
             Self.HitDice = 20;
         }
 
-        public void LvlUp(Character Self)
+        public void LvlUp()
         {
-            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+            Self.Hpmax += RollHitDice() + Self.Modifier("CON");
         }
 
-        public int RollHitDice(Character Self)
+        public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;

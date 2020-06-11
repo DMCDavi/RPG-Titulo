@@ -219,6 +219,16 @@ namespace TituloCore
             {"Poison", false}
         };
 
+        [DataMember]
+        public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
+        public void DefineAction()
+        {
+            Action.Add("Attack", new Action<Character>(Attack));
+            //acoes["acao1"].DynamicInvoke(10);
+        }
+
+
+
         /// <summary>
         /// Construtor do personagem
         /// </summary>
@@ -238,13 +248,13 @@ namespace TituloCore
             this.Race.Speed(this);
             this.Race.Language(this);
             this.Race.AtributeInc(this);
-            this.CharacterClass.HitDice(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
             NaturalArmor = new Armor(10, -10, 20);
             EquippedArmor = NaturalArmor;
             EquippedArmor.Equip(this);
             CritRange = 20;
+            DefineAction();
         }
 
         /// <summary>
@@ -363,8 +373,6 @@ namespace TituloCore
         /// <returns></returns>
         public bool canAttack(Character Target)
         {
-            return true; //testando
-
             if (Math.Abs(Target.posX - posX) <= EquippedWeapon.Range && Math.Abs(Target.posY - posY) <= EquippedWeapon.Range)
             {
                 return true;
@@ -379,7 +387,7 @@ namespace TituloCore
         /// Função de ataque
         /// </summary>
         /// <param name="Target">Alvo</param>
-        public void Attack(Character Target)
+        public bool Attack(Character Target)
         {
             Random rand = new Random();
             if (canAttack(Target))
@@ -388,21 +396,21 @@ namespace TituloCore
                 int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
                 if (acerto >= CritRange)
                 {
-                    Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
                     EquippedWeapon.CriticalDmg(Target);
-                    Console.WriteLine($"Hp dp alvo depois: {Target.Hp}/{Target.Hpmax}");
+                    return true;
                 }
                 if (acerto >= Target.Ac())
                 {
-                    Console.WriteLine($"Hp do alvo antes: {Target.Hp}/{Target.Hpmax}");
                     EquippedWeapon.DealDmg(Target);
-                    Console.WriteLine($"Hp dp alvo depois: {Target.Hp}/{Target.Hpmax}");
+                    return true;
                 }
                 else
                 {
                     Console.WriteLine("Errou!");
+                    return false;
                 }
             }
+            return false;
         }
 
         /// <summary>
@@ -439,7 +447,8 @@ namespace TituloCore
         /// <param name="Class"></param>
         public void LvlUp(string Class)
         {
-            CharacterClass.LvlUp(this);
+            Lvl++;
+            CharacterClass.LvlUp();
         }
 
     }

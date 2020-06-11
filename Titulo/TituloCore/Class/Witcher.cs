@@ -8,27 +8,29 @@ namespace TituloCore
     [DataContractAttribute(Name = "Witcher")]
     public class Witcher : IClass
     {
+        public Character Self;
         public Witcher(Character Self)
         {
-            HitDice(Self);
+            this.Self = Self;
+            HitDice();
         }
-        public void HitDice(Character Self)
+        public void HitDice()
         {
             Self.HitDice = 6;
         }
 
-        public void LvlUp(Character Self)
+        public void LvlUp()
         {
-            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+            Self.Hpmax += RollHitDice() + Self.Modifier("CON");
 
         }
-        public int RollHitDice(Character Self)
+        public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void EldrichBlast(Character Self, Character Target)
+        public void EldrichBlast(Character Target)
         {
             Random rand = new Random();
             int Dice = 8;

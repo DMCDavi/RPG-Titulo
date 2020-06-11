@@ -9,13 +9,14 @@ namespace TituloCore
     public class Assassin : IClass
     {
         public int AssassinLvl;
-
+        Character Self;
         /// <summary>
         /// Construtor da classe Mage
         /// </summary>
         public Assassin(Character Self)
         {
-            HitDice(Self);
+            this.Self = Self;
+            HitDice();
         }
         
 
@@ -23,7 +24,7 @@ namespace TituloCore
         /// Define o HitDice do personagem caso essa seja sua classe principal
         /// </summary>
         /// <param name="Self"></param>
-        public void HitDice(Character Self)
+        public void HitDice()
         {
             Self.HitDice = 10;
         }
@@ -32,21 +33,22 @@ namespace TituloCore
         /// Aumenta 1 lvl de <see cref="Assassin"/> no personagem
         /// </summary>
         /// <param name="Self"></param>
-        public void LvlUp(Character Self)
+        public void LvlUp()
         {
-            Self.Lvl++;
-            AssassinLvl++;
+            if(Self.Lvl == 4)
+                Self.Action.Add("Morthal Blow", new Action<Character>(MortalBlow));
+            //player.Action["Morthal Blow"].DynamicInvoke(Target);
 
-            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+            Self.Hpmax += RollHitDice() + Self.Modifier("CON");
         }
 
-        public int RollHitDice(Character Self)
+        public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void LethalBlow(Character Self, Character Target)
+        public void LethalBlow(Character Target)
         {
             Self.Attack(Target);
 
@@ -61,7 +63,7 @@ namespace TituloCore
             //definir recargar
         }
 
-        public void MortalBlow(Character Self, Character Target)
+        public void MortalBlow(Character Target)
         {
             Self.EquippedWeapon.CriticalDmg(Target);
             //definir recarga

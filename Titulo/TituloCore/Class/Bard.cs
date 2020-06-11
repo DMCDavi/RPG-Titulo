@@ -8,31 +8,22 @@ namespace TituloCore
     [DataContractAttribute(Name = "Bard")]
     public class Bard : IClass
     {
-        public int BardLvl;
+        public Character Self;
 
         /// <summary>
         /// Construtor da classe Bard
         /// </summary>
         public Bard(Character Self)
         {
-            HitDice(Self);
+            this.Self = Self;
+            HitDice();
         }
-
-        /// <summary>
-        /// Retorna o lvl de mage
-        /// </summary>
-        /// <returns></returns>
-        public int ClassLvl()
-        {
-            return BardLvl;
-        }
-
 
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal
         /// </summary>
         /// <param name="Self"></param>
-        public void HitDice(Character Self)
+        public void HitDice()
         {
             Self.HitDice = 10;
         }
@@ -41,21 +32,18 @@ namespace TituloCore
         /// Aumenta 1 lvl de <see cref="Bard"/> no personagem
         /// </summary>
         /// <param name="Self"></param>
-        public void LvlUp(Character Self)
+        public void LvlUp()
         {
-            Self.Lvl++;
-            BardLvl++;
-
-            Self.Hpmax += RollHitDice(Self) + Self.Modifier("CON");
+            Self.Hpmax += RollHitDice() + Self.Modifier("CON");
         }
 
-        public int RollHitDice(Character Self)
+        public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void DanceFire(Character Self)
+        public void DanceFire()
         {
             for (int i = 0; i < Self.Lvl; i++)
             {
@@ -63,40 +51,40 @@ namespace TituloCore
             }
         }
 
-        public void DanceFireOFF(Character Self)
+        public void DanceFireOFF()
         {
             Self.ClassDmgDices.Clear();
         }
 
-        public void DanceFury(Character Self)
+        public void DanceFury()
         {
             Self.MagicBonus["DEX"] += 2;
             if (Self.Lvl >= 3)
                 Self.MagicBonus["DEX"] += 2;
         }
 
-        public void DanceFuryOFF(Character Self)
+        public void DanceFuryOFF()
         {
             Self.MagicBonus["DEX"] -= 2;
             if (Self.Lvl >= 3)
                 Self.MagicBonus["DEX"] -= 2;
         }
 
-        public void SongEarth(Character Self)
+        public void SongEarth()
         {
             Self.AcBonus += 2;
         }
 
-        public void SongEarthOFF(Character Self)
+        public void SongEarthOFF()
         {
             Self.AcBonus -= 2;
         }
 
-        public void SongHunter(Character Self)
+        public void SongHunter()
         {
             Self.CritRange -= 2;
         }
-        public void SongHunterOFF(Character Self)
+        public void SongHunterOFF()
         {
             Self.CritRange += 2;
         }
