@@ -223,10 +223,12 @@ namespace TituloCore
         public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
         public void DefineAction()
         {
-            Action.Add("Attack", new Action<Character>(Attack));
+            Action.Add("Attack", new Action<bool>( (Character)=> Attack(Target) ));
             //acoes["acao1"].DynamicInvoke(10);
         }
 
+        public Character Target { get; set; }
+        
 
 
         /// <summary>
