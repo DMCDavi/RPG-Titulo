@@ -11,12 +11,13 @@ namespace TituloCore
         public int AssassinLvl;
         Character Self;
         /// <summary>
-        /// Construtor da classe Mage
+        /// Construtor da classe Assasin
         /// </summary>
         public Assassin(Character Self)
         {
             this.Self = Self;
             HitDice();
+            Self.Action.Add("Morthal Blow", new Action<Character>(MortalBlow));
         }
         
 
@@ -36,7 +37,7 @@ namespace TituloCore
         public void LvlUp()
         {
             if(Self.Lvl == 4)
-                Self.Action.Add("Morthal Blow", new Action<Character>(MortalBlow));
+                Self.Action.Add("Lethal Blow", new Action<Character>(LethalBlow));
             //player.Action["Morthal Blow"].DynamicInvoke(Target);
 
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
@@ -60,7 +61,7 @@ namespace TituloCore
             {
                 Target.ReceiveDmg(10, Self.EquippedWeapon.Atributo);//mata
             }
-            //definir recargar
+            //definir recarga
         }
 
         public void MortalBlow(Character Target)

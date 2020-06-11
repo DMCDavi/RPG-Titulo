@@ -13,6 +13,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            Self.Action.Add("Eldrich Blast", new Action<Character>(EldrichBlast));
         }
         public void HitDice()
         {

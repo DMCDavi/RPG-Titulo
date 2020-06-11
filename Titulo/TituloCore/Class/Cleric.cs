@@ -18,6 +18,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            Self.Action.Add("Smite", new Action<Character>(Smite));
         }
         
 
@@ -46,7 +47,7 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void Will(Character Target)
+        public void Smite(Character Target)
         {
             Target.ReceiveDmg(0, "Radiant");
         }
