@@ -223,7 +223,7 @@ namespace TituloCore
         public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
         public void DefineAction()
         {
-            Action.Add("Attack", new Func<bool>(() => Attack(Target)));
+            Action.Add("Attack", new Func<bool>(() => Attack()));
             //acoes["acao1"].DynamicInvoke(10);
             //Action["Attack"].DynamicInvoke(Target);
         }
@@ -390,7 +390,7 @@ namespace TituloCore
         /// Função de ataque
         /// </summary>
         /// <param name="Target">Alvo</param>
-        public bool Attack(Character Target)
+        public bool Attack()
         {
             Random rand = new Random();
             if (canAttack(Target))

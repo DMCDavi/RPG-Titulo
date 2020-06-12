@@ -16,7 +16,7 @@ namespace TituloCore
             this.Self = Self;
             HitDice();
             Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
-            Self.Action["Attack"] = new Func<bool>(() => Attack(Self.Target));
+            Self.Action["Attack"] = new Func<bool>(() => Attack());
             Self.Action.Add("Rage ON", new Action(RageOn));
             Self.Action.Add("Rage OFF", new Action(RageOFF));
         }
@@ -54,25 +54,25 @@ namespace TituloCore
             Self.Resist["Piercing"] = false;
         }
 
-        public bool Attack(Character Target)
+        public bool Attack()
         {
             Random rand = new Random();
-            if (Self.canAttack(Target))
+            if (Self.canAttack(Self.Target))
             {
                 int dice = 1 + rand.Next() % 20;
                 int acerto = dice + Self.Proficiency() + Self.Modifier(Self.EquippedWeapon.Atributo) + Self.EquippedWeapon.HitBonus;
                 if (dice >= Self.CritRange)
                 {
-                    Self.EquippedWeapon.CriticalDmg(Target);
+                    Self.EquippedWeapon.CriticalDmg(Self.Target);
                     if (Rage)
-                        Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
+                        Self.Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
                     return true;
                 }
-                if (acerto >= Target.Ac())
+                if (acerto >= Self.Target.Ac())
                 {
-                    Self.EquippedWeapon.DealDmg(Target);
+                    Self.EquippedWeapon.DealDmg(Self.Target);
                     if (Rage)
-                        Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
+                        Self.Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
                     return true;
                 }
                 else

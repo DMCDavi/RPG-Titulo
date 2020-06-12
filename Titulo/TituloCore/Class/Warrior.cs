@@ -54,8 +54,8 @@ namespace TituloCore
 
         public void ActionSurge(Character Target)
         {
-            Self.Attack(Target);
-            Self.Attack(Target);
+            Self.Attack();
+            Self.Attack();
         }
     }
 }

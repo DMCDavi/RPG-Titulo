@@ -20,7 +20,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action["Attack"] = new Func<bool>(() => Attack(Self.Target));
+            Self.Action["Attack"] = new Func<bool>(() => Attack());
             Self.Action.Add("Song", new Action (Song));
             Self.Action.Add("Stop Singing", new Action(StopSinging));
         }
@@ -150,25 +150,25 @@ namespace TituloCore
             hunter = false;
         }
 
-        public bool Attack(Character Target)
+        public bool Attack()
         {
             Random rand = new Random();
-            if (Self.canAttack(Target))
+            if (Self.canAttack(Self.Target))
             {
                 int dice = 1 + rand.Next() % 20;
                 int acerto = dice + Self.Proficiency() + Self.Modifier(Self.EquippedWeapon.Atributo) + Self.EquippedWeapon.HitBonus;
                 if (dice >= Self.CritRange)
                 {
-                    Self.EquippedWeapon.CriticalDmg(Target);
+                    Self.EquippedWeapon.CriticalDmg(Self.Target);
                     if(fire)
-                        Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
+                        Self.Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
                     return true;
                 }
-                if (acerto >= Target.Ac())
+                if (acerto >= Self.Target.Ac())
                 {
-                    Self.EquippedWeapon.DealDmg(Target);
+                    Self.EquippedWeapon.DealDmg(Self.Target);
                     if(fire)
-                        Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
+                        Self.Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
                     return true;
                 }
                 else

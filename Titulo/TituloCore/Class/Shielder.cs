@@ -44,7 +44,7 @@ namespace TituloCore
         }
         public void ColossusVengeance(Character Target)
         {
-            Self.Attack(Target);
+            Self.Attack();
             Target.ReceiveDmg((Self.Hpmax - Self.Hp) / 2, "Necrotic");
         }
     }

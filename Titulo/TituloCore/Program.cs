@@ -68,8 +68,9 @@ namespace TituloCore
             Armor Pica = new Armor(10, -10, 10);
             Pica.Equip(B);
             A.EquippedWeapon = DESGRAÇA;
-            A.Attack(B);
-            A.Attack(B);
+            A.Target = B;
+            A.Attack();
+            A.Attack();
         }
     }
 }

@@ -51,7 +51,7 @@ namespace TituloCore
 
         public void LethalBlow(Character Target)
         {
-            Self.Attack(Target);
+            Self.Attack();
 
             Random rand = new Random();
             int lethal = 1 + rand.Next() % 20 + Self.Lvl - Target.Lvl;
