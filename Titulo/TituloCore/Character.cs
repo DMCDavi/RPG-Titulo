@@ -225,6 +225,7 @@ namespace TituloCore
         {
             Action.Add("Attack", new Func<bool>(() => Attack(Target)));
             //acoes["acao1"].DynamicInvoke(10);
+            //Action["Attack"].DynamicInvoke(Target);
         }
 
         public Character Target { get; set; }
