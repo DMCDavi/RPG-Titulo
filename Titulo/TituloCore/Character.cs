@@ -222,7 +222,8 @@ namespace TituloCore
         public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
         public void DefineAction()
         {
-            Action.Add("Attack", new Func<bool>(() => Attack()));
+            if(!Action.ContainsKey("Attack"))
+                Action.Add("Attack", new Func<bool>(() => Attack()));
             //Action["Attack"].DynamicInvoke();
         }
 
