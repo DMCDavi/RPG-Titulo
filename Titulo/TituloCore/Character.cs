@@ -223,8 +223,7 @@ namespace TituloCore
         public void DefineAction()
         {
             Action.Add("Attack", new Func<bool>(() => Attack()));
-            //acoes["acao1"].DynamicInvoke(10);
-            //Action["Attack"].DynamicInvoke(Target);
+            //Action["Attack"].DynamicInvoke();
         }
 
         public Character Target { get; set; }
@@ -408,7 +407,6 @@ namespace TituloCore
                 }
                 else
                 {
-                    Console.WriteLine("Errou!");
                     return false;
                 }
             }

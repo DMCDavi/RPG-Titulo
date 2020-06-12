@@ -27,17 +27,17 @@ namespace Titulo_UWP
         public MainPage()
         {
             this.InitializeComponent();
-            int[] DmgDice = { 6, 6 };
-            Character vago = new Character("Bard", "Human", "Vagner");
-            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, vago);
-            Character david = new Character("Mage", "Orc", "David");
-            vago.EquippedWeapon = armafoda;
-            Debug.WriteLine(david.Hp);
-            Debug.WriteLine(david.Hpmax);
-            vago.Target = david;
-            vago.Action["Song"].DynamicInvoke();
-            Debug.WriteLine(david.Hp);
-            Debug.WriteLine(david.Hpmax);
+            //int[] DmgDice = { 6, 6 };
+            //Character vago = new Character("Assassin", "Human", "Vagner");
+            //Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, vago);
+            //Character david = new Character("Mage", "Orc", "David");
+            //vago.EquippedWeapon = armafoda;
+            //Debug.WriteLine(david.Hp);
+            //Debug.WriteLine(david.Hpmax);
+            //vago.Target = david;
+            //vago.Action["Morthal Blow"].DynamicInvoke(david);
+            //Debug.WriteLine(david.Hp);
+            //Debug.WriteLine(david.Hpmax);
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
