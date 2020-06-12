@@ -134,6 +134,7 @@
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapBlock.cs" />
     <Compile Include="PersonalityTest.xaml.cs">
       <DependentUpon>PersonalityTest.xaml</DependentUpon>
     </Compile>
