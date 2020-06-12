@@ -16,7 +16,8 @@ namespace TituloCore
             this.Self = Self;
             HitDice();
             Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
-            Self.Action["Attack"] = new Func<bool>(() => Attack());
+            Self.Action.Remove("Attack");
+            Self.Action.Add("Attack", new Func<bool>(() => Attack()));
             Self.Action.Add("Rage ON", new Action(RageOn));
             Self.Action.Add("Rage OFF", new Action(RageOFF));
         }
