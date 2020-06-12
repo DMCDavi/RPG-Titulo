@@ -9,6 +9,9 @@ namespace TituloCore
     public class Bard : IClass
     {
         public Character Self;
+        private int FireDmg = 3;
+        private bool fire = false, fury = false, earth = false, hunter = false;
+        public bool Singing = false, Dancing = false;
 
         /// <summary>
         /// Construtor da classe Bard
@@ -17,6 +20,9 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            Self.Action["Attack"] = new Func<bool>(() => Attack(Self.Target));
+            Self.Action.Add("Song", new Action (Song));
+            Self.Action.Add("Stop Singing", new Action(StopSinging));
         }
 
         /// <summary>
@@ -35,6 +41,13 @@ namespace TituloCore
         public void LvlUp()
         {
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
+            FireDmg += 1;
+
+            if(Self.Lvl == 4)
+            {
+                Self.Action.Add("Dance", new Action(Dance));
+                Self.Action.Add("Stop Dancing", new Action(StopDancing));
+            }
         }
 
         public int RollHitDice()
@@ -43,17 +56,59 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
+        public void Song()
+        {
+            string song = "";
+            //Escolher Fire ou Fury
+            if (song == "Earth")
+                SongEarth();
+            else if (song == "Hunter")
+                SongHunter();
+            Dancing = true;
+        }
+
+        public void Dance()
+        {
+            string dance = "";
+            //Escolher Fire ou Fury
+            if (dance == "Fire")
+                DanceFire();
+            else if (dance == "Fury")
+                DanceFury();
+            Dancing = true;
+        }
+
+        public void StopDancing()
+        {
+            if (fire)
+                DanceFireOFF();
+            else if (fury)
+                DanceFuryOFF();
+            Dancing = false;
+        }
+
+        public void StopSinging()
+        {
+            if (earth)
+                SongEarthOFF();
+            else if (hunter)
+                SongHunterOFF();
+            Singing = false;
+        }
+
         public void DanceFire()
         {
             for (int i = 0; i < Self.Lvl; i++)
             {
                 Self.ClassDmgDices.Add(6);
             }
+            fire = true;
         }
 
         public void DanceFireOFF()
         {
             Self.ClassDmgDices.Clear();
+            fire = false;
         }
 
         public void DanceFury()
@@ -61,6 +116,7 @@ namespace TituloCore
             Self.MagicBonus["DEX"] += 2;
             if (Self.Lvl >= 3)
                 Self.MagicBonus["DEX"] += 2;
+            fury = true;
         }
 
         public void DanceFuryOFF()
@@ -68,25 +124,59 @@ namespace TituloCore
             Self.MagicBonus["DEX"] -= 2;
             if (Self.Lvl >= 3)
                 Self.MagicBonus["DEX"] -= 2;
+            fury = false;
         }
 
         public void SongEarth()
         {
             Self.AcBonus += 2;
+            earth = true;
         }
 
         public void SongEarthOFF()
         {
             Self.AcBonus -= 2;
+            earth = false;
         }
 
         public void SongHunter()
         {
             Self.CritRange -= 2;
+            hunter = true;
         }
         public void SongHunterOFF()
         {
             Self.CritRange += 2;
+            hunter = false;
+        }
+
+        public bool Attack(Character Target)
+        {
+            Random rand = new Random();
+            if (Self.canAttack(Target))
+            {
+                int dice = 1 + rand.Next() % 20;
+                int acerto = dice + Self.Proficiency() + Self.Modifier(Self.EquippedWeapon.Atributo) + Self.EquippedWeapon.HitBonus;
+                if (dice >= Self.CritRange)
+                {
+                    Self.EquippedWeapon.CriticalDmg(Target);
+                    if(fire)
+                        Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
+                    return true;
+                }
+                if (acerto >= Target.Ac())
+                {
+                    Self.EquippedWeapon.DealDmg(Target);
+                    if(fire)
+                        Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }

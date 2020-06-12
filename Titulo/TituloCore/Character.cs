@@ -223,7 +223,7 @@ namespace TituloCore
         public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
         public void DefineAction()
         {
-            Action.Add("Attack", new Action<bool>( (Character)=> Attack(Target) ));
+            Action.Add("Attack", new Func<bool>(() => Attack(Target)));
             //acoes["acao1"].DynamicInvoke(10);
         }
 
@@ -396,7 +396,7 @@ namespace TituloCore
             {
                 int dice = 1 + rand.Next() % 20;
                 int acerto = dice + Proficiency() + Modifier(EquippedWeapon.Atributo) + EquippedWeapon.HitBonus;
-                if (acerto >= CritRange)
+                if (dice >= CritRange)
                 {
                     EquippedWeapon.CriticalDmg(Target);
                     return true;

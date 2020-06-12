@@ -26,6 +26,7 @@ namespace TituloCore
         public void HitDice()
         {
             Self.HitDice = 10;
+            Self.Action.Add("Second Wind", new Action(SecondWind));
         }
 
         /// <summary>
@@ -37,7 +38,8 @@ namespace TituloCore
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
             if (Self.Lvl == 3)
                 Self.CritRange = 19;
-
+            if(Self.Lvl == 4)
+                Self.Action.Add("Action Surge", new Action<Character>(ActionSurge));
         }
         public int RollHitDice()
         {

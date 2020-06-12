@@ -18,7 +18,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Smite", new Action<Character>(Smite));
+            Self.Action.Add("Heal", new Action<Character>(Heal));
         }
         
 
@@ -28,7 +28,6 @@ namespace TituloCore
         /// <param name="Self"></param>
         public void HitDice()
         {
-            ///
             Self.HitDice = 10;
         }
 
@@ -39,6 +38,8 @@ namespace TituloCore
         public void LvlUp()
         {
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
+            if(Self.Lvl == 4)
+                Self.Action.Add("Smite", new Action<Character>(Smite));
 
         }
         public int RollHitDice()

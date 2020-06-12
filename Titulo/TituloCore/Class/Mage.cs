@@ -18,6 +18,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            Self.Action.Add("Element Bolt", new Action<Character>(ElementBolt));
         }
 
 
@@ -31,12 +32,14 @@ namespace TituloCore
         }
 
         /// <summary>
-        /// Aumenta 1 lvl de <see cref="Mage"/> no personagem
+        /// Aplica os efeitos da classe por passar de nível
         /// </summary>
         /// <param name="Self"></param>
         public void LvlUp()
         {
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
+            if(Self.Lvl == 4)
+                Self.Action.Add("Element Storm", new Action<Character>(ElementStorm));
         }
         public int RollHitDice()
         {
@@ -44,19 +47,22 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void Bolt(Character Target)
+        public void ElementBolt(Character Target)
         {
-            Target.Hp += Self.Modifier("INT");
-            if (Target.Hp > Target.Hpmax)
-                Target.Hp = Target.Hpmax;
-            Self.ReceiveDmg(Self.Modifier("INT"), "Necrotic");
+            // Escolher elemento
+            int dmg = 1 + new Random().Next() % 10 + Self.Modifier("INT");
+            Target.ReceiveDmg(dmg, "Energy");
         }
-        public void Storm(Character Target)
+        public void ElementStorm(Character Target)
         {
-            Target.Hp += 10*Self.Modifier("INT");
-            if (Target.Hp > Target.Hpmax)
-                Target.Hp = Target.Hpmax;
-            Self.ReceiveDmg(10*Self.Modifier("INT"), "Necrotic");
+            // Escolher elemento
+            Random rand = new Random();
+            int dmg = 1 + rand.Next() % 10;
+            for (int i = 0; i < Self.Lvl; i++)
+            {
+                dmg += 1 + rand.Next() % 8;
+            }
+            Target.ReceiveDmg(dmg, "Energy");
         }
     }
 }

@@ -9,14 +9,16 @@ namespace TituloCore
     public class Berserker : IClass
     {
         public Character Self;
+        private bool Rage = false;
+        private int RageDmg = 2;
         public Berserker(Character Self)
         {
             this.Self = Self;
             HitDice();
             Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
-            Self.Resist["Concussion"] = true;
-            Self.Resist["Slash"] = true;
-            Self.Resist["Piercing"] = true;
+            Self.Action["Attack"] = new Func<bool>(() => Attack(Self.Target));
+            Self.Action.Add("Rage ON", new Action(RageOn));
+            Self.Action.Add("Rage OFF", new Action(RageOFF));
         }
 
         public void HitDice()
@@ -27,12 +29,58 @@ namespace TituloCore
         public void LvlUp()
         {
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
+            RageDmg += 2;
         }
 
         public int RollHitDice()
         {
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
+        }
+
+        public void RageOn()
+        {
+            Rage = true;
+            Self.Resist["Concussion"] = true;
+            Self.Resist["Slash"] = true;
+            Self.Resist["Piercing"] = true;
+        }
+
+        public void RageOFF()
+        {
+            Rage = false;
+            Self.Resist["Concussion"] = false;
+            Self.Resist["Slash"] = false;
+            Self.Resist["Piercing"] = false;
+        }
+
+        public bool Attack(Character Target)
+        {
+            Random rand = new Random();
+            if (Self.canAttack(Target))
+            {
+                int dice = 1 + rand.Next() % 20;
+                int acerto = dice + Self.Proficiency() + Self.Modifier(Self.EquippedWeapon.Atributo) + Self.EquippedWeapon.HitBonus;
+                if (dice >= Self.CritRange)
+                {
+                    Self.EquippedWeapon.CriticalDmg(Target);
+                    if (Rage)
+                        Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
+                    return true;
+                }
+                if (acerto >= Target.Ac())
+                {
+                    Self.EquippedWeapon.DealDmg(Target);
+                    if (Rage)
+                        Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
     }
 }
