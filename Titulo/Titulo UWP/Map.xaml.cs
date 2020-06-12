@@ -71,7 +71,24 @@ namespace Titulo_UWP
             map_matrix[2, 7].isFree = false;
             map_matrix[2, 8].isFree = false;
             map_matrix[2, 9].isFree = false;
-
+            map_matrix[41, 7].isFree = false;
+            map_matrix[42, 5].isFree = false;
+            map_matrix[42, 9].isFree = false;
+            map_matrix[43, 8].isFree = false;
+            map_matrix[43, 7].isFree = false;
+            map_matrix[43, 5].isFree = false;
+            map_matrix[40, 9].isFree = false;
+            map_matrix[40, 11].isFree = false;
+            map_matrix[39, 13].isFree = false;
+            map_matrix[39, 15].isFree = false;
+            map_matrix[39, 11].isFree = false;
+            map_matrix[39, 10].isFree = false;
+            map_matrix[38, 12].isFree = false;
+            map_matrix[38, 13].isFree = false;
+            map_matrix[37, 14].isFree = false;
+            map_matrix[36, 14].isFree = false;
+            map_matrix[36, 10].isFree = false;
+            map_matrix[35, 11].isFree = false;
 
 
             // Create a new ListView and add content. 
