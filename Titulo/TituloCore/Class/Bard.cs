@@ -20,8 +20,9 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action["Attack"] = new Func<bool>(() => Attack());
-            Self.Action.Add("Song", new Action (Song));
+            Self.Action.Remove("Attack");
+            Self.Action.Add("Attack", new Func<bool>(() => Attack()));
+            Self.Action.Add("Song", new Action(Song));
             Self.Action.Add("Stop Singing", new Action(StopSinging));
         }
 
@@ -43,7 +44,7 @@ namespace TituloCore
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
             FireDmg += 1;
 
-            if(Self.Lvl == 4)
+            if (Self.Lvl == 4)
             {
                 Self.Action.Add("Dance", new Action(Dance));
                 Self.Action.Add("Stop Dancing", new Action(StopDancing));
@@ -58,7 +59,7 @@ namespace TituloCore
 
         public void Song()
         {
-            string song = "";
+            string song = "Hunter";
             //Escolher Fire ou Fury
             if (song == "Earth")
                 SongEarth();
@@ -69,7 +70,7 @@ namespace TituloCore
 
         public void Dance()
         {
-            string dance = "";
+            string dance = "Fire";
             //Escolher Fire ou Fury
             if (dance == "Fire")
                 DanceFire();
@@ -98,16 +99,11 @@ namespace TituloCore
 
         public void DanceFire()
         {
-            for (int i = 0; i < Self.Lvl; i++)
-            {
-                Self.ClassDmgDices.Add(6);
-            }
             fire = true;
         }
 
         public void DanceFireOFF()
         {
-            Self.ClassDmgDices.Clear();
             fire = false;
         }
 
@@ -160,14 +156,14 @@ namespace TituloCore
                 if (dice >= Self.CritRange)
                 {
                     Self.EquippedWeapon.CriticalDmg(Self.Target);
-                    if(fire)
+                    if (fire)
                         Self.Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
                     return true;
                 }
                 if (acerto >= Self.Target.Ac())
                 {
                     Self.EquippedWeapon.DealDmg(Self.Target);
-                    if(fire)
+                    if (fire)
                         Self.Target.ReceiveDmg(FireDmg, Self.EquippedWeapon.Atributo);
                     return true;
                 }

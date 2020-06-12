@@ -71,18 +71,9 @@ namespace Titulo_UWP
             map_matrix[2, 7].isFree = false;
             map_matrix[2, 8].isFree = false;
             map_matrix[2, 9].isFree = false;
-            int[] DmgDice = { 6, 6 };
 
-            //Character vago = new Character("Shielder", "Human", "Vagner");
-            //Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, vago);
-            //Character david = new Character("Mage", "Orc", "David");
-            //vago.EquippedWeapon = armafoda;
-            //Debug.WriteLine(david.Hp);
-            //Debug.WriteLine(david.Hpmax);
-            //vago.Target = david;
-            //vago.Action["Attack"].DynamicInvoke(david);
-            //Debug.WriteLine(david.Hp);
-            //Debug.WriteLine(david.Hpmax);
+
+
             // Create a new ListView and add content. 
             //ListView Fruits = new ListView();
             //StackPanel stackPanel = new StackPanel();

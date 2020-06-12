@@ -80,16 +80,10 @@ namespace TituloCore
         public int HitDice { get; set; }
         [DataMember]
         public Armor NaturalArmor { get; set; }
-
-        [DataMember]
-        public List<int> ClassDmgDices;
         [DataMember]
         public int CritRange;
 
         public int AcBonus { get; set; }
-
-
-        
 
         public void SelectClass()
         {
@@ -242,7 +236,6 @@ namespace TituloCore
             MainClass = Class;
             RaceName = Race;
             PersonaName = Persona;
-            SelectClass();
             this.Race = AllRace[Race];
             Exp = 0;
             Lvl = 1;
@@ -251,13 +244,14 @@ namespace TituloCore
             this.Race.Speed(this);
             this.Race.Language(this);
             this.Race.AtributeInc(this);
-            Hpmax = HitDice + Modifier("CON");
-            Hp = Hpmax;
             NaturalArmor = new Armor(10, -10, 20);
             EquippedArmor = NaturalArmor;
             EquippedArmor.Equip(this);
             CritRange = 20;
             DefineAction();
+            SelectClass();
+            Hpmax = HitDice + Modifier("CON");
+            Hp = Hpmax;
         }
 
         /// <summary>

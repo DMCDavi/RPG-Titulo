@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using TituloCore;
+using System.Diagnostics;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x416
 
@@ -25,6 +27,17 @@ namespace Titulo_UWP
         public MainPage()
         {
             this.InitializeComponent();
+            int[] DmgDice = { 6, 6 };
+            Character vago = new Character("Bard", "Human", "Vagner");
+            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, vago);
+            Character david = new Character("Mage", "Orc", "David");
+            vago.EquippedWeapon = armafoda;
+            Debug.WriteLine(david.Hp);
+            Debug.WriteLine(david.Hpmax);
+            vago.Target = david;
+            vago.Action["Song"].DynamicInvoke();
+            Debug.WriteLine(david.Hp);
+            Debug.WriteLine(david.Hpmax);
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
