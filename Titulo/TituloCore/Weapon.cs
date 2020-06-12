@@ -26,12 +26,12 @@ namespace TituloCore
         /// <param name="Tipo">Tipo de dano</param>
         /// <param name="Atributo">Atributo que a arma usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] dices, int Hit, int Damage, Character Owner)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, Character Owner)
         {
             this.Owner = Owner;
             this.Tipo = Tipo;
             this.Atributo = Atributo;
-            foreach (int dice in dices)
+            foreach (int dice in Dices)
             {
                 this.Dices.Add(dice);
             }
@@ -49,39 +49,32 @@ namespace TituloCore
         {
             int damage = 0, daninho = 0;
             Random rand = new Random();
-            Console.WriteLine("\nDados de dano:");
             foreach (int Dice in Dices)
             {
                 daninho = 1 + (rand.Next() % Dice);
-                Console.WriteLine($"{daninho}");
                 damage += daninho;
             }
             damage += DmgBonus;
             damage += Owner.Modifier(Atributo);
             Target.ReceiveDmg(damage, this.Tipo);
-            Console.WriteLine($"Dano total: {damage}");
         }
         public void CriticalDmg(Character Target)
         {
             int damage = 0, daninho = 0;
             Random rand = new Random();
-            Console.WriteLine("\nDados de dano:");
             foreach (int Dice in Dices)
             {
                 daninho = 1 + (rand.Next() % Dice);
-                Console.WriteLine($"{daninho}");
                 damage += daninho;
             }
             foreach (int Dice in Dices)
             {
                 daninho = 1 + (rand.Next() % Dice);
-                Console.WriteLine($"{daninho}");
                 damage += daninho;
             }
             damage += DmgBonus;
             damage += Owner.Modifier(Atributo);
             Target.ReceiveDmg(damage, this.Tipo);
-            Console.WriteLine($"Dano total: {damage}");
         }
     }
 }
