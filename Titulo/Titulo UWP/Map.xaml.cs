@@ -179,7 +179,7 @@ namespace Titulo_UWP
             if (player.posY - 1 >= 0 && map_matrix[player.posY - 1, player.posX].isFree)
             {
                 //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
-                if (grid_y == 2 && margin.Top != 0)
+                if (grid_y == 2 && margin.Top <= -400)
                 {
                     margin.Top += 80;
                     margin.Bottom -= 80;
@@ -215,7 +215,7 @@ namespace Titulo_UWP
             if (player.posY + 1 < 43 && map_matrix[player.posY + 1, player.posX].isFree)
             {
                 //Se o personagem estiver na posição 6 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
-                if (grid_y == 6 && margin.Bottom != 0)
+                if (grid_y == 6 && margin.Bottom <= -400)
                 {
                     margin.Bottom += 80;
                     margin.Top -= 80;
@@ -251,7 +251,7 @@ namespace Titulo_UWP
             if (player.posX - 1 >= 0 && map_matrix[player.posY, player.posX - 1].isFree)
             {
                 //Se o personagem estiver na posição 3 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
-                if (grid_x == 3 && margin.Left != 0)
+                if (grid_x == 3 && margin.Left <= -400)
                 {
                     margin.Left += 80;
                     margin.Right -= 80;
@@ -287,7 +287,7 @@ namespace Titulo_UWP
             if (player.posX + 1 < 77 && map_matrix[player.posY, player.posX + 1].isFree)
             {
                 //Se o personagem estiver na posição 12 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
-                if (grid_x == 12 && margin.Right != 0)
+                if (grid_x == 12 && margin.Right <= -400)
                 {
                     margin.Right += 80;
                     margin.Left -= 80;

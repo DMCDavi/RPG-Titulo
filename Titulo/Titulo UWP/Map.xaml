@@ -38,7 +38,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="MapImg" Source="/Assets/Mapa/Mapa.png" Stretch="Fill" Margin="-1600,-2560,-3280,-160" Grid.RowSpan="9" Grid.ColumnSpan="16" />
+        <Image x:Name="MapImg" Source="/Assets/Mapa/Mapa.png" Stretch="Fill" Margin="-2000,-2960,-3680,-560" Grid.RowSpan="9" Grid.ColumnSpan="16" />
         <Button Height="0" Width="0" />
         <Image Grid.Column="7" Grid.Row="4" x:Name="CharacterImg" Source="/Assets/Personagens/Ana/Sem_fundo/Ana_Goliath.png" Height="100" Width="100" HorizontalAlignment="Center" Margin="0,-80,0,0"  />
     </Grid>
