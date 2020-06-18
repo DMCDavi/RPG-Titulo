@@ -30,7 +30,8 @@ namespace Titulo_UWP
         private Thickness margin;
         private MapBlock[,] map_matrix = new MapBlock[43, 77];
         private List<MapBlock> ImgBlocks;
-        private int grid_y = 0, grid_x = 0;
+        private int grid_y = 0, grid_x = 0, enemyRange = 10;
+        private bool hasEnemyInRange = false;
 
         public Map()
         {
@@ -346,6 +347,30 @@ namespace Titulo_UWP
                 CharacterImg.Visibility = Visibility.Collapsed;
             else
                 CharacterImg.Visibility = Visibility.Visible;
+            hasEnemyInRange = false;
+            //Verifica se existe algum inimigo no raio do personagem
+            for (int i = player.posY - enemyRange; i < player.posY + enemyRange; i++)
+            {
+                for (int j = player.posX - enemyRange; j < player.posX + enemyRange; j++)
+                {
+                    if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].GetCharacter() != null)
+                        hasEnemyInRange = true;
+                }
+            }
+            //Se tiver algum inimigo, ativa o modo dos turno
+            if (hasEnemyInRange)
+            {
+                ActionButton.Visibility = Visibility.Visible;
+                BonusButton.Visibility = Visibility.Visible;
+                MoveButton.Visibility = Visibility.Visible;
+            }
+            //Senao desativa o modo dos turnos
+            else
+            {
+                ActionButton.Visibility = Visibility.Collapsed;
+                BonusButton.Visibility = Visibility.Collapsed;
+                MoveButton.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
