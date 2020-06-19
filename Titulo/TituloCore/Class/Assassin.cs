@@ -17,7 +17,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Morthal Blow", new Action<Character>(MortalBlow));
+            Self.Action.Add("Morthal Blow", new Action(MortalBlow));
         }
         
 
@@ -37,7 +37,7 @@ namespace TituloCore
         public void LvlUp()
         {
             if(Self.Lvl == 4)
-                Self.Action.Add("Lethal Blow", new Action<Character>(LethalBlow));
+                Self.Action.Add("Lethal Blow", new Action(LethalBlow));
             //player.Action["Morthal Blow"].DynamicInvoke(Target);
 
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
@@ -49,24 +49,24 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void LethalBlow(Character Target)
+        public void LethalBlow()
         {
             Self.Attack();
 
             Random rand = new Random();
-            int lethal = 1 + rand.Next() % 20 + Self.Lvl - Target.Lvl;
+            int lethal = 1 + rand.Next() % 20 + Self.Lvl - Self.Target.Lvl;
             lethal /= 20;
-            lethal *= Target.Hpmax;
-            if (Target.Hp < lethal)
+            lethal *= Self.Target.Hpmax;
+            if (Self.Target.Hp < lethal)
             {
-                Target.ReceiveDmg(10, Self.EquippedWeapon.Atributo);//mata
+                Self.Target.ReceiveDmg(10, Self.EquippedWeapon.Atributo);//mata
             }
             //definir recarga
         }
 
-        public void MortalBlow(Character Target)
+        public void MortalBlow()
         {
-            Self.EquippedWeapon.CriticalDmg(Target);
+            Self.EquippedWeapon.CriticalDmg(Self.Target);
             //definir recarga
         }
 

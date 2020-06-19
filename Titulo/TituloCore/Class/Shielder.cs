@@ -13,7 +13,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Colossus Vengeance", new Action<Character>(ColossusVengeance));
+            Self.Action.Add("Colossus Vengeance", new Action(ColossusVengeance));
         }
         public void HitDice()
         {
@@ -25,7 +25,7 @@ namespace TituloCore
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
 
             if(Self.Lvl == 4)
-                Self.Action.Add("Blood Sacrifice", new Action<Character>(BloodSacrifice));
+                Self.Action.Add("Blood Sacrifice", new Action(BloodSacrifice));
         }
         public int RollHitDice()
         {
@@ -33,19 +33,19 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void BloodSacrifice(Character Target)
+        public void BloodSacrifice()
         {
             Random rand = new Random();
             int dmg = Self.Hpmax * (1 + rand.Next()%20)/20;
-            Target.ReceiveDmg(dmg, "Necrotic");
+            Self.Target.ReceiveDmg(dmg, "Necrotic");
             if (dmg >= Self.Hp)
                 dmg = Self.Hp-1;
             Self.ReceiveDmg(dmg, "Necrotic");
         }
-        public void ColossusVengeance(Character Target)
+        public void ColossusVengeance()
         {
             Self.Attack();
-            Target.ReceiveDmg((Self.Hpmax - Self.Hp) / 2, "Necrotic");
+            Self.Target.ReceiveDmg((Self.Hpmax - Self.Hp) / 2, "Necrotic");
         }
     }
 }

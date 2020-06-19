@@ -13,7 +13,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Eldrich Blast", new Action<Character>(EldrichBlast));
+            Self.Action.Add("Eldrich Blast", new Action(EldrichBlast));
         }
         public void HitDice()
         {
@@ -31,11 +31,11 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void EldrichBlast(Character Target)
+        public void EldrichBlast()
         {
             Random rand = new Random();
             int Dice = 8;
-            Target.ReceiveDmg(1 + rand.Next() % Dice + Self.Modifier("CHA"), "Energy");
+            Self.Target.ReceiveDmg(1 + rand.Next() % Dice + Self.Modifier("CHA"), "Energy");
         }
     }
 }

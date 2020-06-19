@@ -18,7 +18,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Heal", new Action<Character>(Heal));
+            Self.Action.Add("Heal", new Action(Heal));
         }
         
 
@@ -39,7 +39,7 @@ namespace TituloCore
         {
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
             if(Self.Lvl == 4)
-                Self.Action.Add("Smite", new Action<Character>(Smite));
+                Self.Action.Add("Smite", new Action(Smite));
 
         }
         public int RollHitDice()
@@ -48,16 +48,16 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void Smite(Character Target)
+        public void Smite()
         {
-            Target.ReceiveDmg(0, "Radiant");
+            Self.Target.ReceiveDmg(0, "Radiant");
         }
 
-        public void Heal(Character Target)
+        public void Heal()
         {
-            Target.Hp += 1;
-            if (Target.Hp > Target.Hpmax)
-                Target.Hp = Target.Hpmax;
+            Self.Target.Hp += 1;
+            if (Self.Target.Hp > Self.Target.Hpmax)
+                Self.Target.Hp = Self.Target.Hpmax;
         }
     }
 }

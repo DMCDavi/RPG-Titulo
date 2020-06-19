@@ -18,7 +18,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Element Bolt", new Action<Character>(ElementBolt));
+            Self.Action.Add("Element Bolt", new Action(ElementBolt));
         }
 
 
@@ -39,7 +39,7 @@ namespace TituloCore
         {
             Self.Hpmax += RollHitDice() + Self.Modifier("CON");
             if(Self.Lvl == 4)
-                Self.Action.Add("Element Storm", new Action<Character>(ElementStorm));
+                Self.Action.Add("Element Storm", new Action(ElementStorm));
         }
         public int RollHitDice()
         {
@@ -47,13 +47,13 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void ElementBolt(Character Target)
+        public void ElementBolt()
         {
             // Escolher elemento
             int dmg = 1 + new Random().Next() % 10 + Self.Modifier("INT");
-            Target.ReceiveDmg(dmg, "Energy");
+            Self.Target.ReceiveDmg(dmg, "Energy");
         }
-        public void ElementStorm(Character Target)
+        public void ElementStorm()
         {
             // Escolher elemento
             Random rand = new Random();
@@ -62,7 +62,7 @@ namespace TituloCore
             {
                 dmg += 1 + rand.Next() % 8;
             }
-            Target.ReceiveDmg(dmg, "Energy");
+            Self.Target.ReceiveDmg(dmg, "Energy");
         }
     }
 }
