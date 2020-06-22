@@ -97,6 +97,132 @@ namespace Titulo_UWP
             map_matrix[36, 14].isFree = false;
             map_matrix[36, 10].isFree = false;
             map_matrix[35, 11].isFree = false;
+            map_matrix[36, 16].isFree = false;
+            map_matrix[37, 17].isFree = false;
+            map_matrix[38, 17].isFree = false;
+            map_matrix[37, 18].isFree = false;
+            map_matrix[38, 21].isFree = false;
+            map_matrix[37, 21].isFree = false;
+            map_matrix[36, 21].isFree = false;
+            map_matrix[35, 21].isFree = false; 
+            map_matrix[37, 20].isFree = false;
+            map_matrix[35, 20].isFree = false;
+            map_matrix[35, 22].isFree = false;
+            map_matrix[42, 17].isFree = false;
+            map_matrix[42, 18].isFree = false;
+            map_matrix[41, 18].isFree = false;
+            map_matrix[40, 19].isFree = false;
+            map_matrix[40, 19].isFree = false;
+            map_matrix[41, 20].isFree = false;
+            map_matrix[41, 21].isFree = false;
+            map_matrix[39, 23].isFree = false;
+            map_matrix[39, 24].isFree = false;
+            map_matrix[40, 24].isFree = false;
+            map_matrix[38, 24].isFree = false;
+            map_matrix[38, 23].isFree = false;
+            map_matrix[36, 25].isFree = false;
+            map_matrix[36, 28].isFree = false;
+            map_matrix[35, 25].isFree = false;
+            map_matrix[34, 25].isFree = false;
+            map_matrix[33, 25].isFree = false;
+            map_matrix[32, 25].isFree = false;
+            map_matrix[31, 25].isFree = false;
+            map_matrix[31, 26].isFree = false;
+            map_matrix[31, 27].isFree = false;
+            map_matrix[31, 28].isFree = false;
+            map_matrix[32, 28].isFree = false;
+            map_matrix[33, 28].isFree = false;
+            map_matrix[34, 28].isFree = false;
+            map_matrix[35, 28].isFree = false;
+            map_matrix[42, 52].isFree = false;
+            map_matrix[41, 51].isFree = false;
+            map_matrix[35, 28].isFree = false;
+            map_matrix[41, 51].isFree = false;
+            map_matrix[40, 51].isFree = false;
+            map_matrix[39, 51].isFree = false;
+            map_matrix[38, 50].isFree = false;
+            map_matrix[37, 50].isFree = false;
+            map_matrix[36, 50].isFree = false;
+            map_matrix[35, 51].isFree = false;
+            map_matrix[34, 52].isFree = false;
+            map_matrix[36, 51].isFree = false;
+            map_matrix[35, 52].isFree = false;
+            map_matrix[34, 53].isFree = false;
+            map_matrix[36, 51].isFree = false;
+            map_matrix[34, 54].isFree = false;
+            map_matrix[42, 59].isFree = false;
+            map_matrix[42, 60].isFree = false;
+            map_matrix[38, 61].isFree = false;
+            map_matrix[37, 61].isFree = false;
+            map_matrix[36, 60].isFree = false;
+            map_matrix[35, 59].isFree = false;
+            map_matrix[35, 58].isFree = false;
+            map_matrix[35, 57].isFree = false;
+            map_matrix[36, 57].isFree = false;
+            map_matrix[36, 58].isFree = false;
+            map_matrix[33, 58].isFree = false;
+            map_matrix[32, 58].isFree = false;
+            map_matrix[30, 58].isFree = false;
+            map_matrix[30, 57].isFree = false;
+            map_matrix[29, 57].isFree = false;
+            map_matrix[29, 56].isFree = false;
+            map_matrix[28, 56].isFree = false;
+            map_matrix[28, 55].isFree = false;
+            map_matrix[36, 51].isFree = false;
+            map_matrix[27, 56].isFree = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
