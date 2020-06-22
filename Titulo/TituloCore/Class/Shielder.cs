@@ -47,5 +47,13 @@ namespace TituloCore
             Self.Attack();
             Self.Target.ReceiveDmg((Self.Hpmax - Self.Hp) / 2, "Necrotic");
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Add("Colossus Vengeance", new Action(ColossusVengeance));
+            if (Self.Lvl >= 4)
+                Self.Action.Add("Blood Sacrifice", new Action(BloodSacrifice));
+        }
     }
 }

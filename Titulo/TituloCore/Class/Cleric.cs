@@ -59,6 +59,14 @@ namespace TituloCore
             if (Self.Target.Hp > Self.Target.Hpmax)
                 Self.Target.Hp = Self.Target.Hpmax;
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Add("Heal", new Action(Heal));
+            if (Self.Lvl >= 4)
+                Self.Action.Add("Smite", new Action(Smite));
+        }
     }
 }
 

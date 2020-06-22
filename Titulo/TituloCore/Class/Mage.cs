@@ -64,5 +64,14 @@ namespace TituloCore
             }
             Self.Target.ReceiveDmg(dmg, "Energy");
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Add("Element Bolt", new Action(ElementBolt));
+            if (Self.Lvl >= 4)
+                Self.Action.Add("Element Storm", new Action(ElementStorm));
+        }
+
     }
 }

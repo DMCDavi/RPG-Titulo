@@ -9,5 +9,6 @@ namespace TituloCore
         void HitDice();
         int RollHitDice();
         void LvlUp();
+        void AddActions(Character Self);
     }
 }

@@ -178,6 +178,7 @@ namespace Titulo_UWP
                 AllClasses[counter].Text = "Classe: " + PersList[counter].MainClass;
                 AllPersonas[counter].Text = "Herói: " + PersonaNames[counter];
                 AllRaces[counter].Text = "Raça: " + RaceNames[counter];
+                PersList[counter].Action.Clear();
                 counter++;
             }
         }

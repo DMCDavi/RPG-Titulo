@@ -83,5 +83,15 @@ namespace TituloCore
             }
             return false;
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Remove("Attack");
+            Self.Action.Add("Attack", new Func<bool>(() => Attack()));
+            Self.Action.Add("Rage ON", new Action(RageOn));
+            Self.Action.Add("Rage OFF", new Action(RageOFF));
+        }
+
     }
 }

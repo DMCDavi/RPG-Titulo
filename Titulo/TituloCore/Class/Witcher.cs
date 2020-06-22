@@ -37,5 +37,12 @@ namespace TituloCore
             int Dice = 8;
             Self.Target.ReceiveDmg(1 + rand.Next() % Dice + Self.Modifier("CHA"), "Energy");
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Add("Eldrich Blast", new Action(EldrichBlast));
+        }
+
     }
 }

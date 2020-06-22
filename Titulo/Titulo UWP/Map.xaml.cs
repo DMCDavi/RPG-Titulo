@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using TituloCore;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,11 +26,12 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class Map : Page
     {
-        private Character player;
+        private Character player, ana, bia, davi, fernanda, geao, grao, joao, lapa, maria, vago;
         private string persona_name = "David", race_name = "Human";
         private Thickness margin;
         private MapBlock[,] map_matrix = new MapBlock[43, 77];
         private List<MapBlock> ImgBlocks;
+        private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0, enemyRange = 10;
         private bool hasEnemyInRange = false;
 
@@ -97,31 +99,44 @@ namespace Titulo_UWP
             map_matrix[35, 11].isFree = false;
 
             //Criando personagens
-            map_matrix[30, 72].SetCharacter(new Character("Shielder", "Human", "Vagner"));// Casa 1
+            vago = new Character("Shielder", "Human", "Vagner");
+            davi = new Character("Mage", "Dwarf", "David");
+            ana = new Character("Witcher", "Dragonborn", "Ana");
+            maria = new Character("Warrior", "Elf", "Maria");
+            lapa = new Character("Lapagod", "God", "Lapa");
+            bia = new Character("Assassin", "Elf", "Bia");
+            geao = new Character("Berserker", "Human", "Gean");
+            grao = new Character("Cleric", "Elf", "Grhamm");
+            joao = new Character("Bard", "Dragonborn", "Joao");
+            fernanda = new Character("Mage", "Orc", "Fernanda");
+            map_matrix[30, 72].SetCharacter(vago);// Casa 1
             map_matrix[30, 72].GetCharacter().posY = 30;
             map_matrix[30, 72].GetCharacter().posX = 72;
-            map_matrix[37, 69].SetCharacter(new Character("Mage", "Dwarf", "David"));// Casa 2
+            map_matrix[37, 69].SetCharacter(davi);// Casa 2
             map_matrix[37, 69].GetCharacter().posY = 37;
             map_matrix[37, 69].GetCharacter().posX = 69;
-            map_matrix[32, 43].SetCharacter(new Character("Witcher", "Dragonborn", "Ana"));// Casa 3
+            map_matrix[32, 43].SetCharacter(ana);// Casa 3
             map_matrix[32, 43].GetCharacter().posY = 32;
             map_matrix[32, 43].GetCharacter().posX = 43;
-            map_matrix[23, 34].SetCharacter(new Character("Warrior", "Elf", "Maria"));// Casa 5
+            map_matrix[3, 43].SetCharacter(fernanda);// Casa 4
+            map_matrix[3, 43].GetCharacter().posY = 3;
+            map_matrix[3, 43].GetCharacter().posX = 43;
+            map_matrix[23, 34].SetCharacter(maria);// Casa 5
             map_matrix[23, 34].GetCharacter().posY = 23;
             map_matrix[23, 34].GetCharacter().posX = 34;
-            map_matrix[30, 16].SetCharacter(new Character("Lapagod", "God", "Lapa"));// Casa 6 (Casa de Lapa)
+            map_matrix[30, 16].SetCharacter(lapa);// Casa 6 (Casa de Lapa)
             map_matrix[30, 16].GetCharacter().posY = 30;
             map_matrix[30, 16].GetCharacter().posX = 16;
-            map_matrix[41, 8].SetCharacter(new Character("Shielder", "Goliath", "Bia")); // Casa 7
+            map_matrix[41, 8].SetCharacter(bia); // Casa 7
             map_matrix[41, 8].GetCharacter().posY = 41;
             map_matrix[41, 8].GetCharacter().posX = 8;
-            map_matrix[17, 14].SetCharacter(new Character("Berserker", "Human", "Gean"));// Casa 8 (Taverna)
+            map_matrix[17, 14].SetCharacter(geao);// Casa 8 (Taverna)
             map_matrix[17, 14].GetCharacter().posY = 17;
             map_matrix[17, 14].GetCharacter().posX = 14;
-            map_matrix[16, 26].SetCharacter(new Character("Cleric", "Elf", "Grhamm"));// Casa 9
+            map_matrix[16, 26].SetCharacter(grao);// Casa 9
             map_matrix[16, 26].GetCharacter().posY = 16;
             map_matrix[16, 26].GetCharacter().posX = 26;
-            map_matrix[15, 40].SetCharacter(new Character("Bard", "Human", "Joao"));// Casa 10
+            map_matrix[15, 40].SetCharacter(joao);// Casa 10
             map_matrix[15, 40].GetCharacter().posY = 15;
             map_matrix[15, 40].GetCharacter().posX = 40;
 
@@ -131,6 +146,7 @@ namespace Titulo_UWP
                 map_matrix[30, 72],
                 map_matrix[37, 69],
                 map_matrix[32, 43],
+                map_matrix[3, 43],
                 map_matrix[23, 34],
                 map_matrix[30, 16],
                 map_matrix[41, 8],
@@ -138,7 +154,6 @@ namespace Titulo_UWP
                 map_matrix[16, 26],
                 map_matrix[15, 40]
             };
-
 
         }
 
@@ -148,11 +163,25 @@ namespace Titulo_UWP
             map_matrix[player.posY, player.posX].isFree = false;
             persona_name = player.PersonaName;
             race_name = player.RaceName;
+            player.DefineAction();
+            player.CharacterClass.AddActions(player);
+            //Cria os botões de ataque referentes à classe do personagem
+            foreach (KeyValuePair<string, Delegate> action in player.Action)
+            {
+                Button action_btn = new Button();
+                action_btn.Content = action.Key;
+                action_btn.Name = action.Key;
+                action_btn.MinWidth = 220;
+                action_btn.FontFamily = new FontFamily("Times New Roman");
+                action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                action_btn.FontSize = 20;
+                action_btn.Click += Attack_Click;
+                ActionPanel.Children.Add(action_btn);
+            }
 
             //Preenche o mapa com as imagens dos blocos
             foreach (MapBlock block in ImgBlocks)
             {
-                Debug.WriteLine(block.GetCharacter().PersonaName);
                 block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + block.GetCharacter().PersonaName + "/Sem_fundo/" + block.GetCharacter().PersonaName + "_" + block.GetCharacter().RaceName + ".png", -80 + (block.GetCharacter().posX - player.posX) * 80, 0 + (block.GetCharacter().posY - player.posY) * 80, 0 + (player.posX - block.GetCharacter().posX) * 80, 80 + (player.posY - block.GetCharacter().posY) * 80);
                 MapGrid.Children.Add(block.GetImage());
                 Grid.SetColumnSpan(block.GetImage(), 16);
@@ -169,6 +198,21 @@ namespace Titulo_UWP
             }
             base.OnNavigatedTo(e);
 
+        }
+
+        /// <summary>
+        /// Ataca um inimigo que está no raio do personagem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Attack_Click(object sender, RoutedEventArgs e)
+        {
+            int[] DmgDice = { 6, 6 };
+            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
+            player.EquippedWeapon = armafoda;
+            player.Target = EnemiesInRange[0];
+            player.Action[((Button)sender).Name].DynamicInvoke();
+            Debug.WriteLine(EnemiesInRange[0].Hp);
         }
 
         /// <summary>
@@ -348,13 +392,18 @@ namespace Titulo_UWP
             else
                 CharacterImg.Visibility = Visibility.Visible;
             hasEnemyInRange = false;
+            EnemiesInRange.Clear();
             //Verifica se existe algum inimigo no raio do personagem
             for (int i = player.posY - enemyRange; i < player.posY + enemyRange; i++)
             {
                 for (int j = player.posX - enemyRange; j < player.posX + enemyRange; j++)
                 {
                     if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].GetCharacter() != null)
+                    {
                         hasEnemyInRange = true;
+                        EnemiesInRange.Add(map_matrix[i, j].GetCharacter());
+                    }
+                        
                 }
             }
             //Se tiver algum inimigo, ativa o modo dos turno

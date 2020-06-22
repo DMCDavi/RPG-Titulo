@@ -80,16 +80,14 @@ namespace TituloCore
         public int HitDice { get; set; }
         [DataMember]
         public Armor NaturalArmor { get; set; }
-
         [DataMember]
-        public List<int> ClassDmgDices;
+        public List<int> ClassDmgDices { get; set; }
         [DataMember]
-        public int CritRange;
-
+        public int CritRange { get; set; }
+        [DataMember]
         public int AcBonus { get; set; }
-
-
-        
+        [DataMember]
+        public Character Target { get; set; }
 
         public void SelectClass()
         {
@@ -219,16 +217,13 @@ namespace TituloCore
             {"Poison", false}
         };
 
+        [DataMember]
         public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
         public void DefineAction()
         {
             if(!Action.ContainsKey("Attack"))
                 Action.Add("Attack", new Func<bool>(() => Attack()));
-            //Action["Attack"].DynamicInvoke();
         }
-
-        public Character Target { get; set; }
-        
 
 
         /// <summary>

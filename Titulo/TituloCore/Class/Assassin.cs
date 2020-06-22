@@ -70,6 +70,14 @@ namespace TituloCore
             //definir recarga
         }
 
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Add("Morthal Blow", new Action(MortalBlow));
+            if (Self.Lvl >= 4)
+                Self.Action.Add("Lethal Blow", new Action(LethalBlow));
+        }
+
 
     }
 }

@@ -195,6 +195,7 @@ namespace Titulo_UWP
         /// <param name="fileName">Nome do arquivo</param>
         private void WriteObject(string fileName)
         {
+            pers.Action.Clear();
             PersList.Add(pers);
             string filePath = localFolder.Path + "\\" + fileName;
             FileStream writer = new FileStream(filePath, FileMode.Create);

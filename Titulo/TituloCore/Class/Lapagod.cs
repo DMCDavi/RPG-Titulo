@@ -29,5 +29,10 @@ namespace TituloCore
             Random rand = new Random();
             return 1 + rand.Next() % Self.HitDice;
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+        }
     }
 }

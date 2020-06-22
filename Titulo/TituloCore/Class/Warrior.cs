@@ -57,6 +57,15 @@ namespace TituloCore
             Self.Attack();
             Self.Attack();
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Add("Second Wind", new Action(SecondWind));
+            if (Self.Lvl >= 4)
+                Self.Action.Add("Action Surge", new Action<Character>(ActionSurge));
+        }
+
     }
 }
 

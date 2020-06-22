@@ -174,5 +174,19 @@ namespace TituloCore
             }
             return false;
         }
+
+        public void AddActions(Character Self)
+        {
+            this.Self = Self;
+            Self.Action.Remove("Attack");
+            Self.Action.Add("Attack", new Func<bool>(() => Attack()));
+            Self.Action.Add("Song", new Action(Song));
+            Self.Action.Add("Stop Singing", new Action(StopSinging));
+            if (Self.Lvl >= 4)
+            {
+                Self.Action.Add("Dance", new Action(Dance));
+                Self.Action.Add("Stop Dancing", new Action(StopDancing));
+            }
+        }
     }
 }

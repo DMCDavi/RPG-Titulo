@@ -54,12 +54,8 @@
         </Button>
         <Button x:Name="ActionButton" Visibility="Collapsed" Grid.Column="11" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
             <Button.Flyout>
-                <Flyout x:Name="Flyout_Action2">
-                    <StackPanel Orientation="Vertical" >
-                        <Button Content="Ataque" MinWidth="220" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                        <Button Content="Desengajar" MinWidth="220" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                        <Button Content="Disparada" MinWidth="220" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                    </StackPanel>
+                <Flyout>
+                    <StackPanel x:Name="ActionPanel" Orientation="Vertical" />
                 </Flyout>
             </Button.Flyout>
         </Button>
