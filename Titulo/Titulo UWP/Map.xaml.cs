@@ -56,173 +56,593 @@ namespace Titulo_UWP
             }
 
             //Criando entradas de cavernas
-            map_matrix[10, 17].isEntrance = true;// Caverna 1
-            map_matrix[7, 27].isEntrance = true; // Caverna 2
-            map_matrix[6, 50].isEntrance = true; // Caverna 3
-            map_matrix[19, 67].isEntrance = true;// Caverna 4
+            map_matrix[10, 17].block = new Cave();
+            map_matrix[7, 27].block = new Cave();
+            map_matrix[6, 50].block = new Cave();
+            map_matrix[19, 67].block = new Cave();
+            map_matrix[13, 70].block = new Cave();
 
             //Criando entradas de casas
-            map_matrix[29, 72].isEntrance = true;// Casa 1
-            map_matrix[36, 69].isEntrance = true;// Casa 2
-            map_matrix[31, 43].isEntrance = true;// Casa 3
-            map_matrix[35, 27].isEntrance = true;// Casa 4
-            map_matrix[22, 34].isEntrance = true;// Casa 5
-            map_matrix[29, 16].isEntrance = true;// Casa 6 (Casa de Lapa)
-            map_matrix[40, 8].isEntrance = true; // Casa 7
-            map_matrix[16, 14].isEntrance = true;// Casa 8 (Taverna)
-            map_matrix[15, 26].isEntrance = true;// Casa 9
-            map_matrix[14, 40].isEntrance = true;// Casa 10
+            map_matrix[29, 72].block = new Door();// Casa 1
+            map_matrix[36, 69].block = new Door();// Casa 2
+            map_matrix[31, 43].block = new Door();// Casa 3
+            map_matrix[35, 27].block = new Door();// Casa 4
+            map_matrix[22, 34].block = new Door();// Casa 5
+            map_matrix[29, 16].block = new Door();// Casa 6 (Casa de Lapa)
+            map_matrix[40, 8].block = new Door(); // Casa 7
+            map_matrix[16, 14].block = new Door();// Casa 8 (Taverna)
+            map_matrix[15, 26].block = new Door();// Casa 9
+            map_matrix[14, 40].block = new Door();// Casa 10
 
             //Criando obstáculos
-            map_matrix[3, 6].isFree = false;
-            map_matrix[3, 7].isFree = false;
-            map_matrix[2, 7].isFree = false;
-            map_matrix[2, 8].isFree = false;
-            map_matrix[2, 9].isFree = false;
-            map_matrix[41, 7].isFree = false;
-            map_matrix[42, 5].isFree = false;
-            map_matrix[42, 9].isFree = false;
-            map_matrix[42, 8].isFree = false;
-            map_matrix[42, 7].isFree = false;
-            map_matrix[42, 5].isFree = false;
-            map_matrix[40, 9].isFree = false;
-            map_matrix[40, 11].isFree = false;
-            map_matrix[39, 13].isFree = false;
-            map_matrix[39, 15].isFree = false;
-            map_matrix[39, 11].isFree = false;
-            map_matrix[39, 10].isFree = false;
-            map_matrix[38, 12].isFree = false;
-            map_matrix[38, 13].isFree = false;
-            map_matrix[37, 14].isFree = false;
-            map_matrix[36, 14].isFree = false;
-            map_matrix[36, 10].isFree = false;
-            map_matrix[35, 11].isFree = false;
-            map_matrix[36, 16].isFree = false;
-            map_matrix[37, 17].isFree = false;
-            map_matrix[38, 17].isFree = false;
-            map_matrix[37, 18].isFree = false;
-            map_matrix[38, 21].isFree = false;
-            map_matrix[37, 21].isFree = false;
-            map_matrix[36, 21].isFree = false;
-            map_matrix[35, 21].isFree = false; 
-            map_matrix[37, 20].isFree = false;
-            map_matrix[35, 20].isFree = false;
-            map_matrix[35, 22].isFree = false;
-            map_matrix[42, 17].isFree = false;
-            map_matrix[42, 18].isFree = false;
-            map_matrix[41, 18].isFree = false;
-            map_matrix[40, 19].isFree = false;
-            map_matrix[40, 19].isFree = false;
-            map_matrix[41, 20].isFree = false;
-            map_matrix[41, 21].isFree = false;
-            map_matrix[39, 23].isFree = false;
-            map_matrix[39, 24].isFree = false;
-            map_matrix[40, 24].isFree = false;
-            map_matrix[38, 24].isFree = false;
-            map_matrix[38, 23].isFree = false;
-            map_matrix[36, 25].isFree = false;
-            map_matrix[36, 28].isFree = false;
-            map_matrix[35, 25].isFree = false;
-            map_matrix[34, 25].isFree = false;
-            map_matrix[33, 25].isFree = false;
-            map_matrix[32, 25].isFree = false;
-            map_matrix[31, 25].isFree = false;
-            map_matrix[31, 26].isFree = false;
-            map_matrix[31, 27].isFree = false;
-            map_matrix[31, 28].isFree = false;
-            map_matrix[32, 28].isFree = false;
-            map_matrix[33, 28].isFree = false;
-            map_matrix[34, 28].isFree = false;
-            map_matrix[35, 28].isFree = false;
-            map_matrix[42, 52].isFree = false;
-            map_matrix[41, 51].isFree = false;
-            map_matrix[35, 28].isFree = false;
-            map_matrix[41, 51].isFree = false;
-            map_matrix[40, 51].isFree = false;
-            map_matrix[39, 51].isFree = false;
-            map_matrix[38, 50].isFree = false;
-            map_matrix[37, 50].isFree = false;
-            map_matrix[36, 50].isFree = false;
-            map_matrix[35, 51].isFree = false;
-            map_matrix[34, 52].isFree = false;
-            map_matrix[36, 51].isFree = false;
-            map_matrix[35, 52].isFree = false;
-            map_matrix[34, 53].isFree = false;
-            map_matrix[36, 51].isFree = false;
-            map_matrix[34, 54].isFree = false;
-            map_matrix[42, 59].isFree = false;
-            map_matrix[42, 60].isFree = false;
-            map_matrix[38, 61].isFree = false;
-            map_matrix[37, 61].isFree = false;
-            map_matrix[36, 60].isFree = false;
-            map_matrix[35, 59].isFree = false;
-            map_matrix[35, 58].isFree = false;
-            map_matrix[35, 57].isFree = false;
-            map_matrix[36, 57].isFree = false;
-            map_matrix[36, 58].isFree = false;
-            map_matrix[33, 58].isFree = false;
-            map_matrix[32, 58].isFree = false;
-            map_matrix[30, 58].isFree = false;
-            map_matrix[30, 57].isFree = false;
-            map_matrix[29, 57].isFree = false;
-            map_matrix[29, 56].isFree = false;
-            map_matrix[28, 56].isFree = false;
-            map_matrix[28, 55].isFree = false;
-            map_matrix[36, 51].isFree = false;
-            map_matrix[27, 56].isFree = false;
+            map_matrix[3, 6].block = new Obstacle();
+            map_matrix[3, 7].block = new Obstacle();
+            map_matrix[2, 7].block = new Obstacle();
+            map_matrix[2, 8].block = new Obstacle();
+            map_matrix[2, 9].block = new Obstacle();
+            map_matrix[41, 7].block = new Obstacle();
+            map_matrix[42, 9].block = new Obstacle();
+            map_matrix[41, 6].block = new Obstacle();
+            map_matrix[42, 5].block = new Obstacle();
+            map_matrix[40, 11].block = new Obstacle();
+            map_matrix[39, 13].block = new Obstacle();
+            map_matrix[39, 15].block = new Obstacle();
+            map_matrix[39, 11].block = new Obstacle();
+            map_matrix[39, 10].block = new Obstacle();
+            map_matrix[38, 12].block = new Obstacle();
+            map_matrix[38, 13].block = new Obstacle();
+            map_matrix[37, 14].block = new Obstacle();
+            map_matrix[36, 14].block = new Obstacle();
+            map_matrix[36, 10].block = new Obstacle();
+            map_matrix[35, 11].block = new Obstacle();
+            map_matrix[36, 16].block = new Obstacle();
+            map_matrix[37, 17].block = new Obstacle();
+            map_matrix[38, 17].block = new Obstacle();
+            map_matrix[37, 18].block = new Obstacle();
+            map_matrix[38, 21].block = new Obstacle();
+            map_matrix[37, 21].block = new Obstacle();
+            map_matrix[36, 21].block = new Obstacle();
+            map_matrix[35, 21].block = new Obstacle();
+            map_matrix[37, 20].block = new Obstacle();
+            map_matrix[35, 20].block = new Obstacle();
+            map_matrix[35, 22].block = new Obstacle();
+            map_matrix[41, 18].block = new Obstacle();
+            map_matrix[40, 19].block = new Obstacle();
+            map_matrix[40, 19].block = new Obstacle();
+            map_matrix[42, 19].block = new Obstacle();
+            map_matrix[42, 20].block = new Obstacle();
+            map_matrix[42, 21].block = new Obstacle();
+            map_matrix[39, 23].block = new Obstacle();
+            map_matrix[39, 24].block = new Obstacle();
+            map_matrix[40, 24].block = new Obstacle();
+            map_matrix[38, 24].block = new Obstacle();
+            map_matrix[38, 23].block = new Obstacle();
+            map_matrix[36, 25].block = new Obstacle();
+            map_matrix[36, 28].block = new Obstacle();
+            map_matrix[42, 59].block = new Obstacle();
+            map_matrix[12, 42].block = new Obstacle();
+            map_matrix[11, 42].block = new Obstacle();
+            map_matrix[10, 42].block = new Obstacle();
+            map_matrix[13, 30].block = new Obstacle();
+            map_matrix[13, 29].block = new Obstacle();
+            map_matrix[13, 28].block = new Obstacle();
+            map_matrix[12, 30].block = new Obstacle();
+            map_matrix[12, 31].block = new Obstacle();
+            map_matrix[12, 32].block = new Obstacle();
+            map_matrix[12, 33].block = new Obstacle();
+            map_matrix[12, 34].block = new Obstacle();
+            map_matrix[12, 35].block = new Obstacle();
+            map_matrix[12, 36].block = new Obstacle();
+            map_matrix[12, 37].block = new Obstacle();
+            map_matrix[13, 23].block = new Obstacle();
+            map_matrix[12, 23].block = new Obstacle();
+            map_matrix[11, 23].block = new Obstacle();
+            map_matrix[10, 23].block = new Obstacle();
+            map_matrix[9, 23].block = new Obstacle();
 
+            //Casa do player
+            map_matrix[35, 25].block = new House();
+            map_matrix[34, 25].block = new House();
+            map_matrix[33, 25].block = new House();
+            map_matrix[32, 25].block = new House();
+            map_matrix[31, 25].block = new House();
+            map_matrix[31, 26].block = new House();
+            map_matrix[31, 27].block = new House();
+            map_matrix[31, 28].block = new House();
+            map_matrix[32, 28].block = new House();
+            map_matrix[33, 28].block = new House();
+            map_matrix[34, 28].block = new House();
+            map_matrix[35, 28].block = new House();
+            map_matrix[35, 26].block = new House();
+            map_matrix[34, 27].block = new House();
 
+            //Casa de Bia
+            map_matrix[36, 6].block = new House();
+            map_matrix[36, 7].block = new House();
+            map_matrix[36, 8].block = new House();
+            map_matrix[36, 9].block = new House();
+            map_matrix[36, 6].block = new House();
+            map_matrix[37, 8].block = new House();
+            map_matrix[37, 7].block = new House();
+            map_matrix[37, 6].block = new House();
+            map_matrix[37, 9].block = new House();
+            map_matrix[38, 9].block = new House();
+            map_matrix[38, 8].block = new House();
+            map_matrix[38, 7].block = new House();
+            map_matrix[38, 6].block = new House();
+            map_matrix[39, 9].block = new House();
+            map_matrix[39, 8].block = new House();
+            map_matrix[39, 7].block = new House();
+            map_matrix[39, 6].block = new House();
+            map_matrix[40, 6].block = new House();
+            map_matrix[40, 7].block = new House();
+            map_matrix[40, 9].block = new House();
 
+            //Casa de Ana
+            map_matrix[27, 41].block = new House();
+            map_matrix[27, 42].block = new House();
+            map_matrix[27, 43].block = new House();
+            map_matrix[27, 44].block = new House();
+            map_matrix[28, 41].block = new House();
+            map_matrix[28, 42].block = new House();
+            map_matrix[28, 43].block = new House();
+            map_matrix[28, 44].block = new House();
+            map_matrix[29, 41].block = new House();
+            map_matrix[29, 42].block = new House();
+            map_matrix[29, 43].block = new House();
+            map_matrix[29, 44].block = new House();
+            map_matrix[30, 41].block = new House();
+            map_matrix[30, 42].block = new House();
+            map_matrix[30, 43].block = new House();
+            map_matrix[30, 44].block = new House();
+            map_matrix[31, 41].block = new House();
+            map_matrix[31, 42].block = new House();
+            map_matrix[31, 44].block = new House();
 
+            //Casa de David
+            map_matrix[36, 67].block = new House();
+            map_matrix[36, 68].block = new House();
+            map_matrix[36, 70].block = new House();
+            map_matrix[35, 67].block = new House();
+            map_matrix[35, 68].block = new House();
+            map_matrix[35, 69].block = new House();
+            map_matrix[35, 70].block = new House();
+            map_matrix[34, 67].block = new House();
+            map_matrix[34, 68].block = new House();
+            map_matrix[34, 69].block = new House();
+            map_matrix[34, 70].block = new House();
+            map_matrix[33, 67].block = new House();
+            map_matrix[33, 68].block = new House();
+            map_matrix[33, 69].block = new House();
+            map_matrix[33, 70].block = new House();
+            map_matrix[32, 67].block = new House();
+            map_matrix[32, 68].block = new House();
+            map_matrix[32, 69].block = new House();
+            map_matrix[32, 70].block = new House();
 
+            //Casa de Vagner
+            map_matrix[25, 74].block = new House();
+            map_matrix[25, 73].block = new House();
+            map_matrix[25, 72].block = new House();
+            map_matrix[25, 71].block = new House();
+            map_matrix[26, 74].block = new House();
+            map_matrix[26, 73].block = new House();
+            map_matrix[26, 72].block = new House();
+            map_matrix[26, 71].block = new House();
+            map_matrix[27, 74].block = new House();
+            map_matrix[27, 73].block = new House();
+            map_matrix[27, 72].block = new House();
+            map_matrix[27, 71].block = new House();
+            map_matrix[28, 74].block = new House();
+            map_matrix[28, 73].block = new House();
+            map_matrix[28, 72].block = new House();
+            map_matrix[28, 71].block = new House();
+            map_matrix[29, 74].block = new House();
+            map_matrix[29, 73].block = new House();
+            map_matrix[29, 72].block = new House();
+            map_matrix[29, 71].block = new House();
 
+            //Casa de João
+            map_matrix[12, 38].block = new House();
+            map_matrix[12, 39].block = new House();
+            map_matrix[12, 40].block = new House();
+            map_matrix[12, 41].block = new House();
+            map_matrix[13, 38].block = new House();
+            map_matrix[13, 39].block = new House();
+            map_matrix[13, 40].block = new House();
+            map_matrix[13, 41].block = new House();
+            map_matrix[14, 38].block = new House();
+            map_matrix[14, 39].block = new House();
+            map_matrix[14, 41].block = new House();
 
+            //Casa de Grhamm
+            map_matrix[13, 27].block = new House();
+            map_matrix[13, 26].block = new House();
+            map_matrix[13, 25].block = new House();
+            map_matrix[13, 24].block = new House();
+            map_matrix[14, 24].block = new House();
+            map_matrix[15, 24].block = new House();
+            map_matrix[14, 25].block = new House();
+            map_matrix[15, 25].block = new House();
+            map_matrix[14, 26].block = new House();
+            map_matrix[15, 27].block = new House();
+            map_matrix[14, 27].block = new House();
 
+            //Casa de Maria
+            map_matrix[18, 33].block = new House();
+            map_matrix[18, 34].block = new House();
+            map_matrix[18, 35].block = new House();
+            map_matrix[18, 36].block = new House();
+            map_matrix[19, 33].block = new House();
+            map_matrix[19, 34].block = new House();
+            map_matrix[19, 35].block = new House();
+            map_matrix[19, 36].block = new House();
+            map_matrix[20, 33].block = new House();
+            map_matrix[20, 34].block = new House();
+            map_matrix[20, 35].block = new House();
+            map_matrix[20, 36].block = new House();
+            map_matrix[21, 33].block = new House();
+            map_matrix[21, 34].block = new House();
+            map_matrix[21, 35].block = new House();
+            map_matrix[21, 36].block = new House();
+            map_matrix[22, 33].block = new House();
+            map_matrix[22, 35].block = new House();
+            map_matrix[22, 36].block = new House();
 
+            //Casa de Gean
+            map_matrix[11, 11].block = new House();
+            map_matrix[12, 11].block = new House();
+            map_matrix[13, 11].block = new House();
+            map_matrix[14, 11].block = new House();
+            map_matrix[15, 11].block = new House();
+            map_matrix[16, 11].block = new House();
+            map_matrix[16, 12].block = new House();
+            map_matrix[16, 13].block = new House();
+            map_matrix[11, 14].block = new House();
+            map_matrix[11, 10].block = new House();
+            map_matrix[12, 10].block = new House();
+            map_matrix[13, 10].block = new House();
+            map_matrix[14, 10].block = new House();
+            map_matrix[15, 10].block = new House();
+            map_matrix[16, 10].block = new House();
+            map_matrix[16, 15].block = new House();
+            map_matrix[10, 12].block = new House();
+            map_matrix[10, 13].block = new House();
+            map_matrix[10, 14].block = new House();
+            map_matrix[12, 15].block = new House();
+            map_matrix[13, 15].block = new House();
+            map_matrix[14, 15].block = new House();
+            map_matrix[15, 15].block = new House();
+            map_matrix[16, 15].block = new House();
 
+            //Casa de Lapa
+            map_matrix[23, 14].block = new House();
+            map_matrix[23, 15].block = new House();
+            map_matrix[23, 16].block = new House();
+            map_matrix[23, 17].block = new House();
+            map_matrix[23, 18].block = new House();
+            map_matrix[24, 19].block = new House();
+            map_matrix[24, 20].block = new House();
+            map_matrix[24, 19].block = new House();
+            map_matrix[24, 20].block = new House();
+            map_matrix[25, 19].block = new House();
+            map_matrix[26, 20].block = new House();
+            map_matrix[27, 19].block = new House();
+            map_matrix[27, 20].block = new House();
+            map_matrix[28, 19].block = new House();
+            map_matrix[28, 20].block = new House();
+            map_matrix[29, 19].block = new House();
+            map_matrix[29, 20].block = new House();
+            map_matrix[25, 20].block = new House();
+            map_matrix[29, 12].block = new House();
+            map_matrix[29, 13].block = new House();
+            map_matrix[29, 14].block = new House();
+            map_matrix[29, 15].block = new House();
+            map_matrix[29, 17].block = new House();
+            map_matrix[29, 18].block = new House();
+            map_matrix[29, 19].block = new House();
+            map_matrix[28, 12].block = new House();
+            map_matrix[28, 13].block = new House();
+            map_matrix[28, 14].block = new House();
+            map_matrix[28, 15].block = new House();
+            map_matrix[27, 12].block = new House();
+            map_matrix[26, 12].block = new House();
+            map_matrix[25, 12].block = new House();
+            map_matrix[24, 13].block = new House();
+            map_matrix[24, 12].block = new House();
 
+            //Criando água profunda
+            map_matrix[33, 58].block = new Water();
+            map_matrix[32, 58].block = new Water();
+            map_matrix[30, 58].block = new Water();
+            map_matrix[30, 57].block = new Water();
+            map_matrix[29, 57].block = new Water();
+            map_matrix[29, 56].block = new Water();
+            map_matrix[28, 56].block = new Water();
+            map_matrix[28, 55].block = new Water();
+            map_matrix[27, 56].block = new Water();
+            map_matrix[29, 59].block = new Water();
+            map_matrix[28, 60].block = new Water();
+            map_matrix[27, 61].block = new Water();
+            map_matrix[26, 62].block = new Water();
+            map_matrix[25, 62].block = new Water();
+            map_matrix[24, 63].block = new Water();
+            map_matrix[23, 63].block = new Water();
+            map_matrix[22, 64].block = new Water();
+            map_matrix[22, 63].block = new Water();
+            map_matrix[22, 62].block = new Water();
+            map_matrix[23, 62].block = new Water();
+            map_matrix[24, 62].block = new Water();
+            map_matrix[24, 61].block = new Water();
+            map_matrix[25, 61].block = new Water();
+            map_matrix[26, 61].block = new Water();
+            map_matrix[26, 60].block = new Water();
+            map_matrix[27, 60].block = new Water();
+            map_matrix[27, 59].block = new Water();
+            map_matrix[28, 59].block = new Water();
+            map_matrix[28, 58].block = new Water();
+            map_matrix[28, 57].block = new Water();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            //Criando montanhas
+            map_matrix[2, 0].block = new Mountain();
+            map_matrix[3, 1].block = new Mountain();
+            map_matrix[3, 2].block = new Mountain();
+            map_matrix[3, 3].block = new Mountain();
+            map_matrix[2, 4].block = new Mountain();
+            map_matrix[2, 5].block = new Mountain();
+            map_matrix[1, 6].block = new Mountain();
+            map_matrix[1, 7].block = new Mountain();
+            map_matrix[0, 7].block = new Mountain();
+            map_matrix[9, 0].block = new Mountain();
+            map_matrix[8, 1].block = new Mountain();
+            map_matrix[7, 2].block = new Mountain();
+            map_matrix[7, 3].block = new Mountain();
+            map_matrix[6, 4].block = new Mountain();
+            map_matrix[6, 5].block = new Mountain();
+            map_matrix[5, 6].block = new Mountain();
+            map_matrix[5, 7].block = new Mountain();
+            map_matrix[5, 8].block = new Mountain();
+            map_matrix[6, 8].block = new Mountain();
+            map_matrix[7, 8].block = new Mountain();
+            map_matrix[7, 7].block = new Mountain();
+            map_matrix[7, 6].block = new Mountain();
+            map_matrix[8, 5].block = new Mountain();
+            map_matrix[8, 4].block = new Mountain();
+            map_matrix[9, 3].block = new Mountain();
+            map_matrix[9, 2].block = new Mountain();
+            map_matrix[10, 1].block = new Mountain();
+            map_matrix[11, 0].block = new Mountain();
+            map_matrix[5, 10].block = new Mountain();
+            map_matrix[6, 10].block = new Mountain();
+            map_matrix[6, 11].block = new Mountain();
+            map_matrix[6, 12].block = new Mountain();
+            map_matrix[7, 13].block = new Mountain();
+            map_matrix[7, 14].block = new Mountain();
+            map_matrix[8, 15].block = new Mountain();
+            map_matrix[8, 16].block = new Mountain();
+            map_matrix[8, 17].block = new Mountain();
+            map_matrix[8, 18].block = new Mountain();
+            map_matrix[8, 19].block = new Mountain();
+            map_matrix[7, 20].block = new Mountain();
+            map_matrix[7, 21].block = new Mountain();
+            map_matrix[6, 22].block = new Mountain();
+            map_matrix[6, 23].block = new Mountain();
+            map_matrix[5, 24].block = new Mountain();
+            map_matrix[5, 25].block = new Mountain();
+            map_matrix[5, 26].block = new Mountain();
+            map_matrix[5, 27].block = new Mountain();
+            map_matrix[5, 28].block = new Mountain();
+            map_matrix[4, 29].block = new Mountain();
+            map_matrix[4, 30].block = new Mountain();
+            map_matrix[5, 30].block = new Mountain();
+            map_matrix[3, 31].block = new Mountain();
+            map_matrix[3, 32].block = new Mountain();
+            map_matrix[2, 33].block = new Mountain();
+            map_matrix[2, 34].block = new Mountain();
+            map_matrix[2, 35].block = new Mountain();
+            map_matrix[2, 36].block = new Mountain();
+            map_matrix[3, 37].block = new Mountain();
+            map_matrix[5, 38].block = new Mountain();
+            map_matrix[4, 38].block = new Mountain();
+            map_matrix[6, 39].block = new Mountain();
+            map_matrix[6, 40].block = new Mountain();
+            map_matrix[7, 41].block = new Mountain();
+            map_matrix[7, 42].block = new Mountain();
+            map_matrix[7, 43].block = new Mountain();
+            map_matrix[8, 44].block = new Mountain();
+            map_matrix[8, 45].block = new Mountain();
+            map_matrix[9, 46].block = new Mountain();
+            map_matrix[9, 47].block = new Mountain();
+            map_matrix[7, 10].block = new Mountain();
+            map_matrix[8, 10].block = new Mountain();
+            map_matrix[8, 11].block = new Mountain();
+            map_matrix[8, 12].block = new Mountain();
+            map_matrix[9, 13].block = new Mountain();
+            map_matrix[9, 14].block = new Mountain();
+            map_matrix[10, 15].block = new Mountain();
+            map_matrix[10, 16].block = new Mountain();
+            map_matrix[9, 17].block = new Mountain();
+            map_matrix[10, 18].block = new Mountain();
+            map_matrix[10, 19].block = new Mountain();
+            map_matrix[9, 20].block = new Mountain();
+            map_matrix[9, 21].block = new Mountain();
+            map_matrix[8, 22].block = new Mountain();
+            map_matrix[8, 23].block = new Mountain();
+            map_matrix[7, 24].block = new Mountain();
+            map_matrix[7, 25].block = new Mountain();
+            map_matrix[7, 26].block = new Mountain();
+            map_matrix[6, 26].block = new Mountain();
+            map_matrix[6, 27].block = new Mountain();
+            map_matrix[6, 28].block = new Mountain();
+            map_matrix[7, 28].block = new Mountain();
+            map_matrix[6, 29].block = new Mountain();
+            map_matrix[6, 30].block = new Mountain();
+            map_matrix[5, 31].block = new Mountain();
+            map_matrix[5, 32].block = new Mountain();
+            map_matrix[4, 33].block = new Mountain();
+            map_matrix[4, 34].block = new Mountain();
+            map_matrix[4, 35].block = new Mountain();
+            map_matrix[4, 36].block = new Mountain();
+            map_matrix[5, 37].block = new Mountain();
+            map_matrix[6, 38].block = new Mountain();
+            map_matrix[7, 39].block = new Mountain();
+            map_matrix[8, 39].block = new Mountain();
+            map_matrix[8, 40].block = new Mountain();
+            map_matrix[9, 41].block = new Mountain();
+            map_matrix[9, 42].block = new Mountain();
+            map_matrix[9, 43].block = new Mountain();
+            map_matrix[10, 44].block = new Mountain();
+            map_matrix[10, 45].block = new Mountain();
+            map_matrix[10, 46].block = new Mountain();
+            map_matrix[10, 47].block = new Mountain();
+            map_matrix[11, 46].block = new Mountain();
+            map_matrix[11, 47].block = new Mountain();
+            map_matrix[0, 16].block = new Mountain();
+            map_matrix[1, 17].block = new Mountain();
+            map_matrix[1, 18].block = new Mountain();
+            map_matrix[1, 19].block = new Mountain();
+            map_matrix[1, 20].block = new Mountain();
+            map_matrix[2, 21].block = new Mountain();
+            map_matrix[2, 22].block = new Mountain();
+            map_matrix[1, 22].block = new Mountain();
+            map_matrix[0, 23].block = new Mountain();
+            map_matrix[0, 24].block = new Mountain();
+            map_matrix[0, 44].block = new Mountain();
+            map_matrix[1, 44].block = new Mountain();
+            map_matrix[1, 45].block = new Mountain();
+            map_matrix[1, 46].block = new Mountain();
+            map_matrix[2, 47].block = new Mountain();
+            map_matrix[3, 47].block = new Mountain();
+            map_matrix[4, 48].block = new Mountain();
+            map_matrix[5, 49].block = new Mountain();
+            map_matrix[5, 50].block = new Mountain();
+            map_matrix[6, 51].block = new Mountain();
+            map_matrix[6, 52].block = new Mountain();
+            map_matrix[7, 53].block = new Mountain();
+            map_matrix[7, 54].block = new Mountain();
+            map_matrix[7, 55].block = new Mountain();
+            map_matrix[8, 56].block = new Mountain();
+            map_matrix[8, 57].block = new Mountain();
+            map_matrix[9, 58].block = new Mountain();
+            map_matrix[9, 59].block = new Mountain();
+            map_matrix[10, 60].block = new Mountain();
+            map_matrix[10, 61].block = new Mountain();
+            map_matrix[10, 62].block = new Mountain();
+            map_matrix[10, 63].block = new Mountain();
+            map_matrix[10, 64].block = new Mountain();
+            map_matrix[9, 65].block = new Mountain();
+            map_matrix[9, 66].block = new Mountain();
+            map_matrix[8, 67].block = new Mountain();
+            map_matrix[8, 68].block = new Mountain();
+            map_matrix[7, 69].block = new Mountain();
+            map_matrix[6, 69].block = new Mountain();
+            map_matrix[5, 70].block = new Mountain();
+            map_matrix[4, 70].block = new Mountain();
+            map_matrix[3, 71].block = new Mountain();
+            map_matrix[2, 71].block = new Mountain();
+            map_matrix[1, 72].block = new Mountain();
+            map_matrix[1, 73].block = new Mountain();
+            map_matrix[1, 74].block = new Mountain();
+            map_matrix[1, 75].block = new Mountain();
+            map_matrix[0, 75].block = new Mountain();
+            map_matrix[11, 49].block = new Mountain();
+            map_matrix[15, 52].block = new Mountain();
+            map_matrix[16, 69].block = new Mountain();
+            map_matrix[9, 76].block = new Mountain();
+            map_matrix[10, 75].block = new Mountain();
+            map_matrix[11, 75].block = new Mountain();
+            map_matrix[12, 75].block = new Mountain();
+            map_matrix[11, 76].block = new Mountain();
+            map_matrix[12, 51].block = new Mountain();
+            map_matrix[14, 70].block = new Mountain();
+            map_matrix[12, 73].block = new Mountain();
+            map_matrix[15, 70].block = new Mountain();
+            map_matrix[10, 49].block = new Mountain();
+            map_matrix[10, 50].block = new Mountain();
+            map_matrix[11, 51].block = new Mountain();
+            map_matrix[11, 76].block = new Mountain();
+            map_matrix[14, 52].block = new Mountain();
+            map_matrix[14, 53].block = new Mountain();
+            map_matrix[15, 54].block = new Mountain();
+            map_matrix[16, 55].block = new Mountain();
+            map_matrix[16, 56].block = new Mountain();
+            map_matrix[16, 57].block = new Mountain();
+            map_matrix[16, 58].block = new Mountain();
+            map_matrix[16, 59].block = new Mountain();
+            map_matrix[17, 60].block = new Mountain();
+            map_matrix[18, 61].block = new Mountain();
+            map_matrix[18, 62].block = new Mountain();
+            map_matrix[18, 63].block = new Mountain();
+            map_matrix[18, 64].block = new Mountain();
+            map_matrix[18, 65].block = new Mountain();
+            map_matrix[18, 66].block = new Mountain();
+            map_matrix[17, 67].block = new Mountain();
+            map_matrix[16, 68].block = new Mountain();
+            map_matrix[15, 69].block = new Mountain();
+            map_matrix[13, 71].block = new Mountain();
+            map_matrix[12, 72].block = new Mountain();
+            map_matrix[11, 73].block = new Mountain();
+            map_matrix[12, 49].block = new Mountain();
+            map_matrix[12, 50].block = new Mountain();
+            map_matrix[13, 51].block = new Mountain();
+            map_matrix[13, 76].block = new Mountain();
+            map_matrix[16, 52].block = new Mountain();
+            map_matrix[16, 53].block = new Mountain();
+            map_matrix[17, 54].block = new Mountain();
+            map_matrix[18, 55].block = new Mountain();
+            map_matrix[18, 56].block = new Mountain();
+            map_matrix[18, 57].block = new Mountain();
+            map_matrix[18, 58].block = new Mountain();
+            map_matrix[18, 59].block = new Mountain();
+            map_matrix[19, 60].block = new Mountain();
+            map_matrix[20, 61].block = new Mountain();
+            map_matrix[20, 62].block = new Mountain();
+            map_matrix[20, 63].block = new Mountain();
+            map_matrix[20, 64].block = new Mountain();
+            map_matrix[20, 65].block = new Mountain();
+            map_matrix[20, 66].block = new Mountain();
+            map_matrix[19, 66].block = new Mountain();
+            map_matrix[18, 67].block = new Mountain();
+            map_matrix[18, 68].block = new Mountain();
+            map_matrix[17, 69].block = new Mountain();
+            map_matrix[15, 71].block = new Mountain();
+            map_matrix[14, 72].block = new Mountain();
+            map_matrix[13, 73].block = new Mountain();
+            map_matrix[9, 49].block = new Mountain();
+            map_matrix[36, 52].block = new Mountain();
+            map_matrix[35, 53].block = new Mountain();
+            map_matrix[35, 54].block = new Mountain();
+            map_matrix[42, 53].block = new Mountain();
+            map_matrix[41, 52].block = new Mountain();
+            map_matrix[41, 52].block = new Mountain();
+            map_matrix[40, 52].block = new Mountain();
+            map_matrix[39, 52].block = new Mountain();
+            map_matrix[38, 51].block = new Mountain();
+            map_matrix[37, 51].block = new Mountain();
+            map_matrix[36, 51].block = new Mountain();
+            map_matrix[35, 52].block = new Mountain();
+            map_matrix[34, 53].block = new Mountain();
+            map_matrix[36, 51].block = new Mountain();
+            map_matrix[35, 52].block = new Mountain();
+            map_matrix[34, 53].block = new Mountain();
+            map_matrix[36, 51].block = new Mountain();
+            map_matrix[34, 54].block = new Mountain();
+            map_matrix[36, 51].block = new Mountain();
+            map_matrix[38, 61].block = new Mountain();
+            map_matrix[37, 60].block = new Mountain();
+            map_matrix[36, 59].block = new Mountain();
+            map_matrix[36, 60].block = new Mountain();
+            map_matrix[35, 59].block = new Mountain();
+            map_matrix[35, 58].block = new Mountain();
+            map_matrix[35, 57].block = new Mountain();
+            map_matrix[35, 56].block = new Mountain();
+            map_matrix[36, 56].block = new Mountain();
+            map_matrix[36, 57].block = new Mountain();
+            map_matrix[36, 58].block = new Mountain();
+            map_matrix[39, 61].block = new Mountain();
+            map_matrix[40, 61].block = new Mountain();
+            map_matrix[41, 61].block = new Mountain();
+            map_matrix[42, 61].block = new Mountain();
 
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
@@ -235,36 +655,37 @@ namespace Titulo_UWP
             grao = new Character("Cleric", "Elf", "Grhamm");
             joao = new Character("Bard", "Dragonborn", "Joao");
             fernanda = new Character("Mage", "Orc", "Fernanda");
-            map_matrix[30, 72].SetCharacter(vago);// Casa 1
-            map_matrix[30, 72].GetCharacter().posY = 30;
-            map_matrix[30, 72].GetCharacter().posX = 72;
-            map_matrix[37, 69].SetCharacter(davi);// Casa 2
-            map_matrix[37, 69].GetCharacter().posY = 37;
-            map_matrix[37, 69].GetCharacter().posX = 69;
-            map_matrix[32, 43].SetCharacter(ana);// Casa 3
-            map_matrix[32, 43].GetCharacter().posY = 32;
-            map_matrix[32, 43].GetCharacter().posX = 43;
-            map_matrix[3, 43].SetCharacter(fernanda);// Casa 4
-            map_matrix[3, 43].GetCharacter().posY = 3;
-            map_matrix[3, 43].GetCharacter().posX = 43;
-            map_matrix[23, 34].SetCharacter(maria);// Casa 5
-            map_matrix[23, 34].GetCharacter().posY = 23;
-            map_matrix[23, 34].GetCharacter().posX = 34;
-            map_matrix[30, 16].SetCharacter(lapa);// Casa 6 (Casa de Lapa)
-            map_matrix[30, 16].GetCharacter().posY = 30;
-            map_matrix[30, 16].GetCharacter().posX = 16;
-            map_matrix[41, 8].SetCharacter(bia); // Casa 7
-            map_matrix[41, 8].GetCharacter().posY = 41;
-            map_matrix[41, 8].GetCharacter().posX = 8;
-            map_matrix[17, 14].SetCharacter(geao);// Casa 8 (Taverna)
-            map_matrix[17, 14].GetCharacter().posY = 17;
-            map_matrix[17, 14].GetCharacter().posX = 14;
-            map_matrix[16, 26].SetCharacter(grao);// Casa 9
-            map_matrix[16, 26].GetCharacter().posY = 16;
-            map_matrix[16, 26].GetCharacter().posX = 26;
-            map_matrix[15, 40].SetCharacter(joao);// Casa 10
-            map_matrix[15, 40].GetCharacter().posY = 15;
-            map_matrix[15, 40].GetCharacter().posX = 40;
+
+            map_matrix[30, 72].block = vago;// Casa 1
+            ((Character)map_matrix[30, 72].block).posY = 30;
+            ((Character)map_matrix[30, 72].block).posX = 72;
+            map_matrix[37, 69].block = davi;// Casa 2
+            ((Character)map_matrix[37, 69].block).posY = 37;
+            ((Character)map_matrix[37, 69].block).posX = 69;
+            map_matrix[32, 43].block = ana;// Casa 3
+            ((Character)map_matrix[32, 43].block).posY = 32;
+            ((Character)map_matrix[32, 43].block).posX = 43;
+            map_matrix[3, 43].block = fernanda;// Casa 4
+            ((Character)map_matrix[3, 43].block).posY = 3;
+            ((Character)map_matrix[3, 43].block).posX = 43;
+            map_matrix[23, 34].block = maria;// Casa 5
+            ((Character)map_matrix[23, 34].block).posY = 23;
+            ((Character)map_matrix[23, 34].block).posX = 34;
+            map_matrix[30, 16].block = lapa;// Casa 6 (Casa de Lapa)
+            ((Character)map_matrix[30, 16].block).posY = 30;
+            ((Character)map_matrix[30, 16].block).posX = 16;
+            map_matrix[41, 8].block = bia; // Casa 7
+            ((Character)map_matrix[41, 8].block).posY = 41;
+            ((Character)map_matrix[41, 8].block).posX = 8;
+            map_matrix[17, 14].block = geao;// Casa 8 (Taverna)
+            ((Character)map_matrix[17, 14].block).posY = 17;
+            ((Character)map_matrix[17, 14].block).posX = 14;
+            map_matrix[16, 26].block = grao;// Casa 9
+            ((Character)map_matrix[16, 26].block).posY = 16;
+            ((Character)map_matrix[16, 26].block).posX = 26;
+            map_matrix[15, 40].block = joao;// Casa 10
+            ((Character)map_matrix[15, 40].block).posY = 15;
+            ((Character)map_matrix[15, 40].block).posX = 40;
 
             //Armazena todos os blocos do mapa que possuem imagens
             ImgBlocks = new List<MapBlock>
@@ -286,7 +707,6 @@ namespace Titulo_UWP
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             player = e.Parameter as Character;
-            map_matrix[player.posY, player.posX].isFree = false;
             persona_name = player.PersonaName;
             race_name = player.RaceName;
             player.DefineAction();
@@ -306,12 +726,12 @@ namespace Titulo_UWP
             }
 
             //Preenche o mapa com as imagens dos blocos
-            foreach (MapBlock block in ImgBlocks)
+            foreach (MapBlock map_block in ImgBlocks)
             {
-                block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + block.GetCharacter().PersonaName + "/Sem_fundo/" + block.GetCharacter().PersonaName + "_" + block.GetCharacter().RaceName + ".png", -80 + (block.GetCharacter().posX - player.posX) * 80, 0 + (block.GetCharacter().posY - player.posY) * 80, 0 + (player.posX - block.GetCharacter().posX) * 80, 80 + (player.posY - block.GetCharacter().posY) * 80);
-                MapGrid.Children.Add(block.GetImage());
-                Grid.SetColumnSpan(block.GetImage(), 16);
-                Grid.SetRowSpan(block.GetImage(), 9);
+                map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
+                MapGrid.Children.Add(map_block.GetImage());
+                Grid.SetColumnSpan(map_block.GetImage(), 16);
+                Grid.SetRowSpan(map_block.GetImage(), 9);
             }
 
             try
@@ -338,7 +758,6 @@ namespace Titulo_UWP
             player.EquippedWeapon = armafoda;
             player.Target = EnemiesInRange[0];
             player.Action[((Button)sender).Name].DynamicInvoke();
-            Debug.WriteLine(EnemiesInRange[0].Hp);
         }
 
         /// <summary>
@@ -347,7 +766,7 @@ namespace Titulo_UWP
         private void Up()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY - 1 >= 0 && map_matrix[player.posY - 1, player.posX].isFree)
+            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door)))
             {
                 //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 2 && margin.Top <= -400)
@@ -372,8 +791,6 @@ namespace Titulo_UWP
                     Grid.SetRow(CharacterImg, grid_y);
                     player.posY--;
                 }
-                map_matrix[player.posY + 1, player.posX].isFree = true;
-                map_matrix[player.posY, player.posX].isFree = false;
             }
         }
 
@@ -383,7 +800,7 @@ namespace Titulo_UWP
         private void Down()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY + 1 < 43 && map_matrix[player.posY + 1, player.posX].isFree)
+            if (player.posY + 1 < 43 && (map_matrix[player.posY + 1, player.posX].block == null || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Door)))
             {
                 //Se o personagem estiver na posição 6 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 6 && margin.Bottom <= -400)
@@ -408,8 +825,6 @@ namespace Titulo_UWP
                     Grid.SetRow(CharacterImg, grid_y);
                     player.posY++;
                 }
-                map_matrix[player.posY - 1, player.posX].isFree = true;
-                map_matrix[player.posY, player.posX].isFree = false;
             }
         }
 
@@ -419,7 +834,7 @@ namespace Titulo_UWP
         private void Left()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posX - 1 >= 0 && map_matrix[player.posY, player.posX - 1].isFree)
+            if (player.posX - 1 >= 0 && (map_matrix[player.posY, player.posX - 1].block == null || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Door)))
             {
                 //Se o personagem estiver na posição 3 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 3 && margin.Left <= -400)
@@ -444,8 +859,6 @@ namespace Titulo_UWP
                     Grid.SetColumn(CharacterImg, grid_x);
                     player.posX--;
                 }
-                map_matrix[player.posY, player.posX + 1].isFree = true;
-                map_matrix[player.posY, player.posX].isFree = false;
             }
         }
 
@@ -455,7 +868,7 @@ namespace Titulo_UWP
         private void Right()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posX + 1 < 77 && map_matrix[player.posY, player.posX + 1].isFree)
+            if (player.posX + 1 < 77 && (map_matrix[player.posY, player.posX + 1].block == null || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Cave)))
             {
                 //Se o personagem estiver na posição 12 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 12 && margin.Right <= -400)
@@ -480,8 +893,6 @@ namespace Titulo_UWP
                     Grid.SetColumn(CharacterImg, grid_x);
                     player.posX++;
                 }
-                map_matrix[player.posY, player.posX - 1].isFree = true;
-                map_matrix[player.posY, player.posX].isFree = false;
             }
         }
 
@@ -510,10 +921,8 @@ namespace Titulo_UWP
                 Left();
             else if (e.Key == Windows.System.VirtualKey.Right)
                 Right();
-            Debug.WriteLine("POS X PLAYER: " + player.posX);
-            Debug.WriteLine("POS Y PLAYER: " + player.posY);
             //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
-            if (map_matrix[player.posY, player.posX].isEntrance)
+            if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
                 CharacterImg.Visibility = Visibility.Collapsed;
             else
                 CharacterImg.Visibility = Visibility.Visible;
@@ -524,12 +933,12 @@ namespace Titulo_UWP
             {
                 for (int j = player.posX - enemyRange; j < player.posX + enemyRange; j++)
                 {
-                    if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].GetCharacter() != null)
+                    if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].block != null && map_matrix[i, j].block.GetType() == typeof(Character))
                     {
                         hasEnemyInRange = true;
-                        EnemiesInRange.Add(map_matrix[i, j].GetCharacter());
+                        EnemiesInRange.Add((Character)map_matrix[i, j].block);
                     }
-                        
+
                 }
             }
             //Se tiver algum inimigo, ativa o modo dos turno

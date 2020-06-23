@@ -22,51 +22,9 @@ namespace Titulo_UWP
 {
     public class MapBlock
     {
-        public bool isEntrance { get; set; } = false;
-        public bool isFree { get; set; } = true;
-        public bool isRoad { get; set; } = false;
         public Thickness imgMargin;
         private Image ObjImg;
-        private Character character;
-        private Item item;
-
-        /// <summary>
-        /// Retorna o personagem do bloco do mapa
-        /// </summary>
-        /// <returns>Personagem do bloco do mapa</returns>
-        public Character GetCharacter()
-        {
-            return character;
-        }
-
-        /// <summary>
-        /// Seta o personagem do bloco do mapa e bloqueia o acesso em sua posição
-        /// </summary>
-        /// <param name="charac">Personagem do bloco do mapa</param>
-        public void SetCharacter(Character charac)
-        {
-                character = charac;
-                isFree = false;
-        }
-
-        /// <summary>
-        /// Retorna o item do bloco do mapa
-        /// </summary>
-        /// <returns>Item do bloco do mapa</returns>
-        public Item GetItem()
-        {
-            return item;
-        }
-
-        /// <summary>
-        /// Seta o item do bloco do mapa e bloqueia o acesso em sua posição
-        /// </summary>
-        /// <param name="charac">Item do bloco do mapa</param>
-        public void SetItem(Item _item)
-        {
-            item = _item;
-            isFree = false;
-        }
+        public Object block { get; set; }
 
         /// <summary>
         /// Seta e configura a imagem referente ao objeto que compõe o bloco do mapa
