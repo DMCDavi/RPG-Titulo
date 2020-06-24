@@ -8,7 +8,6 @@ namespace TituloCore
     [DataContractAttribute(Name = "Assassin")]
     public class Assassin : IClass
     {
-        public int AssassinLvl;
         Character Self;
         /// <summary>
         /// Construtor da classe Assasin
@@ -17,7 +16,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            //Self.Action.Add("Morthal Blow", new Action(MortalBlow));
         }
         
 

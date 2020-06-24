@@ -231,7 +231,7 @@ namespace TituloCore
         {
             if(!Action.ContainsKey("Attack"))
                 Action.Add("Attack", new Func<bool>(() => Attack()));
-            CharacterClass.AddActions(this);
+            //CharacterClass.AddActions(this);
         }
 
         public void DefineBonusAction()
