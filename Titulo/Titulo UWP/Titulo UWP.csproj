@@ -143,6 +143,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Mapa\Heart.png" />
     <Content Include="Assets\Mapa\Mapa.png" />
     <Content Include="Assets\Menu\cyberpunk_landscape_blur.png" />
     <Content Include="Assets\Personagens\Ana\Ana_Landscape.png" />

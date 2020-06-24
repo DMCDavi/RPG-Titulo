@@ -40,9 +40,9 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="MapImg" Source="/Assets/Mapa/Mapa.png" Stretch="Fill" Margin="-2000,-2960,-3680,-560" Grid.RowSpan="9" Grid.ColumnSpan="16" />
         <Button Height="0" Width="0" />
-        <Image Grid.Column="7" Grid.Row="4" x:Name="CharacterImg" Source="/Assets/Personagens/Ana/Sem_fundo/Ana_Goliath.png" Height="100" Width="100" HorizontalAlignment="Center" Margin="0,-80,0,0"  />
-        <Button x:Name="MoveButton" Visibility="Collapsed" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="4" Content="Mover" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
-        <Button x:Name="BonusButton" Visibility="Collapsed" Grid.Column="6" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação Bônus" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
+        <Button x:Name="SkipButton" Visibility="Collapsed" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="4" Content="Pular Vez" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
+        <Button x:Name="MoveButton" Visibility="Collapsed" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="4" Content="Mover" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
+        <Button x:Name="BonusButton" Visibility="Collapsed" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação Bônus" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
             <Button.Flyout>
                 <Flyout x:Name="Flyout_Action">
                     <StackPanel Orientation="Vertical" >
@@ -52,12 +52,17 @@
                 </Flyout>
             </Button.Flyout>
         </Button>
-        <Button x:Name="ActionButton" Visibility="Collapsed" Grid.Column="11" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
+        <Button x:Name="ActionButton" Visibility="Collapsed" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
             <Button.Flyout>
                 <Flyout>
                     <StackPanel x:Name="ActionPanel" Orientation="Vertical" />
                 </Flyout>
             </Button.Flyout>
         </Button>
+        <Image Visibility="Collapsed" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="4" x:Name="Scrollpaper" Source="/Assets/Menu/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Visibility="Collapsed" Grid.Column="6" Grid.Row="0" Grid.ColumnSpan="4" x:Name="EnemyName" FontFamily="Times New Roman" Foreground="#000" FontSize="30" TextAlignment="Center" VerticalAlignment="Center" />
+        <Image Grid.Column="7" Grid.Row="4" x:Name="CharacterImg" Source="/Assets/Personagens/Ana/Sem_fundo/Ana_Goliath.png" Height="100" Width="100" HorizontalAlignment="Center" Margin="0,-80,0,0"  />
+        <StackPanel x:Name="EnemyHp" Visibility="Collapsed" Grid.ColumnSpan="16" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center"/>
+        <StackPanel x:Name="PlayerHp" Visibility="Collapsed" Grid.ColumnSpan="16" Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

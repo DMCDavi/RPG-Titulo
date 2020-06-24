@@ -34,6 +34,7 @@ namespace Titulo_UWP
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
         private bool hasEnemyInRange = false;
+        Image heart_img;
 
         public Map()
         {
@@ -712,6 +713,7 @@ namespace Titulo_UWP
             race_name = player.RaceName;
             player.DefineAction();
             player.CharacterClass.AddActions(player);
+            AddLife(PlayerHp, player.Hp, player.Hpmax);
             //Cria os botões de ataque referentes à classe do personagem
             foreach (KeyValuePair<string, Delegate> action in player.Action)
             {
@@ -748,6 +750,28 @@ namespace Titulo_UWP
         }
 
         /// <summary>
+        /// Adiciona corações de vida ao personagem
+        /// </summary>
+        /// <param name="panel">Painel que conterá os corações</param>
+        /// <param name="hp">Quantidade de vida do personagem</param>
+        /// <param name="hp_max">Quantidade de vida máxima do personagem</param>
+        private void AddLife(StackPanel panel, int hp, int hp_max)
+        {
+            int qnt_heart = 0;
+            qnt_heart = hp * 10 / hp_max;
+            panel.Children.Clear();
+            for (int i = 0; i < qnt_heart; i++)
+            {
+                heart_img = new Image();
+                heart_img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Mapa/Heart.png"));
+                heart_img.HorizontalAlignment = HorizontalAlignment.Left;
+                heart_img.VerticalAlignment = VerticalAlignment.Top;
+                heart_img.Height = 40;
+                panel.Children.Add(heart_img);
+            }
+        }
+
+        /// <summary>
         /// Ataca um inimigo que está no raio do personagem
         /// </summary>
         /// <param name="sender"></param>
@@ -761,10 +785,11 @@ namespace Titulo_UWP
                 player.EquippedWeapon = armafoda;
                 player.Target = EnemiesInRange[0];
                 player.Action[((Button)sender).Name].DynamicInvoke();
-
+                AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
                 if (player.Target.Hp == 0)
                 {
+                    EnemyHp.Children.Clear();
                     foreach (MapBlock map_block in ImgBlocks)
                         if (((Character)map_block.block).posY == player.Target.posY && ((Character)map_block.block).posX == player.Target.posX)
                         {
@@ -920,7 +945,7 @@ namespace Titulo_UWP
         /// Procura num raio os inimigos do mapa
         /// </summary>
         /// <param name="enemy_range">Raio de busca</param>
-        public void SearchEnemies(int enemy_range)
+        private void SearchEnemies(int enemy_range)
         {
             hasEnemyInRange = false;
             EnemiesInRange.Clear();
@@ -933,6 +958,8 @@ namespace Titulo_UWP
                     {
                         hasEnemyInRange = true;
                         EnemiesInRange.Add((Character)map_matrix[i, j].block);
+                        EnemyName.Text = EnemiesInRange[0].PersonaName;
+                        AddLife(EnemyHp, EnemiesInRange[0].Hp, EnemiesInRange[0].Hpmax);
                     }
 
                 }
@@ -943,6 +970,11 @@ namespace Titulo_UWP
                 ActionButton.Visibility = Visibility.Visible;
                 BonusButton.Visibility = Visibility.Visible;
                 MoveButton.Visibility = Visibility.Visible;
+                Scrollpaper.Visibility = Visibility.Visible;
+                EnemyName.Visibility = Visibility.Visible;
+                SkipButton.Visibility = Visibility.Visible;
+                EnemyHp.Visibility = Visibility.Visible;
+                PlayerHp.Visibility = Visibility.Visible;
             }
             //Senao desativa o modo dos turnos
             else
@@ -950,8 +982,15 @@ namespace Titulo_UWP
                 ActionButton.Visibility = Visibility.Collapsed;
                 BonusButton.Visibility = Visibility.Collapsed;
                 MoveButton.Visibility = Visibility.Collapsed;
+                Scrollpaper.Visibility = Visibility.Collapsed;
+                EnemyName.Visibility = Visibility.Collapsed;
+                SkipButton.Visibility = Visibility.Collapsed;
+                EnemyHp.Visibility = Visibility.Collapsed;
+                PlayerHp.Visibility = Visibility.Collapsed;
             }
         }
+
+
 
         /// <summary>
         /// Ao apertar uma seta, o personagem se move de acordo à direção apontada
