@@ -222,8 +222,12 @@ namespace TituloCore
         [DataMember]
         public Dictionary<string, Delegate> BonusAction = new Dictionary<string, Delegate>();
 
+        /// <summary>
+        /// Carrega os métodos após desserialização
+        /// </summary>
         public void LoadButtons()
         {
+            
             DefineAction();
 
         }
@@ -231,13 +235,13 @@ namespace TituloCore
         {
             if(!Action.ContainsKey("Attack"))
                 Action.Add("Attack", new Func<bool>(() => Attack()));
-            //CharacterClass.AddActions(this);
+            CharacterClass.AddActions(this);
         }
 
         public void DefineBonusAction()
         {
             
-            CharacterClass.AddActions(this);
+            //CharacterClass.AddActions(this);
         }
 
         /// <summary>

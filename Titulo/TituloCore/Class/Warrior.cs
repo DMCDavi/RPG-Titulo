@@ -26,7 +26,6 @@ namespace TituloCore
         public void HitDice()
         {
             Self.HitDice = 10;
-            Self.Action.Add("Second Wind", new Action(SecondWind));
         }
 
         /// <summary>
@@ -66,6 +65,13 @@ namespace TituloCore
                 Self.Action.Add("Action Surge", new Action<Character>(ActionSurge));
         }
 
+        /// <summary>
+        /// Insere as Ações Bônus após serialização
+        /// </summary>
+        public void AddBonusActions()
+        {
+
+        }
     }
 }
 

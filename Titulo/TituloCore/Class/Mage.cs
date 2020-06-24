@@ -18,7 +18,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Element Bolt", new Action(ElementBolt));
         }
 
 
@@ -73,5 +72,12 @@ namespace TituloCore
                 Self.Action.Add("Element Storm", new Action(ElementStorm));
         }
 
+        /// <summary>
+        /// Insere as Ações Bônus após serialização
+        /// </summary>
+        public void AddBonusActions()
+        {
+
+        }
     }
 }

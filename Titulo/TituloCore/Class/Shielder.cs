@@ -13,7 +13,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Colossus Vengeance", new Action(ColossusVengeance));
         }
         public void HitDice()
         {
@@ -54,6 +53,14 @@ namespace TituloCore
             Self.Action.Add("Colossus Vengeance", new Action(ColossusVengeance));
             if (Self.Lvl >= 4)
                 Self.Action.Add("Blood Sacrifice", new Action(BloodSacrifice));
+        }
+
+        /// <summary>
+        /// Insere as Ações Bônus após serialização
+        /// </summary>
+        public void AddBonusActions()
+        {
+
         }
     }
 }

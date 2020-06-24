@@ -712,7 +712,6 @@ namespace Titulo_UWP
             persona_name = player.PersonaName;
             race_name = player.RaceName;
             player.LoadButtons();
-            player.CharacterClass.AddActions(player);
             AddLife(PlayerHp, player.Hp, player.Hpmax);
             //Cria os botões de ataque referentes à classe do personagem
             foreach (KeyValuePair<string, Delegate> action in player.Action)

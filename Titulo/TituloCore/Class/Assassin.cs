@@ -75,7 +75,10 @@ namespace TituloCore
             if (Self.Lvl >= 4)
                 Self.Action.Add("Lethal Blow", new Action(LethalBlow));
         }
-
+        public void AddBonusActions()
+        {
+            Self.BonusAction.Add("Dash", new Action(Self.Dash));
+        }
 
     }
 }

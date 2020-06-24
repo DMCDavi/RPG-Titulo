@@ -20,10 +20,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Remove("Attack");
-            Self.Action.Add("Attack", new Func<bool>(() => Attack()));
-            Self.Action.Add("Song", new Action(Song));
-            Self.Action.Add("Stop Singing", new Action(StopSinging));
         }
 
         /// <summary>
@@ -187,6 +183,10 @@ namespace TituloCore
                 Self.Action.Add("Dance", new Action(Dance));
                 Self.Action.Add("Stop Dancing", new Action(StopDancing));
             }*/
+        }
+        public void AddBonusActions()
+        {
+
         }
     }
 }

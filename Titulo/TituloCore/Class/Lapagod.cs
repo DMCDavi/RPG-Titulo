@@ -34,5 +34,13 @@ namespace TituloCore
         {
             this.Self = Self;
         }
+
+        /// <summary>
+        /// Insere as Ações Bônus após serialização
+        /// </summary>
+        public void AddBonusActions()
+        {
+
+        }
     }
 }

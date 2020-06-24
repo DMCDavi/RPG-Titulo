@@ -13,7 +13,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Eldrich Blast", new Action(EldrichBlast));
         }
         public void HitDice()
         {
@@ -44,5 +43,12 @@ namespace TituloCore
             Self.Action.Add("Eldrich Blast", new Action(EldrichBlast));
         }
 
+        /// <summary>
+        /// Insere as Ações Bônus após serialização
+        /// </summary>
+        public void AddBonusActions()
+        {
+
+        }
     }
 }

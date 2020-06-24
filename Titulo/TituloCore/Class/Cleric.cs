@@ -18,7 +18,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Heal", new Action(Heal));
         }
         
 
@@ -66,6 +65,14 @@ namespace TituloCore
             Self.Action.Add("Heal", new Action(Heal));
             if (Self.Lvl >= 4)
                 Self.Action.Add("Smite", new Action(Smite));
+        }
+
+        /// <summary>
+        /// Insere as Ações Bônus após serialização
+        /// </summary>
+        public void AddBonusActions()
+        {
+
         }
     }
 }
