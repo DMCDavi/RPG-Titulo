@@ -10,5 +10,6 @@ namespace TituloCore
         int RollHitDice();
         void LvlUp();
         void AddActions(Character Self);
+        //void AddBonusActions();
     }
 }

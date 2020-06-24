@@ -88,7 +88,7 @@ namespace TituloCore
         public int AcBonus { get; set; }
         [DataMember]
         public Character Target { get; set; }
-
+        public int turnmove { get; set; }
         public void SelectClass()
         {
             if (MainClass == "Assassin")
@@ -236,9 +236,16 @@ namespace TituloCore
 
         public void DefineBonusAction()
         {
-            if (!Action.ContainsKey("Attack"))
-                Action.Add("Attack", new Func<bool>(() => Attack()));
+            
             CharacterClass.AddActions(this);
+        }
+
+        /// <summary>
+        /// Ação de disparada
+        /// </summary>
+        public void Dash()
+        {
+            turnmove += TotalMove;
         }
 
         /// <summary>

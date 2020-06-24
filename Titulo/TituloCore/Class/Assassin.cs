@@ -17,7 +17,7 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.Action.Add("Morthal Blow", new Action(MortalBlow));
+            //Self.Action.Add("Morthal Blow", new Action(MortalBlow));
         }
         
 
