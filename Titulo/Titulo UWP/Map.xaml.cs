@@ -32,7 +32,7 @@ namespace Titulo_UWP
         private MapBlock[,] map_matrix = new MapBlock[43, 77];
         private List<MapBlock> ImgBlocks;
         private List<Character> EnemiesInRange = new List<Character>();
-        private int grid_y = 0, grid_x = 0, enemyRange = 10;
+        private int grid_y = 0, grid_x = 0;
         private bool hasEnemyInRange = false;
 
         public Map()
@@ -656,6 +656,7 @@ namespace Titulo_UWP
             joao = new Character("Bard", "Dragonborn", "Joao");
             fernanda = new Character("Mage", "Orc", "Fernanda");
 
+            //Colocando os personagens na matriz do mapa
             map_matrix[30, 72].block = vago;// Casa 1
             ((Character)map_matrix[30, 72].block).posY = 30;
             ((Character)map_matrix[30, 72].block).posX = 72;
@@ -753,11 +754,30 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
-            int[] DmgDice = { 6, 6 };
-            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
-            player.EquippedWeapon = armafoda;
-            player.Target = EnemiesInRange[0];
-            player.Action[((Button)sender).Name].DynamicInvoke();
+            if (EnemiesInRange.Count != 0)
+            {
+                int[] DmgDice = { 6, 6 };
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
+                player.EquippedWeapon = armafoda;
+                player.Target = EnemiesInRange[0];
+                player.Action[((Button)sender).Name].DynamicInvoke();
+
+                //Se o inimigo morrer tira todas as referências do personagem no mapa
+                if (player.Target.Hp == 0)
+                {
+                    foreach (MapBlock map_block in ImgBlocks)
+                        if (((Character)map_block.block).posY == player.Target.posY && ((Character)map_block.block).posX == player.Target.posX)
+                        {
+                            MapGrid.Children.Remove(map_block.GetImage());
+                            ImgBlocks.Remove(map_block);
+                            break;
+                        }
+                    map_matrix[player.Target.posY, player.Target.posX].block = null;
+                    player.Target = null;
+                    EnemiesInRange[0] = null;
+                    SearchEnemies(10);
+                }
+            }
         }
 
         /// <summary>
@@ -897,6 +917,43 @@ namespace Titulo_UWP
         }
 
         /// <summary>
+        /// Procura num raio os inimigos do mapa
+        /// </summary>
+        /// <param name="enemy_range">Raio de busca</param>
+        public void SearchEnemies(int enemy_range)
+        {
+            hasEnemyInRange = false;
+            EnemiesInRange.Clear();
+            //Verifica se existe algum inimigo no raio do personagem
+            for (int i = player.posY - enemy_range; i < player.posY + enemy_range; i++)
+            {
+                for (int j = player.posX - enemy_range; j < player.posX + enemy_range; j++)
+                {
+                    if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].block != null && map_matrix[i, j].block.GetType() == typeof(Character))
+                    {
+                        hasEnemyInRange = true;
+                        EnemiesInRange.Add((Character)map_matrix[i, j].block);
+                    }
+
+                }
+            }
+            //Se tiver algum inimigo, ativa o modo dos turno
+            if (hasEnemyInRange)
+            {
+                ActionButton.Visibility = Visibility.Visible;
+                BonusButton.Visibility = Visibility.Visible;
+                MoveButton.Visibility = Visibility.Visible;
+            }
+            //Senao desativa o modo dos turnos
+            else
+            {
+                ActionButton.Visibility = Visibility.Collapsed;
+                BonusButton.Visibility = Visibility.Collapsed;
+                MoveButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        /// <summary>
         /// Ao apertar uma seta, o personagem se move de acordo à direção apontada
         /// </summary>
         /// <param name="e"></param>
@@ -926,35 +983,7 @@ namespace Titulo_UWP
                 CharacterImg.Visibility = Visibility.Collapsed;
             else
                 CharacterImg.Visibility = Visibility.Visible;
-            hasEnemyInRange = false;
-            EnemiesInRange.Clear();
-            //Verifica se existe algum inimigo no raio do personagem
-            for (int i = player.posY - enemyRange; i < player.posY + enemyRange; i++)
-            {
-                for (int j = player.posX - enemyRange; j < player.posX + enemyRange; j++)
-                {
-                    if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].block != null && map_matrix[i, j].block.GetType() == typeof(Character))
-                    {
-                        hasEnemyInRange = true;
-                        EnemiesInRange.Add((Character)map_matrix[i, j].block);
-                    }
-
-                }
-            }
-            //Se tiver algum inimigo, ativa o modo dos turno
-            if (hasEnemyInRange)
-            {
-                ActionButton.Visibility = Visibility.Visible;
-                BonusButton.Visibility = Visibility.Visible;
-                MoveButton.Visibility = Visibility.Visible;
-            }
-            //Senao desativa o modo dos turnos
-            else
-            {
-                ActionButton.Visibility = Visibility.Collapsed;
-                BonusButton.Visibility = Visibility.Collapsed;
-                MoveButton.Visibility = Visibility.Collapsed;
-            }
+            SearchEnemies(10);
         }
     }
 }
