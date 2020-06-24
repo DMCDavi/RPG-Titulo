@@ -710,8 +710,7 @@ namespace Titulo_UWP
             player = e.Parameter as Character;
             persona_name = player.PersonaName;
             race_name = player.RaceName;
-            player.DefineAction();
-            player.CharacterClass.AddActions(player);
+            player.LoadButtons();
             //Cria os botões de ataque referentes à classe do personagem
             foreach (KeyValuePair<string, Delegate> action in player.Action)
             {
