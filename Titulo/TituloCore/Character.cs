@@ -88,7 +88,7 @@ namespace TituloCore
         public int AcBonus { get; set; }
         [DataMember]
         public Character Target { get; set; }
-
+        public int turnmove { get; set; }
         public void SelectClass()
         {
             if (MainClass == "Assassin")
@@ -219,12 +219,34 @@ namespace TituloCore
 
         [DataMember]
         public Dictionary<string, Delegate> Action = new Dictionary<string, Delegate>();
+        [DataMember]
+        public Dictionary<string, Delegate> BonusAction = new Dictionary<string, Delegate>();
+
+        public void LoadButtons()
+        {
+            DefineAction();
+
+        }
         public void DefineAction()
         {
             if(!Action.ContainsKey("Attack"))
                 Action.Add("Attack", new Func<bool>(() => Attack()));
+            //CharacterClass.AddActions(this);
         }
 
+        public void DefineBonusAction()
+        {
+            
+            CharacterClass.AddActions(this);
+        }
+
+        /// <summary>
+        /// Ação de disparada
+        /// </summary>
+        public void Dash()
+        {
+            turnmove += TotalMove;
+        }
 
         /// <summary>
         /// Construtor do personagem
