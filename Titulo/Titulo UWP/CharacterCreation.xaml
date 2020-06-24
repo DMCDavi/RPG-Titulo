@@ -25,7 +25,6 @@
                 <RadioButton GroupName="ClassButtons" Content="Bardo" Tag="Bard" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
                 <RadioButton GroupName="ClassButtons" Content="Mago" Tag="Mage" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
                 <RadioButton GroupName="ClassButtons" Content="Escudeiro" Tag="Shielder" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="ClassButtons" Content="Tank" Tag="Tank" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
                 <RadioButton GroupName="ClassButtons" Content="Guerreiro" Tag="Warrior" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
                 <RadioButton GroupName="ClassButtons" Content="Feiticeiro" Tag="Witcher" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
             </StackPanel>
