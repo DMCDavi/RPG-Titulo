@@ -780,6 +780,17 @@ namespace Titulo_UWP
             Inventory.Visibility = Visibility.Collapsed;
         }
 
+        private void OpenInventoryB()
+        {
+            Inventory.Visibility = Visibility.Visible;
+        }
+
+        private void CloseInventoryB()
+        {
+            Inventory.Visibility = Visibility.Collapsed;
+        }
+
+
         /// <summary>
         /// Ataca um inimigo que está no raio do personagem
         /// </summary>
@@ -1029,6 +1040,10 @@ namespace Titulo_UWP
                 Left();
             else if (e.Key == Windows.System.VirtualKey.D)
                 Right();
+            else if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Collapsed)
+                OpenInventoryB();
+            else if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Visible)
+                CloseInventoryB();
             //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
             if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
                 CharacterImg.Visibility = Visibility.Collapsed;
