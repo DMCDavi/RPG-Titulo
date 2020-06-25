@@ -80,5 +80,10 @@ namespace TituloCore
             Self.BonusAction.Add("Dash", new Action(Self.Dash));
         }
 
+        public void TurnIA(Character player)
+        {
+
+        }
+
     }
 }
