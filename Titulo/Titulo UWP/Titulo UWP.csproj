@@ -149,6 +149,7 @@
     <Content Include="Assets\Itens\Apprentice_Sword.png" />
     <Content Include="Assets\Itens\Apprentice_Estoc.png" />
     <Content Include="Assets\Itens\Apprentice_Saber.png" />
+    <Content Include="Assets\Itens\ShildDoDiabo.png" />
     <Content Include="Assets\Mapa\Heart.png" />
     <Content Include="Assets\Mapa\Mapa.png" />
     <Content Include="Assets\Menu\cyberpunk_landscape_blur.png" />

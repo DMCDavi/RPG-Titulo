@@ -647,6 +647,15 @@ namespace Titulo_UWP
             map_matrix[41, 61].block = new Mountain();
             map_matrix[42, 61].block = new Mountain();
 
+            int[] DmgDice = { 6, 6 };
+            //Criando Items
+            Weapon shild_do_djabo = new Weapon("Concussion", "STR", DmgDice, 100, 9, 2);
+
+            //Colocando os itens na matriz do mapa
+            map_matrix[41, 10].block = shild_do_djabo;
+            ((Item)map_matrix[41, 10].block).posY = 41;
+            ((Item)map_matrix[41, 10].block).posX = 10;
+
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
             davi = new Character("Mage", "Dwarf", "David");
@@ -708,11 +717,7 @@ namespace Titulo_UWP
 
             ImgBlocksItem = new List<MapBlock>
             {
-                map_matrix[5, 41],
-                map_matrix[5, 42],
-                map_matrix[5, 43],
-                map_matrix[6, 41],
-                map_matrix[6, 42],
+                map_matrix[41, 10]
             };
 
         }
@@ -753,6 +758,15 @@ namespace Titulo_UWP
                 BonusPanel.Children.Add(action_btn);
             }
 
+            foreach (MapBlock map_block in ImgBlocksItem)
+            {
+                map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/Gean/Sem_fundo/Gean_Orc.png", -80 + (((Item)map_block.block).posX - player.posX) * 80, 0 + (((Item)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Item)map_block.block).posX) * 80, 80 + (player.posY - ((Item)map_block.block).posY) * 80);
+                MapGrid.Children.Add(map_block.GetImage());
+                Grid.SetColumnSpan(map_block.GetImage(), 16);
+                Grid.SetRowSpan(map_block.GetImage(), 9);
+            }
+
+
             //foreach (MapBlock map_block in ImgBlocksItem)
             //{
             //    map_block.SetImage(new Image(), "ms-appx:///Assets/Itens/" + "/Armaments_" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
@@ -764,7 +778,7 @@ namespace Titulo_UWP
             //Preenche o mapa com as imagens dos blocos de personagem
             foreach (MapBlock map_block in ImgBlocks)
             {
-                map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
+                map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -1440, 400, 1360, -320);
                 MapGrid.Children.Add(map_block.GetImage());
                 Grid.SetColumnSpan(map_block.GetImage(), 16);
                 Grid.SetRowSpan(map_block.GetImage(), 9);
