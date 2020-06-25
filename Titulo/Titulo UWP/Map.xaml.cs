@@ -838,7 +838,7 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void SkipTurn(object sender, RoutedEventArgs e)
         {
-            if (player.Hp != 0)
+            if (player.Hp != 0 && isPlayerTurn)
             {
                 SkipButton.Visibility = Visibility.Collapsed;
                 ChangePlayerTurnStatus(false);
@@ -863,8 +863,11 @@ namespace Titulo_UWP
 
         private void MoveButton_Click(object sender, RoutedEventArgs e)
         {
-            moveActivated = true;
-            MoveButton.Visibility = Visibility.Collapsed;
+            if (isPlayerTurn)
+            {
+                moveActivated = true;
+                MoveButton.Visibility = Visibility.Collapsed;
+            }
         }
 
         /// <summary>
@@ -874,35 +877,35 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void Bonus_Click(object sender, RoutedEventArgs e)
         {
-            //if (EnemiesInRange.Count != 0 && player.Hp != 0)
-            //{
-            //    ActionPanel.Visibility = Visibility.Visible;
-            //    int[] DmgDice = { 6, 6 };
-            //    Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
-            //    armafoda.Equip(player);
-            //    player.EquippedWeapon = armafoda;
-            //    player.Target = EnemiesInRange[0];
-            //    player.Action[((Button)sender).Name].DynamicInvoke();
-            //    AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
-            //    //Se o inimigo morrer tira todas as referências do personagem no mapa
-            //    if (player.Target.Hp == 0)
-            //    {
-            //        EnemyHp.Children.Clear();
-            //        foreach (MapBlock map_block in ImgBlocks)
-            //            if (((Character)map_block.block).posY == player.Target.posY && ((Character)map_block.block).posX == player.Target.posX)
-            //            {
-            //                MapGrid.Children.Remove(map_block.GetImage());
-            //                ImgBlocks.Remove(map_block);
-            //                break;
-            //            }
-            //        map_matrix[player.Target.posY, player.Target.posX].block = null;
-            //        player.Target = null;
-            //        EnemiesInRange[0] = null;
-            //        SearchEnemies(10);
-            //    }
-            //    ActionButton.Visibility = Visibility.Collapsed;
-            //    ActionPanel.Visibility = Visibility.Collapsed;
-            //}
+            if (EnemiesInRange.Count != 0 && player.Hp != 0 && isPlayerTurn)
+            {
+                BonusPanel.Visibility = Visibility.Visible;
+                int[] DmgDice = { 6, 6 };
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+                armafoda.Equip(player);
+                player.EquippedWeapon = armafoda;
+                player.Target = EnemiesInRange[0];
+                player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
+                //Se o inimigo morrer tira todas as referências do personagem no mapa
+                if (player.Target.Hp == 0)
+                {
+                    EnemyHp.Children.Clear();
+                    foreach (MapBlock map_block in ImgBlocks)
+                        if (((Character)map_block.block).posY == player.Target.posY && ((Character)map_block.block).posX == player.Target.posX)
+                        {
+                            MapGrid.Children.Remove(map_block.GetImage());
+                            ImgBlocks.Remove(map_block);
+                            break;
+                        }
+                    map_matrix[player.Target.posY, player.Target.posX].block = null;
+                    player.Target = null;
+                    EnemiesInRange[0] = null;
+                    SearchEnemies(10);
+                }
+                BonusButton.Visibility = Visibility.Collapsed;
+                BonusPanel.Visibility = Visibility.Collapsed;
+            }
         }
 
         /// <summary>
@@ -912,7 +915,7 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
-            if (EnemiesInRange.Count != 0 && player.Hp != 0)
+            if (EnemiesInRange.Count != 0 && player.Hp != 0 && isPlayerTurn)
             {
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
@@ -1132,6 +1135,7 @@ namespace Titulo_UWP
             ActionButton.Visibility = visibility;
             ActionPanel.Visibility = visibility;
             BonusButton.Visibility = visibility;
+            BonusPanel.Visibility = visibility;
             MoveButton.Visibility = visibility;
             Scrollpaper.Visibility = visibility;
             EnemyName.Visibility = visibility;
