@@ -92,8 +92,8 @@ namespace TituloCore
         /// </summary>
         public void AddBonusActions()
         {
-            Self.Action.Add("Rage ON", new Action(RageOn));
-            Self.Action.Add("Rage OFF", new Action(RageOFF));
+            Self.BonusAction.Add("Rage ON", new Action(RageOn));
+            Self.BonusAction.Add("Rage OFF", new Action(RageOFF));
         }
     }
 }

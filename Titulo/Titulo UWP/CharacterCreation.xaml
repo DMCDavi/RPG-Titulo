@@ -21,12 +21,14 @@
                     <SolidColorBrush Color="White" Opacity="0.8"/>
                 </StackPanel.Background>
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Classe" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Center"  />
-                <RadioButton GroupName="ClassButtons" Content="Assassino" Tag="Assassin" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20" IsChecked="True"/>
-                <RadioButton GroupName="ClassButtons" Content="Bardo" Tag="Bard" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="ClassButtons" Content="Mago" Tag="Mage" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="ClassButtons" Content="Escudeiro" Tag="Shielder" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="ClassButtons" Content="Guerreiro" Tag="Warrior" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="ClassButtons" Content="Feiticeiro" Tag="Witcher" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Assassin" Tag="Assassin" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20" IsChecked="True"/>
+                <RadioButton GroupName="ClassButtons" Content="Bard" Tag="Bard" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Berserker" Tag="Berserker" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Cleric" Tag="Cleric" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Mage" Tag="Mage" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Shielder" Tag="Shielder" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Warrior" Tag="Warrior" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="ClassButtons" Content="Witcher" Tag="Witcher" Checked="Class_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
             </StackPanel>
             <StackPanel x:Name="StackRace" CornerRadius="30" Orientation="Vertical" Padding="20" >
                 <StackPanel.Background>
@@ -34,11 +36,11 @@
                 </StackPanel.Background>
                 <TextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="20" Text="Raça" TextAlignment="Center" Height="32" Width="81" HorizontalAlignment="Center"  />
                 <RadioButton GroupName="RaceButtons" Content="Dragonborn" Tag="Dragonborn" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="RaceButtons" Content="Anão" Tag="Dwarf" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="RaceButtons" Content="Elfo" Tag="Elf" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="RaceButtons" Content="Humano" Tag="Human" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20" IsChecked="True"/>
+                <RadioButton GroupName="RaceButtons" Content="Dwarf" Tag="Dwarf" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="RaceButtons" Content="Elf" Tag="Elf" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
+                <RadioButton GroupName="RaceButtons" Content="Human" Tag="Human" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20" IsChecked="True"/>
                 <RadioButton GroupName="RaceButtons" Content="Orc" Tag="Orc" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                <RadioButton GroupName="RaceButtons" Content="Golias" Tag="Goliath" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000"  FontSize="20"/>
+                <RadioButton GroupName="RaceButtons" Content="Goliath" Tag="Goliath" Checked="Race_Checked" FontFamily="Times New Roman" Foreground="#000"  FontSize="20"/>
             </StackPanel>
         </StackPanel>
         
