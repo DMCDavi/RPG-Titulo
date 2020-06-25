@@ -31,10 +31,12 @@ namespace Titulo_UWP
         private Thickness margin;
         private MapBlock[,] map_matrix = new MapBlock[43, 77];
         private List<MapBlock> ImgBlocks;
+        private List<MapBlock> ImgBlocksItem;
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
         private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
         Image heart_img;
+
 
         public Map()
         {
@@ -704,6 +706,15 @@ namespace Titulo_UWP
                 map_matrix[15, 40]
             };
 
+            ImgBlocksItem = new List<MapBlock>
+            {
+                map_matrix[5, 41],
+                map_matrix[5, 42],
+                map_matrix[5, 43],
+                map_matrix[6, 41],
+                map_matrix[6, 42],
+            };
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -742,7 +753,15 @@ namespace Titulo_UWP
                 BonusPanel.Children.Add(action_btn);
             }
 
-            //Preenche o mapa com as imagens dos blocos
+            //foreach (MapBlock map_block in ImgBlocksItem)
+            //{
+            //    map_block.SetImage(new Image(), "ms-appx:///Assets/Itens/" + "/Armaments_" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
+            //    MapGrid.Children.Add(map_block.GetImage());
+            //    Grid.SetColumnSpan(map_block.GetImage(), 16);
+            //    Grid.SetRowSpan(map_block.GetImage(), 9);
+            //}
+
+            //Preenche o mapa com as imagens dos blocos de personagem
             foreach (MapBlock map_block in ImgBlocks)
             {
                 map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
@@ -761,6 +780,8 @@ namespace Titulo_UWP
             base.OnNavigatedTo(e);
 
         }
+
+
 
         /// <summary>
         /// Adiciona corações de vida ao personagem
@@ -787,6 +808,7 @@ namespace Titulo_UWP
         private void OpenInventory(object sender, RoutedEventArgs e)
         {
             Inventory.Visibility = Visibility.Visible;
+            charArma.Content = player.EquippedWeapon.Name;
         }
 
         private void CloseInventory(object sender, RoutedEventArgs e)
@@ -797,6 +819,17 @@ namespace Titulo_UWP
         private void OpenInventoryB()
         {
             Inventory.Visibility = Visibility.Visible;
+            try
+            {
+                charArma.Content = "gean";
+
+            }
+            catch
+            {
+
+            }
+            
+
         }
 
         private void CloseInventoryB()

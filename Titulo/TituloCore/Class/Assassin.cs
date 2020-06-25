@@ -34,7 +34,7 @@ namespace TituloCore
             Apprentice_Dagger = new Weapon("Slash", "DEX", DmgDice, 100, 0, 2);
             Apprentice_Leather_Armor = new Armor(10, -10, 20);
             Apprentice_Boots = new Boots(1);
-
+            Apprentice_Dagger.Name = "Dagger";
             Apprentice_Dagger.Equip(Self);
             Apprentice_Leather_Armor.Equip(Self);
             Apprentice_Boots.Equip(Self);
