@@ -143,6 +143,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Itens\Apprentice_Dagger.png" />
+    <Content Include="Assets\Itens\Apprentice_Bow.png" />
+    <Content Include="Assets\Itens\Apprentice_Shield.png" />
+    <Content Include="Assets\Itens\Apprentice_Sword.png" />
+    <Content Include="Assets\Itens\Apprentice_Estoc.png" />
+    <Content Include="Assets\Itens\Apprentice_Saber.png" />
     <Content Include="Assets\Mapa\Heart.png" />
     <Content Include="Assets\Mapa\Mapa.png" />
     <Content Include="Assets\Menu\cyberpunk_landscape_blur.png" />
