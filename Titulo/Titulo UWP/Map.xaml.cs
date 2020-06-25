@@ -780,7 +780,7 @@ namespace Titulo_UWP
             if (EnemiesInRange.Count != 0)
             {
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1, player);
                 player.EquippedWeapon = armafoda;
                 player.Target = EnemiesInRange[0];
                 player.Action[((Button)sender).Name].DynamicInvoke();
