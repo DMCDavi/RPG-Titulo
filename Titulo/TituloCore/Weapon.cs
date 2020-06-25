@@ -6,9 +6,8 @@ using System.Text;
 namespace TituloCore
 {
     [DataContract(Name = "Weapon", Namespace = "http://www.contoso.com")]
-    public class Weapon : IEquipment
+    public class Weapon : Equipment
     {
-        Character Owner;
         public string Tipo;
         public string Atributo;
         public List<int> Dices = new List<int>();
@@ -40,10 +39,19 @@ namespace TituloCore
             this.Range = Range;
         }
 
-        public void Equip(Character Owner)
+        public override void Equip(Character Owner)
         {
-            this.Owner = Owner;
+            if (this.Owner == null)
+                this.Owner = Owner;
+            if (Owner.EquippedWeapon != null)
+                Owner.EquippedWeapon.Unequip();
+            Owner.EquippedWeapon = this;
+            Owner.Inventory.Remove(this);
         }
+
+        
+
+                
 
         /// <summary>
         /// Aplica o dano de um ataque com a arma

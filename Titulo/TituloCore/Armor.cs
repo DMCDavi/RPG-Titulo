@@ -6,12 +6,11 @@ using System.Runtime.Serialization;
 namespace TituloCore
 {
     [DataContract(Name = "Armor", Namespace = "http://www.contoso.com")]
-    public class Armor : IEquipment
+    public class Armor : Equipment
     {
         int BaseAc;
         int MaxDex;
         int MinDex;
-        Character Owner;
         int DexBonus;
         int MagicBonus = 0;
 
@@ -29,9 +28,14 @@ namespace TituloCore
             this.MinDex = MinDex;
         }
 
-        public void Equip(Character Owner)
+        public override void Equip(Character Owner)
         {
-            this.Owner = Owner;
+            if (this.Owner == null)
+                this.Owner = Owner;
+            if (Owner.EquippedArmor != null)
+                Owner.EquippedArmor.Unequip();
+            Owner.EquippedArmor = this;
+            Owner.Inventory.Remove(this);
             DexBonus = Owner.Modifier("DEX");
             if (DexBonus > MaxDex)
                 DexBonus = MaxDex;
@@ -40,10 +44,7 @@ namespace TituloCore
             //MagicPassive();
         }
 
-        public void UnEquip()
-        {
-            Owner = null;
-        }
+        
 
         public int Ac()
         {

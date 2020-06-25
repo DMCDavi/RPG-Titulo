@@ -88,6 +88,8 @@ namespace TituloCore
         public int AcBonus { get; set; }
         [DataMember]
         public Character Target { get; set; }
+        [DataMember]
+        public List<Item> Inventory = new List<Item>();
         public int TurnMove { get; set; }
         public void SelectClass()
         {

@@ -799,7 +799,7 @@ namespace Titulo_UWP
             int[] DmgDice = { 6, 6 };
             Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
             armafoda.Equip(enemy);
-            enemy.EquippedWeapon = armafoda;
+            //enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
             enemy.Action["Attack"].DynamicInvoke();
             AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
@@ -865,7 +865,7 @@ namespace Titulo_UWP
                 int[] DmgDice = { 6, 6 };
                 Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
                 armafoda.Equip(player);
-                player.EquippedWeapon = armafoda;
+                //player.EquippedWeapon = armafoda;
                 player.Target = EnemiesInRange[0];
                 player.Action[((Button)sender).Name].DynamicInvoke();
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
