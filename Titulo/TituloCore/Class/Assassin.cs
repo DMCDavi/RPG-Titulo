@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
+using System.Diagnostics;
 
 namespace TituloCore
 {
@@ -16,8 +17,25 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            //EquipBaseSet(Self);
         }
-        
+
+        public void EquipBaseSet(Character Self)
+        {
+            int[] DmgDice = { 6, 6 };
+            Weapon Dagger = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+            Armor Leather_Armor = new Armor(10, -10, 20);
+            Boots Fleeting_Boots = new Boots(3);
+
+            Dagger.Equip(Self);
+            Leather_Armor.Equip(Self);
+            Fleeting_Boots.Equip(Self);
+
+            if (Self.EquippedBoots != null)
+            {
+                Debug.WriteLine("deu bom");
+            }
+        }
 
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal

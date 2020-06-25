@@ -8,6 +8,7 @@ namespace TituloCore
 {
     [DataContract(Name = "Character")]
     //Lista de objetos de personagem que podem ser serializados
+    [KnownType(typeof(Item))]
     [KnownType(typeof(Assassin))]
     [KnownType(typeof(Bard))]
     [KnownType(typeof(Berserker))]
@@ -36,6 +37,7 @@ namespace TituloCore
     [KnownType(typeof(Orc))]
     [KnownType(typeof(Armor))]
     [KnownType(typeof(Weapon))]
+    [KnownType(typeof(Boots))]
     public class Character
     {
         [DataMember]
@@ -76,6 +78,8 @@ namespace TituloCore
         public Weapon EquippedWeapon { get; set; }
         [DataMember]
         public Armor EquippedArmor { get; set; }
+        [DataMember]
+        public Boots EquippedBoots { get; set; }
         [DataMember]
         public int HitDice { get; set; }
         [DataMember]

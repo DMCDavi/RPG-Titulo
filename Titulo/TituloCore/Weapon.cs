@@ -49,9 +49,18 @@ namespace TituloCore
             Owner.Inventory.Remove(this);
         }
 
-        
+        public override void Unequip()
+        {
+            if (this.Owner != null)
+            {
+                Owner.EquippedWeapon = null;
+                Owner.Inventory.Add(this);
+            }
+            else
+                Console.WriteLine("Erro: Equipamento sem dono");
+        }
 
-                
+
 
         /// <summary>
         /// Aplica o dano de um ataque com a arma

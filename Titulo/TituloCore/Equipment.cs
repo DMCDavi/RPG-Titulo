@@ -9,15 +9,6 @@ namespace TituloCore
 	public abstract class Equipment : Item
 	{
 		public abstract void Equip(Character Owner);
-        public void Unequip()
-        {
-            if (this.Owner != null)
-            {
-                Owner.EquippedWeapon = null;
-                Owner.Inventory.Add(this);
-            }
-            else
-                Console.WriteLine("Erro: Equipamento sem dono");
-        }
+		public abstract void Unequip();
     }
 }

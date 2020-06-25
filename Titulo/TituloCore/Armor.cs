@@ -36,6 +36,7 @@ namespace TituloCore
                 Owner.EquippedArmor.Unequip();
             Owner.EquippedArmor = this;
             Owner.Inventory.Remove(this);
+
             DexBonus = Owner.Modifier("DEX");
             if (DexBonus > MaxDex)
                 DexBonus = MaxDex;
@@ -44,7 +45,16 @@ namespace TituloCore
             //MagicPassive();
         }
 
-        
+        public override void Unequip()
+        {
+            if (this.Owner != null)
+            {
+                Owner.EquippedArmor = null;
+                Owner.Inventory.Add(this);
+            }
+            else
+                Console.WriteLine("Erro: Equipamento sem dono");
+        }
 
         public int Ac()
         {
