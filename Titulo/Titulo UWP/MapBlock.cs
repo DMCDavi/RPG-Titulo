@@ -20,11 +20,10 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Titulo_UWP
 {
-    public class MapBlock
+    public class MapBlock : MapBlockCore
     {
         public Thickness imgMargin;
         private Image ObjImg;
-        public Object block { get; set; }
 
         /// <summary>
         /// Seta e configura a imagem referente ao objeto que compõe o bloco do mapa
