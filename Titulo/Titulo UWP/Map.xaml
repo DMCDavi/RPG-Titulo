@@ -44,11 +44,8 @@
         <Button x:Name="MoveButton" Click="MoveButton_Click" Visibility="Collapsed" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="4" Content="Mover" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
         <Button x:Name="BonusButton" Visibility="Collapsed" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação Bônus" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
             <Button.Flyout>
-                <Flyout x:Name="Flyout_Action">
-                    <StackPanel Orientation="Vertical" >
-                        <Button Content="Ativar dança" MinWidth="220" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                        <Button Content="Desativar dança" MinWidth="220" FontFamily="Times New Roman" Foreground="#000" FontSize="20"/>
-                    </StackPanel>
+                <Flyout>
+                    <StackPanel x:Name="BonusPanel" Orientation="Vertical" />
                 </Flyout>
             </Button.Flyout>
         </Button>
