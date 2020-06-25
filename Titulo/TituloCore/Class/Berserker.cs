@@ -11,13 +11,32 @@ namespace TituloCore
         public Character Self;
         private bool Rage = false;
         private int RageDmg = 2;
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Waraxe;
+        [DataMember]
+        Armor Apprentice_Chainmail_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         public Berserker(Character Self)
         {
             this.Self = Self;
             HitDice();
             Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
+            EquipBaseSet(Self);
         }
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 6, 6 };
+            Apprentice_Waraxe = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+            Apprentice_Chainmail_Armor = new Armor(10, -10, 20);
+            Apprentice_Boots = new Boots(1);
 
+            Apprentice_Waraxe.Equip(Self);
+            Apprentice_Chainmail_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
+        }
         public void HitDice()
         {
             Self.HitDice = 12;

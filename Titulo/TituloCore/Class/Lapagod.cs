@@ -9,10 +9,30 @@ namespace TituloCore
     public class Lapagod : IClass
     {
         public Character Self;
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Fists;
+        [DataMember]
+        Armor Apprentice_Chainmail_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         public Lapagod(Character Self)
         {
             this.Self = Self;
             HitDice();
+            EquipBaseSet(Self);
+        }
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 6, 6 };
+            Apprentice_Fists = new Weapon("Fire", "INT", DmgDice, 100, 0, 2);
+            Apprentice_Chainmail_Armor = new Armor(10, -10, 20);
+            Apprentice_Boots = new Boots(1);
+
+            Apprentice_Fists.Equip(Self);
+            Apprentice_Chainmail_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
         }
         public void HitDice()
         {

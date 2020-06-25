@@ -13,11 +13,11 @@ namespace TituloCore
         [DataMember]
         int[] DmgDice;
         [DataMember]
-        Weapon Dagger;
+        Weapon Apprentice_Dagger;
         [DataMember]
-        Armor Leather_Armor;
+        Armor Apprentice_Leather_Armor;
         [DataMember]
-        Boots Fleeting_Boots;
+        Boots Apprentice_Boots;
         /// <summary>
         /// Construtor da classe Assasin
         /// </summary>
@@ -31,18 +31,13 @@ namespace TituloCore
         public void EquipBaseSet(Character Self)
         {
             DmgDice = new int[] { 6, 6 };
-            Dagger = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
-            Leather_Armor = new Armor(10, -10, 20);
-            Fleeting_Boots = new Boots(3);
-            
-            Dagger.Equip(Self);
-            Leather_Armor.Equip(Self);
-            Fleeting_Boots.Equip(Self);
+            Apprentice_Dagger = new Weapon("Slash", "DEX", DmgDice, 100, 0, 2);
+            Apprentice_Leather_Armor = new Armor(10, -10, 20);
+            Apprentice_Boots = new Boots(1);
 
-            if (Self.EquippedBoots != null)
-            {
-                Debug.WriteLine("deu bom");
-            }
+            Apprentice_Dagger.Equip(Self);
+            Apprentice_Leather_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
         }
 
         /// <summary>
