@@ -26,7 +26,7 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class Map : Page
     {
-        private Character player, ana, bia, davi, fernanda, geao, grao, joao, lapa, maria, vago;
+        private Character player, ana, bia, davi, fernanda, geao, grao, joao, lapa, maria, vago, nearest_enemy;
         private string persona_name = "David", race_name = "Human";
         private Thickness margin;
         private MapBlock[,] map_matrix = new MapBlock[43, 77];
@@ -877,14 +877,14 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void Bonus_Click(object sender, RoutedEventArgs e)
         {
-            if (EnemiesInRange.Count != 0 && player.Hp != 0 && isPlayerTurn)
+            if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
                 BonusPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
                 Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
-                player.Target = EnemiesInRange[0];
+                player.Target = nearest_enemy;
                 player.BonusAction[((Button)sender).Name].DynamicInvoke();
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
@@ -900,7 +900,7 @@ namespace Titulo_UWP
                         }
                     map_matrix[player.Target.posY, player.Target.posX].block = null;
                     player.Target = null;
-                    EnemiesInRange[0] = null;
+                    nearest_enemy = null;
                     SearchEnemies(10);
                 }
                 BonusButton.Visibility = Visibility.Collapsed;
@@ -915,14 +915,14 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
-            if (EnemiesInRange.Count != 0 && player.Hp != 0 && isPlayerTurn)
+            if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
                 Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
-                player.Target = EnemiesInRange[0];
+                player.Target = nearest_enemy;
                 player.Action[((Button)sender).Name].DynamicInvoke();
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
@@ -938,7 +938,7 @@ namespace Titulo_UWP
                         }
                     map_matrix[player.Target.posY, player.Target.posX].block = null;
                     player.Target = null;
-                    EnemiesInRange[0] = null;
+                    nearest_enemy = null;
                     SearchEnemies(10);
                 }
                 ActionButton.Visibility = Visibility.Collapsed;
@@ -1092,30 +1092,43 @@ namespace Titulo_UWP
         /// <param name="enemy_range">Raio de busca</param>
         private void SearchEnemies(int enemy_range)
         {
-            hasEnemyInRange = false;
-            EnemiesInRange.Clear();
-            //Verifica se existe algum inimigo no raio do personagem
-            for (int i = player.posY - enemy_range; i < player.posY + enemy_range; i++)
+            if (player.Hp != 0)
             {
-                for (int j = player.posX - enemy_range; j < player.posX + enemy_range; j++)
+                hasEnemyInRange = false;
+                nearest_enemy = null;
+                EnemiesInRange.Clear();
+                //Verifica se existe algum inimigo no raio do personagem
+                for (int i = player.posY - enemy_range; i < player.posY + enemy_range; i++)
                 {
-                    if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].block != null && map_matrix[i, j].block.GetType() == typeof(Character))
+                    for (int j = player.posX - enemy_range; j < player.posX + enemy_range; j++)
                     {
-                        hasEnemyInRange = true;
-                        EnemiesInRange.Add((Character)map_matrix[i, j].block);
-                        EnemyName.Text = EnemiesInRange[0].PersonaName;
-                        AddLife(EnemyHp, EnemiesInRange[0].Hp, EnemiesInRange[0].Hpmax);
-                    }
+                        if (i >= 0 && i < 43 && j >= 0 && j < 77 && map_matrix[i, j].block != null && map_matrix[i, j].block.GetType() == typeof(Character))
+                        {
+                            hasEnemyInRange = true;
+                            EnemiesInRange.Add((Character)map_matrix[i, j].block);
 
+                            //Armazena o inimigo mais próximo ao player
+                            if (nearest_enemy == null || (nearest_enemy != null && Math.Sqrt(Math.Pow(nearest_enemy.posX - player.posX, 2) + Math.Pow(nearest_enemy.posY - player.posY, 2)) > Math.Sqrt(Math.Pow(((Character)map_matrix[i, j].block).posX - player.posX, 2) + Math.Pow(((Character)map_matrix[i, j].block).posY - player.posY, 2))))
+                                nearest_enemy = (Character)map_matrix[i, j].block;
+                        }
+
+                    }
+                }
+                if (nearest_enemy != null)
+                {
+                    EnemyName.Text = nearest_enemy.PersonaName;
+                    AddLife(EnemyHp, nearest_enemy.Hp, nearest_enemy.Hpmax);
+                }
+                //Se tiver algum inimigo no raio e se o turno já não estiver ativado, ativa o modo dos turnos
+                if (hasEnemyInRange && !isPlayerTurn)
+                    ChangePlayerTurnStatus(true);
+                //Senão tiver inimigos no raio desativa o modo dos turnos
+                else if (!hasEnemyInRange)
+                {
+                    ChangePlayerTurnStatus(false);
+                    nearest_enemy = null;
                 }
             }
-            //Se tiver algum inimigo no raio e se o turno já não estiver ativado, ativa o modo dos turnos
-            if (hasEnemyInRange && !isPlayerTurn)
-                ChangePlayerTurnStatus(true);
-            //Senão tiver inimigos no raio desativa o modo dos turnos
-            else if (!hasEnemyInRange)
-                ChangePlayerTurnStatus(false);
-
         }
 
         /// <summary>
@@ -1167,9 +1180,7 @@ namespace Titulo_UWP
 
                     //Seta a margem de cada imagem presente no mapa
                     foreach (var block in ImgBlocks)
-                    {
                         block.imgMargin = block.GetImage().Margin;
-                    }
 
                     if (e.Key == Windows.System.VirtualKey.W)
                         Up();
