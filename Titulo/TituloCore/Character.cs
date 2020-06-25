@@ -269,13 +269,13 @@ namespace TituloCore
             MainClass = Class;
             RaceName = Race;
             PersonaName = Persona;
-            SelectClass();
             this.Race = AllRace[Race];
             Exp = 0;
             Lvl = 1;
             this.Persona = AllPersona[Persona];
             this.Persona.AtributeInc(this);
             this.Race.Speed(this);
+            SelectClass();
             this.Race.Language(this);
             this.Race.AtributeInc(this);
             Hpmax = HitDice + Modifier("CON");

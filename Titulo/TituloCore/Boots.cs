@@ -8,6 +8,7 @@ namespace TituloCore
 	[DataContract(Name = "Boots", Namespace = "http://www.contoso.com")]
 	public class Boots : Equipment
 	{
+		[DataMember]
 		public int Speed;
 		public Boots(int Speed)
 		{
@@ -30,7 +31,7 @@ namespace TituloCore
 			{
 				Owner.EquippedBoots = null;
 				Owner.Inventory.Add(this);
-				Owner.TotalMove -= Speed;
+				Owner.TotalMove -= this.Speed;
 			}
 			else
 				Console.WriteLine("Erro: Equipamento sem dono");
@@ -39,7 +40,7 @@ namespace TituloCore
 
 		public void AddBonuses(Character Owner)
 		{
-			Owner.TotalMove += Speed;
+			Owner.TotalMove += this.Speed;
 		}
 	}
 }

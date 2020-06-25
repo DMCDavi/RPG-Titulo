@@ -10,6 +10,14 @@ namespace TituloCore
     public class Assassin : IClass
     {
         Character Self;
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Dagger;
+        [DataMember]
+        Armor Leather_Armor;
+        [DataMember]
+        Boots Fleeting_Boots;
         /// <summary>
         /// Construtor da classe Assasin
         /// </summary>
@@ -17,16 +25,16 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            //EquipBaseSet(Self);
+            EquipBaseSet(Self);
         }
 
         public void EquipBaseSet(Character Self)
         {
-            int[] DmgDice = { 6, 6 };
-            Weapon Dagger = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
-            Armor Leather_Armor = new Armor(10, -10, 20);
-            Boots Fleeting_Boots = new Boots(3);
-
+            DmgDice = new int[] { 6, 6 };
+            Dagger = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+            Leather_Armor = new Armor(10, -10, 20);
+            Fleeting_Boots = new Boots(3);
+            
             Dagger.Equip(Self);
             Leather_Armor.Equip(Self);
             Fleeting_Boots.Equip(Self);
