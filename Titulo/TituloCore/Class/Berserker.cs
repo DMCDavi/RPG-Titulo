@@ -10,6 +10,7 @@ namespace TituloCore
     {
         public Character Self;
         private bool Rage = false;
+        [DataMember]
         private int RageDmg = 2;
         public Berserker(Character Self)
         {

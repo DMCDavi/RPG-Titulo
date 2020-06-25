@@ -227,7 +227,6 @@ namespace TituloCore
         /// </summary>
         public void LoadButtons()
         {
-            
             DefineAction();
             DefineBonusAction();
         }
