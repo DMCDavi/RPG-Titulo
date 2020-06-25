@@ -1085,7 +1085,6 @@ namespace Titulo_UWP
             SkipButton.Visibility = visibility;
             EnemyHp.Visibility = visibility;
             PlayerHp.Visibility = visibility;
-            Inventory.Visibility = visibility;
         }
 
         /// <summary>
@@ -1096,36 +1095,40 @@ namespace Titulo_UWP
         {
             base.OnKeyDown(e);
             //Movimenta se não tiver no turno do player ou se tiver e não tiver chegado no limite de movimentos
-            if (player.Hp != 0 && (!isPlayerTurn || (isPlayerTurn && player.TurnMove > 0 && moveActivated)))
+            if (player.Hp != 0)
             {
-                grid_x = Grid.GetColumn(CharacterImg);
-                grid_y = Grid.GetRow(CharacterImg);
-                margin = MapImg.Margin;
-
-                //Seta a margem de cada imagem presente no mapa
-                foreach (var block in ImgBlocks)
-                {
-                    block.imgMargin = block.GetImage().Margin;
-                }
-
-                if (e.Key == Windows.System.VirtualKey.W)
-                    Up();
-                else if (e.Key == Windows.System.VirtualKey.S)
-                    Down();
-                else if (e.Key == Windows.System.VirtualKey.A)
-                    Left();
-                else if (e.Key == Windows.System.VirtualKey.D)
-                    Right();
-                else if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Collapsed)
+                if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Collapsed)
                     OpenInventoryB();
                 else if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Visible)
                     CloseInventoryB();
-                //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
-                if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
-                    CharacterImg.Visibility = Visibility.Collapsed;
-                else
-                    CharacterImg.Visibility = Visibility.Visible;
-                SearchEnemies(10);
+
+                if (!isPlayerTurn || (isPlayerTurn && player.TurnMove > 0 && moveActivated))
+                {
+                    grid_x = Grid.GetColumn(CharacterImg);
+                    grid_y = Grid.GetRow(CharacterImg);
+                    margin = MapImg.Margin;
+
+                    //Seta a margem de cada imagem presente no mapa
+                    foreach (var block in ImgBlocks)
+                    {
+                        block.imgMargin = block.GetImage().Margin;
+                    }
+
+                    if (e.Key == Windows.System.VirtualKey.W)
+                        Up();
+                    else if (e.Key == Windows.System.VirtualKey.S)
+                        Down();
+                    else if (e.Key == Windows.System.VirtualKey.A)
+                        Left();
+                    else if (e.Key == Windows.System.VirtualKey.D)
+                        Right();
+                    //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
+                    if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
+                        CharacterImg.Visibility = Visibility.Collapsed;
+                    else
+                        CharacterImg.Visibility = Visibility.Visible;
+                    SearchEnemies(10);
+                }
             }
         }
     }
