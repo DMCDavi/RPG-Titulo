@@ -53,9 +53,10 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void Song()
+        public void Song(string song)
         {
-            string song = "Hunter";
+            if(song != "Earth")
+                song = "Hunter";
             //Escolher Fire ou Fury
             if (song == "Earth")
                 SongEarth();
@@ -176,17 +177,16 @@ namespace TituloCore
             this.Self = Self;
             Self.Action.Remove("Attack");
             Self.Action.Add("Attack", new Func<bool>(() => Attack()));
-            /*Self.Action.Add("Song", new Action(Song));
+        }
+        public void AddBonusActions()
+        {
+            Self.Action.Add("Song", new Action<string>(Song));
             Self.Action.Add("Stop Singing", new Action(StopSinging));
             if (Self.Lvl >= 4)
             {
                 Self.Action.Add("Dance", new Action(Dance));
                 Self.Action.Add("Stop Dancing", new Action(StopDancing));
-            }*/
-        }
-        public void AddBonusActions()
-        {
-
+            }
         }
     }
 }
