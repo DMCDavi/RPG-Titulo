@@ -770,6 +770,16 @@ namespace Titulo_UWP
             }
         }
 
+        private void OpenInventory(object sender, RoutedEventArgs e)
+        {
+            Inventory.Visibility = Visibility.Visible;
+        }
+
+        private void CloseInventory(object sender, RoutedEventArgs e)
+        {
+            Inventory.Visibility = Visibility.Collapsed;
+        }
+
         /// <summary>
         /// Ataca um inimigo que está no raio do personagem
         /// </summary>
@@ -974,6 +984,8 @@ namespace Titulo_UWP
                 SkipButton.Visibility = Visibility.Visible;
                 EnemyHp.Visibility = Visibility.Visible;
                 PlayerHp.Visibility = Visibility.Visible;
+                InventoryButton.Visibility = Visibility.Collapsed;
+                Inventory.Visibility = Visibility.Collapsed;
             }
             //Senao desativa o modo dos turnos
             else
@@ -986,6 +998,7 @@ namespace Titulo_UWP
                 SkipButton.Visibility = Visibility.Collapsed;
                 EnemyHp.Visibility = Visibility.Collapsed;
                 PlayerHp.Visibility = Visibility.Collapsed;
+                InventoryButton.Visibility = Visibility.Visible;
             }
         }
 
