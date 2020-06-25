@@ -88,7 +88,7 @@ namespace TituloCore
         public int AcBonus { get; set; }
         [DataMember]
         public Character Target { get; set; }
-        public int turnmove { get; set; }
+        public int TurnMove { get; set; }
         public void SelectClass()
         {
             if (MainClass == "Assassin")
@@ -249,7 +249,7 @@ namespace TituloCore
         /// </summary>
         public void Dash()
         {
-            turnmove += TotalMove;
+            TurnMove += TotalMove;
         }
 
         /// <summary>

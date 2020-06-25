@@ -33,7 +33,7 @@ namespace Titulo_UWP
         private List<MapBlock> ImgBlocks;
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
-        private bool hasEnemyInRange = false;
+        private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
         Image heart_img;
 
         public Map()
@@ -735,7 +735,6 @@ namespace Titulo_UWP
                 Grid.SetColumnSpan(map_block.GetImage(), 16);
                 Grid.SetRowSpan(map_block.GetImage(), 9);
             }
-
             try
             {
                 CharacterImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Personagens/" + persona_name + "/Sem_fundo/" + persona_name + "_" + race_name + ".png"));
@@ -771,14 +770,76 @@ namespace Titulo_UWP
         }
 
         /// <summary>
+        /// Começa o turno do inimigo que está no raio do player
+        /// </summary>
+        /// <param name="enemy">Inimigo que irá começar o turno</param>
+        private void EnemyTurn(Character enemy)
+        {
+            int[] DmgDice = { 6, 6 };
+            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, enemy);
+            enemy.EquippedWeapon = armafoda;
+            enemy.Target = player;
+            enemy.Action["Attack"].DynamicInvoke();
+            AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
+            //Se o player morrer tira todas as referências do personagem no mapa
+            if (enemy.Target.Hp == 0)
+            {
+                ChangePlayerTurnStatus(false);
+                DeathPanel.Visibility = Visibility.Visible;
+                CharacterImg.Visibility = Visibility.Collapsed;
+                PlayerHp.Children.Clear();
+                enemy.Target = null;
+            }
+            else
+                ChangePlayerTurnStatus(true);
+        }
+
+        /// <summary>
+        /// Termina o turno do player
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SkipTurn(object sender, RoutedEventArgs e)
+        {
+            if (player.Hp != 0)
+            {
+                SkipButton.Visibility = Visibility.Collapsed;
+                ChangePlayerTurnStatus(false);
+                foreach (var enemy in EnemiesInRange)
+                {
+                    if (player == null)
+                        break;
+                    EnemyTurn(enemy);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Navega para a tela de seleção dos personagens
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NavigateSelection(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CharacterSelectionPage));
+        }
+
+        private void MoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            moveActivated = true;
+            MoveButton.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
         /// Ataca um inimigo que está no raio do personagem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
-            if (EnemiesInRange.Count != 0)
+            if (EnemiesInRange.Count != 0 && player.Hp != 0)
             {
+                ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
                 Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
                 player.EquippedWeapon = armafoda;
@@ -801,6 +862,8 @@ namespace Titulo_UWP
                     EnemiesInRange[0] = null;
                     SearchEnemies(10);
                 }
+                ActionButton.Visibility = Visibility.Collapsed;
+                ActionPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -835,6 +898,7 @@ namespace Titulo_UWP
                     Grid.SetRow(CharacterImg, grid_y);
                     player.posY--;
                 }
+                player.TurnMove--;
             }
         }
 
@@ -869,6 +933,7 @@ namespace Titulo_UWP
                     Grid.SetRow(CharacterImg, grid_y);
                     player.posY++;
                 }
+                player.TurnMove--;
             }
         }
 
@@ -903,6 +968,7 @@ namespace Titulo_UWP
                     Grid.SetColumn(CharacterImg, grid_x);
                     player.posX--;
                 }
+                player.TurnMove--;
             }
         }
 
@@ -937,6 +1003,7 @@ namespace Titulo_UWP
                     Grid.SetColumn(CharacterImg, grid_x);
                     player.posX++;
                 }
+                player.TurnMove--;
             }
         }
 
@@ -963,33 +1030,39 @@ namespace Titulo_UWP
 
                 }
             }
-            //Se tiver algum inimigo, ativa o modo dos turno
-            if (hasEnemyInRange)
-            {
-                ActionButton.Visibility = Visibility.Visible;
-                BonusButton.Visibility = Visibility.Visible;
-                MoveButton.Visibility = Visibility.Visible;
-                Scrollpaper.Visibility = Visibility.Visible;
-                EnemyName.Visibility = Visibility.Visible;
-                SkipButton.Visibility = Visibility.Visible;
-                EnemyHp.Visibility = Visibility.Visible;
-                PlayerHp.Visibility = Visibility.Visible;
-            }
-            //Senao desativa o modo dos turnos
-            else
-            {
-                ActionButton.Visibility = Visibility.Collapsed;
-                BonusButton.Visibility = Visibility.Collapsed;
-                MoveButton.Visibility = Visibility.Collapsed;
-                Scrollpaper.Visibility = Visibility.Collapsed;
-                EnemyName.Visibility = Visibility.Collapsed;
-                SkipButton.Visibility = Visibility.Collapsed;
-                EnemyHp.Visibility = Visibility.Collapsed;
-                PlayerHp.Visibility = Visibility.Collapsed;
-            }
+            //Se tiver algum inimigo no raio e se o turno já não estiver ativado, ativa o modo dos turnos
+            if (hasEnemyInRange && !isPlayerTurn)
+                ChangePlayerTurnStatus(true);
+            //Senão tiver inimigos no raio desativa o modo dos turnos
+            else if (!hasEnemyInRange)
+                ChangePlayerTurnStatus(false);
+
         }
 
-
+        /// <summary>
+        /// Ativa ou desativa o modo de turno do player
+        /// </summary>
+        /// <param name="is_player_turn">Armazena se é ou não o turno do player</param>
+        private void ChangePlayerTurnStatus(bool is_player_turn)
+        {
+            Visibility visibility = new Visibility();
+            if (is_player_turn)
+                visibility = Visibility.Visible;
+            else
+                visibility = Visibility.Collapsed;
+            isPlayerTurn = is_player_turn;
+            moveActivated = false;
+            player.TurnMove = player.TotalMove;
+            ActionButton.Visibility = visibility;
+            ActionPanel.Visibility = visibility;
+            BonusButton.Visibility = visibility;
+            MoveButton.Visibility = visibility;
+            Scrollpaper.Visibility = visibility;
+            EnemyName.Visibility = visibility;
+            SkipButton.Visibility = visibility;
+            EnemyHp.Visibility = visibility;
+            PlayerHp.Visibility = visibility;
+        }
 
         /// <summary>
         /// Ao apertar uma seta, o personagem se move de acordo à direção apontada
@@ -998,30 +1071,34 @@ namespace Titulo_UWP
         protected override void OnKeyDown(KeyRoutedEventArgs e)
         {
             base.OnKeyDown(e);
-            grid_x = Grid.GetColumn(CharacterImg);
-            grid_y = Grid.GetRow(CharacterImg);
-            margin = MapImg.Margin;
-
-            //Seta a margem de cada imagem presente no mapa
-            foreach (var block in ImgBlocks)
+            //Movimenta se não tiver no turno do player ou se tiver e não tiver chegado no limite de movimentos
+            if (player.Hp != 0 && (!isPlayerTurn || (isPlayerTurn && player.TurnMove > 0 && moveActivated)))
             {
-                block.imgMargin = block.GetImage().Margin;
-            }
+                grid_x = Grid.GetColumn(CharacterImg);
+                grid_y = Grid.GetRow(CharacterImg);
+                margin = MapImg.Margin;
 
-            if (e.Key == Windows.System.VirtualKey.W)
-                Up();
-            else if (e.Key == Windows.System.VirtualKey.S)
-                Down();
-            else if (e.Key == Windows.System.VirtualKey.A)
-                Left();
-            else if (e.Key == Windows.System.VirtualKey.D)
-                Right();
-            //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
-            if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
-                CharacterImg.Visibility = Visibility.Collapsed;
-            else
-                CharacterImg.Visibility = Visibility.Visible;
-            SearchEnemies(10);
+                //Seta a margem de cada imagem presente no mapa
+                foreach (var block in ImgBlocks)
+                {
+                    block.imgMargin = block.GetImage().Margin;
+                }
+
+                if (e.Key == Windows.System.VirtualKey.W)
+                    Up();
+                else if (e.Key == Windows.System.VirtualKey.S)
+                    Down();
+                else if (e.Key == Windows.System.VirtualKey.A)
+                    Left();
+                else if (e.Key == Windows.System.VirtualKey.D)
+                    Right();
+                //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
+                if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
+                    CharacterImg.Visibility = Visibility.Collapsed;
+                else
+                    CharacterImg.Visibility = Visibility.Visible;
+                SearchEnemies(10);
+            }
         }
     }
 }
