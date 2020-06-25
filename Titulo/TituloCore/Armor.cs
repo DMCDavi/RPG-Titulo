@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace TituloCore
 {
     [DataContract(Name = "Armor", Namespace = "http://www.contoso.com")]
-    public class Armor
+    public class Armor : IEquipment
     {
         int BaseAc;
         int MaxDex;

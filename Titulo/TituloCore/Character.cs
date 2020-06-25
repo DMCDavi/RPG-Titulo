@@ -229,19 +229,20 @@ namespace TituloCore
         {
             
             DefineAction();
-
+            DefineBonusAction();
         }
         public void DefineAction()
         {
             if(!Action.ContainsKey("Attack"))
                 Action.Add("Attack", new Func<bool>(() => Attack()));
+            Action.Add("Dash", new Action(Dash));
             CharacterClass.AddActions(this);
         }
 
         public void DefineBonusAction()
         {
-            
-            //CharacterClass.AddActions(this);
+            //Add useitem
+            CharacterClass.AddBonusActions();
         }
 
         /// <summary>

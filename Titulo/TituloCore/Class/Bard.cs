@@ -9,6 +9,7 @@ namespace TituloCore
     public class Bard : IClass
     {
         public Character Self;
+        [DataMember]
         private int FireDmg = 3;
         private bool fire = false, fury = false, earth = false, hunter = false;
         public bool Singing = false, Dancing = false;
@@ -42,7 +43,7 @@ namespace TituloCore
 
             if (Self.Lvl == 4)
             {
-                Self.Action.Add("Dance", new Action(Dance));
+                Self.Action.Add("Dance", new Action<string>(Dance));
                 Self.Action.Add("Stop Dancing", new Action(StopDancing));
             }
         }
@@ -53,9 +54,10 @@ namespace TituloCore
             return 1 + rand.Next() % Self.HitDice;
         }
 
-        public void Song()
+        public void Song(string song)
         {
-            string song = "Hunter";
+            if(song != "Earth")
+                song = "Hunter";
             //Escolher Fire ou Fury
             if (song == "Earth")
                 SongEarth();
@@ -64,9 +66,10 @@ namespace TituloCore
             Dancing = true;
         }
 
-        public void Dance()
+        public void Dance(string dance)
         {
-            string dance = "Fire";
+            if(dance != "Fury")
+                dance = "Fire";
             //Escolher Fire ou Fury
             if (dance == "Fire")
                 DanceFire();
@@ -176,17 +179,16 @@ namespace TituloCore
             this.Self = Self;
             Self.Action.Remove("Attack");
             Self.Action.Add("Attack", new Func<bool>(() => Attack()));
-            /*Self.Action.Add("Song", new Action(Song));
-            Self.Action.Add("Stop Singing", new Action(StopSinging));
-            if (Self.Lvl >= 4)
-            {
-                Self.Action.Add("Dance", new Action(Dance));
-                Self.Action.Add("Stop Dancing", new Action(StopDancing));
-            }*/
         }
         public void AddBonusActions()
         {
-
+            Self.Action.Add("Song", new Action<string>(Song));
+            Self.Action.Add("Stop Singing", new Action(StopSinging));
+            if (Self.Lvl >= 4)
+            {
+                Self.Action.Add("Dance", new Action<string>(Dance));
+                Self.Action.Add("Stop Dancing", new Action(StopDancing));
+            }
         }
     }
 }

@@ -769,6 +769,27 @@ namespace Titulo_UWP
             }
         }
 
+        private void OpenInventory(object sender, RoutedEventArgs e)
+        {
+            Inventory.Visibility = Visibility.Visible;
+        }
+
+        private void CloseInventory(object sender, RoutedEventArgs e)
+        {
+            Inventory.Visibility = Visibility.Collapsed;
+        }
+
+        private void OpenInventoryB()
+        {
+            Inventory.Visibility = Visibility.Visible;
+        }
+
+        private void CloseInventoryB()
+        {
+            Inventory.Visibility = Visibility.Collapsed;
+        }
+
+
         /// <summary>
         /// Começa o turno do inimigo que está no raio do player
         /// </summary>
@@ -841,7 +862,8 @@ namespace Titulo_UWP
             {
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
+                armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = EnemiesInRange[0];
                 player.Action[((Button)sender).Name].DynamicInvoke();
@@ -1062,6 +1084,7 @@ namespace Titulo_UWP
             SkipButton.Visibility = visibility;
             EnemyHp.Visibility = visibility;
             PlayerHp.Visibility = visibility;
+            Inventory.Visibility = visibility;
         }
 
         /// <summary>
@@ -1092,6 +1115,10 @@ namespace Titulo_UWP
                     Left();
                 else if (e.Key == Windows.System.VirtualKey.D)
                     Right();
+                else if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Collapsed)
+                    OpenInventoryB();
+                else if (e.Key == Windows.System.VirtualKey.V && Inventory.Visibility == Visibility.Visible)
+                    CloseInventoryB();
                 //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
                 if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))
                     CharacterImg.Visibility = Visibility.Collapsed;
