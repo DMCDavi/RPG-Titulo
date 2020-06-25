@@ -64,7 +64,7 @@ namespace TituloCore
             B.Create();
             */
             int[] DmgDice = { 6, 6 };
-            Weapon DESGRAÇA = new Weapon("Slash","STR",DmgDice, 0, 0, A);
+            Weapon DESGRAÇA = new Weapon("Slash","STR",DmgDice, 0, 0, 1, A);
             Armor Pica = new Armor(10, -10, 10);
             Pica.Equip(B);
             A.EquippedWeapon = DESGRAÇA;

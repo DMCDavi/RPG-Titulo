@@ -8,7 +8,6 @@ namespace TituloCore
     [DataContractAttribute(Name = "Cleric")]
     public class Cleric : IClass
     {
-        public int ClericLvl;
         public Character Self;
 
         /// <summary>

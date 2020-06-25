@@ -26,7 +26,7 @@ namespace TituloCore
         /// <param name="Tipo">Tipo de dano</param>
         /// <param name="Atributo">Atributo que a arma usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, Character Owner)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, int Range, Character Owner)
         {
             this.Owner = Owner;
             this.Tipo = Tipo;
@@ -37,7 +37,7 @@ namespace TituloCore
             }
             HitBonus = Hit;
             DmgBonus = Damage;
-            Range = 1;
+            this.Range = Range;
         }
 
         /// <summary>

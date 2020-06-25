@@ -790,7 +790,7 @@ namespace Titulo_UWP
             if (EnemiesInRange.Count != 0)
             {
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, player);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1, player);
                 player.EquippedWeapon = armafoda;
                 player.Target = EnemiesInRange[0];
                 player.Action[((Button)sender).Name].DynamicInvoke();
@@ -1021,13 +1021,13 @@ namespace Titulo_UWP
                 block.imgMargin = block.GetImage().Margin;
             }
 
-            if (e.Key == Windows.System.VirtualKey.Up)
+            if (e.Key == Windows.System.VirtualKey.W)
                 Up();
-            else if (e.Key == Windows.System.VirtualKey.Down)
+            else if (e.Key == Windows.System.VirtualKey.S)
                 Down();
-            else if (e.Key == Windows.System.VirtualKey.Left)
+            else if (e.Key == Windows.System.VirtualKey.A)
                 Left();
-            else if (e.Key == Windows.System.VirtualKey.Right)
+            else if (e.Key == Windows.System.VirtualKey.D)
                 Right();
             //Se o bloco que o personagem se moveu for uma entrada, sua imagem desaparece
             if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX].block.GetType() == typeof(Door)))

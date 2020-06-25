@@ -9,7 +9,6 @@ namespace TituloCore
     public class Mage : IClass
     {
         public Character Self;
-        public int MageLvl;
 
         /// <summary>
         /// Construtor da classe Mage
