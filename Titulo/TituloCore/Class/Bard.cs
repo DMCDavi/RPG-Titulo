@@ -182,12 +182,12 @@ namespace TituloCore
         }
         public void AddBonusActions()
         {
-            Self.Action.Add("Song", new Action<string>(Song));
-            Self.Action.Add("Stop Singing", new Action(StopSinging));
+            Self.BonusAction.Add("Song", new Action<string>(Song));
+            Self.BonusAction.Add("Stop Singing", new Action(StopSinging));
             if (Self.Lvl >= 4)
             {
-                Self.Action.Add("Dance", new Action<string>(Dance));
-                Self.Action.Add("Stop Dancing", new Action(StopDancing));
+                Self.BonusAction.Add("Dance", new Action<string>(Dance));
+                Self.BonusAction.Add("Stop Dancing", new Action(StopDancing));
             }
         }
     }
