@@ -797,7 +797,8 @@ namespace Titulo_UWP
         private void EnemyTurn(Character enemy)
         {
             int[] DmgDice = { 6, 6 };
-            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, enemy);
+            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
+            armafoda.Equip(enemy);
             enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
             enemy.Action["Attack"].DynamicInvoke();
@@ -862,7 +863,7 @@ namespace Titulo_UWP
             {
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = EnemiesInRange[0];
