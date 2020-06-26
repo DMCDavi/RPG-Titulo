@@ -91,7 +91,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                  </Grid.ColumnDefinitions>
-                <Button Background="#5e5e5e" Grid.Row="0" Grid.Column="0" Width="75" Height="75">
+                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="0" Width="75" Height="75">
                     <Image x:Name="charArma"/>
                 </Button>
                 <Button Background="#5e5e5e" Grid.Row="0" Grid.Column="1" Width="75" Height="75">
@@ -117,31 +117,81 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                <Button Background="#5e5e5e" x:Name="item0" Grid.Row="0" Grid.Column="0" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item1" Grid.Row="0" Grid.Column="1" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item2" Grid.Row="0" Grid.Column="2" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item3" Grid.Row="0" Grid.Column="3" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item4" Grid.Row="0" Grid.Column="4" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e"  x:Name="item5" Grid.Row="1" Grid.Column="0" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item6" Grid.Row="1" Grid.Column="1" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item7" Grid.Row="1" Grid.Column="2" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item8" Grid.Row="1" Grid.Column="3" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item9" Grid.Row="1" Grid.Column="4" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item10" Grid.Row="2" Grid.Column="0" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item11" Grid.Row="2" Grid.Column="1" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item12" Grid.Row="2" Grid.Column="2" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item13" Grid.Row="2" Grid.Column="3" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item14" Grid.Row="2" Grid.Column="4" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item15" Grid.Row="3" Grid.Column="0" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item16" Grid.Row="3" Grid.Column="1" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item17" Grid.Row="3" Grid.Column="2" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item18" Grid.Row="3" Grid.Column="3" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item19" Grid.Row="3" Grid.Column="4" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item20" Grid.Row="4" Grid.Column="0" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item21" Grid.Row="4" Grid.Column="1" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item22" Grid.Row="4" Grid.Column="2" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item23" Grid.Row="4" Grid.Column="3" Width="80" Height="80" Content="davi fezes"></Button>
-                <Button Background="#5e5e5e" x:Name="item24" Grid.Row="4" Grid.Column="4" Width="80" Height="80" Content="davi fezes"></Button>
+                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="0" Width="80" Height="80" >
+                    <Image x:Name="item0"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="1" Width="80" Height="80" >
+                    <Image x:Name="item1"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="2" Width="80" Height="80" >
+                    <Image x:Name="item2"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="3" Width="80" Height="80">
+                    <Image x:Name="item3"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="4" Width="80" Height="80" >
+                    <Image x:Name="item4"/>
+                </Button>
+                <Button Background="#5e5e5e"   Grid.Row="1" Grid.Column="0" Width="80" Height="80" >
+                    <Image x:Name="item5"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="1" Width="80" Height="80" >
+                    <Image x:Name="item6"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="2" Width="80" Height="80" >
+                    <Image x:Name="item7"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="3" Width="80" Height="80" >
+                    <Image x:Name="item8"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="4" Width="80" Height="80" >
+                    <Image x:Name="item9"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="0" Width="80" Height="80" >
+                    <Image x:Name="item10"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="1" Width="80" Height="80" >
+                    <Image x:Name="item11"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="2" Width="80" Height="80" >
+                    <Image x:Name="item12"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="3" Width="80" Height="80" >
+                    <Image x:Name="item13"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="4" Width="80" Height="80" >
+                    <Image x:Name="item14"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="0" Width="80" Height="80" >
+                    <Image x:Name="item15"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="1" Width="80" Height="80" >
+                    <Image x:Name="item16"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="2" Width="80" Height="80" >
+                    <Image x:Name="item17"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="3" Width="80" Height="80" >
+                    <Image x:Name="item18"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="4" Width="80" Height="80" >
+                    <Image x:Name="item19"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="0" Width="80" Height="80">
+                    <Image x:Name="item20"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="1" Width="80" Height="80" >
+                    <Image x:Name="item21"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="2" Width="80" Height="80" >
+                    <Image x:Name="item22"/>
+                </Button>
+                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="3" Width="80" Height="80" >
+                    <Image x:Name="item23"/>
+                </Button>
+                <Button Background="#5e5e5e" Grid.Row="4" Grid.Column="4" Width="80" Height="80" >
+                    <Image x:Name="item24"/>
+                </Button>
 
             </Grid>
             

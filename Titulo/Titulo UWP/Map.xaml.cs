@@ -806,31 +806,82 @@ namespace Titulo_UWP
             }
         }
 
-        private void OpenInventory(object sender, RoutedEventArgs e)
-        {
-            Inventory.Visibility = Visibility.Visible;
-           // charArma.Content = player.EquippedWeapon.Name;
-        }
-
-        private void CloseInventory(object sender, RoutedEventArgs e)
-        {
-            Inventory.Visibility = Visibility.Collapsed;
-        }
+        private void OpenInventory(object sender, RoutedEventArgs e) { }
 
         private void OpenInventoryB()
         {
             Inventory.Visibility = Visibility.Visible;
+
             try
             {
                 charBota.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedBoots.Name + ".png"));
                 charArmadura.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedArmor.Name + ".png"));
                 charArma.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedWeapon.Name + ".png"));
-
             }
             catch
             {
 
             }
+            try
+            {
+                if (player.Inventory[0] != null && 0 + 1 <= player.Inventory.Count()) item0.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[0].Name + ".png"));
+                else item0.Source = null;
+                if (player.Inventory[1] != null && 1 + 1 <= player.Inventory.Count()) item1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[1].Name + ".png"));
+                else item1.Source = null;
+                if (player.Inventory[2] != null && 2 + 1 <= player.Inventory.Count()) item2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[2].Name + ".png"));
+                else item2.Source = null;
+                if (player.Inventory[3] != null && 3 + 1 <= player.Inventory.Count()) item3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[3].Name + ".png"));
+                else item3.Source = null;
+                if (player.Inventory[4] != null && 4 + 1 <= player.Inventory.Count()) item4.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[4].Name + ".png"));
+                else item4.Source = null;
+                if (player.Inventory[5] != null && 5 + 1 <= player.Inventory.Count()) item5.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[5].Name + ".png"));
+                else item5.Source = null;
+                if (player.Inventory[6] != null && 6 + 1 <= player.Inventory.Count()) item6.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[6].Name + ".png"));
+                else item6.Source = null;
+                if (player.Inventory[7] != null && 7 + 1 <= player.Inventory.Count()) item7.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[7].Name + ".png"));
+                else item7.Source = null;
+                if (player.Inventory[8] != null && 8 + 1 <= player.Inventory.Count()) item8.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[8].Name + ".png"));
+                else item8.Source = null;
+                if (player.Inventory[9] != null && 9 + 1 <= player.Inventory.Count()) item9.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[9].Name + ".png"));
+                else item9.Source = null;
+                if (player.Inventory[10] != null && 10 + 1 <= player.Inventory.Count()) item10.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[10].Name + ".png"));
+                else item10.Source = null;
+                if (player.Inventory[11] != null && 11 + 1 <= player.Inventory.Count()) item11.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[11].Name + ".png"));
+                else item11.Source = null;
+                if (player.Inventory[12] != null && 12 + 1 <= player.Inventory.Count()) item12.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[12].Name + ".png"));
+                else item12.Source = null;
+                if (player.Inventory[13] != null && 13 + 1 <= player.Inventory.Count()) item13.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[13].Name + ".png"));
+                else item13.Source = null;
+                if (player.Inventory[14] != null && 14 + 1 <= player.Inventory.Count()) item14.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[14].Name + ".png"));
+                else item14.Source = null;
+                if (player.Inventory[15] != null && 15 + 1 <= player.Inventory.Count()) item15.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[15].Name + ".png"));
+                else item15.Source = null;
+                if (player.Inventory[16] != null && 16 + 1 <= player.Inventory.Count()) item16.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[16].Name + ".png"));
+                else item16.Source = null;
+                if (player.Inventory[17] != null && 17 + 1 <= player.Inventory.Count()) item17.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[17].Name + ".png"));
+                else item17.Source = null;
+                if (player.Inventory[18] != null && 18 + 1 <= player.Inventory.Count()) item18.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[18].Name + ".png"));
+                else item18.Source = null;
+                if (player.Inventory[19] != null && 19 + 1 <= player.Inventory.Count()) item19.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[19].Name + ".png"));
+                else item19.Source = null;
+                if (player.Inventory[20] != null && 20 + 1 <= player.Inventory.Count()) item20.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[20].Name + ".png"));
+                else item20.Source = null;
+                if (player.Inventory[21] != null && 21 + 1 <= player.Inventory.Count()) item21.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[21].Name + ".png"));
+                else item21.Source = null;
+                if (player.Inventory[22] != null && 22 + 1 <= player.Inventory.Count()) item22.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[22].Name + ".png"));
+                else item22.Source = null;
+                if (player.Inventory[23] != null && 23 + 1 <= player.Inventory.Count()) item23.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[23].Name + ".png"));
+                else item23.Source = null;
+                if (player.Inventory[24] != null && 24 + 1 <= player.Inventory.Count()) item24.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[24].Name + ".png"));
+                else item24.Source = null;
+            }
+            catch
+            {
+
+            }
+
+
+
 
 
         }
