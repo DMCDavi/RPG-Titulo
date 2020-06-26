@@ -38,6 +38,7 @@ namespace Titulo_UWP
         private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private Image heart_img;
+        private List<Image> Inv = new List<Image>();
 
 
         public Map()
@@ -46,7 +47,7 @@ namespace Titulo_UWP
             CriandoMapa();
             margin = MapImg.Margin;
         }
-
+        
         /// <summary>
         /// Cria a matriz que referencia o mapa
         /// </summary>
@@ -59,6 +60,32 @@ namespace Titulo_UWP
                     map_matrix[i, j] = new MapBlock();
                 }
             }
+
+            Inv.Add(item0);
+            Inv.Add(item1);
+            Inv.Add(item2);
+            Inv.Add(item3);
+            Inv.Add(item4);
+            Inv.Add(item5);
+            Inv.Add(item6);
+            Inv.Add(item7);
+            Inv.Add(item8);
+            Inv.Add(item9);
+            Inv.Add(item10);
+            Inv.Add(item11);
+            Inv.Add(item12);
+            Inv.Add(item13);
+            Inv.Add(item14);
+            Inv.Add(item15);
+            Inv.Add(item16);
+            Inv.Add(item17);
+            Inv.Add(item18);
+            Inv.Add(item19);
+            Inv.Add(item20);
+            Inv.Add(item21);
+            Inv.Add(item22);
+            Inv.Add(item23);
+            Inv.Add(item24);
 
             //Criando entradas de cavernas
             map_matrix[10, 17].block = new Cave();
@@ -866,12 +893,8 @@ namespace Titulo_UWP
             }
         }
 
-        private void OpenInventory(object sender, RoutedEventArgs e) { }
-
-        private void OpenInventoryB()
+        private void RenderInventory()
         {
-            Inventory.Visibility = Visibility.Visible;
-
             try
             {
                 charBota.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedBoots.Name + ".png"));
@@ -882,68 +905,49 @@ namespace Titulo_UWP
             {
 
             }
-            try
+            int i = 0;
+            foreach (Image img in Inv)
             {
-                if (player.Inventory[0] != null && 0 + 1 <= player.Inventory.Count()) item0.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[0].Name + ".png"));
-                else item0.Source = null;
-                if (player.Inventory[1] != null && 1 + 1 <= player.Inventory.Count()) item1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[1].Name + ".png"));
-                else item1.Source = null;
-                if (player.Inventory[2] != null && 2 + 1 <= player.Inventory.Count()) item2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[2].Name + ".png"));
-                else item2.Source = null;
-                if (player.Inventory[3] != null && 3 + 1 <= player.Inventory.Count()) item3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[3].Name + ".png"));
-                else item3.Source = null;
-                if (player.Inventory[4] != null && 4 + 1 <= player.Inventory.Count()) item4.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[4].Name + ".png"));
-                else item4.Source = null;
-                if (player.Inventory[5] != null && 5 + 1 <= player.Inventory.Count()) item5.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[5].Name + ".png"));
-                else item5.Source = null;
-                if (player.Inventory[6] != null && 6 + 1 <= player.Inventory.Count()) item6.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[6].Name + ".png"));
-                else item6.Source = null;
-                if (player.Inventory[7] != null && 7 + 1 <= player.Inventory.Count()) item7.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[7].Name + ".png"));
-                else item7.Source = null;
-                if (player.Inventory[8] != null && 8 + 1 <= player.Inventory.Count()) item8.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[8].Name + ".png"));
-                else item8.Source = null;
-                if (player.Inventory[9] != null && 9 + 1 <= player.Inventory.Count()) item9.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[9].Name + ".png"));
-                else item9.Source = null;
-                if (player.Inventory[10] != null && 10 + 1 <= player.Inventory.Count()) item10.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[10].Name + ".png"));
-                else item10.Source = null;
-                if (player.Inventory[11] != null && 11 + 1 <= player.Inventory.Count()) item11.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[11].Name + ".png"));
-                else item11.Source = null;
-                if (player.Inventory[12] != null && 12 + 1 <= player.Inventory.Count()) item12.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[12].Name + ".png"));
-                else item12.Source = null;
-                if (player.Inventory[13] != null && 13 + 1 <= player.Inventory.Count()) item13.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[13].Name + ".png"));
-                else item13.Source = null;
-                if (player.Inventory[14] != null && 14 + 1 <= player.Inventory.Count()) item14.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[14].Name + ".png"));
-                else item14.Source = null;
-                if (player.Inventory[15] != null && 15 + 1 <= player.Inventory.Count()) item15.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[15].Name + ".png"));
-                else item15.Source = null;
-                if (player.Inventory[16] != null && 16 + 1 <= player.Inventory.Count()) item16.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[16].Name + ".png"));
-                else item16.Source = null;
-                if (player.Inventory[17] != null && 17 + 1 <= player.Inventory.Count()) item17.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[17].Name + ".png"));
-                else item17.Source = null;
-                if (player.Inventory[18] != null && 18 + 1 <= player.Inventory.Count()) item18.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[18].Name + ".png"));
-                else item18.Source = null;
-                if (player.Inventory[19] != null && 19 + 1 <= player.Inventory.Count()) item19.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[19].Name + ".png"));
-                else item19.Source = null;
-                if (player.Inventory[20] != null && 20 + 1 <= player.Inventory.Count()) item20.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[20].Name + ".png"));
-                else item20.Source = null;
-                if (player.Inventory[21] != null && 21 + 1 <= player.Inventory.Count()) item21.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[21].Name + ".png"));
-                else item21.Source = null;
-                if (player.Inventory[22] != null && 22 + 1 <= player.Inventory.Count()) item22.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[22].Name + ".png"));
-                else item22.Source = null;
-                if (player.Inventory[23] != null && 23 + 1 <= player.Inventory.Count()) item23.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[23].Name + ".png"));
-                else item23.Source = null;
-                if (player.Inventory[24] != null && 24 + 1 <= player.Inventory.Count()) item24.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[24].Name + ".png"));
-                else item24.Source = null;
+                try
+                {
+                    img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[i].Name + ".png"));
+                }
+                catch
+                {
+                    break;
+                }
+                i++;
             }
-            catch
-            {
+        }
 
+        private void EquipInInventory(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            for(i = 0; i < Inv.Count(); i++)
+            {
+                if (((Button)sender).Content == Inv[i]) break;
             }
 
+            if (i > player.Inventory.Count()) return;
 
+            if(player.Inventory[i].GetType().IsSubclassOf(typeof(Equipment)))
+            {
+                ((Equipment)player.Inventory[i]).Equip(player);
+            }else if (player.Inventory[i].GetType().IsSubclassOf(typeof(Consumable)))
+            {
+                ((Consumable)player.Inventory[i]).Use(player);
+            }
+            RenderInventory();
+        }
 
+        private void OpenInventory(object sender, RoutedEventArgs e) { }
 
+        private void OpenInventoryB()
+        {
+            Inventory.Visibility = Visibility.Visible;
 
+            RenderInventory();
+            
         }
 
         private void CloseInventoryB()
@@ -1030,10 +1034,7 @@ namespace Titulo_UWP
             if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
                 BonusPanel.Visibility = Visibility.Visible;
-                int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
-                armafoda.Equip(player);
-                player.EquippedWeapon = armafoda;
+                
                 player.Target = nearest_enemy;
                 if (player.CharacterClass.GetType() == typeof(Bard) && (((Button)sender).Name == "Song" || ((Button)sender).Name == "Dance"))
                     AddBardButtons(((Button)sender).Name);
@@ -1106,10 +1107,6 @@ namespace Titulo_UWP
             if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
                 ActionPanel.Visibility = Visibility.Visible;
-                int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
-                armafoda.Equip(player);
-                player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;
                 player.Action[((Button)sender).Name].DynamicInvoke();
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
