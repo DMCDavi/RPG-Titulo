@@ -35,7 +35,7 @@ namespace Titulo_UWP
         private List<MapBlock> ImgBlocks;
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
-        private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
+        private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false, hasEnemyInMap = true;
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private Image heart_img;
         private List<Image> Inv = new List<Image>();
@@ -811,21 +811,7 @@ namespace Titulo_UWP
             player.LoadButtons();
             AddLife(PlayerHp, player.Hp, player.Hpmax);
             AddBonusButtons();
-
-            //Cria os botões de ataque referentes à classe do personagem
-            foreach (KeyValuePair<string, Delegate> action in player.Action)
-            {
-                Button action_btn = new Button();
-                action_btn.Content = action.Key;
-                action_btn.Name = action.Key;
-                action_btn.MinWidth = 220;
-                action_btn.FontFamily = new FontFamily("Times New Roman");
-                action_btn.Foreground = new SolidColorBrush(Colors.Black);
-                action_btn.FontSize = 20;
-                action_btn.Click += Attack_Click;
-                ActionPanel.Children.Add(action_btn);
-            }
-
+            AddActionButtons();
             //Preenche o mapa com as imagens dos blocos
             foreach (MapBlock map_block in ImgBlocks)
             {
@@ -851,7 +837,6 @@ namespace Titulo_UWP
         }
 
 
-
         /// <summary>
         /// Cria os botões de ataque bônus referentes à classe do personagem
         /// </summary>
@@ -871,6 +856,28 @@ namespace Titulo_UWP
                 BonusPanel.Children.Add(action_btn);
             }
         }
+
+        /// <summary>
+        /// Cria os botões de ataque referentes à classe do personagem
+        /// </summary>
+        private void AddActionButtons()
+        {
+            ActionPanel.Children.Clear();
+            foreach (KeyValuePair<string, Delegate> action in player.Action)
+            {
+                Button action_btn = new Button();
+                action_btn.Content = action.Key;
+                action_btn.Name = action.Key;
+                action_btn.MinWidth = 220;
+                action_btn.FontFamily = new FontFamily("Times New Roman");
+                action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                action_btn.FontSize = 20;
+                action_btn.Click += Attack_Click;
+                ActionPanel.Children.Add(action_btn);
+            }
+        }
+
+
 
         /// <summary>
         /// Adiciona os botões de song e dance do bardo
@@ -929,6 +936,26 @@ namespace Titulo_UWP
             }
         }
 
+        private void OpenInventory(object sender, RoutedEventArgs e) { }
+
+        private void JSButton_Click(object sender, RoutedEventArgs e)
+        {
+            WinPanel.Visibility = Visibility.Collapsed;
+            JSPanel.Visibility = Visibility.Visible;
+        }
+
+        private void FutureButton_Click(object sender, RoutedEventArgs e)
+        {
+            WinPanel.Visibility = Visibility.Collapsed;
+            FuturePanel.Visibility = Visibility.Visible;
+        }
+
+        private void LapaButton_Click(object sender, RoutedEventArgs e)
+        {
+            WinPanel.Visibility = Visibility.Collapsed;
+            LapaPanel.Visibility = Visibility.Visible;
+        }
+
         private void RenderInventory()
         {
             try
@@ -985,8 +1012,6 @@ namespace Titulo_UWP
             }
             RenderInventory();
         }
-
-        private void OpenInventory(object sender, RoutedEventArgs e) { }
 
         private void OpenInventoryB()
         {
@@ -1062,6 +1087,22 @@ namespace Titulo_UWP
         }
 
         /// <summary>
+        /// Checa se existe algum inimigo no mapa e retorna a vitória caso não tenha
+        /// </summary>
+        private void SearchEnemiesInMap()
+        {
+            hasEnemyInMap = false;
+            foreach (MapBlock map_block in ImgBlocks)
+                if (map_block.block.GetType() == typeof(Character))
+                    hasEnemyInMap = true;
+            if (!hasEnemyInMap)
+            {
+                ChangePlayerTurnStatus(false);
+                WinPanel.Visibility = Visibility.Visible;
+            }
+        }
+
+        /// <summary>
         /// Termina o turno do player
         /// </summary>
         /// <param name="sender"></param>
@@ -1112,6 +1153,7 @@ namespace Titulo_UWP
         {
             if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
+                AddBonusButtons();
                 BonusPanel.Visibility = Visibility.Visible;
 
                 player.Target = nearest_enemy;
@@ -1139,7 +1181,6 @@ namespace Titulo_UWP
                         mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Mothers Hymn.mp3"));
                         mediaPlayer.Play();
                     }
-                    AddBonusButtons();
                     BonusButton.Visibility = Visibility.Collapsed;
                     BonusPanel.Visibility = Visibility.Collapsed;
                 }
@@ -1156,7 +1197,6 @@ namespace Titulo_UWP
                     BonusPanel.Visibility = Visibility.Collapsed;
                 }
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
-
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
                 if (player.Target.Hp == 0)
                 {
@@ -1171,9 +1211,22 @@ namespace Titulo_UWP
                     map_matrix[player.Target.posY, player.Target.posX].block = null;
                     player.Target = null;
                     nearest_enemy = null;
+                    PlayerLvlUp();
                     SearchEnemies(10);
                 }
+                SearchEnemiesInMap();
             }
+        }
+
+        /// <summary>
+        /// Aumenta o nível do player
+        /// </summary>
+        private void PlayerLvlUp()
+        {
+            player.LvlUp(player.MainClass);
+            LvlTxt.Text = "Lvl " + player.Lvl.ToString();
+            AddBonusButtons();
+            AddActionButtons();
         }
 
         /// <summary>
@@ -1185,6 +1238,7 @@ namespace Titulo_UWP
         {
             if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
+                AddActionButtons();
                 ActionPanel.Visibility = Visibility.Visible;
                 player.Target = nearest_enemy;
                 player.Action[((Button)sender).Name].DynamicInvoke();
@@ -1205,7 +1259,9 @@ namespace Titulo_UWP
                     player.Target = null;
                     nearest_enemy = null;
                     SearchEnemies(10);
+                    PlayerLvlUp();
                 }
+                SearchEnemiesInMap();
                 ActionButton.Visibility = Visibility.Collapsed;
                 ActionPanel.Visibility = Visibility.Collapsed;
             }
@@ -1432,6 +1488,8 @@ namespace Titulo_UWP
             SkipButton.Visibility = visibility;
             EnemyHp.Visibility = visibility;
             PlayerHp.Visibility = visibility;
+            ScrollpaperLvl.Visibility = visibility;
+            LvlTxt.Visibility = visibility;
         }
 
         /// <summary>

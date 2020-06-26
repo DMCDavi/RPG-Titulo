@@ -40,16 +40,18 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="MapImg" Source="/Assets/Mapa/Mapa.png" Stretch="Fill" Margin="-2000,-2960,-3680,-560" Grid.RowSpan="9" Grid.ColumnSpan="16" />
         <Button Height="0" Width="0" />
-        <Button x:Name="SkipButton" Click="SkipTurn" Visibility="Collapsed" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="4" Content="Terminar" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
-        <Button x:Name="MoveButton" Click="MoveButton_Click" Visibility="Collapsed" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="4" Content="Mover" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
-        <Button x:Name="BonusButton" Visibility="Collapsed" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação Bônus" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
+        <Image Visibility="Collapsed" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="2" x:Name="ScrollpaperLvl" Source="/Assets/Menu/scrollpaper.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock x:Name="LvlTxt" Visibility="Collapsed" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="2" Text="Lvl 1" FontFamily="Times New Roman" Foreground="#000" FontSize="30" TextAlignment="Center" VerticalAlignment="Center" />
+        <Button x:Name="SkipButton" Click="SkipTurn" Visibility="Collapsed" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" Content="Terminar" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
+        <Button x:Name="MoveButton" Click="MoveButton_Click" Visibility="Collapsed" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3" Content="Mover" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0" />
+        <Button x:Name="BonusButton" Visibility="Collapsed" Grid.Column="10" Grid.Row="8" Grid.ColumnSpan="3" Content="Ação Bônus" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
             <Button.Flyout>
                 <Flyout>
                     <StackPanel x:Name="BonusPanel" Orientation="Vertical" />
                 </Flyout>
             </Button.Flyout>
         </Button>
-        <Button x:Name="ActionButton" Visibility="Collapsed" Grid.Column="12" Grid.Row="8" Grid.ColumnSpan="4" Content="Ação" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
+        <Button x:Name="ActionButton" Visibility="Collapsed" Grid.Column="13" Grid.Row="8" Grid.ColumnSpan="3" Content="Ação" CornerRadius="20" VerticalAlignment="Center" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" HorizontalAlignment="Center" Padding="25,0,25,0">
             <Button.Flyout>
                 <Flyout>
                     <StackPanel x:Name="ActionPanel" Orientation="Vertical" />
@@ -70,7 +72,62 @@
                 <Button x:Name="EndButton" FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Voltar a sua insignificância" Click="NavigateSelection" HorizontalAlignment="Center" Margin="10"/>
             </StackPanel>
         </StackPanel>
+        <StackPanel x:Name="WinPanel" Visibility="Collapsed" Grid.RowSpan="9" Grid.ColumnSpan="16" CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200,0,200,0" >
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Santo Graal - "Você é o último sobrevivente da guerra pelo Santo Graal. Seus feitos lhê concedem um único desejo"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "EU CONSEGUI!! NÃO ACREDITO QUE CONSEGUI DERROTAR OS HERÓIS MAIS FORTES DA HISTÓRIA!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Um Desejo?! Será que eu deveria..."</Paragraph>
+            </RichTextBlock>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button x:Name="JSButton" Click="JSButton_Click" FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Apagar JS da história" HorizontalAlignment="Center" Margin="10"/>
+                <Button x:Name="FutureButton" Click="FutureButton_Click" FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Voltar para o futuro" HorizontalAlignment="Center" Margin="10"/>
+                <Button x:Name="LapaButton" Click="LapaButton_Click"  FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Destruir Lapa" HorizontalAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
 
+        <StackPanel x:Name="JSPanel" Visibility="Collapsed" Grid.RowSpan="9" Grid.ColumnSpan="16" CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200,0,200,0" >
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Sim! Com certeza eu deveria ter escutado Lapa, usar JS é sempre uma péssima escolha."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "EU QUERO APAGAR O JAVASCRIPT!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Santo Graal - "Seu desejo é uma ordem..."</Paragraph>
+            </RichTextBlock>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Click="NavigateSelection" FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Sair vitorioso" HorizontalAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="FuturePanel" Visibility="Collapsed" Grid.RowSpan="9" Grid.ColumnSpan="16" CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200,0,200,0" >
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Eu fiz tudo isso pra sobreviver! Pra voltar a minha antiga vida! Só me resta voltar para o futuro..."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Santo Graal - "Seu desejo é uma ordem..."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">*Minutos depois*</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Finalmente! Mal posso acreditar que estou vivo, e de volta em casa! Mas... Há algo de errado, faltou a luz?!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Em pleno 2666, realmente faltou a luz? E que gritaria é essa lá fora? Vou verificar..."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Meu deus! As pessoas estão invadindo casas?! Tem carros queimando em todo lugar!!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Deve ter alguma explicação, vou olhar as notícias!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Apresentador do Jornal Internacional - "Vítimas da Guerra JS ultrapassam 1 bilhão em um mês! Protejam-se em suas casas..."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Guerra JS? JAVASCRIPT?! Meu deus... O QUE FOI QUE EU FIZ?!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">VOCÊ MORREU, TENTE NOVAMENTE</Paragraph>
+            </RichTextBlock>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Click="NavigateSelection" FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Voltar a sua insignificância" HorizontalAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="LapaPanel" Visibility="Collapsed" Grid.RowSpan="9" Grid.ColumnSpan="16" CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="200,0,200,0" >
+            <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "Maldito Lapa!! Ele poderia ter me avisado, não acredito que ele sabia disso tudo e nunca nos alertou... Só me resta..."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "EU QUERO DESTRUIR LAPA!"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Santo Graal - "Seu desejo é... Seu... desejo... É..."</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - "O QUE?! VOCÊ TAMBÉM É UMA FARSA? CONCEDA O MEU DE-"</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Galo Robo - “ARGHH! O-O que é isso?! Meu peito tá doendo muito! ARRGGHH!!!!”</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">VOCÊ MORREU, TENTE NOVAMENTE</Paragraph>
+            </RichTextBlock>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Click="NavigateSelection" FontFamily="Times New Roman" FontSize="30" Foreground="#000" CornerRadius="10" Background="#00FFFFFF" Content="Voltar a sua insignificância" HorizontalAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+        
         <Button x:Name="InventoryButton" Visibility="Collapsed" Click="OpenInventory" Grid.Column="14" Grid.Row="2"  Grid.ColumnSpan="2" CornerRadius="20" Content="Inventário" VerticalAlignment="Top" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" Margin="6,22,0,0"  />
         <StackPanel x:Name="Inventory" Visibility="Collapsed" Background="#000000" CornerRadius="10"  Grid.ColumnSpan="15" Grid.RowSpan="25" Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Width="420" Height="540">
             <Grid>

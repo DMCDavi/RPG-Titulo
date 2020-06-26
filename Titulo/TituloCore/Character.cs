@@ -491,7 +491,7 @@ namespace TituloCore
         /// <returns></returns>
         public bool UpMoveIA()
         {
-            if (Map[posY - 1, posX].block == null && TurnMove > 0 && (Target.posX != posX || Target.posY-1 != posY))
+            if (posY - 1 > 0 && Map[posY - 1, posX].block == null && TurnMove > 0 && (Target.posX != posX || Target.posY-1 != posY))
             {
                 Map[posY, posX].block = null;
                 posY--;
@@ -507,7 +507,7 @@ namespace TituloCore
         /// <returns></returns>
         public bool DownMoveIA()
         {
-            if (Map[posY + 1, posX].block == null && TurnMove > 0 && (Target.posX != posX || Target.posY + 1 != posY))
+            if (posY + 1 < 43 && Map[posY + 1, posX].block == null && TurnMove > 0 && (Target.posX != posX || Target.posY + 1 != posY))
             {
                 Map[posY, posX].block = null;
                 posY++;
@@ -523,7 +523,7 @@ namespace TituloCore
         /// <returns></returns>
         public bool LeftMoveIA()
         {
-            if (Map[posY, posX - 1].block == null && TurnMove > 0 && (Target.posX - 1 != posX || Target.posY != posY))
+            if (posX - 1 > 0 && Map[posY, posX - 1].block == null && TurnMove > 0 && (Target.posX - 1 != posX || Target.posY != posY))
             {
                 Map[posY, posX].block = null;
                 posX--;
@@ -539,7 +539,7 @@ namespace TituloCore
         /// <returns></returns>
         public bool RightMoveIA()
         {
-            if (Map[posY, posX + 1].block == null && TurnMove > 0 && (Target.posX +1 != posX || Target.posY != posY))
+            if (posX + 1 < 77 && Map[posY, posX + 1].block == null && TurnMove > 0 && (Target.posX +1 != posX || Target.posY != posY))
             {
                 Map[posY, posX].block = null;
                 posX++;
