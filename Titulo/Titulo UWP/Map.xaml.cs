@@ -35,7 +35,7 @@ namespace Titulo_UWP
         private List<MapBlock> ImgBlocks;
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
-        private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
+        private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false, hasEnemyInMap = true;
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private Image heart_img;
 
@@ -843,6 +843,24 @@ namespace Titulo_UWP
             Inventory.Visibility = Visibility.Collapsed;
         }
 
+        private void JSButton_Click(object sender, RoutedEventArgs e)
+        {
+            WinPanel.Visibility = Visibility.Collapsed;
+            JSPanel.Visibility = Visibility.Visible;
+        }
+
+        private void FutureButton_Click(object sender, RoutedEventArgs e)
+        {
+            WinPanel.Visibility = Visibility.Collapsed;
+            FuturePanel.Visibility = Visibility.Visible;
+        }
+
+        private void LapaButton_Click(object sender, RoutedEventArgs e)
+        {
+            WinPanel.Visibility = Visibility.Collapsed;
+            LapaPanel.Visibility = Visibility.Visible;
+        }
+
         private void OpenInventoryB()
         {
             Inventory.Visibility = Visibility.Visible;
@@ -878,6 +896,19 @@ namespace Titulo_UWP
             }
             else
                 ChangePlayerTurnStatus(true);
+        }
+
+        private void SearchEnemiesInMap()
+        {
+            hasEnemyInMap = false;
+            foreach (MapBlock map_block in ImgBlocks)
+                if (map_block.block.GetType() == typeof(Character))
+                    hasEnemyInMap = true;
+            if (!hasEnemyInMap)
+            {
+                ChangePlayerTurnStatus(false);
+                WinPanel.Visibility = Visibility.Visible;
+            }
         }
 
         /// <summary>
@@ -978,7 +1009,6 @@ namespace Titulo_UWP
                     BonusPanel.Visibility = Visibility.Collapsed;
                 }
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
-
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
                 if (player.Target.Hp == 0)
                 {
@@ -995,6 +1025,7 @@ namespace Titulo_UWP
                     nearest_enemy = null;
                     SearchEnemies(10);
                 }
+                SearchEnemiesInMap();
             }
         }
 
@@ -1031,6 +1062,7 @@ namespace Titulo_UWP
                     nearest_enemy = null;
                     SearchEnemies(10);
                 }
+                SearchEnemiesInMap();
                 ActionButton.Visibility = Visibility.Collapsed;
                 ActionPanel.Visibility = Visibility.Collapsed;
             }
