@@ -42,5 +42,15 @@ namespace TituloCore
         {
 
         }
+
+        //IA
+        public void EndOfTurn()
+        {
+
+        }
+        public bool TurnIA()
+        {
+            return false;
+        }
     }
 }
