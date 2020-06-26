@@ -72,20 +72,17 @@
         </StackPanel>
 
         <Button x:Name="InventoryButton" Visibility="Collapsed" Click="OpenInventory" Grid.Column="14" Grid.Row="2"  Grid.ColumnSpan="2" CornerRadius="20" Content="Inventário" VerticalAlignment="Top" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" Margin="6,22,0,0"  />
-        <StackPanel x:Name="Inventory" Visibility="Collapsed" Background="#4a4a4a"  Grid.ColumnSpan="15" Grid.RowSpan="25" Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Width="800" Height="800">
-
-            <Grid Width="700" HorizontalAlignment="Right">
+        <StackPanel x:Name="Inventory" Visibility="Collapsed" Background="#000000" CornerRadius="10"  Grid.ColumnSpan="15" Grid.RowSpan="25" Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Width="420" Height="540">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="CloseButton" Click="CloseInventory" Background="Black" Grid.Column="1" Content="X" Margin="320,0,0,0"/>
+                <TextBlock FontSize="30" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" FontFamily="Times New Roman">INVENTÁRIO</TextBlock>
             </Grid>
-            
-                <Grid x:Name="EquipmentGrid"  Width="225" Height="75">
+                <Grid x:Name="EquipmentGrid"  Width="225" Height="75" Padding="0,10,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>

@@ -648,10 +648,10 @@ namespace Titulo_UWP
 
             int[] DmgDice = { 6, 6 };
             //Criando Items
-            Weapon shild_do_djabo = new Weapon("Concussion", "STR", DmgDice, 100, 9, 2);
+            Weapon ShildDoDiabo = new Weapon("Concussion", "STR", DmgDice, 100, 9, 2, "ShildDoDiabo");
 
             //Colocando os itens na matriz do mapa
-            map_matrix[41, 10].block = shild_do_djabo;
+            map_matrix[41, 10].block = ShildDoDiabo;
             ((Item)map_matrix[41, 10].block).posY = 41;
             ((Item)map_matrix[41, 10].block).posX = 10;
 
@@ -839,7 +839,7 @@ namespace Titulo_UWP
         private void EnemyTurn(Character enemy)
         {
             int[] DmgDice = { 6, 6 };
-            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
+            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1, "armafoda");
             armafoda.Equip(enemy);
             //enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
@@ -908,7 +908,7 @@ namespace Titulo_UWP
             {
                 BonusPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;
@@ -946,7 +946,7 @@ namespace Titulo_UWP
             {
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;

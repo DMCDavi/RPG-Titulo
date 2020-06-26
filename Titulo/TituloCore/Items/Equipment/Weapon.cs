@@ -25,9 +25,9 @@ namespace TituloCore
         /// <param name="Tipo">Tipo de dano</param>
         /// <param name="Atributo">Atributo que a arma usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, int Range)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, int Range, string Name)
         {
-            
+            this.Name = Name;
             this.Tipo = Tipo;
             this.Atributo = Atributo;
             foreach (int dice in Dices)

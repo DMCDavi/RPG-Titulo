@@ -10,8 +10,9 @@ namespace TituloCore
 	{
 		[DataMember]
 		public int Speed;
-		public Boots(int Speed)
+		public Boots(int Speed, string Name)
 		{
+			this.Name = Name;
 			this.Speed = Speed;
 		}
 		public override void Equip(Character Owner)

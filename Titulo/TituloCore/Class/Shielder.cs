@@ -27,9 +27,9 @@ namespace TituloCore
         public void EquipBaseSet(Character Self)
         {
             DmgDice = new int[] { 6, 6 };
-            Apprentice_Shield = new Weapon("Concussive", "STR", DmgDice, 100, 0, 2);
+            Apprentice_Shield = new Weapon("Concussive", "STR", DmgDice, 100, 0, 2, "Apprentice_Shield");
             Apprentice_Chainmail_Armor = new Armor(10, -10, 20);
-            Apprentice_Boots = new Boots(1);
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
             Apprentice_Shield.Equip(Self);
             Apprentice_Chainmail_Armor.Equip(Self);
