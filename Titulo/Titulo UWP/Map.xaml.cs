@@ -825,7 +825,8 @@ namespace Titulo_UWP
             enemy.Map = map_matrix;
             enemy.action = true;
             enemy.bonusaction = true;
-
+            int posXonMap = enemy.posX;
+            int posYonMap = enemy.posY;
 
 
 
@@ -837,7 +838,13 @@ namespace Titulo_UWP
             //enemy.Action["Attack"].DynamicInvoke();
             while (enemy.CharacterClass.TurnIA())
             {
-
+                // Atualizar posição do enemy no mapa baseado no enemy.posX e enemy.posY
+                map_matrix[posYonMap, posXonMap].block = null;
+                map_matrix[enemy.posY, enemy.posX].block = enemy;
+                // Quantos blocos a direita
+                int dx = enemy.posX - posXonMap;
+                // Quantos blocos a baixo
+                int dy = enemy.posY - posYonMap;
             }
             AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
             //Se o player morrer tira todas as referências do personagem no mapa

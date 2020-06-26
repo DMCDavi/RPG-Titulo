@@ -107,6 +107,7 @@ namespace TituloCore
         {
             int dx = Self.posX - Self.Target.posX;
             int dy = Self.posY - Self.Target.posY;
+            RageOn();
             // Define se vai perseguir
             if (Math.Abs(dx) < 6 && Math.Abs(dy) < 6)
                 Chase = true;

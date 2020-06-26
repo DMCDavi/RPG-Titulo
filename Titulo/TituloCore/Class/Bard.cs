@@ -60,10 +60,17 @@ namespace TituloCore
                 song = "Hunter";
             //Escolher Fire ou Fury
             if (song == "Earth")
+            {
                 SongEarth();
+                Singing = true;
+                Self.bonusaction = false;
+            }
             else if (song == "Hunter")
+            {
                 SongHunter();
-            Dancing = true;
+                Singing = true;
+                Self.bonusaction = false;
+            }
         }
 
         public void Dance(string dance)
@@ -72,10 +79,17 @@ namespace TituloCore
                 dance = "Fire";
             //Escolher Fire ou Fury
             if (dance == "Fire")
+            {
                 DanceFire();
+                Dancing = true;
+                Self.bonusaction = false;
+            }
             else if (dance == "Fury")
+            {
                 DanceFury();
-            Dancing = true;
+                Dancing = true;
+                Self.bonusaction = false;
+            }
         }
 
         public void StopDancing()
@@ -85,6 +99,7 @@ namespace TituloCore
             else if (fury)
                 DanceFuryOFF();
             Dancing = false;
+            Self.bonusaction = false;
         }
 
         public void StopSinging()
@@ -94,6 +109,7 @@ namespace TituloCore
             else if (hunter)
                 SongHunterOFF();
             Singing = false;
+            Self.bonusaction = false;
         }
 
         public void DanceFire()
@@ -215,6 +231,14 @@ namespace TituloCore
                 {
                     return true;
                 }
+            }
+            if(!Singing && Self.bonusaction)
+            {
+                Song("Hunter");
+            }
+            if(Self.Lvl >= 4 && !Dancing && Self.bonusaction)
+            {
+                Dance("Fury");
             }
             if (Math.Abs(dx) > Self.EquippedWeapon.Range && Math.Abs(dy) > Self.EquippedWeapon.Range)
             {
