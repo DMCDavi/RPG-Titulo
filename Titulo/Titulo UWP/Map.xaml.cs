@@ -713,6 +713,7 @@ namespace Titulo_UWP
             race_name = player.RaceName;
             player.LoadButtons();
             AddLife(PlayerHp, player.Hp, player.Hpmax);
+            AddBonusButtons();
 
             //Cria os botões de ataque referentes à classe do personagem
             foreach (KeyValuePair<string, Delegate> action in player.Action)
@@ -726,20 +727,6 @@ namespace Titulo_UWP
                 action_btn.FontSize = 20;
                 action_btn.Click += Attack_Click;
                 ActionPanel.Children.Add(action_btn);
-            }
-
-            //Cria os botões de ataque bônus referentes à classe do personagem
-            foreach (KeyValuePair<string, Delegate> action_bonus in player.BonusAction)
-            {
-                Button action_btn = new Button();
-                action_btn.Content = action_bonus.Key;
-                action_btn.Name = action_bonus.Key;
-                action_btn.MinWidth = 220;
-                action_btn.FontFamily = new FontFamily("Times New Roman");
-                action_btn.Foreground = new SolidColorBrush(Colors.Black);
-                action_btn.FontSize = 20;
-                action_btn.Click += Bonus_Click;
-                BonusPanel.Children.Add(action_btn);
             }
 
             //Preenche o mapa com as imagens dos blocos
@@ -760,6 +747,61 @@ namespace Titulo_UWP
             }
             base.OnNavigatedTo(e);
 
+        }
+
+        /// <summary>
+        /// Cria os botões de ataque bônus referentes à classe do personagem
+        /// </summary>
+        private void AddBonusButtons()
+        {
+            BonusPanel.Children.Clear();
+            foreach (KeyValuePair<string, Delegate> action_bonus in player.BonusAction)
+            {
+                Button action_btn = new Button();
+                action_btn.Content = action_bonus.Key;
+                action_btn.Name = action_bonus.Key;
+                action_btn.MinWidth = 220;
+                action_btn.FontFamily = new FontFamily("Times New Roman");
+                action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                action_btn.FontSize = 20;
+                action_btn.Click += Bonus_Click;
+                BonusPanel.Children.Add(action_btn);
+            }
+        }
+
+        /// <summary>
+        /// Adiciona os botões de song e dance do bardo
+        /// </summary>
+        /// <param name="bonus_type">Recebe "Dance" ou "Song" para dizer o tipo de ataque</param>
+        private void AddBardButtons(string bonus_type)
+        {
+            if (bonus_type == "Dance" || bonus_type == "Song")
+            {
+                List<string> options = new List<string>();
+                if (bonus_type == "Dance")
+                {
+                    options.Add("Fury");
+                    options.Add("Fire");
+                }
+                else if (bonus_type == "Song")
+                {
+                    options.Add("Earth");
+                    options.Add("Hunter");
+                }
+                BonusPanel.Children.Clear();
+                foreach (string option_str in options)
+                {
+                    Button action_btn = new Button();
+                    action_btn.Content = option_str;
+                    action_btn.Name = option_str;
+                    action_btn.MinWidth = 220;
+                    action_btn.FontFamily = new FontFamily("Times New Roman");
+                    action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                    action_btn.FontSize = 20;
+                    action_btn.Click += Bonus_Click;
+                    BonusPanel.Children.Add(action_btn);
+                }
+            }
         }
 
         /// <summary>
@@ -885,8 +927,30 @@ namespace Titulo_UWP
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;
-                player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                if (player.CharacterClass.GetType() == typeof(Bard) && (((Button)sender).Name == "Song" || ((Button)sender).Name == "Dance"))
+                    AddBardButtons(((Button)sender).Name);
+                else if (((Button)sender).Name == "Fire" || ((Button)sender).Name == "Fury")
+                {
+                    player.BonusAction["Dance"].DynamicInvoke(((Button)sender).Name);
+                    AddBonusButtons();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else if (((Button)sender).Name == "Earth" || ((Button)sender).Name == "Hunter")
+                {
+                    player.BonusAction["Song"].DynamicInvoke(((Button)sender).Name);
+                    AddBonusButtons();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
+
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
                 if (player.Target.Hp == 0)
                 {
@@ -903,8 +967,6 @@ namespace Titulo_UWP
                     nearest_enemy = null;
                     SearchEnemies(10);
                 }
-                BonusButton.Visibility = Visibility.Collapsed;
-                BonusPanel.Visibility = Visibility.Collapsed;
             }
         }
 
