@@ -12,7 +12,7 @@ namespace TituloCore
         int MaxDex;
         int MinDex;
         int DexBonus;
-        int MagicBonus = 0;
+        //int MagicBonus = 0;
 
         /// <summary>
         /// Construtor da classe armor
