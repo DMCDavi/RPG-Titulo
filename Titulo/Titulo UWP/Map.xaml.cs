@@ -649,11 +649,15 @@ namespace Titulo_UWP
             int[] DmgDice = { 6, 6 };
             //Criando Items
             Weapon ShildDoDiabo = new Weapon("Concussion", "STR", DmgDice, 100, 9, 2, "ShildDoDiabo");
+            Armor ArmaduraDoCavaleiroDasTrevas = new Armor(10, -10, 20, "ArmaduraDoCavaleiroDasTrevas");
 
             //Colocando os itens na matriz do mapa
             map_matrix[41, 10].block = ShildDoDiabo;
             ((Item)map_matrix[41, 10].block).posY = 41;
             ((Item)map_matrix[41, 10].block).posX = 10;
+            map_matrix[42, 10].block = ArmaduraDoCavaleiroDasTrevas;
+            ((Item)map_matrix[42, 10].block).posY = 42;
+            ((Item)map_matrix[42, 10].block).posX = 10;
 
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
@@ -702,6 +706,7 @@ namespace Titulo_UWP
             //Armazena todos os blocos do mapa que possuem imagens
             ImgBlocks = new List<MapBlock>
             {
+                //Characters
                 map_matrix[30, 72],
                 map_matrix[37, 69],
                 map_matrix[32, 43],
@@ -712,7 +717,9 @@ namespace Titulo_UWP
                 map_matrix[17, 14],
                 map_matrix[16, 26],
                 map_matrix[15, 40],
-                map_matrix[41, 10]
+                //Items
+                map_matrix[41, 10],
+                map_matrix[42,10]
             };
         }
 
@@ -757,8 +764,8 @@ namespace Titulo_UWP
             {
                 if (map_block.block.GetType() == typeof(Character))
                     map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
-                else if (map_block.block.GetType() == typeof(Weapon))
-                    map_block.SetImage(new Image(), "ms-appx:///Assets/Itens/ShildDoDiabo.png", -80 + (((Item)map_block.block).posX - player.posX) * 80, 0 + (((Item)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Item)map_block.block).posX) * 80, 80 + (player.posY - ((Item)map_block.block).posY) * 80);
+                else if (((Item)map_block.block) != null)
+                    map_block.SetImage(new Image(), "ms-appx:///Assets/Itens/" + ((Item)map_block.block).Name + ".png", -80 + (((Item)map_block.block).posX - player.posX) * 80, 0 + (((Item)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Item)map_block.block).posX) * 80, 80 + (player.posY - ((Item)map_block.block).posY) * 80);
                 MapGrid.Children.Add(map_block.GetImage());
                 Grid.SetColumnSpan(map_block.GetImage(), 16);
                 Grid.SetRowSpan(map_block.GetImage(), 9);
@@ -981,7 +988,7 @@ namespace Titulo_UWP
         private void Up()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door)))
+            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY - 1, player.posX].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 2 && margin.Top <= -400)
@@ -1016,7 +1023,7 @@ namespace Titulo_UWP
         private void Down()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY + 1 < 43 && (map_matrix[player.posY + 1, player.posX].block == null || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Door)))
+            if (player.posY + 1 < 43 && (map_matrix[player.posY + 1, player.posX].block == null || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY + 1, player.posX].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 6 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 6 && margin.Bottom <= -400)
@@ -1051,7 +1058,7 @@ namespace Titulo_UWP
         private void Left()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posX - 1 >= 0 && (map_matrix[player.posY, player.posX - 1].block == null || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Door)))
+            if (player.posX - 1 >= 0 && (map_matrix[player.posY, player.posX - 1].block == null || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX - 1].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 3 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 3 && margin.Left <= -400)
@@ -1086,7 +1093,7 @@ namespace Titulo_UWP
         private void Right()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posX + 1 < 77 && (map_matrix[player.posY, player.posX + 1].block == null || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Cave)))
+            if (player.posX + 1 < 77 && (map_matrix[player.posY, player.posX + 1].block == null || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX + 1].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 12 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 12 && margin.Right <= -400)
@@ -1224,6 +1231,25 @@ namespace Titulo_UWP
                         CharacterImg.Visibility = Visibility.Collapsed;
                     else
                         CharacterImg.Visibility = Visibility.Visible;
+                    //Se i bkici qye i oersibagen se moveu for um item, o item é adicionado no inventário
+                    if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType().IsSubclassOf(typeof(Item))))
+                    {
+                        ((Item)map_matrix[player.posY, player.posX].block).PickUp(player);
+
+                        foreach (MapBlock map_block in ImgBlocks)
+                        {
+                            if (map_block.block.GetType().IsSubclassOf(typeof(Item)))
+                            {
+                                if (((Item)map_block.block).posX == player.posX && ((Item)map_block.block).posY == player.posY)
+                                {
+                                    MapGrid.Children.Remove(map_block.GetImage());
+                                    ImgBlocks.Remove(map_block);
+                                    break;
+                                }
+                            }
+                        }
+                        map_matrix[player.posY, player.posX].block = null;
+                    }
                     SearchEnemies(10);
                 }
             }
