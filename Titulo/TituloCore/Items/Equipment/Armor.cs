@@ -6,12 +6,11 @@ using System.Runtime.Serialization;
 namespace TituloCore
 {
     [DataContract(Name = "Armor", Namespace = "http://www.contoso.com")]
-    public class Armor : IEquipment
+    public class Armor : Equipment
     {
         int BaseAc;
         int MaxDex;
         int MinDex;
-        Character Owner;
         int DexBonus;
         int MagicBonus = 0;
 
@@ -22,16 +21,23 @@ namespace TituloCore
         /// <param name="MaxDex">Máximo modificador de dextreza</param>
         /// <param name="MinDex">Menor modificador de dextreza</param>
         /// <param name="Owner"></param>
-        public Armor(int BaseAc, int MaxDex, int MinDex)
+        public Armor(int BaseAc, int MaxDex, int MinDex, string Name)
         {
+            this.Name = Name;
             this.BaseAc = BaseAc;
             this.MaxDex = MaxDex;
             this.MinDex = MinDex;
         }
 
-        public void Equip(Character Owner)
+        public override void Equip(Character Owner)
         {
-            this.Owner = Owner;
+            if (this.Owner == null)
+                this.Owner = Owner;
+            if (Owner.EquippedArmor != null)
+                Owner.EquippedArmor.Unequip();
+            Owner.EquippedArmor = this;
+            Owner.Inventory.Remove(this);
+
             DexBonus = Owner.Modifier("DEX");
             if (DexBonus > MaxDex)
                 DexBonus = MaxDex;
@@ -40,9 +46,15 @@ namespace TituloCore
             //MagicPassive();
         }
 
-        public void UnEquip()
+        public override void Unequip()
         {
-            Owner = null;
+            if (this.Owner != null)
+            {
+                Owner.EquippedArmor = null;
+                Owner.Inventory.Add(this);
+            }
+            else
+                Console.WriteLine("Erro: Equipamento sem dono");
         }
 
         public int Ac()

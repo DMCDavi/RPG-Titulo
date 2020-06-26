@@ -9,16 +9,34 @@ namespace TituloCore
     public class Warrior : IClass
     {
         public Character Self;
-        /// <summary>
-        /// Construtor da classe Mage
-        /// </summary>
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Sword;
+        [DataMember]
+        Armor Apprentice_Chainmail_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         public Warrior(Character Self)
         {
             this.Self = Self;
             HitDice();
+            EquipBaseSet(Self);
         }
 
-        
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 6, 6 };
+            Apprentice_Sword = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "Apprentice_Sword");
+            Apprentice_Chainmail_Armor = new Armor(10, -10, 20, "Apprentice_Chainmail_Armor");
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
+
+            Apprentice_Sword.Equip(Self);
+            Apprentice_Chainmail_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
+        }
+
+
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal
         /// </summary>

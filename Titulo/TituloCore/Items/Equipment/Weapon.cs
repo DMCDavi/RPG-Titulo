@@ -6,9 +6,8 @@ using System.Text;
 namespace TituloCore
 {
     [DataContract(Name = "Weapon", Namespace = "http://www.contoso.com")]
-    public class Weapon : IEquipment
+    public class Weapon : Equipment
     {
-        Character Owner;
         public string Tipo;
         public string Atributo;
         public List<int> Dices = new List<int>();
@@ -26,9 +25,9 @@ namespace TituloCore
         /// <param name="Tipo">Tipo de dano</param>
         /// <param name="Atributo">Atributo que a arma usa</param>
         /// <param name="Dices">Vetor com dados de dano</param>
-        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, int Range)
+        public Weapon(string Tipo, string Atributo, int[] Dices, int Hit, int Damage, int Range, string Name)
         {
-            
+            this.Name = Name;
             this.Tipo = Tipo;
             this.Atributo = Atributo;
             foreach (int dice in Dices)
@@ -40,10 +39,28 @@ namespace TituloCore
             this.Range = Range;
         }
 
-        public void Equip(Character Owner)
+        public override void Equip(Character Owner)
         {
-            this.Owner = Owner;
+            if (this.Owner == null)
+                this.Owner = Owner;
+            if (Owner.EquippedWeapon != null)
+                Owner.EquippedWeapon.Unequip();
+            Owner.EquippedWeapon = this;
+            Owner.Inventory.Remove(this);
         }
+
+        public override void Unequip()
+        {
+            if (this.Owner != null)
+            {
+                Owner.EquippedWeapon = null;
+                Owner.Inventory.Add(this);
+            }
+            else
+                Console.WriteLine("Erro: Equipamento sem dono");
+        }
+
+
 
         /// <summary>
         /// Aplica o dano de um ataque com a arma

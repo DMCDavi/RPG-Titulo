@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
-using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace TituloCore
 {
-    [DataContractAttribute(Name = "Assassin")]
+    [DataContractAttribute(Name = "Assassin", IsReference =true)]
     public class Assassin : IClass
     {
         Character Self;
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Dagger;
+        [DataMember]
+        Armor Apprentice_Leather_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         /// <summary>
         /// Construtor da classe Assasin
         /// </summary>
@@ -17,8 +25,20 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            EquipBaseSet(Self);
         }
-        
+
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 6, 6 };
+            Apprentice_Dagger = new Weapon("Slash", "DEX", DmgDice, 100, 0, 2, "Apprentice_Dagger");
+            Apprentice_Leather_Armor = new Armor(10, -10, 20, "Apprentice_Leather_Armor");
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
+
+            Apprentice_Dagger.Equip(Self);
+            Apprentice_Leather_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
+        }
 
         /// <summary>
         /// Define o HitDice do personagem caso essa seja sua classe principal
@@ -81,26 +101,5 @@ namespace TituloCore
             Self.BonusAction.Add("Dash", new Action(Self.Dash));
         }
 
-        private bool Chase;
-        public bool TurnIA()
-        {
-            int dx = Self.posX - Self.Target.posX;
-            int dy = Self.posY - Self.Target.posY;
-            // Define se vai perseguir
-            if (Math.Abs(dx) < 6 && Math.Abs(dy) < 6)
-                Chase = true;
-            if (Math.Abs(dx) <= 1 && Math.Abs(dy) <= 1)
-                Chase = false;
-            if (Math.Abs(Self.Target.posX - Self.HomeX) > 15 || Math.Abs(Self.Target.posY - Self.HomeY) > 15)
-                Chase = false;
-            if(Self.TurnMove > 0 && Chase)
-            {
-                if(Self.Chase())
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }

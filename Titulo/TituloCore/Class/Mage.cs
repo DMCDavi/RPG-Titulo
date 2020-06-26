@@ -9,7 +9,14 @@ namespace TituloCore
     public class Mage : IClass
     {
         public Character Self;
-
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Staff;
+        [DataMember]
+        Armor Apprentice_Cloth_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         /// <summary>
         /// Construtor da classe Mage
         /// </summary>
@@ -17,6 +24,19 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            EquipBaseSet(Self);
+        }
+
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 6, 6 };
+            Apprentice_Staff = new Weapon("Fire", "INT", DmgDice, 100, 0, 2, "Apprentice_Staff");
+            Apprentice_Cloth_Armor = new Armor(10, -10, 20, "Apprentice_Cloth_Armor");
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
+
+            Apprentice_Staff.Equip(Self);
+            Apprentice_Cloth_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
         }
 
 
