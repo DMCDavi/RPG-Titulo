@@ -38,6 +38,7 @@ namespace Titulo_UWP
         private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private Image heart_img;
+        private Thickness enemyMargin;
 
 
         public Map()
@@ -766,6 +767,7 @@ namespace Titulo_UWP
             //Preenche o mapa com as imagens dos blocos
             foreach (MapBlock map_block in ImgBlocks)
             {
+
                 if (map_block.block.GetType() == typeof(Character))
                     map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
                 else if (((Item)map_block.block) != null)
@@ -879,7 +881,7 @@ namespace Titulo_UWP
             }
             catch
             {
-
+                Debug.WriteLine("Erro");
             }
             try
             {
@@ -936,13 +938,8 @@ namespace Titulo_UWP
             }
             catch
             {
-
+                Debug.WriteLine("Erro");
             }
-
-
-
-
-
         }
 
         private void CloseInventoryB()
@@ -963,24 +960,32 @@ namespace Titulo_UWP
             enemy.bonusaction = true;
             int posXonMap = enemy.posX;
             int posYonMap = enemy.posY;
-
-
-
-            int[] DmgDice = { 6, 6 };
-            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1, "armafoda");
-            armafoda.Equip(enemy);
-            //enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
-            //enemy.Action["Attack"].DynamicInvoke();
             while (enemy.CharacterClass.TurnIA())
             {
+                enemyMargin = map_matrix[posYonMap, posXonMap].GetImage().Margin;
                 // Atualizar posição do enemy no mapa baseado no enemy.posX e enemy.posY
-                map_matrix[posYonMap, posXonMap].block = null;
-                map_matrix[enemy.posY, enemy.posX].block = enemy;
+
+                map_matrix[enemy.posY, enemy.posX] = map_matrix[posYonMap, posXonMap];
+                map_matrix[posYonMap, posXonMap] = new MapBlock();
+                posYonMap = enemy.posY;
+                posXonMap = enemy.posX;
                 // Quantos blocos a direita
                 int dx = enemy.posX - posXonMap;
                 // Quantos blocos a baixo
                 int dy = enemy.posY - posYonMap;
+
+                enemyMargin.Left = -80 + (((Character)map_matrix[enemy.posY, enemy.posX].block).posX - player.posX) * 80;
+                enemyMargin.Top = 0 + (((Character)map_matrix[enemy.posY, enemy.posX].block).posY - player.posY) * 80;
+                enemyMargin.Right = 0 + (player.posX - ((Character)map_matrix[enemy.posY, enemy.posX].block).posX) * 80;
+                enemyMargin.Bottom = 80 + (player.posY - ((Character)map_matrix[enemy.posY, enemy.posX].block).posY) * 80;
+                map_matrix[enemy.posY, enemy.posX].GetImage().Margin = enemyMargin;
+                
+                //enemyMargin.Left -= 80 * dx;
+                //enemyMargin.Top -= 80 * dy;
+                //enemyMargin.Right += 80 * dx;
+                //enemyMargin.Bottom += 80 * dy;
+                //map_matrix[posYonMap, posXonMap].GetImage().Margin = enemyMargin;
             }
             AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
             //Se o player morrer tira todas as referências do personagem no mapa
