@@ -815,9 +815,9 @@ namespace Titulo_UWP
             Inventory.Visibility = Visibility.Visible;
             try
             {
-                /*charBota.Source = player.EquippedBoots.Name + ".png";
-                charArmadura.Source = player.EquippedArmor.Name;
-                charArma.Source = player.EquippedWeapon.Name;*/
+                charBota.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedBoots.Name + ".png"));
+                charArmadura.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedArmor.Name + ".png"));
+                charArma.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedWeapon.Name + ".png"));
 
             }
             catch

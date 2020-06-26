@@ -143,12 +143,26 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Itens\Agua.png" />
     <Content Include="Assets\Itens\Apprentice_Dagger.png" />
     <Content Include="Assets\Itens\Apprentice_Bow.png" />
     <Content Include="Assets\Itens\Apprentice_Shield.png" />
     <Content Include="Assets\Itens\Apprentice_Sword.png" />
     <Content Include="Assets\Itens\Apprentice_Estoc.png" />
     <Content Include="Assets\Itens\Apprentice_Saber.png" />
+    <Content Include="Assets\Itens\Apprentice_Leather_Armor.png" />
+    <Content Include="Assets\Itens\ArmaduraDoCavaleiroDasTrevas.png" />
+    <Content Include="Assets\Itens\BotaDarkness.png" />
+    <Content Include="Assets\Itens\BotaDeNatal.png" />
+    <Content Include="Assets\Itens\CetroDeLava.png" />
+    <Content Include="Assets\Itens\CetrodoGelo.png" />
+    <Content Include="Assets\Itens\Apprentice_Boots.png" />
+    <Content Include="Assets\Itens\CrossbowDeExploção.png" />
+    <Content Include="Assets\Itens\EscudoDoCavaleiroDasTrevas.png" />
+    <Content Include="Assets\Itens\MachadoBugado.png" />
+    <Content Include="Assets\Itens\PocaoDeDano.png" />
+    <Content Include="Assets\Itens\PocaoDePeixePodre.png" />
+    <Content Include="Assets\Itens\PocaoHp.png" />
     <Content Include="Assets\Itens\ShildDoDiabo.png" />
     <Content Include="Assets\Mapa\Heart.png" />
     <Content Include="Assets\Mapa\Mapa.png" />
