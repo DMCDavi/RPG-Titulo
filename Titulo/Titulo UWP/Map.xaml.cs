@@ -683,7 +683,7 @@ namespace Titulo_UWP
             Armor Blessed_Iron_Armor = new Armor(10, -10, 20, "Blessed_Iron_Armor");
             HealingPot Agua = new HealingPot(10, "Agua");
             HealingPot PocaoHp = new HealingPot(25, "PocaoHp");
-            DamagingPot PocaoDeDano = new DamagingPot(25, "PocaoDeDano");
+           // DamagingPot PocaoDeDano = new DamagingPot(25, "PocaoDeDano");
 
             //Colocando os itens na matriz do mapa
             map_matrix[41, 10].block = ShildDoDiabo;
@@ -701,9 +701,9 @@ namespace Titulo_UWP
             map_matrix[22, 26].block = PocaoHp;
             ((Item)map_matrix[22, 26].block).posY = 22;
             ((Item)map_matrix[22, 26].block).posX = 26;
-            map_matrix[40, 27].block = PocaoDeDano;
-            ((Item)map_matrix[40, 27].block).posY = 40;
-            ((Item)map_matrix[40, 27].block).posX = 27;
+            //map_matrix[40, 27].block = PocaoDeDano;
+            //((Item)map_matrix[40, 27].block).posY = 40;
+            //((Item)map_matrix[40, 27].block).posX = 27;
 
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
@@ -769,7 +769,7 @@ namespace Titulo_UWP
                 map_matrix[5, 71],
                 map_matrix[40,26],
                 map_matrix[22,26],
-                map_matrix[40,27]
+                //map_matrix[40,27]
             };
         }
 
