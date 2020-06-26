@@ -14,8 +14,7 @@ namespace TituloCore
 
 		public override void Use(Character User)
 		{
-			User.Target.Hp -= Value;
-			if (User.Target.Hp < 0) User.Target.Hp = 0;
+			User.Target.ReceiveDmg(Value, "Poison");
 			this.Drop(User);
 		}
 	}
