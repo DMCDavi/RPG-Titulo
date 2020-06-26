@@ -81,14 +81,14 @@ namespace TituloCore
                 {
                     Self.EquippedWeapon.CriticalDmg(Self.Target);
                     if (Rage)
-                        Self.Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
+                        Self.Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Tipo);
                     return true;
                 }
                 if (acerto >= Self.Target.Ac())
                 {
                     Self.EquippedWeapon.DealDmg(Self.Target);
                     if (Rage)
-                        Self.Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Atributo);
+                        Self.Target.ReceiveDmg(RageDmg, Self.EquippedWeapon.Tipo);
                     return true;
                 }
                 else
