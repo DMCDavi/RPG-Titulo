@@ -132,6 +132,7 @@
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapBlock.cs" />
+    <Compile Include="MapParams.cs" />
     <Compile Include="PersonalityTest.xaml.cs">
       <DependentUpon>PersonalityTest.xaml</DependentUpon>
     </Compile>
@@ -173,6 +174,12 @@
     <Content Include="Assets\Mapa\Heart.png" />
     <Content Include="Assets\Mapa\Mapa.png" />
     <Content Include="Assets\Menu\cyberpunk_landscape_blur.png" />
+    <Content Include="Assets\Musicas\Combat.mp3" />
+    <Content Include="Assets\Musicas\Cyberpunk.mp3" />
+    <Content Include="Assets\Musicas\MainPage.mp3" />
+    <Content Include="Assets\Musicas\Map.mp3" />
+    <Content Include="Assets\Musicas\Mothers Hymn.mp3" />
+    <Content Include="Assets\Musicas\Witcher.mp3" />
     <Content Include="Assets\Personagens\Ana\Ana_Landscape.png" />
     <Content Include="Assets\Menu\landscape.jpg" />
     <Content Include="Assets\Personagens\Ana\Sem_fundo\Ana_Dragonborn.png" />

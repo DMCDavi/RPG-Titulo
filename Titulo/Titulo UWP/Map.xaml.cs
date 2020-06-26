@@ -16,6 +16,8 @@ using System.Diagnostics;
 using TituloCore;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
+using Windows.Media.Playback;
+using Windows.Media.Core;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,7 +36,8 @@ namespace Titulo_UWP
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
         private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
-        Image heart_img;
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+        private Image heart_img;
 
 
         public Map()
@@ -725,11 +728,16 @@ namespace Titulo_UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            player = e.Parameter as Character;
+            var parameters = (MapParams)e.Parameter;
+            player = parameters.character;
+            mediaPlayer = parameters.media_player;
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
+            mediaPlayer.Play();
             persona_name = player.PersonaName;
             race_name = player.RaceName;
             player.LoadButtons();
             AddLife(PlayerHp, player.Hp, player.Hpmax);
+            AddBonusButtons();
 
             //Cria os botões de ataque referentes à classe do personagem
             foreach (KeyValuePair<string, Delegate> action in player.Action)
@@ -743,20 +751,6 @@ namespace Titulo_UWP
                 action_btn.FontSize = 20;
                 action_btn.Click += Attack_Click;
                 ActionPanel.Children.Add(action_btn);
-            }
-
-            //Cria os botões de ataque bônus referentes à classe do personagem
-            foreach (KeyValuePair<string, Delegate> action_bonus in player.BonusAction)
-            {
-                Button action_btn = new Button();
-                action_btn.Content = action_bonus.Key;
-                action_btn.Name = action_bonus.Key;
-                action_btn.MinWidth = 220;
-                action_btn.FontFamily = new FontFamily("Times New Roman");
-                action_btn.Foreground = new SolidColorBrush(Colors.Black);
-                action_btn.FontSize = 20;
-                action_btn.Click += Bonus_Click;
-                BonusPanel.Children.Add(action_btn);
             }
 
             //Preenche o mapa com as imagens dos blocos
@@ -783,6 +777,61 @@ namespace Titulo_UWP
         }
 
 
+
+        /// <summary>
+        /// Cria os botões de ataque bônus referentes à classe do personagem
+        /// </summary>
+        private void AddBonusButtons()
+        {
+            BonusPanel.Children.Clear();
+            foreach (KeyValuePair<string, Delegate> action_bonus in player.BonusAction)
+            {
+                Button action_btn = new Button();
+                action_btn.Content = action_bonus.Key;
+                action_btn.Name = action_bonus.Key;
+                action_btn.MinWidth = 220;
+                action_btn.FontFamily = new FontFamily("Times New Roman");
+                action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                action_btn.FontSize = 20;
+                action_btn.Click += Bonus_Click;
+                BonusPanel.Children.Add(action_btn);
+            }
+        }
+
+        /// <summary>
+        /// Adiciona os botões de song e dance do bardo
+        /// </summary>
+        /// <param name="bonus_type">Recebe "Dance" ou "Song" para dizer o tipo de ataque</param>
+        private void AddBardButtons(string bonus_type)
+        {
+            if (bonus_type == "Dance" || bonus_type == "Song")
+            {
+                List<string> options = new List<string>();
+                if (bonus_type == "Dance")
+                {
+                    options.Add("Fury");
+                    options.Add("Fire");
+                }
+                else if (bonus_type == "Song")
+                {
+                    options.Add("Earth");
+                    options.Add("Hunter");
+                }
+                BonusPanel.Children.Clear();
+                foreach (string option_str in options)
+                {
+                    Button action_btn = new Button();
+                    action_btn.Content = option_str;
+                    action_btn.Name = option_str;
+                    action_btn.MinWidth = 220;
+                    action_btn.FontFamily = new FontFamily("Times New Roman");
+                    action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                    action_btn.FontSize = 20;
+                    action_btn.Click += Bonus_Click;
+                    BonusPanel.Children.Add(action_btn);
+                }
+            }
+        }
 
         /// <summary>
         /// Adiciona corações de vida ao personagem
@@ -945,7 +994,10 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void NavigateSelection(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CharacterSelectionPage));
+            mediaPlayer.Pause();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/MainPage.mp3"));
+            mediaPlayer.Play();
+            this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
         }
 
         private void MoveButton_Click(object sender, RoutedEventArgs e)
@@ -972,8 +1024,48 @@ namespace Titulo_UWP
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;
-                player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                if (player.CharacterClass.GetType() == typeof(Bard) && (((Button)sender).Name == "Song" || ((Button)sender).Name == "Dance"))
+                    AddBardButtons(((Button)sender).Name);
+                else if (((Button)sender).Name == "Fire" || ((Button)sender).Name == "Fury")
+                {
+                    player.BonusAction["Dance"].DynamicInvoke(((Button)sender).Name);
+                    AddBonusButtons();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else if (((Button)sender).Name == "Earth" || ((Button)sender).Name == "Hunter")
+                {
+                    player.BonusAction["Song"].DynamicInvoke(((Button)sender).Name);
+                    if (((Button)sender).Name == "Earth")
+                    {
+                        mediaPlayer.Pause();
+                        mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Witcher.mp3"));
+                        mediaPlayer.Play();
+                    }
+                    else if (((Button)sender).Name == "Hunter")
+                    {
+                        mediaPlayer.Pause();
+                        mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Mothers Hymn.mp3"));
+                        mediaPlayer.Play();
+                    }
+                    AddBonusButtons();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else if (((Button)sender).Name == "Stop Singing")
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Combat.mp3"));
+                    mediaPlayer.Play();
+                }
+                else
+                {
+                    player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
+
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
                 if (player.Target.Hp == 0)
                 {
@@ -990,8 +1082,6 @@ namespace Titulo_UWP
                     nearest_enemy = null;
                     SearchEnemies(10);
                 }
-                BonusButton.Visibility = Visibility.Collapsed;
-                BonusPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -1208,10 +1298,18 @@ namespace Titulo_UWP
                 }
                 //Se tiver algum inimigo no raio e se o turno já não estiver ativado, ativa o modo dos turnos
                 if (hasEnemyInRange && !isPlayerTurn)
-                    ChangePlayerTurnStatus(true);
-                //Senão tiver inimigos no raio desativa o modo dos turnos
-                else if (!hasEnemyInRange)
                 {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Combat.mp3"));
+                    mediaPlayer.Play();
+                    ChangePlayerTurnStatus(true);
+                }
+                //Senão tiver inimigos no raio desativa o modo dos turnos
+                else if (!hasEnemyInRange && isPlayerTurn)
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
+                    mediaPlayer.Play();
                     ChangePlayerTurnStatus(false);
                     nearest_enemy = null;
                 }

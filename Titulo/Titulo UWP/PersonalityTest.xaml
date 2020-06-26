@@ -16,7 +16,7 @@
         <Image Grid.RowSpan="2" Source="/Assets/Menu/cyberpunk_landscape_blur.png" Stretch="UniformToFill" />
         <StackPanel x:Name="Panel_1" Visibility="Visible" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="100,100,100,0" >
             <RichTextBlock FontFamily="Times New Roman" Foreground="#000" FontSize="30">
-                <Paragraph FontFamily="Times New Roman" Foreground="#000">Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#. A máquina não estava funcionando de jeito nenhum, por isso, ao voltar de Angela muito doidão ele opta por programar em JavaScript para tentar fazer a máquina funcionar. Como era de se esperar a máquina causa uma explosão nuclear e ele é transportado para o passado no corpo de um de nossos heróis numa aventura épica para tentar evitar a criação do JavaScript.</Paragraph>
+                <Paragraph FontFamily="Times New Roman" Foreground="#000">Num mundo cyberpunk de 2666, o Galo Robô do SENAI tem uma vida normal de um mero aluno. Ele participa de uma IC com Lapa para a construção de uma máquina do tempo feita em C#.</Paragraph>
             </RichTextBlock>
         </StackPanel>
         <StackPanel x:Name="Panel_2" Visibility="Collapsed" Grid.Row="0"  CornerRadius="30" Background="#CCFFFFFF" Padding="50" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="100,100,100,0" >

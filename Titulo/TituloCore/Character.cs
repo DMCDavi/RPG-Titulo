@@ -40,6 +40,7 @@ namespace TituloCore
     [KnownType(typeof(Boots))]
     public class Character
     {
+        public MapBlockCore[,] Map;
         [DataMember]
         public string MainClass { get; set; }
         [DataMember]
@@ -72,6 +73,8 @@ namespace TituloCore
         public int posX { get; set; } = 27;
         [DataMember]
         public int posY { get; set; } = 36;
+        public int HomeX { get; set; }
+        public int HomeY { get; set; }
         [DataMember]
         public int Initiative { get; set; }
         [DataMember]
@@ -463,7 +466,11 @@ namespace TituloCore
             }
         }
 
-
+        public void setHome()
+        {
+            HomeX = posX;
+            HomeY = posY;
+        }
         
 
         /// <summary>
@@ -474,6 +481,178 @@ namespace TituloCore
         {
             Lvl++;
             CharacterClass.LvlUp();
+        }
+
+        /// <summary>
+        /// Move uma casa para cima
+        /// </summary>
+        /// <returns></returns>
+        public bool UpMoveIA()
+        {
+            if (Map[posY - 1, posX] == null && TurnMove > 0)
+            {
+                posY--;
+                TurnMove--;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Move uma casa para cima
+        /// </summary>
+        /// <returns></returns>
+        public bool DownMoveIA()
+        {
+            if (Map[posY + 1, posX] == null && TurnMove > 0)
+            {
+                posY++;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Move uma casa para cima
+        /// </summary>
+        /// <returns></returns>
+        public bool LeftMoveIA()
+        {
+            if (Map[posY, posX - 1] == null && TurnMove > 0)
+            {
+                posX--;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Move uma casa para cima
+        /// </summary>
+        /// <returns></returns>
+        public bool RightMoveIA()
+        {
+            if (Map[posY, posX + 1] == null && TurnMove > 0)
+            {
+                posX++;
+                return true;
+            }
+            return false;
+        }
+
+        public bool Chase()
+        {
+            int dx = posX - Target.posX;
+            int dy = posY - Target.posY;
+            // Distancia em X maior que em Y
+            if (Math.Abs(dx) > Math.Abs(dy))
+            {
+                // Alvo a direita
+                if (dx < 0)
+                {
+                    if (RightMoveIA())
+                        return true;
+                    else
+                    {
+                        // Alvo a baixo
+                        if (dy < 0)
+                        {
+                            if (!DownMoveIA())
+                            {
+                                return UpMoveIA();
+                            }
+                        }
+                        // Alvo a cima
+                        else
+                        {
+                            if (!UpMoveIA())
+                            {
+                                return DownMoveIA();
+                            }
+                        }
+                    }
+                }
+                // Alvo a esquerda
+                else
+                {
+                    if (LeftMoveIA())
+                        return true;
+                    else
+                    {
+                        // Alvo a baixo
+                        if (dy < 0)
+                        {
+                            if(!DownMoveIA())
+                            {
+                                return UpMoveIA();
+                            }
+                        }
+                        // Alvo a cima
+                        else
+                        {
+                            if(!UpMoveIA())
+                            {
+                                return DownMoveIA();
+                            }
+                        }
+                    }
+                }
+            }
+            // Distancia em Y maior que em X
+            else
+            {
+                // Alvo a baixo
+                if (dy < 0)
+                {
+                    if (DownMoveIA())
+                        return true;
+                    else
+                    {
+                        // Alvo a direita
+                        if (dx < 0)
+                        {
+                            if(!RightMoveIA())
+                            {
+                                return LeftMoveIA();
+                            }
+                        }
+                        // Alvo a esquerda
+                        else
+                        {
+                            if (!LeftMoveIA())
+                            {
+                                return RightMoveIA();
+                            }
+                        }
+                    }
+                }
+                // Alvo a cima
+                else
+                {
+                    if (UpMoveIA())
+                        return true;
+                    else
+                    {
+                        // Alvo a direita
+                        if (dx < 0)
+                        {
+                            if (!RightMoveIA())
+                            {
+                                return LeftMoveIA();
+                            }
+                        }
+                        // Alvo a esquerda
+                        else
+                        {
+                            if (!LeftMoveIA())
+                            {
+                                return RightMoveIA();
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
     }
