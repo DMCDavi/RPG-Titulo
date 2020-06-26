@@ -31,7 +31,7 @@ namespace Titulo_UWP
         {
             this.InitializeComponent();
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/MainPage.mp3"));
-            mediaPlayer.Volume = 0.1;
+            mediaPlayer.Volume = 0.05;
             mediaPlayer.Play();
             mediaPlayer.IsLoopingEnabled = true;
         }

@@ -8,9 +8,13 @@ namespace TituloCore
     [DataContract(Name = "Armor", Namespace = "http://www.contoso.com")]
     public class Armor : Equipment
     {
+        [DataMember]
         int BaseAc;
+        [DataMember]
         int MaxDex;
+        [DataMember]
         int MinDex;
+        [DataMember]
         int DexBonus;
         //int MagicBonus = 0;
 
