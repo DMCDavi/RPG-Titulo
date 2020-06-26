@@ -815,7 +815,7 @@ namespace Titulo_UWP
             Inventory.Visibility = Visibility.Visible;
             try
             {
-                charArma.Content = "gean";
+                charBota.Content = player.EquippedBoots.Name;
 
             }
             catch
@@ -979,7 +979,7 @@ namespace Titulo_UWP
         private void Up()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door)))
+            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door)))
             {
                 //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 2 && margin.Top <= -400)

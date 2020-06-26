@@ -8,9 +8,13 @@ namespace TituloCore
     [DataContract(Name = "Item", Namespace = "http://www.contoso.com")]
     public class Item
     {
+        [DataMember]
         public Character Owner;
+        [DataMember]
         public string Name;
+        [DataMember]
         public int posX;
+        [DataMember]
         public int posY;
         public void PickUp(Character player)
         {

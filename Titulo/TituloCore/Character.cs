@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace TituloCore
 {
-    [DataContract(Name = "Character")]
+    [DataContract(Name = "Character", IsReference = true)]
     //Lista de objetos de personagem que podem ser serializados
     [KnownType(typeof(Item))]
     [KnownType(typeof(Assassin))]
