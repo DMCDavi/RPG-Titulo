@@ -18,8 +18,11 @@ namespace TituloCore
         public int posY;
         public void PickUp(Character player)
         {
-            player.Inventory.Add(this);
-            this.Owner = player;
+            if (player.Inventory.Count < 25)
+            {
+                player.Inventory.Add(this);
+                this.Owner = player;
+            }
         }
 
         public void Drop()

@@ -16,7 +16,7 @@ namespace TituloCore
         [DataMember]
         int[] DmgDice;
         [DataMember]
-        Weapon Apprentice_Bow;
+        Weapon Apprentice_Estoc;
         [DataMember]
         Armor Apprentice_Leather_Armor;
         [DataMember]
@@ -34,11 +34,11 @@ namespace TituloCore
         public void EquipBaseSet(Character Self)
         {
             DmgDice = new int[] { 6, 6 };
-            Apprentice_Bow = new Weapon("Piercing", "DEX", DmgDice, 100, 0, 2, "Apprentice_Bow");
+            Apprentice_Estoc = new Weapon("Piercing", "DEX", DmgDice, 100, 0, 2, "Apprentice_Estoc");
             Apprentice_Leather_Armor = new Armor(10, -10, 20, "Apprentice_Leather_Armor");
             Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
-            Apprentice_Bow.Equip(Self);
+            Apprentice_Estoc.Equip(Self);
             Apprentice_Leather_Armor.Equip(Self);
             Apprentice_Boots.Equip(Self);
         }
