@@ -24,7 +24,6 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10, "Apprentice_Leather_Armor");
             EquipBaseSet(Self);
         }
         public void EquipBaseSet(Character Self)

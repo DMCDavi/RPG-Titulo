@@ -83,8 +83,6 @@ namespace TituloCore
         [DataMember]
         public int HitDice { get; set; }
         [DataMember]
-        public Armor NaturalArmor { get; set; }
-        [DataMember]
         public List<int> ClassDmgDices { get; set; }
         [DataMember]
         public int CritRange { get; set; }
