@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.Serialization;
+using System.Runtime.CompilerServices;
 
 namespace TituloCore
 {
@@ -80,10 +81,26 @@ namespace TituloCore
             Self.BonusAction.Add("Dash", new Action(Self.Dash));
         }
 
-        public void TurnIA(Character player)
+        private bool Chase;
+        public bool TurnIA()
         {
-
+            int dx = Self.posX - Self.Target.posX;
+            int dy = Self.posY - Self.Target.posY;
+            // Define se vai perseguir
+            if (Math.Abs(dx) < 6 && Math.Abs(dy) < 6)
+                Chase = true;
+            if (Math.Abs(dx) <= 1 && Math.Abs(dy) <= 1)
+                Chase = false;
+            if (Math.Abs(Self.Target.posX - Self.HomeX) > 15 || Math.Abs(Self.Target.posY - Self.HomeY) > 15)
+                Chase = false;
+            if(Self.TurnMove > 0 && Chase)
+            {
+                if(Self.Chase())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
-
     }
 }
