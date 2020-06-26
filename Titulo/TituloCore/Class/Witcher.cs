@@ -9,10 +9,30 @@ namespace TituloCore
     public class Witcher : IClass
     {
         public Character Self;
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Staff;
+        [DataMember]
+        Armor Apprentice_Cloth_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         public Witcher(Character Self)
         {
             this.Self = Self;
             HitDice();
+            EquipBaseSet(Self);
+        }
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 10 };
+            Apprentice_Staff = new Weapon("Necrotic", "CHA", DmgDice, 0, 0, 5, "Apprentice_Staff");
+            Apprentice_Cloth_Armor = new Armor(13, -10, 20, "Apprentice_Cloth_Armor");
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
+
+            Apprentice_Staff.Equip(Self);
+            Apprentice_Cloth_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
         }
         public void HitDice()
         {
@@ -80,12 +100,9 @@ namespace TituloCore
             {
                 if (Self.bonusaction)
                 {
-                    Self.BonusAction["Dash"].DynamicInvoke();
-                    Self.bonusaction = false;
-                    return true;
                 }
             }
-            if (Math.Abs(dx) > Self.EquippedWeapon.Range && Math.Abs(dy) > Self.EquippedWeapon.Range)
+            if (Math.Abs(dx) <= Self.EquippedWeapon.Range && Math.Abs(dy) <= Self.EquippedWeapon.Range)
             {
                 if (Self.action)
                 {

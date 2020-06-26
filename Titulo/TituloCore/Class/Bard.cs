@@ -13,7 +13,14 @@ namespace TituloCore
         private int FireDmg = 3;
         private bool fire = false, fury = false, earth = false, hunter = false;
         public bool Singing = false, Dancing = false;
-
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Estoc;
+        [DataMember]
+        Armor Apprentice_Leather_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         /// <summary>
         /// Construtor da classe Bard
         /// </summary>
@@ -21,6 +28,19 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
+            EquipBaseSet(Self);
+        }
+
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 8 };
+            Apprentice_Estoc = new Weapon("Piercing", "DEX", DmgDice, 0, 0, 1, "Apprentice_Estoc");
+            Apprentice_Leather_Armor = new Armor(10, -10, 20, "Apprentice_Leather_Armor");
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
+
+            Apprentice_Estoc.Equip(Self);
+            Apprentice_Leather_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
         }
 
         /// <summary>
@@ -244,12 +264,10 @@ namespace TituloCore
             {
                 if (Self.bonusaction)
                 {
-                    Self.BonusAction["Dash"].DynamicInvoke();
-                    Self.bonusaction = false;
-                    return true;
+
                 }
             }
-            if (Math.Abs(dx) > Self.EquippedWeapon.Range && Math.Abs(dy) > Self.EquippedWeapon.Range)
+            if (Math.Abs(dx) <= Self.EquippedWeapon.Range && Math.Abs(dy) <= Self.EquippedWeapon.Range)
             {
                 if (Self.action)
                 {

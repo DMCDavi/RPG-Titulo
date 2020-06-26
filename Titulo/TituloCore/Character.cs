@@ -6,8 +6,9 @@ using System.Xml;
 
 namespace TituloCore
 {
-    [DataContract(Name = "Character")]
+    [DataContract(Name = "Character", IsReference = true)]
     //Lista de objetos de personagem que podem ser serializados
+    [KnownType(typeof(Item))]
     [KnownType(typeof(Assassin))]
     [KnownType(typeof(Bard))]
     [KnownType(typeof(Berserker))]
@@ -36,6 +37,7 @@ namespace TituloCore
     [KnownType(typeof(Orc))]
     [KnownType(typeof(Armor))]
     [KnownType(typeof(Weapon))]
+    [KnownType(typeof(Boots))]
     public class Character
     {
         public MapBlockCore[,] Map;
@@ -80,9 +82,9 @@ namespace TituloCore
         [DataMember]
         public Armor EquippedArmor { get; set; }
         [DataMember]
-        public int HitDice { get; set; }
+        public Boots EquippedBoots { get; set; }
         [DataMember]
-        public Armor NaturalArmor { get; set; }
+        public int HitDice { get; set; }
         [DataMember]
         public List<int> ClassDmgDices { get; set; }
         [DataMember]
@@ -91,6 +93,8 @@ namespace TituloCore
         public int AcBonus { get; set; }
         [DataMember]
         public Character Target { get; set; }
+        [DataMember]
+        public List<Item> Inventory = new List<Item>();
         public int TurnMove { get; set; }
         public void SelectClass()
         {
@@ -265,7 +269,6 @@ namespace TituloCore
             MainClass = Class;
             RaceName = Race;
             PersonaName = Persona;
-            SelectClass();
             this.Race = AllRace[Race];
             Exp = 0;
             Lvl = 1;
@@ -274,11 +277,12 @@ namespace TituloCore
             this.Race.Speed(this);
             this.Race.Language(this);
             this.Race.AtributeInc(this);
+            SelectClass();
             Hpmax = HitDice + Modifier("CON");
+            Hpmax *= 10;
             Hp = Hpmax;
-            NaturalArmor = new Armor(10, -10, 20);
-            EquippedArmor = NaturalArmor;
-            EquippedArmor.Equip(this);
+    
+            
             CritRange = 20;
             DefineAction();
         }
@@ -478,6 +482,7 @@ namespace TituloCore
         {
             Lvl++;
             CharacterClass.LvlUp();
+            Hpmax += 9 * (CharacterClass.RollHitDice() + Modifier("CON"));
         }
 
         /// <summary>

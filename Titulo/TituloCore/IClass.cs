@@ -13,5 +13,6 @@ namespace TituloCore
         void AddBonusActions();
         void EndOfTurn();
         bool TurnIA();
+        void EquipBaseSet(Character Self);
     }
 }

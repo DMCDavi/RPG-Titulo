@@ -11,12 +11,12 @@ namespace TituloCore
         private int PersonalityPoint = 0;
         public void AtributeInc(Character Self)
         {
-            Self.Atribute["STR"] += 10;
-            Self.Atribute["DEX"] -= 1;
-            Self.Atribute["CON"] += 10;
-            Self.Atribute["INT"] += 10;
-            Self.Atribute["WIS"] += 10;
-            Self.Atribute["CHA"] -= 1;
+            Self.Atribute["STR"] += 2;
+            Self.Atribute["DEX"] += 1;
+            Self.Atribute["CON"] += 2;
+            Self.Atribute["INT"] -= 1;
+            Self.Atribute["WIS"] -= 6;
+            Self.Atribute["CHA"] += 2;
         }
 
         public int PersonalityPoints()

@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TituloCore
+{
+	public class HealingPot : Consumable
+	{
+		public HealingPot(int Value)
+		{
+			this.Value = Value;
+		}
+		public override void Use(Character Target)
+		{
+			Target.Hp += Value;
+			if (Target.Hp > Target.Hpmax) Target.Hp = Target.Hpmax;
+		}
+	}
+}

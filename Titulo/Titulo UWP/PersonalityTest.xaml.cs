@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using TituloCore;
 using System.Diagnostics;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,10 +27,12 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class PersonalityTest : Page
     {
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         private int num_panel = 1, num_answer = 1;
         private List<StackPanel> AllQuestionPanels;
         Personality PTest = new Personality();
         private StackPanel[,] AllAnswerPanels;
+
         public PersonalityTest()
         {
             this.InitializeComponent();
@@ -58,6 +63,13 @@ namespace Titulo_UWP
                  {Answer_9_1, Answer_9_2, null, Answer_9_4, Answer_9_5, null, null, null },
                  {Answer_10_1, Answer_10_2, Answer_10_3, Answer_10_4, null, null, null, null },
         };
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            mediaPlayer = e.Parameter as MediaPlayer;
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Cyberpunk.mp3"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -114,14 +126,18 @@ namespace Titulo_UWP
             //Se tiver completado o teste de personalidade, redireciona o usuário para a página de criação do personagem
             else if (num_panel == 14)
             {
+                var parameters = new MapParams();
+                parameters.winner = PTest.GetPersonalityWinner();
+                parameters.media_player = mediaPlayer;
+                mediaPlayer.Pause();
                 num_answer = 1;
-                this.Frame.Navigate(typeof(CharacterCreation), PTest.GetPersonalityWinner());
+                this.Frame.Navigate(typeof(CharacterCreation), parameters);
             }
             //Se tiver falhado no teste de personalidade, redireciona o usuário para a página de seleção de personagens
             else if (num_panel == 15 || num_panel == 16)
             {
                 num_answer = 1;
-                this.Frame.Navigate(typeof(CharacterSelectionPage));
+                this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
             }
             else
                 foreach (var panel in AllQuestionPanels.Select((value, index) => new { value, index }))
@@ -162,4 +178,5 @@ namespace Titulo_UWP
                 num_answer = int.Parse(rb.Tag.ToString());
         }
     }
+
 }

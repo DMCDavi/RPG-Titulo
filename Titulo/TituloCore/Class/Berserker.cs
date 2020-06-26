@@ -12,13 +12,31 @@ namespace TituloCore
         private bool Rage = false;
         [DataMember]
         private int RageDmg = 2;
+        [DataMember]
+        int[] DmgDice;
+        [DataMember]
+        Weapon Apprentice_Waraxe;
+        [DataMember]
+        Armor Apprentice_Chainmail_Armor;
+        [DataMember]
+        Boots Apprentice_Boots;
         public Berserker(Character Self)
         {
             this.Self = Self;
             HitDice();
-            Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
+            EquipBaseSet(Self);
         }
+        public void EquipBaseSet(Character Self)
+        {
+            DmgDice = new int[] { 12 };
+            Apprentice_Waraxe = new Weapon("Slash", "STR", DmgDice, 0, 0, 2, "Apprentice_Waraxe");
+            Apprentice_Chainmail_Armor = new Armor(10, -10, 20, "Apprentice_Chainmail_Armor");
+            Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
+            Apprentice_Waraxe.Equip(Self);
+            Apprentice_Chainmail_Armor.Equip(Self);
+            Apprentice_Boots.Equip(Self);
+        }
         public void HitDice()
         {
             Self.HitDice = 12;
@@ -126,12 +144,10 @@ namespace TituloCore
             {
                 if (Self.bonusaction)
                 {
-                    Self.BonusAction["Dash"].DynamicInvoke();
-                    Self.bonusaction = false;
-                    return true;
+
                 }
             }
-            if (Math.Abs(dx) > Self.EquippedWeapon.Range && Math.Abs(dy) > Self.EquippedWeapon.Range)
+            if (Math.Abs(dx) <= Self.EquippedWeapon.Range && Math.Abs(dy) <= Self.EquippedWeapon.Range)
             {
                 if (Self.action)
                 {

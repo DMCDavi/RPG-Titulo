@@ -16,6 +16,8 @@ using System.Diagnostics;
 using TituloCore;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
+using Windows.Media.Playback;
+using Windows.Media.Core;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,7 +36,9 @@ namespace Titulo_UWP
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
         private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
-        Image heart_img;
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+        private Image heart_img;
+
 
         public Map()
         {
@@ -645,6 +649,19 @@ namespace Titulo_UWP
             map_matrix[41, 61].block = new Mountain();
             map_matrix[42, 61].block = new Mountain();
 
+            int[] DmgDice = { 6, 6 };
+            //Criando Items
+            Weapon ShildDoDiabo = new Weapon("Concussion", "STR", DmgDice, 100, 9, 2, "ShildDoDiabo");
+            Armor ArmaduraDoCavaleiroDasTrevas = new Armor(10, -10, 20, "ArmaduraDoCavaleiroDasTrevas");
+
+            //Colocando os itens na matriz do mapa
+            map_matrix[41, 10].block = ShildDoDiabo;
+            ((Item)map_matrix[41, 10].block).posY = 41;
+            ((Item)map_matrix[41, 10].block).posX = 10;
+            map_matrix[42, 10].block = ArmaduraDoCavaleiroDasTrevas;
+            ((Item)map_matrix[42, 10].block).posY = 42;
+            ((Item)map_matrix[42, 10].block).posX = 10;
+
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
             davi = new Character("Mage", "Dwarf", "David");
@@ -702,6 +719,7 @@ namespace Titulo_UWP
             //Armazena todos os blocos do mapa que possuem imagens
             ImgBlocks = new List<MapBlock>
             {
+                //Characters
                 map_matrix[30, 72],
                 map_matrix[37, 69],
                 map_matrix[32, 43],
@@ -711,18 +729,25 @@ namespace Titulo_UWP
                 map_matrix[41, 8],
                 map_matrix[17, 14],
                 map_matrix[16, 26],
-                map_matrix[15, 40]
+                map_matrix[15, 40],
+                //Items
+                map_matrix[41, 10],
+                map_matrix[42,10]
             };
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            player = e.Parameter as Character;
+            var parameters = (MapParams)e.Parameter;
+            player = parameters.character;
+            mediaPlayer = parameters.media_player;
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
+            mediaPlayer.Play();
             persona_name = player.PersonaName;
             race_name = player.RaceName;
             player.LoadButtons();
             AddLife(PlayerHp, player.Hp, player.Hpmax);
+            AddBonusButtons();
 
             //Cria os botões de ataque referentes à classe do personagem
             foreach (KeyValuePair<string, Delegate> action in player.Action)
@@ -738,24 +763,13 @@ namespace Titulo_UWP
                 ActionPanel.Children.Add(action_btn);
             }
 
-            //Cria os botões de ataque bônus referentes à classe do personagem
-            foreach (KeyValuePair<string, Delegate> action_bonus in player.BonusAction)
-            {
-                Button action_btn = new Button();
-                action_btn.Content = action_bonus.Key;
-                action_btn.Name = action_bonus.Key;
-                action_btn.MinWidth = 220;
-                action_btn.FontFamily = new FontFamily("Times New Roman");
-                action_btn.Foreground = new SolidColorBrush(Colors.Black);
-                action_btn.FontSize = 20;
-                action_btn.Click += Bonus_Click;
-                BonusPanel.Children.Add(action_btn);
-            }
-
             //Preenche o mapa com as imagens dos blocos
             foreach (MapBlock map_block in ImgBlocks)
             {
-                map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
+                if (map_block.block.GetType() == typeof(Character))
+                    map_block.SetImage(new Image(), "ms-appx:///Assets/Personagens/" + ((Character)map_block.block).PersonaName + "/Sem_fundo/" + ((Character)map_block.block).PersonaName + "_" + ((Character)map_block.block).RaceName + ".png", -80 + (((Character)map_block.block).posX - player.posX) * 80, 0 + (((Character)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Character)map_block.block).posX) * 80, 80 + (player.posY - ((Character)map_block.block).posY) * 80);
+                else if (((Item)map_block.block) != null)
+                    map_block.SetImage(new Image(), "ms-appx:///Assets/Itens/" + ((Item)map_block.block).Name + ".png", -80 + (((Item)map_block.block).posX - player.posX) * 80, 0 + (((Item)map_block.block).posY - player.posY) * 80, 0 + (player.posX - ((Item)map_block.block).posX) * 80, 80 + (player.posY - ((Item)map_block.block).posY) * 80);
                 MapGrid.Children.Add(map_block.GetImage());
                 Grid.SetColumnSpan(map_block.GetImage(), 16);
                 Grid.SetRowSpan(map_block.GetImage(), 9);
@@ -770,6 +784,63 @@ namespace Titulo_UWP
             }
             base.OnNavigatedTo(e);
 
+        }
+
+
+
+        /// <summary>
+        /// Cria os botões de ataque bônus referentes à classe do personagem
+        /// </summary>
+        private void AddBonusButtons()
+        {
+            BonusPanel.Children.Clear();
+            foreach (KeyValuePair<string, Delegate> action_bonus in player.BonusAction)
+            {
+                Button action_btn = new Button();
+                action_btn.Content = action_bonus.Key;
+                action_btn.Name = action_bonus.Key;
+                action_btn.MinWidth = 220;
+                action_btn.FontFamily = new FontFamily("Times New Roman");
+                action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                action_btn.FontSize = 20;
+                action_btn.Click += Bonus_Click;
+                BonusPanel.Children.Add(action_btn);
+            }
+        }
+
+        /// <summary>
+        /// Adiciona os botões de song e dance do bardo
+        /// </summary>
+        /// <param name="bonus_type">Recebe "Dance" ou "Song" para dizer o tipo de ataque</param>
+        private void AddBardButtons(string bonus_type)
+        {
+            if (bonus_type == "Dance" || bonus_type == "Song")
+            {
+                List<string> options = new List<string>();
+                if (bonus_type == "Dance")
+                {
+                    options.Add("Fury");
+                    options.Add("Fire");
+                }
+                else if (bonus_type == "Song")
+                {
+                    options.Add("Earth");
+                    options.Add("Hunter");
+                }
+                BonusPanel.Children.Clear();
+                foreach (string option_str in options)
+                {
+                    Button action_btn = new Button();
+                    action_btn.Content = option_str;
+                    action_btn.Name = option_str;
+                    action_btn.MinWidth = 220;
+                    action_btn.FontFamily = new FontFamily("Times New Roman");
+                    action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                    action_btn.FontSize = 20;
+                    action_btn.Click += Bonus_Click;
+                    BonusPanel.Children.Add(action_btn);
+                }
+            }
         }
 
         /// <summary>
@@ -794,19 +865,84 @@ namespace Titulo_UWP
             }
         }
 
-        private void OpenInventory(object sender, RoutedEventArgs e)
-        {
-            Inventory.Visibility = Visibility.Visible;
-        }
-
-        private void CloseInventory(object sender, RoutedEventArgs e)
-        {
-            Inventory.Visibility = Visibility.Collapsed;
-        }
+        private void OpenInventory(object sender, RoutedEventArgs e) { }
 
         private void OpenInventoryB()
         {
             Inventory.Visibility = Visibility.Visible;
+
+            try
+            {
+                charBota.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedBoots.Name + ".png"));
+                charArmadura.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedArmor.Name + ".png"));
+                charArma.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.EquippedWeapon.Name + ".png"));
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                if (player.Inventory[0] != null && 0 + 1 <= player.Inventory.Count()) item0.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[0].Name + ".png"));
+                else item0.Source = null;
+                if (player.Inventory[1] != null && 1 + 1 <= player.Inventory.Count()) item1.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[1].Name + ".png"));
+                else item1.Source = null;
+                if (player.Inventory[2] != null && 2 + 1 <= player.Inventory.Count()) item2.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[2].Name + ".png"));
+                else item2.Source = null;
+                if (player.Inventory[3] != null && 3 + 1 <= player.Inventory.Count()) item3.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[3].Name + ".png"));
+                else item3.Source = null;
+                if (player.Inventory[4] != null && 4 + 1 <= player.Inventory.Count()) item4.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[4].Name + ".png"));
+                else item4.Source = null;
+                if (player.Inventory[5] != null && 5 + 1 <= player.Inventory.Count()) item5.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[5].Name + ".png"));
+                else item5.Source = null;
+                if (player.Inventory[6] != null && 6 + 1 <= player.Inventory.Count()) item6.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[6].Name + ".png"));
+                else item6.Source = null;
+                if (player.Inventory[7] != null && 7 + 1 <= player.Inventory.Count()) item7.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[7].Name + ".png"));
+                else item7.Source = null;
+                if (player.Inventory[8] != null && 8 + 1 <= player.Inventory.Count()) item8.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[8].Name + ".png"));
+                else item8.Source = null;
+                if (player.Inventory[9] != null && 9 + 1 <= player.Inventory.Count()) item9.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[9].Name + ".png"));
+                else item9.Source = null;
+                if (player.Inventory[10] != null && 10 + 1 <= player.Inventory.Count()) item10.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[10].Name + ".png"));
+                else item10.Source = null;
+                if (player.Inventory[11] != null && 11 + 1 <= player.Inventory.Count()) item11.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[11].Name + ".png"));
+                else item11.Source = null;
+                if (player.Inventory[12] != null && 12 + 1 <= player.Inventory.Count()) item12.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[12].Name + ".png"));
+                else item12.Source = null;
+                if (player.Inventory[13] != null && 13 + 1 <= player.Inventory.Count()) item13.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[13].Name + ".png"));
+                else item13.Source = null;
+                if (player.Inventory[14] != null && 14 + 1 <= player.Inventory.Count()) item14.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[14].Name + ".png"));
+                else item14.Source = null;
+                if (player.Inventory[15] != null && 15 + 1 <= player.Inventory.Count()) item15.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[15].Name + ".png"));
+                else item15.Source = null;
+                if (player.Inventory[16] != null && 16 + 1 <= player.Inventory.Count()) item16.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[16].Name + ".png"));
+                else item16.Source = null;
+                if (player.Inventory[17] != null && 17 + 1 <= player.Inventory.Count()) item17.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[17].Name + ".png"));
+                else item17.Source = null;
+                if (player.Inventory[18] != null && 18 + 1 <= player.Inventory.Count()) item18.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[18].Name + ".png"));
+                else item18.Source = null;
+                if (player.Inventory[19] != null && 19 + 1 <= player.Inventory.Count()) item19.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[19].Name + ".png"));
+                else item19.Source = null;
+                if (player.Inventory[20] != null && 20 + 1 <= player.Inventory.Count()) item20.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[20].Name + ".png"));
+                else item20.Source = null;
+                if (player.Inventory[21] != null && 21 + 1 <= player.Inventory.Count()) item21.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[21].Name + ".png"));
+                else item21.Source = null;
+                if (player.Inventory[22] != null && 22 + 1 <= player.Inventory.Count()) item22.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[22].Name + ".png"));
+                else item22.Source = null;
+                if (player.Inventory[23] != null && 23 + 1 <= player.Inventory.Count()) item23.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[23].Name + ".png"));
+                else item23.Source = null;
+                if (player.Inventory[24] != null && 24 + 1 <= player.Inventory.Count()) item24.Source = new BitmapImage(new Uri("ms-appx:///Assets/Itens/" + player.Inventory[24].Name + ".png"));
+                else item24.Source = null;
+            }
+            catch
+            {
+
+            }
+
+
+
+
+
         }
 
         private void CloseInventoryB()
@@ -831,9 +967,9 @@ namespace Titulo_UWP
 
 
             int[] DmgDice = { 6, 6 };
-            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
+            Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1, "armafoda");
             armafoda.Equip(enemy);
-            enemy.EquippedWeapon = armafoda;
+            //enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
             //enemy.Action["Attack"].DynamicInvoke();
             while (enemy.CharacterClass.TurnIA())
@@ -887,7 +1023,10 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void NavigateSelection(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CharacterSelectionPage));
+            mediaPlayer.Pause();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/MainPage.mp3"));
+            mediaPlayer.Play();
+            this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
         }
 
         private void MoveButton_Click(object sender, RoutedEventArgs e)
@@ -910,12 +1049,52 @@ namespace Titulo_UWP
             {
                 BonusPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;
-                player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                if (player.CharacterClass.GetType() == typeof(Bard) && (((Button)sender).Name == "Song" || ((Button)sender).Name == "Dance"))
+                    AddBardButtons(((Button)sender).Name);
+                else if (((Button)sender).Name == "Fire" || ((Button)sender).Name == "Fury")
+                {
+                    player.BonusAction["Dance"].DynamicInvoke(((Button)sender).Name);
+                    AddBonusButtons();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else if (((Button)sender).Name == "Earth" || ((Button)sender).Name == "Hunter")
+                {
+                    player.BonusAction["Song"].DynamicInvoke(((Button)sender).Name);
+                    if (((Button)sender).Name == "Earth")
+                    {
+                        mediaPlayer.Pause();
+                        mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Witcher.mp3"));
+                        mediaPlayer.Play();
+                    }
+                    else if (((Button)sender).Name == "Hunter")
+                    {
+                        mediaPlayer.Pause();
+                        mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Mothers Hymn.mp3"));
+                        mediaPlayer.Play();
+                    }
+                    AddBonusButtons();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else if (((Button)sender).Name == "Stop Singing")
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Combat.mp3"));
+                    mediaPlayer.Play();
+                }
+                else
+                {
+                    player.BonusAction[((Button)sender).Name].DynamicInvoke();
+                    BonusButton.Visibility = Visibility.Collapsed;
+                    BonusPanel.Visibility = Visibility.Collapsed;
+                }
                 AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
+
                 //Se o inimigo morrer tira todas as referências do personagem no mapa
                 if (player.Target.Hp == 0)
                 {
@@ -932,8 +1111,6 @@ namespace Titulo_UWP
                     nearest_enemy = null;
                     SearchEnemies(10);
                 }
-                BonusButton.Visibility = Visibility.Collapsed;
-                BonusPanel.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -948,7 +1125,7 @@ namespace Titulo_UWP
             {
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
-                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2);
+                Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
                 armafoda.Equip(player);
                 player.EquippedWeapon = armafoda;
                 player.Target = nearest_enemy;
@@ -981,7 +1158,7 @@ namespace Titulo_UWP
         private void Up()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door)))
+            if (player.posY - 1 >= 0 && (map_matrix[player.posY - 1, player.posX].block == null || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY - 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY - 1, player.posX].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 2 && margin.Top <= -400)
@@ -1016,7 +1193,7 @@ namespace Titulo_UWP
         private void Down()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posY + 1 < 43 && (map_matrix[player.posY + 1, player.posX].block == null || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Door)))
+            if (player.posY + 1 < 43 && (map_matrix[player.posY + 1, player.posX].block == null || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Cave) || map_matrix[player.posY + 1, player.posX].block.GetType() == typeof(Door) || map_matrix[player.posY + 1, player.posX].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 6 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 6 && margin.Bottom <= -400)
@@ -1051,7 +1228,7 @@ namespace Titulo_UWP
         private void Left()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posX - 1 >= 0 && (map_matrix[player.posY, player.posX - 1].block == null || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Door)))
+            if (player.posX - 1 >= 0 && (map_matrix[player.posY, player.posX - 1].block == null || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX - 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX - 1].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 3 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 3 && margin.Left <= -400)
@@ -1086,7 +1263,7 @@ namespace Titulo_UWP
         private void Right()
         {
             //Verifica se o bloco que o personagem está tentando ir está livre ou não
-            if (player.posX + 1 < 77 && (map_matrix[player.posY, player.posX + 1].block == null || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Cave)))
+            if (player.posX + 1 < 77 && (map_matrix[player.posY, player.posX + 1].block == null || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Door) || map_matrix[player.posY, player.posX + 1].block.GetType() == typeof(Cave) || map_matrix[player.posY, player.posX + 1].block.GetType().IsSubclassOf(typeof(Item))))
             {
                 //Se o personagem estiver na posição 12 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 12 && margin.Right <= -400)
@@ -1150,10 +1327,18 @@ namespace Titulo_UWP
                 }
                 //Se tiver algum inimigo no raio e se o turno já não estiver ativado, ativa o modo dos turnos
                 if (hasEnemyInRange && !isPlayerTurn)
-                    ChangePlayerTurnStatus(true);
-                //Senão tiver inimigos no raio desativa o modo dos turnos
-                else if (!hasEnemyInRange)
                 {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Combat.mp3"));
+                    mediaPlayer.Play();
+                    ChangePlayerTurnStatus(true);
+                }
+                //Senão tiver inimigos no raio desativa o modo dos turnos
+                else if (!hasEnemyInRange && isPlayerTurn)
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
+                    mediaPlayer.Play();
                     ChangePlayerTurnStatus(false);
                     nearest_enemy = null;
                 }
@@ -1224,6 +1409,25 @@ namespace Titulo_UWP
                         CharacterImg.Visibility = Visibility.Collapsed;
                     else
                         CharacterImg.Visibility = Visibility.Visible;
+                    //Se i bkici qye i oersibagen se moveu for um item, o item é adicionado no inventário
+                    if (map_matrix[player.posY, player.posX].block != null && (map_matrix[player.posY, player.posX].block.GetType().IsSubclassOf(typeof(Item))))
+                    {
+                        ((Item)map_matrix[player.posY, player.posX].block).PickUp(player);
+
+                        foreach (MapBlock map_block in ImgBlocks)
+                        {
+                            if (map_block.block.GetType().IsSubclassOf(typeof(Item)))
+                            {
+                                if (((Item)map_block.block).posX == player.posX && ((Item)map_block.block).posY == player.posY)
+                                {
+                                    MapGrid.Children.Remove(map_block.GetImage());
+                                    ImgBlocks.Remove(map_block);
+                                    break;
+                                }
+                            }
+                        }
+                        map_matrix[player.posY, player.posX].block = null;
+                    }
                     SearchEnemies(10);
                 }
             }
