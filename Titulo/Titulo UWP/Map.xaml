@@ -72,7 +72,7 @@
         </StackPanel>
 
         <Button x:Name="InventoryButton" Visibility="Collapsed" Click="OpenInventory" Grid.Column="14" Grid.Row="2"  Grid.ColumnSpan="2" CornerRadius="20" Content="Inventário" VerticalAlignment="Top" FontFamily="Times New Roman" Foreground="#000" FontSize="30" Background="#CCFFFFFF" Margin="6,22,0,0"  />
-        <StackPanel x:Name="Inventory" Visibility="Collapsed" Background="#000000" CornerRadius="10"  Grid.ColumnSpan="15" Grid.RowSpan="25" Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Width="420" Height="540">
+        <StackPanel x:Name="Inventory" Visibility="Collapsed" Background="#8c8c8c" CornerRadius="10"  Grid.ColumnSpan="15" Grid.RowSpan="25" Grid.Column="0" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" Width="420" Height="540">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -91,9 +91,15 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                  </Grid.ColumnDefinitions>
-                    <Button x:Name="charArma" Grid.Row="0" Grid.Column="0" Width="75" Height="75" Content="ARMA"></Button>
-                    <Button x:Name="charArmadura" Grid.Row="0" Grid.Column="1" Width="75" Height="75" Content="ARMADURA"></Button>
-                    <Button x:Name="charBota" Grid.Row="0" Grid.Column="2" Width="75" Height="75" Content="BOTA"></Button>
+                    <Button  Grid.Row="0" Grid.Column="0" Width="75" Height="75" Content="ARMA">
+                    
+                </Button>
+                    <Button Grid.Row="0" Grid.Column="1" Width="75" Height="75" Content="ARMADURA">
+                    
+                </Button>
+                    <Button  Grid.Row="0" Grid.Column="2" Width="75" Height="75" Content="BOTA">
+                    
+                </Button>
 
                 </Grid>
                 <Grid x:Name="ItemsGrid"  Width="400" Height="400" Margin="0,15,0,0">

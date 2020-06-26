@@ -802,7 +802,7 @@ namespace Titulo_UWP
         private void OpenInventory(object sender, RoutedEventArgs e)
         {
             Inventory.Visibility = Visibility.Visible;
-            charArma.Content = player.EquippedWeapon.Name;
+           // charArma.Content = player.EquippedWeapon.Name;
         }
 
         private void CloseInventory(object sender, RoutedEventArgs e)
@@ -815,9 +815,9 @@ namespace Titulo_UWP
             Inventory.Visibility = Visibility.Visible;
             try
             {
-                charBota.Content = player.EquippedBoots.Name;
-                charArmadura.Content = player.EquippedArmor.Name;
-                charArma.Content = player.EquippedArmor.Name;
+                /*charBota.Source = player.EquippedBoots.Name + ".png";
+                charArmadura.Source = player.EquippedArmor.Name;
+                charArma.Source = player.EquippedWeapon.Name;*/
 
             }
             catch
