@@ -25,9 +25,9 @@ namespace TituloCore
             }
         }
 
-        public void Drop()
+        public void Drop(Character player)
         {
-            this.Owner.Inventory.Remove(this);
+            player.Inventory.Remove(this);
             this.Owner = null;
         }
         

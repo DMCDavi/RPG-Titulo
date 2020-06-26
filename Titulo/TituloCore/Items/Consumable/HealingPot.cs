@@ -15,6 +15,7 @@ namespace TituloCore
 		{
 			Target.Hp += Value;
 			if (Target.Hp > Target.Hpmax) Target.Hp = Target.Hpmax;
+			this.Drop(Target);
 		}
 	}
 }

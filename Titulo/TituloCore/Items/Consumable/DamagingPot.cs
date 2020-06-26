@@ -12,10 +12,11 @@ namespace TituloCore
 			this.Name = Name;
 		}
 
-		public override void Use(Character Target)
+		public override void Use(Character User)
 		{
-			Target.Hp -= Value;
-			if (Target.Hp < 0) Target.Hp = 0;
+			User.Target.Hp -= Value;
+			if (User.Target.Hp < 0) User.Target.Hp = 0;
+			this.Drop(User);
 		}
 	}
 }

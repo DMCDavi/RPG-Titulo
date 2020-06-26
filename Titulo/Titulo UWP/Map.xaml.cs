@@ -680,23 +680,30 @@ namespace Titulo_UWP
             //Criando Items
             Weapon ShildDoDiabo = new Weapon("Concussion", "STR", DmgDice, 100, 9, 2, "ShildDoDiabo");
             Armor ArmaduraDoCavaleiroDasTrevas = new Armor(10, -10, 20, "ArmaduraDoCavaleiroDasTrevas");
+            Armor Blessed_Iron_Armor = new Armor(10, -10, 20, "Blessed_Iron_Armor");
             HealingPot Agua = new HealingPot(10, "Agua");
             HealingPot PocaoHp = new HealingPot(25, "PocaoHp");
-            DamagingPot PocaoDeDano = new DamagingPot(25, "DamagingPot");
+            DamagingPot PocaoDeDano = new DamagingPot(25, "PocaoDeDano");
 
             //Colocando os itens na matriz do mapa
             map_matrix[41, 10].block = ShildDoDiabo;
             ((Item)map_matrix[41, 10].block).posY = 41;
             ((Item)map_matrix[41, 10].block).posX = 10;
-            map_matrix[42, 10].block = ArmaduraDoCavaleiroDasTrevas;
-            ((Item)map_matrix[42, 10].block).posY = 42;
-            ((Item)map_matrix[42, 10].block).posX = 10;
+            map_matrix[4, 7].block = ArmaduraDoCavaleiroDasTrevas;
+            ((Item)map_matrix[4, 7].block).posY = 4;
+            ((Item)map_matrix[4, 7].block).posX = 7;
+            map_matrix[5, 71].block = Blessed_Iron_Armor;
+            ((Item)map_matrix[5, 71].block).posY = 5;
+            ((Item)map_matrix[5, 71].block).posX = 71;
             map_matrix[40, 26].block = Agua;
             ((Item)map_matrix[40, 26].block).posY = 40;
             ((Item)map_matrix[40, 26].block).posX = 26;
             map_matrix[22, 26].block = PocaoHp;
             ((Item)map_matrix[22, 26].block).posY = 22;
             ((Item)map_matrix[22, 26].block).posX = 26;
+            map_matrix[40, 27].block = PocaoDeDano;
+            ((Item)map_matrix[40, 27].block).posY = 40;
+            ((Item)map_matrix[40, 27].block).posX = 27;
 
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
@@ -758,9 +765,11 @@ namespace Titulo_UWP
                 map_matrix[15, 40],
                 //Items
                 map_matrix[41, 10],
-                map_matrix[42,10],
+                map_matrix[4, 7],
+                map_matrix[5, 71],
                 map_matrix[40,26],
-                map_matrix[22,26]
+                map_matrix[22,26],
+                map_matrix[40,27]
             };
         }
 
@@ -914,6 +923,7 @@ namespace Titulo_UWP
                 }
                 catch
                 {
+                    img.Source =null;
                     break;
                 }
                 i++;
@@ -927,15 +937,23 @@ namespace Titulo_UWP
             {
                 if (((Button)sender).Content == Inv[i]) break;
             }
-
-            if (i > player.Inventory.Count()) return;
+            if (i >= player.Inventory.Count()) return;
 
             if(player.Inventory[i].GetType().IsSubclassOf(typeof(Equipment)))
             {
                 ((Equipment)player.Inventory[i]).Equip(player);
             }else if (player.Inventory[i].GetType().IsSubclassOf(typeof(Consumable)))
             {
-                ((Consumable)player.Inventory[i]).Use(player);
+                if (player.Inventory[i].GetType() == typeof(HealingPot))
+                {
+                    ((Consumable)player.Inventory[i]).Use(player);
+                    AddLife(PlayerHp, player.Hp, player.Hpmax);
+                }
+                else if (player.Inventory[i].GetType() == typeof(DamagingPot))
+                {
+                    ((Consumable)player.Inventory[i]).Use(player);
+                    AddLife(EnemyHp, player.Target.Hp, player.Target.Hpmax);
+                }
             }
             RenderInventory();
         }
