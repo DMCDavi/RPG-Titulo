@@ -21,8 +21,9 @@ namespace TituloCore
         /// <param name="MaxDex">Máximo modificador de dextreza</param>
         /// <param name="MinDex">Menor modificador de dextreza</param>
         /// <param name="Owner"></param>
-        public Armor(int BaseAc, int MaxDex, int MinDex)
+        public Armor(int BaseAc, int MaxDex, int MinDex, string Name)
         {
+            this.Name = Name;
             this.BaseAc = BaseAc;
             this.MaxDex = MaxDex;
             this.MinDex = MinDex;

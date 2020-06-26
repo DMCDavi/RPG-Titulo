@@ -31,7 +31,7 @@ namespace TituloCore
         {
             DmgDice = new int[] { 6, 6 };
             Apprentice_Wand = new Weapon("Radiante", "INT", DmgDice, 100, 0, 2, "Apprentice_Wand");
-            Apprentice_Cloth_Armor = new Armor(10, -10, 20);
+            Apprentice_Cloth_Armor = new Armor(10, -10, 20, "Apprentice_Cloth_Armor");
             Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
             Apprentice_Wand.Equip(Self);

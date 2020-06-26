@@ -35,7 +35,7 @@ namespace TituloCore
         {
             DmgDice = new int[] { 6, 6 };
             Apprentice_Bow = new Weapon("Piercing", "DEX", DmgDice, 100, 0, 2, "Apprentice_Bow");
-            Apprentice_Leather_Armor = new Armor(10, -10, 20);
+            Apprentice_Leather_Armor = new Armor(10, -10, 20, "Apprentice_Leather_Armor");
             Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
             Apprentice_Bow.Equip(Self);

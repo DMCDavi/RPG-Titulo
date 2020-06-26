@@ -274,14 +274,15 @@ namespace TituloCore
             this.Persona = AllPersona[Persona];
             this.Persona.AtributeInc(this);
             this.Race.Speed(this);
-            SelectClass();
+            
             this.Race.Language(this);
             this.Race.AtributeInc(this);
             Hpmax = HitDice + Modifier("CON");
             Hp = Hpmax;
-            NaturalArmor = new Armor(10, -10, 20);
+            NaturalArmor = new Armor(10, -10, 20, "NaturalArmor");
             EquippedArmor = NaturalArmor;
             EquippedArmor.Equip(this);
+            SelectClass();
             CritRange = 20;
             DefineAction();
         }

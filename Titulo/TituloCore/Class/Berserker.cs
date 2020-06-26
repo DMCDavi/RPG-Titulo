@@ -24,14 +24,14 @@ namespace TituloCore
         {
             this.Self = Self;
             HitDice();
-            Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10);
+            Self.NaturalArmor = new Armor ( 10 + Self.Modifier("CON"), 10, -10, "Apprentice_Leather_Armor");
             EquipBaseSet(Self);
         }
         public void EquipBaseSet(Character Self)
         {
             DmgDice = new int[] { 6, 6 };
             Apprentice_Waraxe = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "Apprentice_Waraxe");
-            Apprentice_Chainmail_Armor = new Armor(10, -10, 20);
+            Apprentice_Chainmail_Armor = new Armor(10, -10, 20, "Apprentice_Chainmail_Armor");
             Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
             Apprentice_Waraxe.Equip(Self);

@@ -816,6 +816,8 @@ namespace Titulo_UWP
             try
             {
                 charBota.Content = player.EquippedBoots.Name;
+                charArmadura.Content = player.EquippedArmor.Name;
+                charArma.Content = player.EquippedArmor.Name;
 
             }
             catch
