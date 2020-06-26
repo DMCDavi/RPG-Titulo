@@ -12,6 +12,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Xml;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,6 +25,7 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterCreation : Page
     {
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         private Character pers;
         private string race_name = "Human", class_name = "Assassin", persona_name = "Gean";
         //Variavel que armazena o local onde sao guardados os dados da aplicacao
@@ -49,8 +52,12 @@ namespace Titulo_UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter is string && !string.IsNullOrWhiteSpace((string)e.Parameter))
-                persona_name = e.Parameter.ToString();
+            var parameters = (MapParams)e.Parameter;
+            persona_name = parameters.winner;
+            mediaPlayer = parameters.media_player;
+            mediaPlayer.Pause();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/MainPage.mp3"));
+            mediaPlayer.Play();
             PersonaName.Text = persona_name;
             ChangeCharImages(persona_name, race_name);
             base.OnNavigatedTo(e);
@@ -106,7 +113,7 @@ namespace Titulo_UWP
             if (NextStep.Content.ToString() == "Salvar")
             {
                 WriteObject("PersonagensList.xml");
-                this.Frame.Navigate(typeof(CharacterSelectionPage));
+                this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
             }
             //Senão abre o painel para modificar os atributos
             else

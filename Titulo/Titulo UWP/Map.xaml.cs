@@ -16,6 +16,8 @@ using System.Diagnostics;
 using TituloCore;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI;
+using Windows.Media.Playback;
+using Windows.Media.Core;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,7 +36,8 @@ namespace Titulo_UWP
         private List<Character> EnemiesInRange = new List<Character>();
         private int grid_y = 0, grid_x = 0;
         private bool hasEnemyInRange = false, isPlayerTurn = false, moveActivated = false;
-        Image heart_img;
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+        private Image heart_img;
 
         public Map()
         {
@@ -708,7 +711,11 @@ namespace Titulo_UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            player = e.Parameter as Character;
+            var parameters = (MapParams)e.Parameter;
+            player = parameters.character;
+            mediaPlayer = parameters.media_player;
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
+            mediaPlayer.Play();
             persona_name = player.PersonaName;
             race_name = player.RaceName;
             player.LoadButtons();
@@ -900,7 +907,10 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void NavigateSelection(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CharacterSelectionPage));
+            mediaPlayer.Pause();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/MainPage.mp3"));
+            mediaPlayer.Play();
+            this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
         }
 
         private void MoveButton_Click(object sender, RoutedEventArgs e)
@@ -939,9 +949,27 @@ namespace Titulo_UWP
                 else if (((Button)sender).Name == "Earth" || ((Button)sender).Name == "Hunter")
                 {
                     player.BonusAction["Song"].DynamicInvoke(((Button)sender).Name);
+                    if (((Button)sender).Name == "Earth")
+                    {
+                        mediaPlayer.Pause();
+                        mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Witcher.mp3"));
+                        mediaPlayer.Play();
+                    }
+                    else if (((Button)sender).Name == "Hunter")
+                    {
+                        mediaPlayer.Pause();
+                        mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Mothers Hymn.mp3"));
+                        mediaPlayer.Play();
+                    }
                     AddBonusButtons();
                     BonusButton.Visibility = Visibility.Collapsed;
                     BonusPanel.Visibility = Visibility.Collapsed;
+                }
+                else if (((Button)sender).Name == "Stop Singing")
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Combat.mp3"));
+                    mediaPlayer.Play();
                 }
                 else
                 {
@@ -1183,10 +1211,18 @@ namespace Titulo_UWP
                 }
                 //Se tiver algum inimigo no raio e se o turno já não estiver ativado, ativa o modo dos turnos
                 if (hasEnemyInRange && !isPlayerTurn)
-                    ChangePlayerTurnStatus(true);
-                //Senão tiver inimigos no raio desativa o modo dos turnos
-                else if (!hasEnemyInRange)
                 {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Combat.mp3"));
+                    mediaPlayer.Play();
+                    ChangePlayerTurnStatus(true);
+                }
+                //Senão tiver inimigos no raio desativa o modo dos turnos
+                else if (!hasEnemyInRange && isPlayerTurn)
+                {
+                    mediaPlayer.Pause();
+                    mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
+                    mediaPlayer.Play();
                     ChangePlayerTurnStatus(false);
                     nearest_enemy = null;
                 }

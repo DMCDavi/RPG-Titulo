@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using TituloCore;
 using System.Diagnostics;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x416
 
@@ -24,14 +26,18 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public MediaPlayer mediaPlayer = new MediaPlayer();
         public MainPage()
         {
             this.InitializeComponent();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/MainPage.mp3"));
+            mediaPlayer.Play();
+            mediaPlayer.IsLoopingEnabled = true;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CharacterSelectionPage));
+            this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
         }
     }
 }

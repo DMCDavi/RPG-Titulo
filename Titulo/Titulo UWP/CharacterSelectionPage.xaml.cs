@@ -19,6 +19,8 @@ using System.Xml;
 using TituloCore;
 using System.Diagnostics;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.Media.Playback;
+using Windows.Media.Core;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,8 +31,7 @@ namespace Titulo_UWP
     /// </summary>
     public sealed partial class CharacterSelectionPage : Page
     {
-
-
+        private MediaPlayer mediaPlayer = new MediaPlayer();
         private StorageFolder localFolder = ApplicationData.Current.LocalFolder;
         private List<Character> PersList = new List<Character>();
         private List<TextBlock> AllNicknames, AllClasses, AllPersonas, AllRaces;
@@ -72,6 +73,11 @@ namespace Titulo_UWP
                 DeleteButton4
             };
             ReadObject("PersonagensList.xml");
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            mediaPlayer = e.Parameter as MediaPlayer;
         }
 
         /// <summary>
@@ -128,7 +134,7 @@ namespace Titulo_UWP
                 WriteObject("PersonagensList.xml");
                 ReadObject("PersonagensList.xml");
                 //Navega para a mesma página para recarregá-la
-                this.Frame.Navigate(typeof(CharacterSelectionPage));
+                this.Frame.Navigate(typeof(CharacterSelectionPage), mediaPlayer);
             }
             if (DeletePopup.IsOpen) { DeletePopup.IsOpen = false; }
 
@@ -153,10 +159,17 @@ namespace Titulo_UWP
         /// <param name="e"></param>
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            
+            mediaPlayer.Pause();
             if (SelectButton.Content.Equals("Create"))
-                this.Frame.Navigate(typeof(PersonalityTest));
+                this.Frame.Navigate(typeof(PersonalityTest), mediaPlayer);
             else
-                this.Frame.Navigate(typeof(Map), PersList[character_selected - 1]);
+            {
+                var parameters = new MapParams();
+                parameters.character = PersList[character_selected - 1];
+                parameters.media_player = mediaPlayer;
+                this.Frame.Navigate(typeof(Map), parameters);
+            }
         }
 
         /// <summary>
