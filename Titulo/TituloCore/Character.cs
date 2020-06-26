@@ -241,7 +241,8 @@ namespace TituloCore
         {
             if(!Action.ContainsKey("Attack"))
                 Action.Add("Attack", new Func<bool>(() => Attack()));
-            Action.Add("Dash", new Action(Dash));
+            if(!Action.ContainsKey("Dash"))
+                Action.Add("Dash", new Action(Dash));
             CharacterClass.AddActions(this);
         }
 
@@ -284,7 +285,6 @@ namespace TituloCore
     
             
             CritRange = 20;
-            DefineAction();
         }
 
         /// <summary>
@@ -491,8 +491,9 @@ namespace TituloCore
         /// <returns></returns>
         public bool UpMoveIA()
         {
-            if (Map[posY - 1, posX].block == null && TurnMove > 0)
+            if (Map[posY - 1, posX].block == null && TurnMove > 0 && (Target.posX != posX || Target.posY-1 != posY))
             {
+                Map[posY, posX].block = null;
                 posY--;
                 TurnMove--;
                 return true;
@@ -506,8 +507,9 @@ namespace TituloCore
         /// <returns></returns>
         public bool DownMoveIA()
         {
-            if (Map[posY + 1, posX].block == null && TurnMove > 0)
+            if (Map[posY + 1, posX].block == null && TurnMove > 0 && (Target.posX != posX || Target.posY + 1 != posY))
             {
+                Map[posY, posX].block = null;
                 posY++;
                 TurnMove--;
                 return true;
@@ -521,8 +523,9 @@ namespace TituloCore
         /// <returns></returns>
         public bool LeftMoveIA()
         {
-            if (Map[posY, posX - 1].block == null && TurnMove > 0)
+            if (Map[posY, posX - 1].block == null && TurnMove > 0 && (Target.posX - 1 != posX || Target.posY != posY))
             {
+                Map[posY, posX].block = null;
                 posX--;
                 TurnMove--;
                 return true;
@@ -536,8 +539,9 @@ namespace TituloCore
         /// <returns></returns>
         public bool RightMoveIA()
         {
-            if (Map[posY, posX + 1].block == null && TurnMove > 0)
+            if (Map[posY, posX + 1].block == null && TurnMove > 0 && (Target.posX +1 != posX || Target.posY != posY))
             {
+                Map[posY, posX].block = null;
                 posX++;
                 TurnMove--;
                 return true;

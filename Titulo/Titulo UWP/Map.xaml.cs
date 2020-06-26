@@ -39,7 +39,8 @@ namespace Titulo_UWP
         private MediaPlayer mediaPlayer = new MediaPlayer();
         private Image heart_img;
         private Thickness enemyMargin;
-
+        private int GridCenterX;
+        private int GridCenterY;
 
         public Map()
         {
@@ -665,15 +666,25 @@ namespace Titulo_UWP
 
             //Criando personagens
             vago = new Character("Shielder", "Human", "Vagner");
+            vago.LoadButtons();
             davi = new Character("Mage", "Dwarf", "David");
+            davi.LoadButtons();
             ana = new Character("Witcher", "Dragonborn", "Ana");
+            ana.LoadButtons();
             maria = new Character("Warrior", "Elf", "Maria");
+            maria.LoadButtons();
             lapa = new Character("Lapagod", "God", "Lapa");
+            lapa.LoadButtons();
             bia = new Character("Assassin", "Elf", "Bia");
+            bia.LoadButtons();
             geao = new Character("Berserker", "Human", "Gean");
+            geao.LoadButtons();
             grao = new Character("Cleric", "Elf", "Grhamm");
+            grao.LoadButtons();
             joao = new Character("Bard", "Dragonborn", "Joao");
+            joao.LoadButtons();
             fernanda = new Character("Mage", "Orc", "Fernanda");
+            fernanda.LoadButtons();
 
             //Colocando os personagens na matriz do mapa
             map_matrix[30, 72].block = vago;// Casa 1
@@ -717,6 +728,8 @@ namespace Titulo_UWP
             ((Character)map_matrix[15, 40].block).posX = 40;
             ((Character)map_matrix[15, 40].block).setHome();
 
+            
+
             //Armazena todos os blocos do mapa que possuem imagens
             ImgBlocks = new List<MapBlock>
             {
@@ -741,6 +754,8 @@ namespace Titulo_UWP
         {
             var parameters = (MapParams)e.Parameter;
             player = parameters.character;
+            GridCenterX = player.posX;
+            GridCenterY = player.posY;
             mediaPlayer = parameters.media_player;
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Map.mp3"));
             mediaPlayer.Play();
@@ -958,34 +973,41 @@ namespace Titulo_UWP
             enemy.Map = map_matrix;
             enemy.action = true;
             enemy.bonusaction = true;
-            int posXonMap = enemy.posX;
-            int posYonMap = enemy.posY;
             enemy.Target = player;
-            while (enemy.CharacterClass.TurnIA())
+            while (true)
             {
-                enemyMargin = map_matrix[posYonMap, posXonMap].GetImage().Margin;
                 // Atualizar posição do enemy no mapa baseado no enemy.posX e enemy.posY
+                MapGrid.Children.Remove(map_matrix[enemy.posY, enemy.posX].GetImage());
+                ImgBlocks.Remove(map_matrix[enemy.posY, enemy.posX]);
 
-                map_matrix[enemy.posY, enemy.posX] = map_matrix[posYonMap, posXonMap];
-                map_matrix[posYonMap, posXonMap] = new MapBlock();
-                posYonMap = enemy.posY;
-                posXonMap = enemy.posX;
-                // Quantos blocos a direita
-                int dx = enemy.posX - posXonMap;
-                // Quantos blocos a baixo
-                int dy = enemy.posY - posYonMap;
+                if (!enemy.CharacterClass.TurnIA())
+                {
+                    map_matrix[enemy.posY, enemy.posX].block = enemy;
+                    map_matrix[enemy.posY, enemy.posX].SetImage(new Image(),
+                            "ms-appx:///Assets/Personagens/" + enemy.PersonaName + "/Sem_fundo/" + enemy.PersonaName + "_" + enemy.RaceName + ".png",
+                            80 + (enemy.posX - GridCenterX - 1) * 80,
+                            0 + (enemy.posY - GridCenterY) * 80,
+                            0 + (GridCenterX - enemy.posX + 1) * 80,
+                            80 + (GridCenterY -enemy.posY) * 80);
+                    MapGrid.Children.Add(map_matrix[enemy.posY, enemy.posX].GetImage());
+                    Grid.SetColumnSpan(map_matrix[enemy.posY, enemy.posX].GetImage(), 16);
+                    Grid.SetRowSpan(map_matrix[enemy.posY, enemy.posX].GetImage(), 9);
 
-                enemyMargin.Left = -80 + (((Character)map_matrix[enemy.posY, enemy.posX].block).posX - player.posX) * 80;
-                enemyMargin.Top = 0 + (((Character)map_matrix[enemy.posY, enemy.posX].block).posY - player.posY) * 80;
-                enemyMargin.Right = 0 + (player.posX - ((Character)map_matrix[enemy.posY, enemy.posX].block).posX) * 80;
-                enemyMargin.Bottom = 80 + (player.posY - ((Character)map_matrix[enemy.posY, enemy.posX].block).posY) * 80;
-                map_matrix[enemy.posY, enemy.posX].GetImage().Margin = enemyMargin;
-                
-                //enemyMargin.Left -= 80 * dx;
-                //enemyMargin.Top -= 80 * dy;
-                //enemyMargin.Right += 80 * dx;
-                //enemyMargin.Bottom += 80 * dy;
-                //map_matrix[posYonMap, posXonMap].GetImage().Margin = enemyMargin;
+                    ImgBlocks.Add(map_matrix[enemy.posY, enemy.posX]);
+                    break;
+                }
+                map_matrix[enemy.posY, enemy.posX].block = enemy;
+                map_matrix[enemy.posY, enemy.posX].SetImage(new Image(),
+                        "ms-appx:///Assets/Personagens/" + enemy.PersonaName + "/Sem_fundo/" + enemy.PersonaName + "_" + enemy.RaceName + ".png",
+                        80 + (enemy.posX - GridCenterX - 1) * 80,
+                        0 + (enemy.posY - GridCenterY) * 80,
+                        0 + (GridCenterX - enemy.posX + 1) * 80,
+                        80 + (GridCenterY - enemy.posY) * 80);
+                MapGrid.Children.Add(map_matrix[enemy.posY, enemy.posX].GetImage());
+                Grid.SetColumnSpan(map_matrix[enemy.posY, enemy.posX].GetImage(), 16);
+                Grid.SetRowSpan(map_matrix[enemy.posY, enemy.posX].GetImage(), 9);
+
+                ImgBlocks.Add(map_matrix[enemy.posY, enemy.posX]);
             }
             AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
             //Se o player morrer tira todas as referências do personagem no mapa
@@ -1168,6 +1190,7 @@ namespace Titulo_UWP
                 //Se o personagem estiver na posição 2 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 2 && margin.Top <= -400)
                 {
+                    GridCenterY--;
                     margin.Top += 80;
                     margin.Bottom -= 80;
                     MapImg.Margin = margin;
@@ -1203,6 +1226,7 @@ namespace Titulo_UWP
                 //Se o personagem estiver na posição 6 do eixo y da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_y == 6 && margin.Bottom <= -400)
                 {
+                    GridCenterY++;
                     margin.Bottom += 80;
                     margin.Top -= 80;
                     MapImg.Margin = margin;
@@ -1238,6 +1262,7 @@ namespace Titulo_UWP
                 //Se o personagem estiver na posição 3 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 3 && margin.Left <= -400)
                 {
+                    GridCenterX--;
                     margin.Left += 80;
                     margin.Right -= 80;
                     MapImg.Margin = margin;
@@ -1273,6 +1298,7 @@ namespace Titulo_UWP
                 //Se o personagem estiver na posição 12 do eixo x da grid e o mapa não estiver chegado no limite, o mapa se move, senão o personagem se move
                 if (grid_x == 12 && margin.Right <= -400)
                 {
+                    GridCenterX++;
                     margin.Right += 80;
                     margin.Left -= 80;
                     MapImg.Margin = margin;
