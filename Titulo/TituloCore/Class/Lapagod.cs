@@ -25,9 +25,9 @@ namespace TituloCore
         }
         public void EquipBaseSet(Character Self)
         {
-            DmgDice = new int[] { 6, 6 };
+            DmgDice = new int[] { 100 };
             Master_Fists = new Weapon("Fire", "INT", DmgDice, 100, 0, 2, "Master_Fists");
-            Apprentice_Chainmail_Armor = new Armor(10, -10, 20, "Apprentice_Chainmail_Armor");
+            Apprentice_Chainmail_Armor = new Armor(15, 0, 20, "Apprentice_Chainmail_Armor");
             Master_Boots = new Boots(1, "Master_Boots");
 
             Master_Fists.Equip(Self);
@@ -61,6 +61,16 @@ namespace TituloCore
         public void AddBonusActions()
         {
 
+        }
+
+        //IA
+        public void EndOfTurn()
+        {
+
+        }
+        public bool TurnIA()
+        {
+            return false;
         }
     }
 }

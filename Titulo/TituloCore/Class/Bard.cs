@@ -33,8 +33,8 @@ namespace TituloCore
 
         public void EquipBaseSet(Character Self)
         {
-            DmgDice = new int[] { 6, 6 };
-            Apprentice_Estoc = new Weapon("Piercing", "DEX", DmgDice, 100, 0, 2, "Apprentice_Estoc");
+            DmgDice = new int[] { 8 };
+            Apprentice_Estoc = new Weapon("Piercing", "DEX", DmgDice, 0, 0, 1, "Apprentice_Estoc");
             Apprentice_Leather_Armor = new Armor(10, -10, 20, "Apprentice_Leather_Armor");
             Apprentice_Boots = new Boots(1, "Apprentice_Boots");
 
@@ -80,10 +80,17 @@ namespace TituloCore
                 song = "Hunter";
             //Escolher Fire ou Fury
             if (song == "Earth")
+            {
                 SongEarth();
+                Singing = true;
+                Self.bonusaction = false;
+            }
             else if (song == "Hunter")
+            {
                 SongHunter();
-            Dancing = true;
+                Singing = true;
+                Self.bonusaction = false;
+            }
         }
 
         public void Dance(string dance)
@@ -92,10 +99,17 @@ namespace TituloCore
                 dance = "Fire";
             //Escolher Fire ou Fury
             if (dance == "Fire")
+            {
                 DanceFire();
+                Dancing = true;
+                Self.bonusaction = false;
+            }
             else if (dance == "Fury")
+            {
                 DanceFury();
-            Dancing = true;
+                Dancing = true;
+                Self.bonusaction = false;
+            }
         }
 
         public void StopDancing()
@@ -105,6 +119,7 @@ namespace TituloCore
             else if (fury)
                 DanceFuryOFF();
             Dancing = false;
+            Self.bonusaction = false;
         }
 
         public void StopSinging()
@@ -114,6 +129,7 @@ namespace TituloCore
             else if (hunter)
                 SongHunterOFF();
             Singing = false;
+            Self.bonusaction = false;
         }
 
         public void DanceFire()
@@ -209,6 +225,91 @@ namespace TituloCore
                 Self.BonusAction.Add("Dance", new Action<string>(Dance));
                 Self.BonusAction.Add("Stop Dancing", new Action(StopDancing));
             }
+        }
+
+        // IA
+        public void EndOfTurn()
+        {
+            
+        }
+
+        private bool Chase;
+        public bool TurnIA()
+        {
+            int dx = Self.posX - Self.Target.posX;
+            int dy = Self.posY - Self.Target.posY;
+            // Define se vai perseguir
+            if (Math.Abs(dx) < 6 && Math.Abs(dy) < 6)
+                Chase = true;
+            if (Math.Abs(dx) <= 1 && Math.Abs(dy) <= 1)
+                Chase = false;
+            if (Math.Abs(Self.Target.posX - Self.HomeX) > 15 || Math.Abs(Self.Target.posY - Self.HomeY) > 15)
+                Chase = false;
+            if (Self.TurnMove > 0 && Chase)
+            {
+                if (Self.Chase())
+                {
+                    return true;
+                }
+            }
+            if(!Singing && Self.bonusaction)
+            {
+                Song("Hunter");
+            }
+            if(Self.Lvl >= 4 && !Dancing && Self.bonusaction)
+            {
+                Dance("Fury");
+            }
+            if (Math.Abs(dx) > Self.EquippedWeapon.Range && Math.Abs(dy) > Self.EquippedWeapon.Range)
+            {
+                if (Self.bonusaction)
+                {
+
+                }
+            }
+            if (Math.Abs(dx) <= Self.EquippedWeapon.Range && Math.Abs(dy) <= Self.EquippedWeapon.Range)
+            {
+                if (Self.action)
+                {
+                    Self.Action["Attack"].DynamicInvoke();
+                    Self.action = false;
+                    return true;
+                }
+                else if (Self.TurnMove > 0)
+                {
+                    // Alvo mais a direita da casa
+                    if (Self.Target.posX >= Self.posX && Self.posX >= Self.HomeX)
+                    {
+                        if (Self.RightMoveIA())
+                            return true;
+                    }
+                    // Alvo mais a esquerda da casa
+                    if (Self.Target.posX <= Self.posX && Self.posX <= Self.HomeX)
+                    {
+                        if (Self.LeftMoveIA())
+                            return true;
+                    }
+                    // Alvo mais a cima da casa
+                    if (Self.Target.posY <= Self.posY && Self.posY <= Self.HomeY)
+                    {
+                        if (Self.UpMoveIA())
+                            return true;
+                    }
+                    // Alvo mais a baixo da casa
+                    if (Self.Target.posY >= Self.posY && Self.posY >= Self.HomeY)
+                    {
+                        if (Self.DownMoveIA())
+                            return true;
+                    }
+                }
+            }
+            if (Self.action)
+            {
+                Self.Action["Dash"].DynamicInvoke();
+                Self.action = false;
+                return true;
+            }
+            return false;
         }
     }
 }
