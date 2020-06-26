@@ -8,6 +8,7 @@ namespace TituloCore
 	[DataContract(Name = "Consumable", Namespace = "http://www.contoso.com")]
 	public abstract class Consumable : Item
 	{
+		[DataMember]
 		public int Value;
 		public abstract void Use(Character Target);
 	}

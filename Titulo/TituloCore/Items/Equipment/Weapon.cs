@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
@@ -8,11 +9,17 @@ namespace TituloCore
     [DataContract(Name = "Weapon", Namespace = "http://www.contoso.com")]
     public class Weapon : Equipment
     {
+        [DataMember]
         public string Tipo;
+        [DataMember]
         public string Atributo;
+        [DataMember]
         public List<int> Dices = new List<int>();
+        [DataMember]
         public int HitBonus;
+        [DataMember]
         public int DmgBonus;
+        [DataMember]
         public int Range;
 
 
