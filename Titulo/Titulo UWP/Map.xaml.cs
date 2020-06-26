@@ -738,21 +738,7 @@ namespace Titulo_UWP
             player.LoadButtons();
             AddLife(PlayerHp, player.Hp, player.Hpmax);
             AddBonusButtons();
-
-            //Cria os botões de ataque referentes à classe do personagem
-            foreach (KeyValuePair<string, Delegate> action in player.Action)
-            {
-                Button action_btn = new Button();
-                action_btn.Content = action.Key;
-                action_btn.Name = action.Key;
-                action_btn.MinWidth = 220;
-                action_btn.FontFamily = new FontFamily("Times New Roman");
-                action_btn.Foreground = new SolidColorBrush(Colors.Black);
-                action_btn.FontSize = 20;
-                action_btn.Click += Attack_Click;
-                ActionPanel.Children.Add(action_btn);
-            }
-
+            AddActionButtons();
             //Preenche o mapa com as imagens dos blocos
             foreach (MapBlock map_block in ImgBlocks)
             {
@@ -777,7 +763,6 @@ namespace Titulo_UWP
         }
 
 
-
         /// <summary>
         /// Cria os botões de ataque bônus referentes à classe do personagem
         /// </summary>
@@ -797,6 +782,28 @@ namespace Titulo_UWP
                 BonusPanel.Children.Add(action_btn);
             }
         }
+
+        /// <summary>
+        /// Cria os botões de ataque referentes à classe do personagem
+        /// </summary>
+        private void AddActionButtons()
+        {
+            ActionPanel.Children.Clear();
+            foreach (KeyValuePair<string, Delegate> action in player.Action)
+            {
+                Button action_btn = new Button();
+                action_btn.Content = action.Key;
+                action_btn.Name = action.Key;
+                action_btn.MinWidth = 220;
+                action_btn.FontFamily = new FontFamily("Times New Roman");
+                action_btn.Foreground = new SolidColorBrush(Colors.Black);
+                action_btn.FontSize = 20;
+                action_btn.Click += Attack_Click;
+                ActionPanel.Children.Add(action_btn);
+            }
+        }
+
+
 
         /// <summary>
         /// Adiciona os botões de song e dance do bardo
@@ -887,7 +894,7 @@ namespace Titulo_UWP
             }
             catch
             {
-
+                Debug.WriteLine("Erro");
             }
             try
             {
@@ -944,13 +951,8 @@ namespace Titulo_UWP
             }
             catch
             {
-
+                Debug.WriteLine("Erro");
             }
-
-
-
-
-
         }
 
         private void CloseInventoryB()
@@ -971,7 +973,7 @@ namespace Titulo_UWP
             //enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
             enemy.Action["Attack"].DynamicInvoke();
-            AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
+            AddLife(PlayerHp, player.Hp, player.Hpmax);
             //Se o player morrer tira todas as referências do personagem no mapa
             if (enemy.Target.Hp == 0)
             {
@@ -985,6 +987,9 @@ namespace Titulo_UWP
                 ChangePlayerTurnStatus(true);
         }
 
+        /// <summary>
+        /// Checa se existe algum inimigo no mapa e retorna a vitória caso não tenha
+        /// </summary>
         private void SearchEnemiesInMap()
         {
             hasEnemyInMap = false;
@@ -1049,6 +1054,7 @@ namespace Titulo_UWP
         {
             if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
+                AddBonusButtons();
                 BonusPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
                 Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
@@ -1079,7 +1085,6 @@ namespace Titulo_UWP
                         mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Musicas/Mothers Hymn.mp3"));
                         mediaPlayer.Play();
                     }
-                    AddBonusButtons();
                     BonusButton.Visibility = Visibility.Collapsed;
                     BonusPanel.Visibility = Visibility.Collapsed;
                 }
@@ -1110,12 +1115,22 @@ namespace Titulo_UWP
                     map_matrix[player.Target.posY, player.Target.posX].block = null;
                     player.Target = null;
                     nearest_enemy = null;
-                    player.LvlUp(player.MainClass);
-                    LvlTxt.Text = "Lvl " + player.Lvl.ToString();
+                    PlayerLvlUp();
                     SearchEnemies(10);
                 }
                 SearchEnemiesInMap();
             }
+        }
+
+        /// <summary>
+        /// Aumenta o nível do player
+        /// </summary>
+        private void PlayerLvlUp()
+        {
+            player.LvlUp(player.MainClass);
+            LvlTxt.Text = "Lvl " + player.Lvl.ToString();
+            AddBonusButtons();
+            AddActionButtons();
         }
 
         /// <summary>
@@ -1127,6 +1142,7 @@ namespace Titulo_UWP
         {
             if (hasEnemyInRange && player.Hp != 0 && isPlayerTurn)
             {
+                AddActionButtons();
                 ActionPanel.Visibility = Visibility.Visible;
                 int[] DmgDice = { 6, 6 };
                 Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 2, "armafoda");
@@ -1150,8 +1166,7 @@ namespace Titulo_UWP
                     player.Target = null;
                     nearest_enemy = null;
                     SearchEnemies(10);
-                    player.LvlUp(player.MainClass);
-                    LvlTxt.Text = "Lvl " + player.Lvl.ToString();
+                    PlayerLvlUp();
                 }
                 SearchEnemiesInMap();
                 ActionButton.Visibility = Visibility.Collapsed;

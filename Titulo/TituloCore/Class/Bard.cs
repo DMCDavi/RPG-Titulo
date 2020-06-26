@@ -63,8 +63,8 @@ namespace TituloCore
 
             if (Self.Lvl == 4)
             {
-                Self.Action.Add("Dance", new Action<string>(Dance));
-                Self.Action.Add("Stop Dancing", new Action(StopDancing));
+                Self.BonusAction.Add("Dance", new Action<string>(Dance));
+                Self.BonusAction.Add("Stop Dancing", new Action(StopDancing));
             }
         }
 
