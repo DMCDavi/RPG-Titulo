@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TituloCore.Items
+namespace TituloCore
 {
-	class DamagingPot : Consumable
+	public class DamagingPot : Consumable
 	{
-		public DamagingPot(int Value)
+		public DamagingPot(int Value, string Name)
 		{
 			this.Value = Value;
+			this.Name = Name;
 		}
 
 		public override void Use(Character Target)

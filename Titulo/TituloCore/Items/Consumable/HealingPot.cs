@@ -6,9 +6,10 @@ namespace TituloCore
 {
 	public class HealingPot : Consumable
 	{
-		public HealingPot(int Value)
+		public HealingPot(int Value, String Name)
 		{
 			this.Value = Value;
+			this.Name = Name;
 		}
 		public override void Use(Character Target)
 		{
