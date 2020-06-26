@@ -661,33 +661,43 @@ namespace Titulo_UWP
             map_matrix[30, 72].block = vago;// Casa 1
             ((Character)map_matrix[30, 72].block).posY = 30;
             ((Character)map_matrix[30, 72].block).posX = 72;
+            ((Character)map_matrix[30, 72].block).setHome();
             map_matrix[37, 69].block = davi;// Casa 2
             ((Character)map_matrix[37, 69].block).posY = 37;
             ((Character)map_matrix[37, 69].block).posX = 69;
+            ((Character)map_matrix[37, 69].block).setHome();
             map_matrix[32, 43].block = ana;// Casa 3
             ((Character)map_matrix[32, 43].block).posY = 32;
             ((Character)map_matrix[32, 43].block).posX = 43;
+            ((Character)map_matrix[32, 43].block).setHome();
             map_matrix[3, 43].block = fernanda;// Casa 4
             ((Character)map_matrix[3, 43].block).posY = 3;
             ((Character)map_matrix[3, 43].block).posX = 43;
+            ((Character)map_matrix[3, 43].block).setHome();
             map_matrix[23, 34].block = maria;// Casa 5
             ((Character)map_matrix[23, 34].block).posY = 23;
             ((Character)map_matrix[23, 34].block).posX = 34;
+            ((Character)map_matrix[23, 34].block).setHome();
             map_matrix[30, 16].block = lapa;// Casa 6 (Casa de Lapa)
             ((Character)map_matrix[30, 16].block).posY = 30;
             ((Character)map_matrix[30, 16].block).posX = 16;
+            ((Character)map_matrix[30, 16].block).setHome();
             map_matrix[41, 8].block = bia; // Casa 7
             ((Character)map_matrix[41, 8].block).posY = 41;
             ((Character)map_matrix[41, 8].block).posX = 8;
+            ((Character)map_matrix[41, 8].block).setHome();
             map_matrix[17, 14].block = geao;// Casa 8 (Taverna)
             ((Character)map_matrix[17, 14].block).posY = 17;
             ((Character)map_matrix[17, 14].block).posX = 14;
+            ((Character)map_matrix[17, 14].block).setHome();
             map_matrix[16, 26].block = grao;// Casa 9
             ((Character)map_matrix[16, 26].block).posY = 16;
             ((Character)map_matrix[16, 26].block).posX = 26;
+            ((Character)map_matrix[16, 26].block).setHome();
             map_matrix[15, 40].block = joao;// Casa 10
             ((Character)map_matrix[15, 40].block).posY = 15;
             ((Character)map_matrix[15, 40].block).posX = 40;
+            ((Character)map_matrix[15, 40].block).setHome();
 
             //Armazena todos os blocos do mapa que possuem imagens
             ImgBlocks = new List<MapBlock>
@@ -811,12 +821,24 @@ namespace Titulo_UWP
         /// <param name="enemy">Inimigo que irá começar o turno</param>
         private void EnemyTurn(Character enemy)
         {
+            enemy.TurnMove = enemy.TotalMove;
+            enemy.Map = map_matrix;
+            enemy.action = true;
+            enemy.bonusaction = true;
+
+
+
+
             int[] DmgDice = { 6, 6 };
             Weapon armafoda = new Weapon("Slash", "STR", DmgDice, 100, 0, 1);
             armafoda.Equip(enemy);
             enemy.EquippedWeapon = armafoda;
             enemy.Target = player;
-            enemy.Action["Attack"].DynamicInvoke();
+            //enemy.Action["Attack"].DynamicInvoke();
+            while (enemy.CharacterClass.TurnIA())
+            {
+
+            }
             AddLife(PlayerHp, enemy.Target.Hp, enemy.Target.Hpmax);
             //Se o player morrer tira todas as referências do personagem no mapa
             if (enemy.Target.Hp == 0)

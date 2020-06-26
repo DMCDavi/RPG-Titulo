@@ -486,7 +486,7 @@ namespace TituloCore
         /// <returns></returns>
         public bool UpMoveIA()
         {
-            if (Map[posY - 1, posX] == null && TurnMove > 0)
+            if (Map[posY - 1, posX].block == null && TurnMove > 0)
             {
                 posY--;
                 TurnMove--;
@@ -501,9 +501,10 @@ namespace TituloCore
         /// <returns></returns>
         public bool DownMoveIA()
         {
-            if (Map[posY + 1, posX] == null && TurnMove > 0)
+            if (Map[posY + 1, posX].block == null && TurnMove > 0)
             {
                 posY++;
+                TurnMove--;
                 return true;
             }
             return false;
@@ -515,9 +516,10 @@ namespace TituloCore
         /// <returns></returns>
         public bool LeftMoveIA()
         {
-            if (Map[posY, posX - 1] == null && TurnMove > 0)
+            if (Map[posY, posX - 1].block == null && TurnMove > 0)
             {
                 posX--;
+                TurnMove--;
                 return true;
             }
             return false;
@@ -529,13 +531,18 @@ namespace TituloCore
         /// <returns></returns>
         public bool RightMoveIA()
         {
-            if (Map[posY, posX + 1] == null && TurnMove > 0)
+            if (Map[posY, posX + 1].block == null && TurnMove > 0)
             {
                 posX++;
+                TurnMove--;
                 return true;
             }
             return false;
         }
+
+        //Variaveis auxiliares a IA
+        public bool action;
+        public bool bonusaction;
 
         public bool Chase()
         {
@@ -556,7 +563,10 @@ namespace TituloCore
                         {
                             if (!DownMoveIA())
                             {
-                                return UpMoveIA();
+                                if(!UpMoveIA())
+                                {
+                                    return LeftMoveIA();
+                                }
                             }
                         }
                         // Alvo a cima
@@ -564,7 +574,10 @@ namespace TituloCore
                         {
                             if (!UpMoveIA())
                             {
-                                return DownMoveIA();
+                                if(!DownMoveIA())
+                                {
+                                    return LeftMoveIA();
+                                }
                             }
                         }
                     }
@@ -581,7 +594,10 @@ namespace TituloCore
                         {
                             if(!DownMoveIA())
                             {
-                                return UpMoveIA();
+                                if(!UpMoveIA())
+                                {
+                                    return RightMoveIA();
+                                }
                             }
                         }
                         // Alvo a cima
@@ -589,7 +605,10 @@ namespace TituloCore
                         {
                             if(!UpMoveIA())
                             {
-                                return DownMoveIA();
+                                if (!DownMoveIA())
+                                {
+                                    return RightMoveIA();
+                                }
                             }
                         }
                     }
@@ -610,7 +629,10 @@ namespace TituloCore
                         {
                             if(!RightMoveIA())
                             {
-                                return LeftMoveIA();
+                                if (!LeftMoveIA())
+                                {
+                                    return UpMoveIA();
+                                }
                             }
                         }
                         // Alvo a esquerda
@@ -618,7 +640,10 @@ namespace TituloCore
                         {
                             if (!LeftMoveIA())
                             {
-                                return RightMoveIA();
+                                if (!RightMoveIA())
+                                {
+                                    return UpMoveIA();
+                                }
                             }
                         }
                     }
@@ -635,7 +660,10 @@ namespace TituloCore
                         {
                             if (!RightMoveIA())
                             {
-                                return LeftMoveIA();
+                                if (!LeftMoveIA())
+                                {
+                                    return DownMoveIA();
+                                }
                             }
                         }
                         // Alvo a esquerda
@@ -643,7 +671,10 @@ namespace TituloCore
                         {
                             if (!LeftMoveIA())
                             {
-                                return RightMoveIA();
+                                if (!RightMoveIA())
+                                {
+                                    return DownMoveIA();
+                                }
                             }
                         }
                     }
