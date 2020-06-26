@@ -117,79 +117,79 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="0" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="0" Grid.Column="0" Width="80" Height="80" >
                     <Image x:Name="item0"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="1" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="0" Grid.Column="1" Width="80" Height="80" >
                     <Image x:Name="item1"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="2" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="0" Grid.Column="2" Width="80" Height="80" >
                     <Image x:Name="item2"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="3" Width="80" Height="80">
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="0" Grid.Column="3" Width="80" Height="80">
                     <Image x:Name="item3"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="0" Grid.Column="4" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="0" Grid.Column="4" Width="80" Height="80" >
                     <Image x:Name="item4"/>
                 </Button>
-                <Button Background="#5e5e5e"   Grid.Row="1" Grid.Column="0" Width="80" Height="80" >
+                <Button Background="#5e5e5e"  Click="EquipInInventory" Grid.Row="1" Grid.Column="0" Width="80" Height="80" >
                     <Image x:Name="item5"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="1" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="1" Grid.Column="1" Width="80" Height="80" >
                     <Image x:Name="item6"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="2" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="1" Grid.Column="2" Width="80" Height="80" >
                     <Image x:Name="item7"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="3" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="1" Grid.Column="3" Width="80" Height="80" >
                     <Image x:Name="item8"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="1" Grid.Column="4" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="1" Grid.Column="4" Width="80" Height="80" >
                     <Image x:Name="item9"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="0" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="2" Grid.Column="0" Width="80" Height="80" >
                     <Image x:Name="item10"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="1" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="2" Grid.Column="1" Width="80" Height="80" >
                     <Image x:Name="item11"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="2" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="2" Grid.Column="2" Width="80" Height="80" >
                     <Image x:Name="item12"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="3" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="2" Grid.Column="3" Width="80" Height="80" >
                     <Image x:Name="item13"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="2" Grid.Column="4" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="2" Grid.Column="4" Width="80" Height="80" >
                     <Image x:Name="item14"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="0" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="3" Grid.Column="0" Width="80" Height="80" >
                     <Image x:Name="item15"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="1" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="3" Grid.Column="1" Width="80" Height="80" >
                     <Image x:Name="item16"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="2" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="3" Grid.Column="2" Width="80" Height="80" >
                     <Image x:Name="item17"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="3" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="3" Grid.Column="3" Width="80" Height="80" >
                     <Image x:Name="item18"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="3" Grid.Column="4" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="3" Grid.Column="4" Width="80" Height="80" >
                     <Image x:Name="item19"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="0" Width="80" Height="80">
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="4" Grid.Column="0" Width="80" Height="80">
                     <Image x:Name="item20"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="1" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="4" Grid.Column="1" Width="80" Height="80" >
                     <Image x:Name="item21"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="2" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="4" Grid.Column="2" Width="80" Height="80" >
                     <Image x:Name="item22"/>
                 </Button>
-                <Button Background="#5e5e5e"  Grid.Row="4" Grid.Column="3" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="4" Grid.Column="3" Width="80" Height="80" >
                     <Image x:Name="item23"/>
                 </Button>
-                <Button Background="#5e5e5e" Grid.Row="4" Grid.Column="4" Width="80" Height="80" >
+                <Button Background="#5e5e5e" Click="EquipInInventory" Grid.Row="4" Grid.Column="4" Width="80" Height="80" >
                     <Image x:Name="item24"/>
                 </Button>
 

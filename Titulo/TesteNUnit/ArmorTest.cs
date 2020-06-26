@@ -12,7 +12,7 @@ namespace TesteNUnit
         [TestCase(10,5,-5)]
         public void Ac(int BaseAc, int MaxDex, int MinDex)
         {
-            Armor armor = new Armor(BaseAc,MaxDex,MinDex);
+            Armor armor = new Armor(BaseAc,MaxDex,MinDex, "armor");
             Character personagem = new Character("Shielder", "Human", "Vagner");
             personagem.Atribute["DEX"] = 10;
             personagem.EquippedArmor = armor;
