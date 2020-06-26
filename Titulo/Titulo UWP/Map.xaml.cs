@@ -1110,6 +1110,8 @@ namespace Titulo_UWP
                     map_matrix[player.Target.posY, player.Target.posX].block = null;
                     player.Target = null;
                     nearest_enemy = null;
+                    player.LvlUp(player.MainClass);
+                    LvlTxt.Text = "Lvl " + player.Lvl.ToString();
                     SearchEnemies(10);
                 }
                 SearchEnemiesInMap();
@@ -1148,6 +1150,8 @@ namespace Titulo_UWP
                     player.Target = null;
                     nearest_enemy = null;
                     SearchEnemies(10);
+                    player.LvlUp(player.MainClass);
+                    LvlTxt.Text = "Lvl " + player.Lvl.ToString();
                 }
                 SearchEnemiesInMap();
                 ActionButton.Visibility = Visibility.Collapsed;
@@ -1372,6 +1376,8 @@ namespace Titulo_UWP
             SkipButton.Visibility = visibility;
             EnemyHp.Visibility = visibility;
             PlayerHp.Visibility = visibility;
+            ScrollpaperLvl.Visibility = visibility;
+            LvlTxt.Visibility = visibility;
         }
 
         /// <summary>
